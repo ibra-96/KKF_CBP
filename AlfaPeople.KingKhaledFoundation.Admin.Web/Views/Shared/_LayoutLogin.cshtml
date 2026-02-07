@@ -7,12 +7,126 @@
             display: block;
             font-size: 11px;
         }
+
+        /* Portal Hero Section Styles - Default for Desktop */
+        .portal-hero {
+            position: absolute;
+            top: 50%;
+            right: 8%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: white;
+            z-index: 1;
+            max-width: 600px;
+            width: 45%;
+            padding: 20px;
+        }
+
+        .portal-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .portal-hero h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+            line-height: 1.4;
+        }
+
+        .portal-hero p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive design */
+        @@media (max-width: 1200px) {
+            .portal-hero {
+                right: 5%;
+                width: 50%;
+                max-width: 500px;
+            }
+        }
+
+        @@media (max-width: 992px) {
+            .portal-hero {
+                right: 3%;
+                width: 55%;
+                max-width: 450px;
+            }
+            .portal-hero h1 {
+                font-size: 2.5rem;
+            }
+            .portal-hero h2 {
+                font-size: 1.5rem;
+            }
+            .portal-hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @@media (max-width: 768px) {
+            /* Change parent container to column layout on mobile */
+            .page-header {
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            .portal-hero {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                width: 90%;
+                max-width: 100%;
+                margin: 120px auto 20px;
+                padding: 0 20px;
+            }
+            .portal-hero h1 {
+                font-size: 1.8rem;
+                margin-bottom: 0;
+            }
+            .portal-hero h2 {
+                display: none;
+            }
+            .portal-hero p {
+                display: none;
+            }
+        }
+
+        @@media (max-width: 480px) {
+            .portal-hero {
+                margin: 110px auto 15px;
+            }
+            .portal-hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Adjust page wrapper for hero */
+        .wrapper-full-page {
+            position: relative;
+        }
+
+        .page-header {
+            min-height: 100vh;
+        }
     </style>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/piclogo.png">
     <link rel="icon" type="image/png" href="~/assets/img/piclogo.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>King Khalid Foundation</title>
+    <title>King Khalid Foundation - Admin</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="~/assets/css/css.css" />
@@ -69,6 +183,24 @@
         @*<div class="page-header login-page header-filter" filter-color="black" style="background-image: url('@Url.Content("~/assets/img/background.jpg")'); background-size: cover; background-position: top center;">*@
         <div class="page-header login-page header-filter" filter-color="green" style="background-image: url('@Url.Content("~/assets/img/background.jpg")'); background-size: cover; background-position: bottom;">
             <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+            
+            <!-- Portal Hero Section -->
+            <div class="portal-hero">
+                @if (Resources.General.lang == "ar")
+                {
+                    <h1>بوابة الإدارة لبرنامج بناء القدرات</h1>
+                    <h2>التوسع من أجل التأثير</h2>
+                    <p>لتحقيق التميز المؤسسي والتأثير المستدام</p>
+                    <p>دعم المنظمات غير الربحية وتمكينها ومساعدتها على النمو والابتكار</p>
+                }
+                else
+                {
+                    <h1>Capacity Building Program Admin Portal</h1>
+                    <h2>Scaling for impact</h2>
+                    <p>We empower nonprofits and companies to deliver sustainable social and economic change</p>
+                }
+            </div>
+
             @RenderBody()
             <!-- Footer -->
             <footer class="footer">
@@ -240,6 +372,7 @@
             'table',
             'sidebar',
             'text_align-center',
+            'portal-hero',
             '.btn.btn-fab .fa, .btn.btn-fab .material-icons, .btn.btn-just-icon .fa, .btn.btn-just-icon .material-icons'
         ];
 
