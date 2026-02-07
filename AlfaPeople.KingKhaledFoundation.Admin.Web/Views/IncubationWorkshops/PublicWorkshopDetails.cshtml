@@ -1,0 +1,111 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.IncubationWorkshop
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+
+    bool isArabic = AlfaPeople.KingKhaledFoundation.Admin.Web.Helper.CultureHelper.CurrentCulture == 3;
+    ViewBag.Title = isArabic ? "تفاصيل ورشة العمل" : "Workshop Details";
+}
+<style>
+    html, body {
+        height: 100%;
+        
+    }
+
+    .card.card-login {
+      /* max-width: 90%;*/
+        height: 80vh; /* ارتفاع البطاقة حسب الشاشة */
+        margin: 5vh auto;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .card-header-custom {
+        background-color: #C0A979;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        flex-shrink: 0;
+    }
+
+    .card-body {
+        padding: 25px;
+        overflow-y: auto;
+        overflow-x:hidden;
+        flex: 1 1 auto;
+    }
+
+    .card-footer {
+        padding: 20px;
+        flex-shrink: 0;
+    }
+
+    .btn-portal {
+        background-color: #C0A979;
+        color: white;
+        font-weight: bold;
+        padding: 10px 30px;
+        margin-top: 20px;
+    }
+</style>
+
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card card-login card-hidden">
+                <div class="card-header  card-header-custom text-center" style="background-color: #C0A979; color: white;">
+
+                    <h4 class="card-title-bar" style=" color: white;">
+                        @(AlfaPeople.KingKhaledFoundation.Admin.Web.Helper.CultureHelper.CurrentCulture == 3 ? "تفاصيل ورشة العمل" : "Workshop Details")
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">@Resources.IncubationWorkshops.WorkshopName</dt>
+                        <dd class="col-sm-8">@Model.Name</dd>
+
+                        <dt class="col-sm-4">@Resources.IncubationWorkshops.Description</dt>
+                        <dd class="col-sm-8">@Model.Description</dd>
+
+                        <dt class="col-sm-4">@Resources.IncubationWorkshops.StartDate</dt>
+                        <dd class="col-sm-8">@Model.StartDate.ToString("yyyy-MM-dd")</dd>
+
+                        <dt class="col-sm-4">@Resources.IncubationWorkshops.EndDate</dt>
+                        <dd class="col-sm-8">@Model.EndDate.ToString("yyyy-MM-dd")</dd>
+
+                        <dt class="col-sm-4">@Resources.Regions.Region</dt>
+                        <dd class="col-sm-8">@((isArabic) ? Model.Region?.RegionNameAR : Model.Region?.RegionNameEN)</dd>
+
+                        <dt class="col-sm-4">@Resources.Governorates.Governorate</dt>
+                        <dd class="col-sm-8">@((isArabic) ? Model.Governorate?.GovernorateAR : Model.Governorate?.GovernorateEN)</dd>
+
+                        <dt class="col-sm-4">@Resources.Cities.City</dt>
+                        <dd class="col-sm-8">@((isArabic) ? Model.City?.CityNameAR : Model.City?.CityNameEN)</dd>
+
+                        @*<dt class="col-sm-4">@Resources.IncubationWorkshops.funding</dt>
+                            <dd class="col-sm-8">@((isArabic) ? Model.FundingSource?.FundingSourceNameAR : Model.FundingSource?.FundingSourceNameEN)</dd>*@
+
+                        <dt class="col-sm-4">@Resources.AccelerationReport.Consultant</dt>
+                        <dd class="col-sm-8">@Model.Consultant.Name</dd>
+
+                        <dt class="col-sm-4">@Resources.IncubationWorkshops.WorkshopModel</dt>
+                        <dd class="col-sm-8">@((isArabic) ? Model.IncubationWorkshopModel?.NameAR : Model.IncubationWorkshopModel?.NameEN)</dd>
+                    </dl>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="https://cbp.kkf.org.sa/" class="btn btn-rose btn-lg" target="_blank">
+                        @(isArabic ? "الذهاب إلى المنصة" : "Go to Platform")
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*</div>*@

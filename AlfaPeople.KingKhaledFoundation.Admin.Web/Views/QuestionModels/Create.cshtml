@@ -1,0 +1,267 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.QuestionModel
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+<link href="~/Content/chosen.min.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<style>
+    .checkbox-options-container {
+        background-color: #f9f9f9; /* لون خلفية خفيف لتوضيح الفرق */
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .checkbox-options-list {
+        display: flex;
+        flex-direction: column; /* عرض الخيارات تحت بعضها */
+        gap: 10px; /* مسافة بين الحقول */
+    }
+
+    .checkbox-option-item {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* مسافة بين الحقل وعناصر إضافية (إن وجدت) */
+    }
+
+</style>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    @using (Html.BeginForm("Create", "QuestionModels", FormMethod.Post, new { @name = "workshopQuestionForm", id = "workshopQuestionForm", @enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                    <div class="card-body">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row justify-content-center">
+                            <!-- Select Workshop -->
+                            <div class="col-sm-6">
+                                <div class="form-group" style="margin-bottom: 20px;">
+                                   @* <label for="workshopName" style="direction: rtl; text-align: right; margin-bottom: 20px;">اختيار ورشة العمل</label>*@
+                                    @Html.DropDownListFor(model => model.IncubationWorkshopId, (SelectList)ViewBag.IncubationWorkshopId, "اختر ورشة العمل", new { @class = "form-control" })
+
+                                </div>
+                            </div>
+                        </div>
+                        @Html.HiddenFor(model => model.IncubationWorkshopId, new { Value = ViewBag.IncubationWorkshopId })
+
+                        <!-- Table for adding questions -->
+                        <table id="questionsTable" class="table">
+                            <thead>
+                                <tr>
+                                    <th>السؤال (باللغة العربية)</th>
+                                    <th>السؤال (باللغة الإنجليزية)</th>
+                                    <th>نوع السؤال</th>
+                                    <th>نوع الإجابة</th>
+                                    <th>الترتيب</th>
+                                    <th>مطلوب</th> <!-- إضافة حقل مطلوب -->
+                                    <th>مرئي</th> <!-- إضافة حقل مرئي -->
+                                    <th>الإجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="text" class="form-control" name="questions[0].ArabicQuestion" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" name="questions[0].EnglishQuestion" />
+                                    </td>
+                                    <td>
+                                        <select class="form-control" name="questions[0].QuestionType" onchange="onControlChanged(this)" style="direction: rtl; text-align: right;">
+                                            <option value="Textbox">نص</option>
+                                            <option value="Textarea">منطقة نصية</option>
+                                            <option value="File">ملف</option>
+                                            <option value="Checkbox">اختيارات متعددة</option> <!-- إضافة خيار Checkbox -->
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" name="questions[0].AnswerType">
+                                            <option value="text">نص</option>
+                                            <option value="number">رقم</option>
+                                            <option value="date">تاريخ</option>
+                                        </select>
+                                        <select class="form-control" name="questions[0].FileType" style=" display: none;">
+                                            <option value="single">ملف واحد</option>
+                                            <option value="multiple">عدة ملفات</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control" name="questions[0].Order" />
+                                    </td>
+
+
+
+                                    <td>
+                                        <input type="checkbox" name="questions[0].IsRequired" checked="checked" value="true" />
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="questions[0].IsVisible" checked="checked" value="true" />
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-rose" onclick="addQuestionRow()">
+                                            إضافة
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="checkbox-options-container" style="display: none;">
+                                    <td colspan="8">
+                                        <label style="display: block; margin-bottom: 10px;">خيارات الاختيارات المتعددة:</label>
+                                        <div class="checkbox-options-list">
+                                            <div class="checkbox-option-item" style="margin-bottom: 10px;">
+                                                <input type="text" class="form-control" name="questions[0].CheckboxOptions[0].OptionText" placeholder="الخيار 1" />
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-success btn-sm" onclick="addCheckboxOption(this)">إضافة خيار</button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <!-- Add options for Checkbox (Hidden by default) -->
+                        <!--<div class="checkbox-options" style="display:none;">-->
+                        <!-- حقل خيارات Checkbox مخفي افتراضيًا -->
+                        <!--<label>خيارات المربعات (اختياري):</label>
+    <div>
+        <input type="text" class="form-control" name="questions[0].CheckboxOptions[0]" placeholder="الخيار 1" />
+    </div>
+    <div>
+        <input type="text" class="form-control" name="questions[0].CheckboxOptions[1]" placeholder="الخيار 2" />
+    </div>
+    <div>
+        <input type="text" class="form-control" name="questions[0].CheckboxOptions[2]" placeholder="الخيار 3" />
+    </div>-->
+                        <!-- يمكنك إضافة المزيد من الحقول حسب الحاجة -->
+                        <!--</div>-->
+
+                        <div class="form-group">
+                            <input type="submit" value="حفظ" class="btn btn-rose" />
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // تغيير الحدث عندما يتغير نوع السؤال
+        function onControlChanged(control) {
+            var row = $(control).closest('tr');
+            var answerType = row.find('select[name$=".AnswerType"]');
+            var fileType = row.find('select[name$=".FileType"]');
+            var checkboxOptionsContainer = row.next('.checkbox-options-container'); // الحاوية للـ Checkbox
+
+            // التعامل مع الخيارات بناءً على نوع السؤال
+            if (control.value === 'Textbox') {
+                answerType.show().find('option').show(); // إظهار جميع خيارات الإجابة
+                fileType.hide(); // إخفاء خيارات نوع الملفات
+                checkboxOptionsContainer.hide(); // إخفاء خيارات الـ Checkbox
+            } else if (control.value === 'Textarea') {
+                answerType.show().find('option').not('[value="text"]').hide(); // إظهار النص فقط
+                answerType.find('option[value="text"]').prop('selected', true); // اختيار النص كإجابة
+                fileType.hide(); // إخفاء خيارات نوع الملفات
+                checkboxOptionsContainer.hide(); // إخفاء خيارات الـ Checkbox
+            } else if (control.value === 'File') {
+                answerType.hide(); // إخفاء خيارات الإجابة
+                fileType.show(); // إظهار خيارات نوع الملفات
+                checkboxOptionsContainer.hide(); // إخفاء خيارات الـ Checkbox
+            } else if (control.value === 'Checkbox') {
+                answerType.hide(); // إخفاء خيارات الإجابة
+                fileType.hide(); // إخفاء خيارات نوع الملفات
+                checkboxOptionsContainer.show(); // إظهار خيارات الـ Checkbox
+            } else {
+                answerType.hide();
+                fileType.hide();
+                checkboxOptionsContainer.hide(); // إخفاء جميع الخيارات الأخرى
+            }
+        }
+
+        function addQuestionRow() {
+            var rowCount = $('#questionsTable tbody tr').length / 2; // عدد الصفوف الفعلية
+            var newRow = `<tr>
+            <td>
+                <input type="text" class="form-control" name="questions[${rowCount}].ArabicQuestion"  />
+            </td>
+            <td>
+                <input type="text" class="form-control" name="questions[${rowCount}].EnglishQuestion"  />
+            </td>
+            <td>
+                <select class="form-control" name="questions[${rowCount}].QuestionType" onchange="onControlChanged(this)">
+                    <option value="Textbox">نص</option>
+                    <option value="Textarea">منطقة نصية</option>
+                    <option value="File">ملف</option>
+                    <option value="Checkbox">اختيارات متعددة</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-control" name="questions[${rowCount}].AnswerType" >
+                    <option value="text">نص</option>
+                    <option value="number">رقم</option>
+                    <option value="date">تاريخ</option>
+                </select>
+                <select class="form-control" name="questions[${rowCount}].FileType" style=" display: none;">
+                    <option value="single">ملف واحد</option>
+                    <option value="multiple">عدة ملفات</option>
+                </select>
+            </td>
+            <td>
+                <input type="number" class="form-control" name="questions[${rowCount}].Order"/>
+            </td>
+            <td>
+                <input type="checkbox" name="questions[${rowCount}].IsRequired" checked="checked" value="true" />
+            </td>
+            <td>
+                <input type="checkbox" name="questions[${rowCount}].IsVisible" checked="checked" value="true"/>
+            </td>
+            <td>
+                <button type="button" class="btn btn-link btn-danger btn-just-icon remove" onclick="deleteRow(this)">
+                    <i class="material-icons">delete</i>
+                </button>
+            </td>
+        </tr>
+      <tr class="checkbox-options-container" style="display: none;">
+    <td colspan="8">
+        <label style="display: block; margin-bottom: 10px;">خيارات الاختيارات المتعددة:</label>
+        <div class="checkbox-options-list">
+            <div class="checkbox-option-item" style="margin-bottom: 10px;">
+                <input type="text" class="form-control" name="questions[${rowCount}].CheckboxOptions[0]" placeholder="الخيار 1" />
+            </div>
+        </div>
+        <button type="button" class="btn btn-success btn-sm" onclick="addCheckboxOption(this)">إضافة خيار</button>
+    </td>
+</tr>
+`;
+            $('#questionsTable tbody').append(newRow);
+        }
+
+
+
+        // حذف صف من الجدول
+        function deleteRow(button) {
+            $(button).closest('tr').next('.checkbox-options-container').remove(); // حذف خيارات الـ Checkbox المرتبطة
+            $(button).closest('tr').remove();
+        }
+        function addCheckboxOption(button) {
+            var container = $(button).closest('td').find('.checkbox-options-list'); // حاوية الخيارات
+            var optionsCount = container.find('.checkbox-option-item').length; // عدد الخيارات الحالية
+            var questionIndex = container.closest('tr').prev('tr').find('input, select').first().attr('name').match(/questions\[(\d+)\]/)[1];
+
+            // إنشاء عنصر خيار جديد
+            var newOption = `
+        <div class="checkbox-option-item">
+            <input type="text" class="form-control" name="questions[${questionIndex}].CheckboxOptions[${optionsCount}].OptionText"" placeholder="الخيار ${optionsCount + 1}" />
+        </div>`;
+            container.append(newOption); // إضافة الخيار الجديد للحاوية
+        }
+
+
+    </script>
+    }
+

@@ -1,0 +1,626 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IWSBLTransactionsTypeVM
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+
+    .custom-notification {
+        padding: 15px 20px;
+        margin: 10px 0;
+        border-radius: 5px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        position: relative;
+    }
+
+        .custom-notification.success {
+            background-color: rgb(142, 131, 96); /* لون النجاح */
+        }
+
+    .custom-notification.error {
+        background-color: #f55; /* لون الخطأ */
+    }
+
+    .custom-notification i.material-icons {
+        font-size: 24px;
+        margin-right: 10px;
+    }
+
+    .custom-notification .close-btn {
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="custom-notification success" role="alert">
+                    <i class="material-icons">check_circle</i>
+                    <span>@TempData["SuccessMessage"]</span>
+                    <button type="button" class="close-btn" aria-label="Close" onclick="this.parentElement.style.display='none'">×</button>
+                </div>
+            }
+            @if (ViewBag.err != null)
+            {
+                <div class="custom-notification error" role="alert">
+                    <i class="material-icons">error</i>
+                    <span>@ViewBag.err</span>
+                    <button type="button" class="close-btn" aria-label="Close" onclick="this.parentElement.style.display='none'">×</button>
+                </div>
+            }
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-text">
+                        <div class="card-text">
+                            <h4 class="card-title">@ViewBag.Title</h4>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        @using (Html.BeginForm("Manage", "IncubationWorkshopBLTransactions", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @*@Html.HiddenFor(m => m.WorkshopID)*@
+                            @Html.HiddenFor(f => f.TransTypeID)
+                            @Html.HiddenFor(f => f.TransTypeName)
+                            @Html.HiddenFor(f => f.IsMasterData)
+                            @Html.HiddenFor(m => m.WorkshopID, new { id = "HiddenWorkshopID" })
+
+                            <div class="form-group">
+                                <label for="WorkshopID" style="margin-bottom:20px">-- اختر ورشة العمل --</label>
+                                <select id="WorkshopID" name="WorkshopID" class="form-control" onchange="loadWorkshopFields(this.value)" style="margin-top:20px">
+                                    <option value="">يرجى الاختيار</option>
+                                    @foreach (var workshop in Model.Workshops)
+                                    {
+                                        <option value="@workshop.Value" @(workshop.Value == Model.WorkshopID?.ToString() ? "selected" : "")>
+                                            @workshop.Text
+                                        </option>
+                                    }
+                                </select>
+
+                            </div>
+
+                            <div id="new-Transaction" style="margin-top:20px">
+                                @if (Model.LstTransaction != null && Model.LstTransaction.Any())
+                                {
+                                    for (int i = 0; i < Model.LstTransaction.Count; i++)
+                                    {
+                                        Html.RenderPartial("_LstTransaction", Model.LstTransaction[i]);
+                                    }
+                                }
+                            </div>
+
+                            <button type="button" id="addAttendee" class="btn btn-link btn-info">
+                                <i class="material-icons">add</i> @Resources.General.AddNewQuestion
+                            </button>
+
+                            <input type="submit" value="@Resources.General.Save" class="btn btn-rose" />
+                            <a class="btn btn-default" href="@Url.Action("Index")">@Resources.General.Back</a>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        var successMsg = '@(TempData["SuccessMessage"] ?? "")';
+        var errorMsg = '@(ViewBag.err ?? "")';
+
+        if (successMsg && successMsg.trim() !== '') {
+            md.showNotification('top', '@Resources.General.MsgTextAlign', 'notification_important', 'success', '3e3',
+                `<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">${successMsg}</h4>`);
+        }
+
+        if (errorMsg && errorMsg.trim() !== '') {
+            md.showNotification('top', '@Resources.General.MsgTextAlign', 'notification_important', 'danger', 'f55',
+                `<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">${errorMsg}</h4>`);
+        }
+    });
+    </script>
+
+
+
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_IncubationBaselineForm').addClass('active');
+            $('#Workshop').addClass('show');
+        };
+    </script>
+
+
+    <script>
+    function loadWorkshopFields(workshopID) {
+        $('#HiddenWorkshopID').val(workshopID);
+        $('#HiddenWorkshopID1').val(workshopID);
+    if (workshopID) {
+        $.ajax({
+            url: '@Url.Action("Manage", "IncubationWorkshopBLTransactions")',
+            type: 'GET',
+            data: { workshopID: workshopID },
+            success: function (response) {
+                $('#new-Transaction').html(response); // تحميل البيانات في الجزء المحدد
+            },
+            error: function () {
+                alert('Error loading fields.');
+            }
+        });
+    } else {
+        alert("يرجى اختيار ورشة عمل.");
+    }
+        }
+        $(document).ready(function () {
+            $(".transactionRow").each(function () {
+                var controlDropdown = $(this).find('[name*="ControlID"]'); // القائمة الأولى
+                var controlTypeDropdown = $(this).find('[name*="ControlTypeID"]'); // القائمة الثانية
+
+                if (controlDropdown.val()) {
+                    OnControlChanged(controlDropdown[0]); // تحديث القائمة الثانية بناءً على الأولى
+                }
+
+                checkIfCheckboxOrRadio(controlTypeDropdown[0]); // التحقق من عرض خيارات الـ Checkbox
+            });
+        });
+
+
+       //old
+    //function checkIfCheckbox(dropdown) {
+    //    console.log("checkIfCheckbox");
+    //    console.log(dropdown);
+    //    const selectedValue = dropdown.value; // القيمة الحالية للقائمة
+    //    const row = $(dropdown).closest('.transactionRow'); // العثور على الصف الحالي
+    //    const optionsTable = row.find('.options-table-container'); // العثور على جدول الخيارات داخل نفس الصف
+
+    //    console.log("Checking ControlType:", selectedValue);
+
+    //    // تحقق إذا كانت القيمة تشير إلى Checkbox
+    //    if (selectedValue === "e1de6bd1-6ffa-41a1-b276-d9f3a47f0c3a") { // استخدم القيمة الصحيحة للـ Checkbox
+    //        optionsTable.show(); // عرض جدول الخيارات
+    //    } else {
+    //        optionsTable.hide(); // إخفاء جدول الخيارات
+    //    }
+    //}
+        function checkIfCheckboxOrRadio(dropdown) {
+            console.log("checkIfCheckboxOrRadio", dropdown);
+
+            const selectedValue = dropdown.value;
+            const row = $(dropdown).closest('.transactionRow');
+            const checkboxOptionsTable = row.find('.options-table-container');
+            const radioOptionsTable = row.find('.radio-options-container');
+            const addCheckboxOptionButton = row.find('.add-checkbox-option'); // زر إضافة خيارات لـ Checkbox
+            const addRadioOptionButton = row.find('.add-radio-option'); // زر إضافة خيارات لـ Radio
+
+            console.log("Checking ControlType:", selectedValue);
+
+            // إظهار وإخفاء بناءً على نوع الإجابة
+            if (selectedValue === "e1de6bd1-6ffa-41a1-b276-d9f3a47f0c3a") { // Checkbox
+                checkboxOptionsTable.show();
+                radioOptionsTable.hide();
+                addCheckboxOptionButton.show();
+                addRadioOptionButton.hide();
+            } else if (selectedValue === "76da194e-c139-4db6-865b-f1ea0d546a91") { // Radio Button
+                radioOptionsTable.show();
+                checkboxOptionsTable.hide();
+                addRadioOptionButton.show();
+                addCheckboxOptionButton.hide();
+            } else {
+                checkboxOptionsTable.hide();
+                radioOptionsTable.hide();
+                addCheckboxOptionButton.hide();
+                addRadioOptionButton.hide();
+            }
+        }
+
+        // تأكد من تشغيل الدالة عند تحميل الصفحة
+        $(document).ready(function () {
+            $(".transactionRow").each(function () {
+                var controlTypeDropdown = $(this).find('[name*="ControlTypeID"]');
+                checkIfCheckboxOrRadio(controlTypeDropdown[0]);
+            });
+
+            // استدعاء الدالة عند تغيير نوع الإجابة
+            $(document).on('change', '[name*="ControlTypeID"]', function () {
+                checkIfCheckboxOrRadio(this);
+            });
+        });
+
+        //function checkIfCheckboxOrRadio(dropdown) {
+        //    console.log("checkIfCheckboxOrRadio", dropdown);
+
+        //    const selectedValue = dropdown.value;
+        //    const row = $(dropdown).closest('.transactionRow');
+        //    const checkboxOptionsTable = row.find('.options-table-container');
+        //    const radioOptionsTable = row.find('.radio-options-container');
+        //    const addCheckboxOptionButton = row.find('.add-checkbox-option'); // زر إضافة خيارات لـ Checkbox
+        //    const addRadioOptionButton = row.find('.add-radio-option'); // زر إضافة خيارات لـ Radio
+
+        //    //  قبل إظهار أي شيء، تأكد من إزالة أي خيار تم تحميله من قبل
+        //    checkboxOptionsTable.hide();
+        //    radioOptionsTable.hide();
+        //    addCheckboxOptionButton.hide();
+        //    addRadioOptionButton.hide();
+        //    console.log("Checking ControlType:", selectedValue);
+
+        //    if (selectedValue === "e1de6bd1-6ffa-41a1-b276-d9f3a47f0c3a") { // Checkbox
+        //        console.log("Checkbox");
+        //        checkboxOptionsTable.show();
+        //        radioOptionsTable.hide();
+        //        addCheckboxOptionButton.show(); //  إظهار زر الإضافة
+        //        addRadioOptionButton.hide();
+        //    }
+        //    else if (selectedValue === "76da194e-c139-4db6-865b-f1ea0d546a91") { // Radio
+        //        radioOptionsTable.show();
+        //        checkboxOptionsTable.hide();
+        //        addRadioOptionButton.show(); //  إظهار زر الإضافة
+        //        addCheckboxOptionButton.hide();
+        //    }
+        //    else {
+        //        checkboxOptionsTable.hide();
+        //        radioOptionsTable.hide();
+        //        addCheckboxOptionButton.hide();
+        //        addRadioOptionButton.hide();
+        //    }
+
+        //    //  التحقق من زر الإضافة وإجبار الـ DOM على إعادة تحديث العناصر
+        //    setTimeout(() => {
+        //        addCheckboxOptionButton.show();
+        //        addRadioOptionButton.show();
+        //    }, 100);
+        //}
+
+
+        //function checkIfCheckboxOrRadio(dropdown) {
+        //    console.log("checkIfCheckboxOrRadio", dropdown);
+
+        //    const selectedValue = dropdown.value;
+        //    const row = $(dropdown).closest('.transactionRow');
+        //    const checkboxOptionsTable = row.find('.options-table-container');
+        //    const radioOptionsTable = row.find('.radio-options-container');
+        //    const addCheckboxOptionButton = row.find('.add-checkbox-option'); // زر إضافة خيارات لـ Checkbox
+        //    const addRadioOptionButton = row.find('.add-radio-option'); // زر إضافة خيارات لـ Radio
+
+        //    console.log("Checking ControlType:", selectedValue);
+
+        //    if (selectedValue === "e1de6bd1-6ffa-41a1-b276-d9f3a47f0c3a") { // Checkbox
+        //        checkboxOptionsTable.show();
+        //        radioOptionsTable.hide();
+        //        addCheckboxOptionButton.show(); //  يجب أن يظهر زر الإضافة هنا
+        //        addRadioOptionButton.hide();
+        //    }
+        //    else if (selectedValue === "76da194e-c139-4db6-865b-f1ea0d546a91") { // Radio Button
+        //        radioOptionsTable.show();
+        //        checkboxOptionsTable.hide();
+        //        addRadioOptionButton.show(); //  يجب أن يظهر زر الإضافة هنا
+        //        addCheckboxOptionButton.hide();
+        //    }
+        //    else {
+        //        checkboxOptionsTable.hide();
+        //        radioOptionsTable.hide();
+        //        addCheckboxOptionButton.hide();
+        //        addRadioOptionButton.hide();
+        //    }
+        //}
+
+
+      
+   function OnControlChanged(caller) {
+    console.log("تم استدعاء OnControlChanged", caller);
+
+    var selectedControl = caller.value;
+    if (selectedControl && selectedControl !== '') {
+        $.ajax({
+            url: '@Url.Action("GetControlTypes", "IncubationWorkshopBLTransactions")',
+            type: 'GET',
+            dataType: 'json',
+            data: { Control: selectedControl },
+            success: function (response) {
+                console.log("البيانات المسترجعة من AJAX:", response);
+
+                if (response.success && response.data.length > 0) {
+                    var row = $(caller).closest('.transactionRow');
+                    var controlTypeDropdown = row.find('[name$=".ControlTypeID"]');
+
+                    controlTypeDropdown.empty(); // التأكد من تفريغ القائمة قبل إضافتها
+
+                    $.each(response.data, function (index, ControlType) {
+                        controlTypeDropdown.append(
+                            $('<option>').val(ControlType.Value).text(ControlType.Text)
+                        );
+                    });
+
+                    checkIfCheckboxOrRadio(controlTypeDropdown[0]);
+                    controlTypeDropdown.val(controlTypeDropdown.find("option:first").val());
+                } else {
+                    console.warn("لا توجد أنواع متاحة.");
+                    alert(response.message || "لم يتم العثور على أنواع مرتبطة.");
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("خطأ أثناء جلب القيم:", status, error);
+                alert("حدث خطأ أثناء تحميل القائمة.");
+            }
+        });
+    } else {
+        console.warn("القيمة المحددة غير صحيحة.");
+    }
+}
+
+        @*//old
+function OnControlChanged(caller) {
+    var selectedControl = caller.value; // القيمة المحددة
+
+    if (selectedControl && selectedControl !== '') {
+        $.ajax({
+            url: '@Url.Action("GetControlTypes", "IncubationWorkshopBLTransactions")',
+            type: 'GET',
+            dataType: 'json',
+            data: { Control: selectedControl }, // تمرير القيمة المحددة
+            success: function (response) {
+                if (response.success && response.data.length > 0) {
+                    // العثور على الصف الحالي
+                    var row = $(caller).closest('.transactionRow');
+
+                    // العثور على القائمة الثانية في نفس الصف
+                    var controlTypeDropdown = row.find('[name$=".ControlTypeID"]');
+
+                    // تفريغ القائمة الحالية
+                    controlTypeDropdown.empty();
+
+                    // بناء القائمة الجديدة
+                    $.each(response.data, function (index, ControlType) {
+                        controlTypeDropdown.append(
+                            $('<option>').val(ControlType.Value).text(ControlType.Text)
+                        );
+                    });
+
+                    // التحقق من نوع التحكم بعد التحديث
+             /*       checkIfCheckbox(controlTypeDropdown[0]);*/
+                    checkIfCheckboxOrRadio(controlTypeDropdown[0]);
+                    controlTypeDropdown.val(controlTypeDropdown.find("option:first").val());
+                } else {
+                    console.warn("لا توجد أنواع متاحة.");
+                    alert(response.message || "لم يتم العثور على أنواع مرتبطة.");
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("خطأ أثناء جلب القيم:", status, error);
+                alert("حدث خطأ أثناء تحميل القائمة.");
+            }
+        });
+    } else {
+        console.warn("القيمة المحددة غير صحيحة.");
+    }
+}*@
+        $(document).ready(function () {
+            $('.options-table-container').each(function () {
+                var container = $(this);
+                var optionsCount = container.find('.checkbox-option-item').length;
+
+                // إذا كان هناك خيارات، أظهر الحاوية
+                if (optionsCount > 0) {
+                    container.show();
+                }
+                else {
+                    container.hide();
+                }
+            });
+        });
+
+
+
+    </script>
+    <script type="text/javascript">
+        var count = 0;
+      $('#addAttendee').on('click', function () {
+        //  var workshopID = $('#WorkshopID').val();
+          var workshopID = $('#HiddenWorkshopID').val(); // قراءة الحقل المخفي
+         // $('#HiddenWorkshopID').val(workshopID);  // تأكد من تحديث الحقل المخفي
+          console.log("Selected WorkshopID:", workshopID);
+
+    if (!workshopID) {
+        alert("يرجى اختيار ورشة العمل أولاً."); // التأكد من اختيار الورشة
+        return;
+    }
+
+
+          $('#HiddenWorkshopID1').val(workshopID);
+          console.log(workshopID);
+          // تحديث الحقل المخفي
+    $.ajax({
+        type: "GET",
+        url: '@Url.Action("AppendLst")',
+        data: { IsNew: true, workshopID: workshopID }, // تمرير workshopID كجزء من الطلب
+        success: function (partialView) {
+            partialView = partialView.replace("disabled", ""); // إزالة خاصية التعطيل إذا كانت موجودة
+            var newRow = $(partialView);
+            $('#new-Transaction').append(partialView); // إضافة الجزء الجديد إلى الحقل
+            //  تشغيل `checkIfCheckboxOrRadio` للسطر الجديد لضمان ظهور الأزرار عند التغيير
+            //newRow.find('[name*="ControlTypeID"]').on('change', function () {
+            //    checkIfCheckboxOrRadio(this);
+            //});
+            //  تشغيل `checkIfCheckboxOrRadio` للسطر الجديد
+            newRow.find('[name*="ControlTypeID"]').each(function () {
+                checkIfCheckboxOrRadio(this);
+            });
+        },
+        error: function () {
+            alert("حدث خطأ أثناء إضافة العنصر الجديد.");
+        }
+    });
+});
+
+
+        $(document).on('change', '[name*="ControlTypeID"]', function () {
+            const row = $(this).closest('.transactionRow');
+
+            //  حذف الخيارات القديمة لمنع التكرار
+            row.find('.checkbox-options-list .checkbox-option-item').remove();
+            row.find('.radio-options-list .radio-option-item').remove();
+
+            //  تحديث العرض بناءً على الاختيار الجديد
+            checkIfCheckboxOrRadio(this);
+        });
+
+
+    </script>
+
+    <script>
+        function RemoveRow(btnremove) {
+            var parent = $(btnremove).parents();
+            var ff = parent[2];
+            ff.remove();
+            count--;
+        }
+
+
+    </script>
+    <script>
+
+
+
+    </script>
+    <script>
+    $(document).ready(function () {
+        // جلب الرسائل
+        var successMessage = '@TempData["SuccessMessage"]';
+        var errorMessage = '@ViewBag.err';
+
+        // التحقق من الرسائل وعرضها باستخدام إشعارات
+        if (successMessage && successMessage !== 'undefined') {
+            md.showNotification('top', '@Resources.General.MsgTextAlign', 'check_circle', 'success', '3e3',
+                `<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">${successMessage}</h4>`);
+        }
+
+        if (errorMessage && errorMessage !== 'undefined') {
+            md.showNotification('top', '@Resources.General.MsgTextAlign', 'error', 'danger', 'f55',
+                `<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">${errorMessage}</h4>`);
+        }
+    });
+    </script>
+
+    <script>
+
+
+        // التحقق من صحة السطر الكامل
+        function validateTransactionRow(row) {
+            let isValid = true;
+            let errorMessages = [];
+            // التحقق من الحقول الإلزامية العامة
+            row.find('[required]').each(function () {
+                if (!$(this).val().trim()) {
+                    isValid = false;
+                    let fieldName = $(this).attr('data-label') || $(this).attr('name') || "حقل غير معرف";
+                  /*  let fieldName = $input.attr('data-label') || $input.attr('name') || "حقل غير معرف";*/
+                    errorMessages.push(fieldName);
+                }
+            });
+            // التحقق من الخيارات إذا كان نوع التحكم هو Checkbox
+            const controlType = row.find('[name*="ControlTypeID"]').val();
+            /*     const optionsList = row.find('.checkbox-options-list .checkbox-option-item');*/
+            const optionsList = row.find('.checkbox-options-list .checkbox-option-item, .radio-options-list .radio-option-item');
+            const errorContainer = row.find('.options-validation-error');
+            errorContainer.text(""); // مسح الأخطاء السابقة
+
+            if (controlType === "e1de6bd1-6ffa-41a1-b276-d9f3a47f0c3a" || controlType === "76da194e-c139-4db6-865b-f1ea0d546a91") {
+                if (optionsList.length === 0) {
+                    errorContainer.text("يرجى إضافة خيار واحد على الأقل.");
+                    isValid = false;
+                }
+                optionsList.each(function () {
+                    const optionNameEn = $(this).find('[name*="OptionNameEn"]').val().trim();
+                    const optionNameAr = $(this).find('[name*="OptionNameAr"]').val().trim();
+
+                    if (!optionNameEn || !optionNameAr) {
+                        errorContainer.text("يرجى إدخال كلا الخيارين (إنجليزي / عربي).");
+                        isValid = false;
+                    }
+                });
+            }
+            // تحديث حالة زر الإرسال
+            $('input[type="submit"]').prop('disabled', !isValid);
+
+            return isValid ? null : errorMessages.join(", "); // إرجاع أسماء الحقول غير الصحيحة
+        }
+
+        //// التحقق التلقائي عند تغيير أي عنصر داخل السطر
+        //$(document).on('input change', '.transactionRow', function () {
+        //    validateTransactionRow($(this));
+        //});
+
+        //// التحقق النهائي عند الإرسال
+        //$('form').on('submit', function (e) {
+        //    let isValid = true;
+
+        //    $('.transactionRow').each(function () {
+        //        if (!validateTransactionRow($(this))) {
+        //            isValid = false;
+        //        }
+        //    });
+
+        //    if (!isValid) {
+        //        e.preventDefault(); // إلغاء الإرسال
+        //        alert("يرجى التحقق من الأخطاء في الحقول."+);
+        //    }
+
+       /* });*/
+
+        // التحقق التلقائي عند تغيير أي عنصر داخل السطر
+        $(document).on('input change', '.transactionRow', function () {
+            validateTransactionRow($(this));
+        });
+
+        // التحقق النهائي عند الإرسال
+        $('form').on('submit', function (e) {
+            let isValid = true;
+            let invalidFields = []; // قائمة بالحقول غير الصالحة
+
+            $('.transactionRow').each(function () {
+                let errorMessage = validateTransactionRow($(this)); // استرجاع اسم الحقل غير الصحيح
+                if (errorMessage) {
+                    isValid = false;
+                    invalidFields.push(errorMessage);
+                }
+            });
+
+            if (!isValid) {
+                e.preventDefault(); // إلغاء الإرسال
+                alert("يرجى التحقق من الأخطاء في الحقول:\n" + invalidFields.join("\n"));
+            }
+        });
+
+    </script>
+  
+  
+}

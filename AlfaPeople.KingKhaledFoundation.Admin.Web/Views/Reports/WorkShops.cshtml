@@ -1,0 +1,233 @@
+﻿@model  AlfaPeople.KingKhaledFoundation.Admin.Web.Models.WorkshopResultDto
+@{
+    ViewBag.Title = Resources.WorkshopReport.Title;
+}
+
+
+<link href="~/Content/chosen.min.css" rel="stylesheet" />
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-text">
+                        <div class="card-text">
+                            <h4 class="card-title">@Resources.WorkshopReport.Title</h4>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        @using (Html.BeginForm("WorkShops", "Reports", FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="row justify-content-center">
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="DateFrom" class="bmd-label">@Resources.WorkshopReport.DateFrom </label>
+                                        @Html.TextBoxFor(model => model.SearchDto.DateFrom, htmlAttributes: new { @class = "form-control ", @id = "DateFrom" })
+
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="DateTo" class="bmd-label">@Resources.WorkshopReport.DateTo </label>
+                                        @Html.TextBoxFor(model => model.SearchDto.DateTo, htmlAttributes: new { @class = "form-control ", @id = "DateTo" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group" >
+                                        <label class="bmd-label">@Resources.WorkshopReport.Workshop</label>
+                                        @Html.DropDownListFor(model => model.SearchDto.IncubationWorkshopId, (SelectList)ViewBag.IncubationWorkShops, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @id = "Governorate", @title = Resources.WorkshopReport.Workshop, @data_live_search = "true" })
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="SearchDto_Gender" class="bmd-label"> @Resources.WorkshopReport.Gender</label>
+                                        @Html.EnumDropDownListFor(model => model.SearchDto.Gender, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @title = Resources.WorkshopReport.Gender, @data_live_search = "true" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="SearchDto_GovernateId" class="bmd-label">@Resources.WorkshopReport.Governorate</label>
+                                        @Html.DropDownListFor(model => model.SearchDto.GovernateId, (SelectList)ViewBag.Governates, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @title = Resources.WorkshopReport.Governorate, @data_live_search = "true" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="SearchDto_GovernateId" class="bmd-label">@Resources.WorkshopReport.Consultant</label>
+                                        @Html.DropDownListFor(model => model.SearchDto.GovernateId, (SelectList)ViewBag.Consultants, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @title = Resources.WorkshopReport.Consultant, @data_live_search = "true" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="SearchDto_CorporateId" class="bmd-label">@Resources.WorkshopReport.Corporate</label>
+                                        @Html.DropDownListFor(model => model.SearchDto.CorporateId, (SelectList)ViewBag.Corporations, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @title = Resources.WorkshopReport.Corporate, @data_live_search = "true" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="SearchDto_IncubationWorkshopModelId" class="bmd-label">@Resources.WorkshopReport.WorkshopModel</label>
+                                        @Html.DropDownListFor(model => model.SearchDto.IncubationWorkshopModelId, (SelectList)ViewBag.IncubationWorkShopModels, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @title = Resources.WorkshopReport.WorkshopModel, @data_live_search = "true" })
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="SearchDto_ProjectSuccessRate" class="bmd-label"> @Resources.WorkshopReport.ProjectSuccessRate</label>
+                                        @Html.EnumDropDownListFor(model => model.SearchDto.ProjectSuccessRate, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @title = Resources.WorkshopReport.ProjectSuccessRate, @data_live_search = "true" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="card-footer justify-content-center ">
+                                        <input type="submit" id="submit" class="btn btn-rose" name="submit" value="@Resources.General.View">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body" style="direction: @Resources.General.dir;text-align: @Resources.General.TextAlign;">
+        <div class="toolbar">
+        </div>
+        <div class="material-datatables">
+            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                   width="100%" style="width:100%">
+                <thead id="header">
+                    <tr>
+                        <th>
+                            @Resources.WorkshopReport.Workshop
+                        </th>
+                        <th>
+                            @Resources.WorkshopReport.WorkshopModel
+                        </th>
+                        <th>
+                            @Resources.WorkshopReport.Governorate
+                        </th>
+                        <th>
+                            @Resources.WorkshopReport.Consultant
+                        </th>
+                        <th>
+                            @Resources.WorkshopReport.TargetCount
+                        </th>
+                        <th>
+                            @Resources.WorkshopReport.CountOfConfirmations
+                        </th>
+                        <th>
+                            @Resources.WorkshopReport.CountOfPartcipation
+                        </th>
+                        <th>
+                            @Resources.WorkshopReport.Corporate
+                        </th>
+                        <th>
+                            @Resources.WorkshopReport.Attender
+                        </th>
+                        <th>
+                            @Resources.WorkshopReport.Gender
+                        </th>
+                        <th>
+                            @Resources.WorkshopReport.Position
+                        </th>
+                        <th>
+                            @Resources.WorkshopReport.EducationalQualificationAndSpecialization
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="body">
+                    @foreach (var item in Model.Results)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.WorkshopName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.WorkshopModelName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GovernorateName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ConsultantName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CountOfAdventages)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CountOfConfirmed)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CountOfPartcipation)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CorporationName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Attender)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Gender)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Position)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Qualification)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        window.onload = function (e) {
+            $('#navItem_WorkShops').addClass('active');
+            $('#cbReports').addClass('show');
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#DateFrom").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#DateTo").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#DateFrom").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function () {
+                var minValue = $(this).val();
+                minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+                minValue.setDate(minValue.getDate());
+                $("#DateTo").datepicker("option", "minDate", minValue);
+            });
+        });
+    </script>
+}

@@ -1,0 +1,123 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.Incubation>
+@{
+    //ViewBag.Title = "You will have an issue, please go to the home page and try this transaction later";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="toolbar">
+                            <a href="@Url.Action( "Create", new { Type = ViewBag.Type })" class="btn btn-link btn-info btn-just-icon like">
+                                <i class="material-icons">add</i>
+                            </a>
+                        </div>
+                        <div class="material-datatables">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                                   width="100%" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Resources.Incubation.Model
+                                        </th>
+                                        <th>
+                                            @Resources.Incubation.Advertising
+                                        </th>
+                                        <th>
+                                            @Resources.Incubation.ProjectName
+                                        </th>
+                                        <th>
+                                            @Resources.Incubation.ConsultantName
+                                        </th>
+                                        <th>
+                                            @Resources.Incubation.StartDate
+                                        </th>
+                                        <th>
+                                            @Resources.Incubation.EndDate
+                                        </th>
+                                        <th>
+                                            @Resources.Incubation.Status
+                                        </th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IncubationModel.NameEN)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IncubationAdvertising.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Consultant.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.StartDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.EndDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IncubationStatus.NameEN)
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-link btn-warning btn-just-icon edit" href="@Url.Action("Edit", new { id = item.IncubationID, Type = ViewBag.Type })"><i class="material-icons">edit</i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('Type')) {
+            if (urlParams.get('Type') == "Incubation") {
+                window.onload = function (e) {
+                    $('#navItem_Inc_Incubations').addClass('active');
+                    $('#Incubation').addClass('show');
+                };
+            }
+            else if (urlParams.get('Type') == "Acceleration") {
+                window.onload = function (e) {
+                    $('#navItem_Acc_Incubations').addClass('active');
+                    $('#Acceleration').addClass('show');
+                };
+            }
+        }
+    </script>
+
+    <script>
+        $(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                $("#datatables").DataTable({
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                $("#datatables").DataTable();
+            }
+        });
+    </script>
+}
+

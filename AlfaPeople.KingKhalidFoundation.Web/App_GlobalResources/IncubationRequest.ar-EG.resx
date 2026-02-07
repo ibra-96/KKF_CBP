@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accepted" xml:space="preserve">
+    <value>مقبول</value>
+  </data>
+  <data name="AdvertisingDetails" xml:space="preserve">
+    <value>تفاصيل الإعلان</value>
+  </data>
+  <data name="AdvertisingName" xml:space="preserve">
+    <value>إسم الإعلان</value>
+  </data>
+  <data name="AllEmployeeNumbers" xml:space="preserve">
+    <value>كم العدد الإجمالي لموظفين المنظمة؟ يرجى ذكر عدد العاملين بالمنظمة (دوام كامل/ جزئي/ متطوعين)</value>
+  </data>
+  <data name="Alms" xml:space="preserve">
+    <value>الزكاة</value>
+  </data>
+  <data name="AttachAccountantNotes" xml:space="preserve">
+    <value>يرجى إرفاق ملاحظات المحاسب القانوني.</value>
+  </data>
+  <data name="BoardMemmbersRoles" xml:space="preserve">
+    <value>هل لدى أعضاء المجلس لائحة عمل داخلية توضح آليات العمل ومناصب وأدوار أعضاء المجلس واللجان التابعة له؟</value>
+  </data>
+  <data name="BoardMemmbersRolesForOrganiziation" xml:space="preserve">
+    <value>ما هو دور مجلس إدارة المنظمة؟</value>
+  </data>
+  <data name="BoardOfDirectors" xml:space="preserve">
+    <value>مجلس الإدارة (الحوكمة)</value>
+  </data>
+  <data name="BudgetOfCorprateCommunication" xml:space="preserve">
+    <value>ما هي الموازنة المخصصة للاتصال المؤسسي من إجمالي موازنة المنظمة؟</value>
+  </data>
+  <data name="CharteredAccountantNotes" xml:space="preserve">
+    <value>كم عدد ملاحظات المحاسب القانوني؟</value>
+  </data>
+  <data name="CommunicationPlan" xml:space="preserve">
+    <value>هل لدى المنظمة خطة للاتصال المؤسسي؟</value>
+  </data>
+  <data name="ConnectionAndPublicRelations" xml:space="preserve">
+    <value>الاتصال المؤسسي/ العلاقات العامة</value>
+  </data>
+  <data name="DateOfBoardApproval" xml:space="preserve">
+    <value>تاريخ اعتماد مجلس الإدارة الحالي (حسب خطاب موافقة الوزارة)</value>
+  </data>
+  <data name="DoesTheOrganizationHaveAnAnnualOperatingPlan" xml:space="preserve">
+    <value>هل لدى المنظمة خطة تشغيلية سنوية؟</value>
+  </data>
+  <data name="DoesTheOrganztionHaveAnStratgicObject" xml:space="preserve">
+    <value>هل لدى المنظمة هدف استراتيجي يسعى لتمكين أو زيادة دخل أو تحسين وضع اجتماعي أو اقتصادي لمستفيدي المنظمة؟</value>
+  </data>
+  <data name="DonorFoundations" xml:space="preserve">
+    <value>مؤسسات مانحة</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>تاريخ الانتهاء</value>
+  </data>
+  <data name="EntryRequirements" xml:space="preserve">
+    <value>شروط التسجيل</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>التغذية الراجعة</value>
+  </data>
+  <data name="FinanceResource" xml:space="preserve">
+    <value>الموارد المالية</value>
+  </data>
+  <data name="FollowupAndEvaluation" xml:space="preserve">
+    <value>المتابعة والتقييم</value>
+  </data>
+  <data name="FollowUpAndEvaluationAttachment" xml:space="preserve">
+    <value>يرجى إرفاق نماذج المتابعة والتقييم المستخدم لدى منظمتكم.</value>
+  </data>
+  <data name="FollowUpAndEvaluationImplentation" xml:space="preserve">
+    <value>هل لدى المنظمة تقارير متابعة وتقييم تشمل إجراءات تصحيحية للمشاريع المنفذة؟</value>
+  </data>
+  <data name="FollowUpAndEvaluationProjectsAndPrograms" xml:space="preserve">
+    <value>هل لدى المنظمة خطة متابعة وتقييم لبرامجها ومشاريعها؟</value>
+  </data>
+  <data name="FullTimeStaff" xml:space="preserve">
+    <value>موظفين بدوام كامل</value>
+  </data>
+  <data name="GovernmentAgencies" xml:space="preserve">
+    <value>جهات حكومية</value>
+  </data>
+  <data name="HaveRelationAndMedia" xml:space="preserve">
+    <value>هل لدى المنظمة إدارة للاتصال المؤسسي/العلاقات العامة والإعلام؟</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>نبذة مختصرة عن المنظمة</value>
+  </data>
+  <data name="HowManyBoardMembers" xml:space="preserve">
+    <value>كم عدد أعضاء مجلس الإدارة؟</value>
+  </data>
+  <data name="HowManyEmployees" xml:space="preserve">
+    <value>وكم عدد موظفينها؟</value>
+  </data>
+  <data name="HowStaffPerformanceIsMonitored" xml:space="preserve">
+    <value>كيف يتم رصد أداء الموظفين؟</value>
+  </data>
+  <data name="HowTheStratgicPlanDeveloped" xml:space="preserve">
+    <value>كيف تم وضع الخطة الاستراتيجية السابقة، مع تحديد الأعضاء الذين شاركوا في وضعها؟</value>
+  </data>
+  <data name="HowToAttractEmployees" xml:space="preserve">
+    <value>كيف يتم استقطاب الموظفين؟</value>
+  </data>
+  <data name="HROrganizationStructure" xml:space="preserve">
+    <value>هل هناك هيكل تنظيمي يتم العمل بموجبه في إدارة الموارد البشرية في المنظمة؟</value>
+  </data>
+  <data name="HRSpecializedDepartment" xml:space="preserve">
+    <value>هل هناك إدارة متخصصة بالموارد البشرية في المنظمة؟</value>
+  </data>
+  <data name="HumanResources" xml:space="preserve">
+    <value>الموارد البشرية</value>
+  </data>
+  <data name="IdentfiyTrainingNeeds" xml:space="preserve">
+    <value>كيف يتم تحديد الاحتياجات التدريبية لمنسوبي المنظمة؟</value>
+  </data>
+  <data name="IncubationAdvertisingDetails" xml:space="preserve">
+    <value>تفاصيل إعلان مشروع الاحتضان</value>
+  </data>
+  <data name="IncubationAdvertisingModels" xml:space="preserve">
+    <value>اختر مراحل التطوير المؤسسي بالإعلان</value>
+  </data>
+  <data name="IndicateDevelopmentProjects" xml:space="preserve">
+    <value>يرجى ذكر المشاريع التنموية التي تعملون عليها بالمنظمة، مع إعطاء نبذة عن كل مشروع.</value>
+  </data>
+  <data name="Individuals" xml:space="preserve">
+    <value>أفراد</value>
+  </data>
+  <data name="Investments" xml:space="preserve">
+    <value>استثمارات</value>
+  </data>
+  <data name="IsThereIsSpecializeDepartmentForFinancialResources" xml:space="preserve">
+    <value>هل هناك إدارة متخصصة بتنمية الموارد المالية في المنظمة؟</value>
+  </data>
+  <data name="Mission" xml:space="preserve">
+    <value>الرسالة</value>
+  </data>
+  <data name="NumberOfDonors" xml:space="preserve">
+    <value>الرجاء تحديد مصادر الدعم التي حصلت عليها المنظمة العام الماضي؟  (بالإمكان اختيار واحد أو أكثر من الإجابات)</value>
+  </data>
+  <data name="NumberOfFinanceSupporter" xml:space="preserve">
+    <value>كم عدد الجهات/ الأفراد الذين قدموا دعم مالي لمنظمتكم العام الماضي؟</value>
+  </data>
+  <data name="Objectives" xml:space="preserve">
+    <value>الأهداف</value>
+  </data>
+  <data name="OrganizationEstablishedFor" xml:space="preserve">
+    <value>ما هي القضية التي تم تأسيس المنظمة من أجلها؟</value>
+  </data>
+  <data name="OrganizationGovernmentGuid" xml:space="preserve">
+    <value>هل لدى المنظمة دليل للحوكمة؟</value>
+  </data>
+  <data name="organizationStratgicObjectvies" xml:space="preserve">
+    <value>هل تقوم المنظمة بتخطيط مشاريعها وفق الاهداف الاستراتيجية؟</value>
+  </data>
+  <data name="organizationStratgicObjectviesAndImplements" xml:space="preserve">
+    <value>هل تقوم المنظمة بالتخطيط لتنفيذ أنشطتها بمشاركة الفئات المستهدفة والجهات المعنية الأخرى؟</value>
+  </data>
+  <data name="OrganzationBudget" xml:space="preserve">
+    <value>كم هي موازنة المنظمة للعام الحالي؟</value>
+  </data>
+  <data name="PartTimeStaff" xml:space="preserve">
+    <value>الموظفين بدوام جزئي</value>
+  </data>
+  <data name="PleaseAttachAGovernmentGuide" xml:space="preserve">
+    <value>الرجاء إرفاق دليل الحوكمة الخاص بمنظمتكم</value>
+  </data>
+  <data name="PleaseAttachTheStrategicPlan" xml:space="preserve">
+    <value>يرجى إرفاق الخطة الاستراتيجية</value>
+  </data>
+  <data name="PleaseAttachThisYearOperatingPlan" xml:space="preserve">
+    <value>يرجى إرفاق الخطة التشغيلية/التنفيذية لهذا العام</value>
+  </data>
+  <data name="PleaseClarify" xml:space="preserve">
+    <value>الرجاء التوضيح</value>
+  </data>
+  <data name="PrivateSector" xml:space="preserve">
+    <value>قطاع خاص</value>
+  </data>
+  <data name="ProgramsAndProjects" xml:space="preserve">
+    <value>البرامج والمشاريع</value>
+  </data>
+  <data name="ProjectAllocatedBudget" xml:space="preserve">
+    <value>كم حجم الموازنة المرصودة للمشاريع؟ (نرجو الإحاطة بأن موازنة المشاريع تشمل المصاريف المباشرة بالإضافة لرواتب العاملين بالمشاريع).</value>
+  </data>
+  <data name="ProjectAllocatedBudgetAmount" xml:space="preserve">
+    <value>كم حجم الموازنة المرصودة للتشغيل؟ (نرجو الإحاطة بأن موازنة التشغيل تشمل المصاريف غير المباشرة مع رواتب موظفين الإدارات الأخرى مثل الموارد البشرية، الاتصال المؤسسي، المالية، وتقنية المعلومات).</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>اسم المشروع</value>
+  </data>
+  <data name="ProjectProposal" xml:space="preserve">
+    <value>طلب المشروع</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>مرفوض</value>
+  </data>
+  <data name="RequesterName" xml:space="preserve">
+    <value>إسم صاحب الطلب</value>
+  </data>
+  <data name="SeparateBudgetOfCorprateCommunication" xml:space="preserve">
+    <value>هل لدى المنظمة بند مستقل في الموازنة العامة للمنظمة مخصص للاتصال المؤسسي؟</value>
+  </data>
+  <data name="SpecializedForEvalutionAndMonitoring" xml:space="preserve">
+    <value>هل هناك إدارة متخصصة بالمتابعة والتقييم؟</value>
+  </data>
+  <data name="SpecializedForProgramsAndProjects" xml:space="preserve">
+    <value>هل هناك إدارة متخصصة بالبرامج والمشاريع في المنظمة؟</value>
+  </data>
+  <data name="SpecializedInRelationAndMedia" xml:space="preserve">
+    <value>هل هناك إدارة متخصصة بالاتصال المؤسسي والعلاقات العامة في المنظمة؟</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>تاريخ البدء</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="TheStrategy" xml:space="preserve">
+    <value>الاستراتيجية</value>
+  </data>
+  <data name="Vision" xml:space="preserve">
+    <value>الرؤيه</value>
+  </data>
+  <data name="VolumeOfOrganizationRevenue" xml:space="preserve">
+    <value>ما هو حجم إيرادات المنظمة في العام الماضي؟</value>
+  </data>
+  <data name="VolunteerStaff" xml:space="preserve">
+    <value>الموظفين المتطوعين</value>
+  </data>
+  <data name="BoarderMemmbersMeetings" xml:space="preserve">
+    <value>كم مرة يجتمع أعضاء مجلس الإدارة خلال السنة الميلادية؟</value>
+  </data>
+  <data name="Baseline" xml:space="preserve">
+    <value>أستبيان لقياس الوضع الحالي للمنظمة</value>
+  </data>
+  <data name="BaselineApplicationForm" xml:space="preserve">
+    <value>استبيان لقياس الوضع الحالي للمنظمة</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>تنزيل</value>
+  </data>
+  <data name="PleaseIndicateNumberDonors" xml:space="preserve">
+    <value>يرجى ذكر عدد الجهات المانحة من كل خيار تم اختياره أعلاه، ومبلغ الدعم من كل جهة</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+</root>

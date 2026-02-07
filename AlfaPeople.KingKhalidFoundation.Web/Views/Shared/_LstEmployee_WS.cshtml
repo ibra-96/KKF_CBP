@@ -1,0 +1,132 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.EmployeesAttendIncubationWorkShop
+@using (Html.BeginCollectionItem("LstEmployee_WS"))
+{
+    <div id="employeeRow" class="row  employeeRow" style="direction:@Resources.General.dir; text-align:@Resources.General.TextAlign;">
+        @Html.HiddenFor(m => m.ID)
+        @Html.HiddenFor(m => m.WorkshopProjectProposalID)
+        <div class="col-sm-3">
+            <label for="Name">@Resources.General.Name</label>
+            <div class="form-group">
+                @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control", @required = "required", } })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <label for="Name">@Resources.General.Gender</label>
+            <div class="form-group">
+                @Html.EnumDropDownListFor(model => model.Gender, new { @class = "select-wizard form-control", @required = "required", data_style = "select-with-transition" })
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <label for="Email">@Resources.General.Email</label>
+            <div class="form-group">
+                @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control", @type = "email", @required = "required" } })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <label for="Mobile">@Resources.Consultants.MobileNumber</label>
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @minlength = "10", @maxlength = "14", @required = "required", @oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*)\\./g, '$1');" })
+                @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label for="Mobile">@Resources.General.EducationalQualificationAndSpecialization</label>
+            <div class="form-group">
+                @Html.EditorFor(m => m.EducationalQualificationAndSpecialization, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(m => m.Position, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label for="Mobile">@Resources.General.Positions</label>
+            <div class="form-group">
+                @Html.EditorFor(m => m.Position, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(m => m.Position, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-sm-11">
+            <label for="Mobile">@Resources.General.PositionTasks</label>
+            <div class="form-group">
+                @Html.TextAreaFor(m => m.PositionTasks, new { @class = "form-control", @required = "required", @rows = "2" })
+                @Html.ValidationMessageFor(m => m.Position, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <button class="btn btn-link btn-danger btn-just-icon remove" type="button" onclick="RemoveRow(this)">
+            <i class="material-icons">delete</i>
+        </button>
+        <hr style="width: 100%; border: 1px double #e1b228; border-radius: 100%;" />
+    </div>
+}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var lang = document.documentElement.lang;
+
+        // الحصول على جميع العناصر داخل body
+        var elements = document.body.querySelectorAll('*');
+
+        // قائمة بالكلاسات التي نريد استثنائها
+        var excludedClasses = [
+            'logo',
+            'simple-text',
+            'logo-mini',
+            'logo-normal',
+            'sidebar-wrapper',
+            'ps-container',
+            'ps-theme-default',
+            'user',
+            'photo',
+            'collapse',
+            'nav',
+            'nav-item',
+            'text_align-center',
+            'text_align-center',
+            'material-icons',
+            'table',
+            'sidebar',
+            'text_align-center',
+            '.btn.btn-fab .fa, .btn.btn-fab .material-icons, .btn.btn-just-icon .fa, .btn.btn-just-icon .material-icons'
+        ];
+
+        if (lang === "ar") {
+            document.body.classList.add("rtl");
+            document.body.classList.remove("ltr");
+
+            // تعيين الخصائص للعناصر داخل body ما عدا العناصر المستثناة
+            elements.forEach(function (element) {
+                var computedStyle = window.getComputedStyle(element);
+
+                // التحقق إذا كان العنصر يحتوي على أي من الكلاسات المستثناة
+                var hasExcludedClass = excludedClasses.some(function (className) {
+                    return element.classList.contains(className);
+                });
+
+                // استبعاد العناصر التي تحتوي على الكلاسات المستثناة أو text-align: center أو justify-content: center
+                if (!hasExcludedClass && computedStyle.textAlign !== 'center' && computedStyle.justifyContent !== 'center') {
+                    element.style.direction = 'rtl';
+                    element.style.textAlign = 'right';
+                }
+            });
+        } else {
+            document.body.classList.add("ltr");
+            document.body.classList.remove("rtl");
+
+            // تعيين الخصائص للعناصر داخل body ما عدا العناصر المستثناة
+            elements.forEach(function (element) {
+                var computedStyle = window.getComputedStyle(element);
+
+                // التحقق إذا كان العنصر يحتوي على أي من الكلاسات المستثناة
+                var hasExcludedClass = excludedClasses.some(function (className) {
+                    return element.classList.contains(className);
+                });
+
+                // استبعاد العناصر التي تحتوي على الكلاسات المستثناة أو text-align: center أو justify-content: center
+                if (!hasExcludedClass && computedStyle.textAlign !== 'center' && computedStyle.justifyContent !== 'center') {
+                    element.style.direction = 'ltr';
+                    element.style.textAlign = 'left';
+                }
+            });
+        }
+    });
+</script>

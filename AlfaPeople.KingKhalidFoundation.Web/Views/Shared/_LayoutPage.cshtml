@@ -1,0 +1,765 @@
+﻿@{
+    ViewBag.name = User.Identity.Name;
+}
+<!DOCTYPE html>
+<html lang="@Resources.General.lang" style="direction:@Resources.General.dir; text-align:@Resources.General.TextAlign;" @*dir="@Resources.General.dir"*@>
+<head>
+    <style>
+        .field-validation-error {
+            color: red;
+            display: block;
+            font-size: 11px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="~/assets/img/piclogo.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>King Khalid Foundation</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/css.css" />
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="~/assets/css/material-dashboard.min.css" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="~/assets/demo/demo.css" rel="stylesheet" />
+    <link href="~/assets/alertifyjs/css/alertify.min.css" rel="stylesheet" />
+    <link href="~/assets/jquery-ui.css" rel="stylesheet" />
+    <!-- تحميل jQuery أولًا -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- ثم تحميل Chosen -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet">
+
+
+</head>
+@*<body class="@Resources.General.dir" @if (Resources.General.lang == "ar") { <text> style="font-family: 'Suisse', 'Lucida Grande', 'Droid Arabic Kufi', Arial, sans-serif !important; text-align: right " </text>  } else { <text> style="font-family: 'Mabry', 'Lucida Grande', Arial, sans-serif !important;" </text> }>*@
+<body class="@Resources.General.dir"
+      style="@(Resources.General.lang == "ar"
+                ? "font-family: 'Suisse', 'Lucida Grande', 'Droid Arabic Kufi', Arial, sans-serif !important; text-align: right;"
+                : "font-family: 'Mabry', 'Lucida Grande', Arial, sans-serif !important;")">
+
+    <!-- Extra details for Live View on GitHub Pages -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+    <div class="wrapper ">
+        <div class="sidebar" data-color="orange" data-background-color="green" data-image="@Url.Content("~/assets/img/background.jpg")">
+            <!-- Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+            Tip 2: you can also add an image using data-image tag -->
+            <div class="logo">
+                <a href="#" class="simple-text logo-mini">
+                    <img src="~/assets/img/piclogo.png" class="navbar-brand" style="height:35px;padding:0;" />
+                </a>
+                <a href="#" class="simple-text logo-normal">
+                    <img src="~/assets/img/textlogo.png" class="navbar-brand" style="height:35px;padding:0;" />
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <div class="user">
+                    <div class="photo">
+                        @if (ViewBag.imgSrc != null)
+                        {
+                            <img src="@ViewBag.imgSrc" />
+
+                        }
+                        else
+                        {
+                            <img src="~/assets/img/default-avatar.png" />
+                        }
+                    </div>
+                    <div class="user-info">
+                        <a data-toggle="collapse" href="#collapseExample" class="username">
+                            <span>
+                                @ViewBag.name
+                                <b class="caret"></b>
+                            </span>
+                        </a>
+                        <div class="collapse" id="collapseExample">
+                            <ul class="nav">
+                                @if (User.IsInRole("Corporation"))
+                                {
+                                    <text>
+                                        <li id="navItem_MyProfile" class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("CorporationProfile","Home")">
+                                                <span class="sidebar-mini"> MAI </span>
+                                                <span class="sidebar-normal"> @Resources.General.MyProfile </span>
+                                            </a>
+                                        </li>
+                                    </text>
+                                }
+                                else if (User.IsInRole("IndIvidual"))
+                                {
+                                    <text>
+                                        <li id="navItem_MyProfile" class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("IndIvidualProfile","Home")">
+                                                <span class="sidebar-mini"> MAI </span>
+                                                <span class="sidebar-normal"> @Resources.General.MyProfile </span>
+                                            </a>
+                                        </li>
+                                    </text>
+                                }
+                                <li class="nav-item">
+                                    @* shadia *@
+
+                                    <a class="nav-link" href="javascript:void(0);" onclick="confirmNavigation('@Url.Action("BaselineApplicationForm", "Home")')">
+                                        <span class="sidebar-mini"> </span>
+                                        <span class="sidebar-normal"> @Resources.IncubationRequest.Baseline </span>
+                                    </a>
+                                </li>
+                                <li id="navItem_ChangePassword" class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("ChangePassword","Manage")">
+                                        <span class="sidebar-mini"> CP </span>
+                                        <span class="sidebar-normal"> @Resources.General.ChangePassword  </span>
+                                    </a>
+                                </li>
+                                @{
+                                    System.Globalization.CultureInfo currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
+                                    if (Resources.General.lang == "ar")
+                                    {
+                                        <li class="nav-item"><a class="nav-link" href="~/Base/ChangeCurrentCulture/0"><span class="sidebar-mini"><i class="material-icons">language</i></span><span class="sidebar-normal">English</span></a></li>
+                                    }
+                                    else if (Resources.General.lang == "en")
+                                    {
+                                        <li class="nav-item "><a class="nav-link" href="~/Base/ChangeCurrentCulture/3" style="font-size: 16px;/*font-weight: bold;*/"><span class="sidebar-mini"><i class="material-icons">language</i></span><span class="sidebar-normal"> عربي</span></a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="nav-item"><a class="nav-link" href="~/Base/ChangeCurrentCulture/0"><span class="sidebar-mini"><i class="material-icons">language</i></span><span class="sidebar-normal">English</span> </a></li>
+                                        <li class="nav-item "><a class="nav-link" href="~/Base/ChangeCurrentCulture/3" style="font-size: 16px;/*font-weight: bold;*/"><span class="sidebar-mini"><i class="material-icons">language</i></span><span class="sidebar-normal"> عربي</span></a></li>
+                                    }
+                                }
+                                <li class="nav-item">
+                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right", @style = "display:none;" }))
+                                    { }
+                                    <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">
+                                        <span class="sidebar-mini"><i class="material-icons">power_off</i></span>
+                                        <span class="sidebar-normal">@Resources.General.SignOut </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav">
+                    <li id="navItem_Dashboard" class="nav-item">
+                        <a class="nav-link" href="@Url.Action("dashboard","Home")">
+                            <i class="material-icons">dashboard</i>
+                            <p> @Resources.General.Dashboard </p>
+                        </a>
+                    </li>
+                    <li id="navItem_Request" class="nav-item ">
+                        <a class="nav-link" href="@Url.Action("Index","Request")">
+                            <i class="material-icons">filter_frames</i>
+                            <p>
+                                @Resources.General.JoinRequests
+                            </p>
+                        </a>
+                    </li>
+                    <li id="navItem_Calender" class="nav-item ">
+                        <a class="nav-link" href="@Url.Action("Index","Calender")">
+                            <i class="material-icons">date_range</i>
+                            <p> @Resources.General.Calendar </p>
+                        </a>
+                    </li>
+                    <li id="navItem_Help" class="nav-item " style="position:absolute;bottom:0px; width:100%">
+                        <a class="nav-link" href="#KKF" data-toggle="modal" data-target="#myModal">
+                            <i class="material-icons">help_outline</i>
+                            <p> @Resources.General.Help </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-panel">
+
+          
+
+
+
+
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " style="direction:@Resources.General.dir;" id="navigation-example">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-minimize">
+                            <button id="minimizeSidebar" class="btn btn-just-icon btn-white btn-fab btn-round">
+                                <i class="material-icons text_align-center visible-on-sidebar-regular">more_vert</i>
+                                <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
+                            </button>
+                        </div>
+                        <a class="navbar-brand" href="#KKF">@ViewBag.Title</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false"
+                            aria-label="Toggle navigation" data-target="#navigation-example">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" style="font-weight: bold;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">person</i>@User.Identity.Name
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    @*<a class="dropdown-item" @if (User.IsInRole("Corporation")) { <text> href="@Url.Action("CorporationProfile", "Home")" </text>  } else if (User.IsInRole("IndIvidual")) { <text> href="@Url.Action("IndIvidualProfile", "Home")" </text> }>@Resources.General.Profile</a>*@
+                                    <a class="dropdown-item"
+                                       href="@(User.IsInRole("Corporation")
+                                        ? Url.Action("CorporationProfile", "Home")
+                                        : User.IsInRole("IndIvidual")
+                                            ? Url.Action("IndIvidualProfile", "Home")
+                                            : "#")">
+                                        @Resources.General.Profile
+                                    </a>
+
+                                    @* shadia *@
+                                    @*<a class="dropdown-item" href="@Url.Action("BaselineApplicationForm","Home")">@Resources.IncubationRequest.Baseline</a>*@
+                                    <a class="dropdown-item" href="javascript:void(0);" onclick="confirmNavigation('@Url.Action("BaselineApplicationForm", "Home")')">
+                                        @Resources.IncubationRequest.Baseline
+                                    </a>
+
+
+                                    @*  *@
+                                    <a class="dropdown-item" href="@Url.Action("ChangePassword", "Manage")">@Resources.General.ChangePassword</a>
+                                    <a class="dropdown-item" href="#KKF" data-toggle="modal" data-target="#myModal"> @Resources.General.Help </a>
+                                    <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">@Resources.General.SignOut</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                @{
+                                    System.Globalization.CultureInfo cultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
+                                    if (Resources.General.lang == "ar")
+                                    {
+                                        <a class="nav-link" href="~/Base/ChangeCurrentCulture/0" style="font-weight: bold;"><i class="material-icons">language</i> English</a>
+                                    }
+                                    else if (Resources.General.lang == "en")
+                                    {
+                                        <a class="nav-link" href="~/Base/ChangeCurrentCulture/3" style="font-size: 18px;font-weight: bold;"><i class="material-icons">language</i> عربي</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="nav-link" href="~/Base/ChangeCurrentCulture/0" style="font-weight: bold;"><i class="material-icons">language</i> English</a>
+                                        <a class="nav-link" href="~/Base/ChangeCurrentCulture/3" style="font-size: 18px;font-weight: bold;"><i class="material-icons">language</i> عربي</a>
+                                    }
+                                }
+
+                            </li>
+
+                            <li id="navItem_Help" class="nav-item">
+                                <a class="nav-link" href="#KKF" data-toggle="modal" data-target="#myModal" style="font-weight: bold;">
+                                    <i class="material-icons">help_outline</i>
+                                    @Resources.General.Help
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <!-- Content -->
+            @RenderBody()
+            <!-- End Content -->
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container">
+                    <nav class="float-left">
+                        <ul>
+                            <li>
+                                @if (Resources.General.dir == "rtl")
+                                {
+                                    <a target="_blank" href="https://kkf.org.sa/%D8%B9%D9%86-%D8%A7%D9%84%D9%85%D8%A4%D8%B3%D8%B3%D8%A9/">
+                                        @Resources.General.AboutUs
+                                    </a>
+                                }
+                                else if (Resources.General.dir == "ltr")
+                                {
+                                    <a target="_blank" href="https://kkf.org.sa/en/about-us/">
+                                        @Resources.General.AboutUs
+                                    </a>
+                                }
+                            </li>
+                            <li>
+                                @if (Resources.General.dir == "rtl")
+                                {
+                                    <a target="_blank" href="https://kkf.org.sa/%D8%A3%D8%B9%D9%85%D8%A7%D9%84%D9%86%D8%A7/">
+                                        @Resources.General.Blog
+                                    </a>
+                                }
+                                else if (Resources.General.dir == "ltr")
+                                {
+                                    <a target="_blank" href="https://kkf.org.sa/en/our-work/">
+                                        @Resources.General.Blog
+                                    </a>
+                                }
+                            </li>
+                            <li>
+                                @if (Resources.General.dir == "rtl")
+                                {
+                                    <a target="_blank" href="https://kkf.org.sa/%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1%D9%86%D8%A7/">
+                                        @Resources.General.Licenses
+                                    </a>
+                                }
+                                else if (Resources.General.dir == "ltr")
+                                {
+                                    <a target="_blank" href="https://kkf.org.sa/en/News/">
+                                        @Resources.General.Licenses
+                                    </a>
+                                }
+                            </li>
+                            @*<li>
+                                    <a href="#KKF" data-toggle="modal" data-target="#myModal">
+                                        @Resources.General.Help
+                                    </a>
+                                </li>*@
+                        </ul>
+                    </nav>
+                    <div class="copyright float-right">
+                        @if (Resources.General.dir == "rtl")
+                        {
+                            <text>
+                                @Resources.General.AllRightsReserved @DateTime.Now.Year
+                            </text>
+                        }
+                        else if (Resources.General.dir == "ltr")
+                        {
+                            <text>
+                                &copy;@DateTime.Now.Year @Resources.General.AllRightsReserved
+                            </text>
+                        }
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </div>
+    </div>
+
+    <!-- Classic Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>@Resources.General.Help</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </div>
+                <div class="modal-body" style="direction: @Resources.General.dir;text-align: @Resources.General.TextAlign;">
+                    <p>
+                        <b>@Resources.General.SupportMsg</b>
+                        <br />
+                        <b>@Resources.General.Email: </b><a href="mailto:it@kkf.org.sa">it@kkf.org.sa</a>
+                        <br />
+                        <b>@Resources.General.Phone: </b><a href="tel:0112020202">0112020202 &nbsp;</a><b>@Resources.General.Ext: </b> <a href="#KKF">5333</a><b> & </b><a href="#KKF"> 3115</a>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-link" target="_blank" href="~/assets/Manual/CB_C_Manual.pdf">@Resources.General.CB_Instructions</a>
+                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">@Resources.General.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  End Modal -->
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/assets/jquery-ui.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/respond.min.js"></script>
+    @*<script src="~/Scripts/chosen.jquery.min.js"></script>*@
+    <!--   Core JS Files   -->
+    <script src="~/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="~/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="~/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Plugin for the momentJs  -->
+    <script src="~/assets/js/plugins/moment.min.js"></script>
+    <!--  Plugin for Sweet Alert -->
+    <script src="~/assets/js/plugins/sweetalert2.js"></script>
+    <!-- Forms Validations Plugin -->
+    <!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+    <script src="~/assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+    <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+    <script src="~/assets/js/plugins/bootstrap-selectpicker.js"></script>
+    <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+    <script src="~/assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+    <!--  DataTables.net Plugin, full documentation here: https://datatables.net/    -->
+    <script src="~/assets/js/plugins/jquery.dataTables.min.js"></script>
+    <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+    <script src="~/assets/js/plugins/bootstrap-tagsinput.js"></script>
+    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="~/assets/js/plugins/jasny-bootstrap.min.js"></script>
+    <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+    <script src="~/assets/js/plugins/fullcalendar.min.js"></script>
+    <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+    <script src="~/assets/js/plugins/jquery-jvectormap.js"></script>
+    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="~/assets/js/plugins/nouislider.min.js"></script>
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+    <script src="~/assets/js/core.js"></script>
+    <!-- Library for adding dinamically elements -->
+    <script src="~/assets/js/plugins/arrive.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="~/assets/js/js.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="~/assets/js/buttons.js"></script>
+    <!-- Chartist JS -->
+    <script src="~/assets/js/plugins/chartist.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="~/assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="~/assets/js/material-dashboard.min.js?v=2.0.2" type="text/javascript"></script>
+    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+    <script src="~/assets/demo/demo.js"></script>
+    <!-- Alertify -->
+    <script src="~/assets/alertifyjs/alertify.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $().ready(function () {
+                $sidebar = $('.sidebar');
+
+                $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+                $full_page = $('.full-page');
+
+                $sidebar_responsive = $('body > .navbar-collapse');
+
+                window_width = $(window).width();
+
+                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+                if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+                    if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+                        $('.fixed-plugin .dropdown').addClass('open');
+                    }
+
+                }
+
+                $('.fixed-plugin a').click(function (event) {
+                    // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+                    if ($(this).hasClass('switch-trigger')) {
+                        if (event.stopPropagation) {
+                            event.stopPropagation();
+                        } else if (window.event) {
+                            window.event.cancelBubble = true;
+                        }
+                    }
+                });
+
+                $('.fixed-plugin .active-color span').click(function () {
+                    $full_page_background = $('.full-page-background');
+
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+                    var new_color = $(this).data('color');
+
+                    if ($sidebar.length != 0) {
+                        $sidebar.attr('data-color', new_color);
+                    }
+
+                    if ($full_page.length != 0) {
+                        $full_page.attr('filter-color', new_color);
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.attr('data-color', new_color);
+                    }
+                });
+
+                $('.fixed-plugin .background-color .badge').click(function () {
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+                    var new_color = $(this).data('background-color');
+
+                    if ($sidebar.length != 0) {
+                        $sidebar.attr('data-background-color', new_color);
+                    }
+                });
+
+                $('.fixed-plugin .img-holder').click(function () {
+                    $full_page_background = $('.full-page-background');
+
+                    $(this).parent('li').siblings().removeClass('active');
+                    $(this).parent('li').addClass('active');
+
+
+                    var new_image = $(this).find("img").attr('src');
+
+                    if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                        $sidebar_img_container.fadeOut('fast', function () {
+                            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                            $sidebar_img_container.fadeIn('fast');
+                        });
+                    }
+
+                    if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                        $full_page_background.fadeOut('fast', function () {
+                            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                            $full_page_background.fadeIn('fast');
+                        });
+                    }
+
+                    if ($('.switch-sidebar-image input:checked').length == 0) {
+                        var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                        $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                        $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+                    }
+                });
+
+                $('.switch-sidebar-image input').change(function () {
+                    $full_page_background = $('.full-page-background');
+
+                    $input = $(this);
+
+                    if ($input.is(':checked')) {
+                        if ($sidebar_img_container.length != 0) {
+                            $sidebar_img_container.fadeIn('fast');
+                            $sidebar.attr('data-image', '#');
+                        }
+
+                        if ($full_page_background.length != 0) {
+                            $full_page_background.fadeIn('fast');
+                            $full_page.attr('data-image', '#');
+                        }
+
+                        background_image = true;
+                    } else {
+                        if ($sidebar_img_container.length != 0) {
+                            $sidebar.removeAttr('data-image');
+                            $sidebar_img_container.fadeOut('fast');
+                        }
+
+                        if ($full_page_background.length != 0) {
+                            $full_page.removeAttr('data-image', '#');
+                            $full_page_background.fadeOut('fast');
+                        }
+
+                        background_image = false;
+                    }
+                });
+
+                $('.switch-sidebar-mini input').change(function () {
+                    $body = $('body');
+
+                    $input = $(this);
+
+                    if (md.misc.sidebar_mini_active == true) {
+                        $('body').removeClass('sidebar-mini');
+                        md.misc.sidebar_mini_active = false;
+
+                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+                    } else {
+
+                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+                        setTimeout(function () {
+                            $('body').addClass('sidebar-mini');
+
+                            md.misc.sidebar_mini_active = true;
+                        }, 300);
+                    }
+
+                    // we simulate the window Resize so the charts will get updated in realtime.
+                    var simulateWindowResize = setInterval(function () {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 180);
+
+                    // we stop the simulation of Window Resize after the animations are completed
+                    setTimeout(function () {
+                        clearInterval(simulateWindowResize);
+                    }, 1000);
+
+                });
+            });
+        });
+    </script>
+
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $(window).on('load', function () {
+            /*  console.clear();*/
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('form').one('submit', function () {
+                $(this).find("input[type='submit']").prop('disabled', true);
+                $(this).find('input[type="submit"]').attr('disabled', 'disabled');
+                $(this).find("button[type='submit']").prop('disabled', true);
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            });
+            $('form').submit(function () {
+                $(this).find("input[type='submit']").prop('disabled', true);
+                $(this).find('input[type="submit"]').attr('disabled', 'disabled');
+                $(this).find("button[type='submit']").prop('disabled', true);
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            });
+            $('input').focusout(function () {
+                if ($(this).val() != '') {
+                    $(':input[type="submit"]').prop('disabled', false);
+                    $(':button[type="submit"]').prop('disabled', false);
+
+                    $(':input[type="submit"]').removeAttr('disabled');
+                    $(':button[type="submit"]').removeAttr('disabled');
+                }
+            });
+            $('select').change(function () {
+                if ($(this).val() != '') {
+                    $(':input[type="submit"]').prop('disabled', false);
+                    $(':button[type="submit"]').prop('disabled', false);
+
+                    $(':input[type="submit"]').removeAttr('disabled');
+                    $(':button[type="submit"]').removeAttr('disabled');
+                }
+            });
+            $('textarea').focusout(function () {
+                if ($(this).val() != '') {
+                    $(':input[type="submit"]').prop('disabled', false);
+                    $(':button[type="submit"]').prop('disabled', false);
+
+                    $(':input[type="submit"]').removeAttr('disabled');
+                    $(':button[type="submit"]').removeAttr('disabled');
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var lang = document.documentElement.lang;
+
+            // الحصول على جميع العناصر داخل body
+            var elements = document.body.querySelectorAll('*');
+
+            // قائمة بالكلاسات التي نريد استثنائها
+            var excludedClasses = [
+                'logo',
+                'simple-text',
+                'logo-mini',
+                'logo-normal',
+                'sidebar-wrapper',
+                'ps-container',
+                'ps-theme-default',
+                'user',
+                'photo',
+                'collapse',
+                'nav',
+                'nav-item',
+                'text_align-center',
+                'text_align-center',
+                'material-icons',
+                'table',
+                'sidebar',
+                'text_align-center',
+                '.btn.btn-fab .fa, .btn.btn-fab .material-icons, .btn.btn-just-icon .fa, .btn.btn-just-icon .material-icons'
+            ];
+
+            if (lang === "ar") {
+                document.body.classList.add("rtl");
+                document.body.classList.remove("ltr");
+
+                // تعيين الخصائص للعناصر داخل body ما عدا العناصر المستثناة
+                elements.forEach(function (element) {
+                    var computedStyle = window.getComputedStyle(element);
+
+                    // التحقق إذا كان العنصر يحتوي على أي من الكلاسات المستثناة
+                    var hasExcludedClass = excludedClasses.some(function (className) {
+                        return element.classList.contains(className);
+                    });
+
+                    // استبعاد العناصر التي تحتوي على الكلاسات المستثناة أو text-align: center أو justify-content: center
+                    if (!hasExcludedClass && computedStyle.textAlign !== 'center' && computedStyle.justifyContent !== 'center') {
+                        element.style.direction = 'rtl';
+                        element.style.textAlign = 'right';
+                    }
+                });
+            } else {
+                document.body.classList.add("ltr");
+                document.body.classList.remove("rtl");
+
+                // تعيين الخصائص للعناصر داخل body ما عدا العناصر المستثناة
+                elements.forEach(function (element) {
+                    var computedStyle = window.getComputedStyle(element);
+
+                    // التحقق إذا كان العنصر يحتوي على أي من الكلاسات المستثناة
+                    var hasExcludedClass = excludedClasses.some(function (className) {
+                        return element.classList.contains(className);
+                    });
+
+                    // استبعاد العناصر التي تحتوي على الكلاسات المستثناة أو text-align: center أو justify-content: center
+                    if (!hasExcludedClass && computedStyle.textAlign !== 'center' && computedStyle.justifyContent !== 'center') {
+                        element.style.direction = 'ltr';
+                        element.style.textAlign = 'left';
+                    }
+                });
+            }
+        });
+    </script>
+
+
+
+    @* shadia *@
+    <script>
+
+    </script>
+    <script>
+    function confirmNavigation(url) {
+        swal({
+            title: '@Resources.General.warning',
+            text: '@Html.Raw(Resources.General.confirmNavigationBaseLine)',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: '@Resources.General.Confirm',
+            cancelButtonText: '@Resources.General.Cancel',
+            confirmButtonClass: "btn btn-success",
+            cancelButtonClass: "btn btn-danger",
+            buttonsStyling: false
+        }).then(function () {
+            // إذا ضغط المستخدم على "تأكيد"
+            if (url) {
+                console.log("Redirecting to:", url);
+                window.location.href = url;
+
+            } else {
+                console.error("الرابط غير صالح.");
+            }
+        }, function (dismiss) {
+            // إذا ضغط المستخدم على "إلغاء"
+            if (dismiss === 'cancel') {
+                swal({
+                    title:  '@Resources.General.Cancel',
+                    text:  '@Resources.General.Canceled',
+                    type: 'error',
+                    confirmButtonClass: "btn btn-info",
+                    buttonsStyling: false
+                }).catch(swal.noop);
+            }
+        });
+        }
+    </script>
+
+  
+
+    @*  *@
+</body>
+</html>

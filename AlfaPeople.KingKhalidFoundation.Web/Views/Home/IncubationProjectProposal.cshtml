@@ -1,0 +1,931 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Web.Models.IncubationProjectProposalVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@{
+    ViewBag.title = Resources.IncubationRequest.Baseline;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+
+<!-- Content -->
+@*<div class="content">*@
+
+
+<div class="content">
+    <div class="container-fluid">
+
+
+
+        <div class="row">
+
+            <div class="card">
+                @*<div class="card-header">
+                        <h4 class="card-title">Collapsible Accordion</h4>
+                    </div>*@
+                <div class="card-body">
+                    <div id="accordion" role="tablist">
+                        <div class="card-collapse">
+                            <div class="card-header" role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+                                        @Resources.IncubationRequest.IncubationAdvertisingDetails
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                </h5>
+                            </div>
+
+
+                            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-6">
+                                            <label for="incubationAdName" class="bmd-label-floating"> @Resources.IncubationRequest.AdvertisingName </label>
+                                            <div class="form-group">
+                                                <input type="text" id="incubationAdName" name="incubationAdName" value="@Model.IncubationAd.Name" class="form-control" disabled="disabled" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @*<label for="incubationAdModels" class="bmd-label-floating"> @Resources.IncubationRequest.IncubationAdvertisingModels </label>
+                                                <div class="form-group">
+                                                    <select id="incubationAdModels" name="incubationAdModels" class="select-wizard form-control selectpicker" data-style="select-with-transition" disabled="disabled" multiple="multiple" title="Select Advertising Models">
+                                                        @foreach (var item in @Model.IncubationAd.IncubationAdvertisingModels)
+                                                        {
+                                                            <option selected="selected" value="@item.IncubationModel.IncubationModelID">@item.IncubationModel.NameEN </option>
+                                                        }
+                                                    </select>
+                                                </div>*@
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="incubationAdStartDate" class="bmd-label-floating"> @Resources.IncubationRequest.StartDate </label>
+                                            <div class="form-group">
+                                                <input type="text" id="incubationAdStartDate" name="incubationAdStartDate" value="@Model.IncubationAd.StartDate.ToString(" yyyy-MM-dd")" class="form-control" disabled="disabled" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="incubationAdEndDate" class="bmd-label-floating"> @Resources.IncubationRequest.EndDate </label>
+                                            <div class="form-group">
+                                                <input type="text" id="incubationAdEndDate" name="incubationAdEndDate" value="@Model.IncubationAd.EndDate.ToString(" yyyy-MM-dd")" class="form-control" disabled="disabled" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <label for="incubationAdDetails" class="bmd-label-floating">@Resources.IncubationRequest.AdvertisingDetails</label>
+                                            <div class="form-group">
+                                                <textarea id="incubationAdDetails" name="incubationAdDetails" class="form-control" rows="3" disabled="disabled">@Model.IncubationAd.AdvertisingDetails</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <label for="incubationAdRequirements" class="bmd-label-floating">@Resources.IncubationRequest.EntryRequirements</label>
+                                            <div class="form-group">
+                                                <textarea id="incubationAdRequirements" name="incubationAdRequirements" class="form-control" rows="3" disabled="disabled">@Model.IncubationAd.EntryRequirements</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="material-datatables">
+                                                <table id="AttachmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>@Resources.General.AttachmentName</th>
+                                                            <th>@Resources.General.AttachmentType</th>
+                                                            <th>@Resources.General.AttachmentSize</th>
+                                                            <th class="disabled-sorting">@Resources.General.Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var item in Model.IncubationAd.IncubationAdvertisingAttachments)
+                                                        {
+                                                            <tr>
+                                                                <td>
+                                                                    <a class="btn btn-link btn-default" href="@Url.Action("DownloadIncubationAdvertisingAttachments", new { id=item.AttachmentID })">
+                                                                        <i class="material-icons">attach_file</i>
+                                                                        @item.Name
+                                                                    </a>
+                                                                </td>
+                                                                <td>@item.Type</td>
+                                                                <td>@item.Size Bytes</td>
+                                                                <td class="text-right">
+                                                                    <a class="btn btn-link btn-rose btn-just-icon" href="@Url.Action("DownloadIncubationAdvertisingAttachments", new { id=item.AttachmentID })">
+                                                                        <i class="material-icons">get_app</i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+                            <div class="card-collapse">
+                                <div class="card-header" role="tab" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            @Resources.IncubationRequest.Baseline
+                                            <i class="material-icons">keyboard_arrow_down</i>
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body ">
+                                        <div class="card" @if (Model.IncubationAd.FundingSource.UseCustomThemes) { <text> style="background-image: url('@Model.IncubationAd.FundingSource.GrantBackgroundPic'); background-size: cover; background-repeat: round; background-position: center;" </text> }>
+                                            <div class="card-header card-header-rose card-header-icon">
+                                                @if (Model.IncubationAd.FundingSource.UseCustomThemes)
+                                                {
+                                                    <div class="card-icon" style="padding:0px; background: rgba(0, 0, 0, 0); background-color: rgba(0, 0, 0, 0); box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);">
+                                                        <img src="@Model.IncubationAd.FundingSource.GrantHeaderPic" style="width:101%; border-radius: 3px;" />
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="card-icon">
+                                                        <i class="material-icons">all_inclusive</i>
+                                                    </div>
+                                                }
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="content">
+                                                    @using (Html.BeginForm("IncubationProjectProposal", "Home", FormMethod.Post, new { @enctype = "multipart/form-data", @id = "form" }))
+                                                    {
+                                                        @Html.AntiForgeryToken()
+
+                                                        @Html.HiddenFor(model => model.IncubationAd.IncubationAdID)
+                                                        @Html.HiddenFor(model => model.IncubationAd.Name)
+                                                        @Html.HiddenFor(model => model.IncubationAd.StartDate)
+                                                        @Html.HiddenFor(model => model.IncubationAd.EndDate)
+                                                        @Html.HiddenFor(model => model.IncubationAd.AdvertisingDetails)
+                                                        @Html.HiddenFor(model => model.IncubationAd.EntryRequirements)
+                                                        @Html.HiddenFor(model => model.IncubationAd.IncubationTypeID)
+                                                        @Html.HiddenFor(model => model.IncubationAd.FundingSourceID)
+                                                        @Html.HiddenFor(model => model.IncubationAd.IsActive)
+                                                        @Html.HiddenFor(model => model.IncubationAd.ISPublic)
+
+                                                        @Html.HiddenFor(model => model.IncubationBL.FrontendUserID)
+                                                        @Html.HiddenFor(model => model.IncubationBL.IncubationBaselineID)
+                                                        @Html.HiddenFor(model => model.IncubationBL.IncubationBaselineStatusID)
+                                                        @Html.HiddenFor(model => model.IncubationBL.submissionDate)
+                                                        @Html.HiddenFor(model => model.IncubationBL.Feadback)
+                                                        @Html.HiddenFor(model => model.IncubationBL.StrategicPlan)
+                                                        @Html.HiddenFor(model => model.IncubationBL.OperatingPlan)
+                                                        @Html.HiddenFor(model => model.IncubationBL.GovernanceGuide)
+                                                        @Html.HiddenFor(model => model.IncubationBL.CharteredAccountantNotes)
+                                                        @Html.HiddenFor(model => model.IncubationBL.AttachFollowUpandEvaluationForms)
+                                                        @Html.HiddenFor(Model => Model.DraftFlage, new { @id = "DraftFlage", @value = "False" })
+
+                                                        <div id="BodyContent">
+                                                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                                                    @Resources.IncubationRequest.TheStrategy
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-sm-4"></div>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_ReasonEstablishingCorporate" class="bmd-label-floating">@Resources.IncubationRequest.OrganizationEstablishedFor </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.ReasonEstablishingCorporate, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_History" class="bmd-label-floating"> @Resources.IncubationRequest.History </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.History, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_Vision" class="bmd-label-floating"> @Resources.IncubationRequest.Vision </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.Vision, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_Mission" class="bmd-label-floating"> @Resources.IncubationRequest.Mission </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.Mission, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_Objectives" class="bmd-label-floating"> @Resources.IncubationRequest.Objectives </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.Objectives, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_HowPlanMade" class="bmd-label-floating"> @Resources.IncubationRequest.HowTheStratgicPlanDeveloped </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.HowPlanMade, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4" id="StrategicPlan_LinkDiv">
+                                                                    <div>
+                                                                        <label for="StrategicPlan" class="bmd-label-floating"> @Resources.IncubationRequest.PleaseAttachTheStrategicPlan </label>
+                                                                        <a class="text-rose" href="@Url.Action("DownloadIncubBLAttachment", new { URL = Model.IncubationBL.StrategicPlan })">
+                                                                            <i class="material-icons">get_app</i>
+                                                                        </a>
+                                                                        <a onclick="replaceAttachmentFile('@Model.IncubationBL.IncubationBaselineID', 'StrategicPlan', '@Model.IncubationBL.StrategicPlan')" class="text-danger remove" href="#" @*href="@Url.Action("DeleteIncubPPAttachment", new { Id = Model.IncubationBL.IncubationProjectProposalID, attach = "StrategicPlan", URL = Model.IncubationBL.StrategicPlan })"*@>
+                                                                            <i class="material-icons">delete</i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4" id="StrategicPlan_UploadDiv">
+                                                                    <div>
+                                                                        <label for="StrategicPlan" class="bmd-label-floating"> @Resources.IncubationRequest.PleaseAttachTheStrategicPlan </label>
+                                                                        @Html.TextBoxFor(model => model.StrategicPlan, "", new { @type = "file" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div class="form-group">
+                                                                        <label for="OperatingPlanCheckBox">
+                                                                            @Html.CheckBox("OperatingPlanCheckBox")
+                                                                            @Resources.IncubationRequest.DoesTheOrganizationHaveAnAnnualOperatingPlan
+
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="OperatingPlanDiv" class="col-sm-4">
+                                                                    <div id="OperatingPlan_LinkDiv">
+                                                                        <label for="OperatingPlan" class="bmd-label-floating"> @Resources.IncubationRequest.PleaseAttachThisYearOperatingPlan </label>
+                                                                        <a class="text-rose" href="@Url.Action("DownloadIncubBLAttachment", new { URL = Model.IncubationBL.OperatingPlan })">
+                                                                            <i class="material-icons">get_app</i>
+                                                                        </a>
+                                                                        <a onclick="replaceAttachmentFile('@Model.IncubationBL.IncubationBaselineID', 'OperatingPlan', '@Model.IncubationBL.StrategicPlan')" class="text-danger remove" href="#" @*href="@Url.Action("DeleteIncubPPAttachment", new { Id = Model.IncubationBL.IncubationProjectProposalID, attach = "OperatingPlan", URL = Model.IncubationBL.OperatingPlan })"*@>
+                                                                            <i class="material-icons">delete</i>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div id="OperatingPlan_UploadDiv">
+                                                                        <label for="OperatingPlan" class="bmd-label-floating"> @Resources.IncubationRequest.PleaseAttachThisYearOperatingPlan </label>
+                                                                        @Html.TextBoxFor(model => model.OperatingPlan, "", new { @type = "file" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_StrategicObjective" class="bmd-label-floating"> @Resources.IncubationRequest.DoesTheOrganztionHaveAnStratgicObject </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.StrategicObjective, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                                                    @Resources.IncubationRequest.BoardOfDirectors
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-sm-4"></div>
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_BoardDirectorsCount" class="bmd-label-floating"> @Resources.IncubationRequest.HowManyBoardMembers </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.BoardDirectorsCount, new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_DateBoardApproval" class="bmd-label-floating"> @Resources.IncubationRequest.DateOfBoardApproval </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.DateBoardApproval, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="GovernanceGuideCheckBox">
+                                                                            @Html.CheckBox("GovernanceGuideCheckBox")
+                                                                            @Resources.IncubationRequest.OrganizationGovernmentGuid
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="GovernanceGuideDiv" class="col-sm-6">
+                                                                    <div id="GovernanceGuide_LinkDiv">
+                                                                        <label for="GovernanceGuide" class="bmd-label-floating"> @Resources.IncubationRequest.PleaseAttachAGovernmentGuide </label>
+                                                                        <a class="text-rose" href="@Url.Action("DownloadIncubBLAttachment", new { URL = Model.IncubationBL.GovernanceGuide })">
+                                                                            <i class="material-icons">get_app</i>
+                                                                        </a>
+                                                                        <a onclick="replaceAttachmentFile('@Model.IncubationBL.IncubationBaselineID', 'GovernanceGuide', '@Model.IncubationBL.StrategicPlan')" class="text-danger remove" href="#" @*href="@Url.Action("DeleteIncubPPAttachment", new { Id = Model.IncubationBL.IncubationProjectProposalID, attach = "GovernanceGuide", URL = Model.IncubationBL.GovernanceGuide })"*@>
+                                                                            <i class="material-icons">delete</i>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div id="GovernanceGuide_UploadDiv">
+                                                                        <label for="GovernanceGuide" class="bmd-label-floating"> @Resources.IncubationRequest.PleaseAttachAGovernmentGuide </label>
+                                                                        @Html.TextBoxFor(model => model.GovernanceGuide, "", new { @type = "file" })*
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_InternalRegulation">
+                                                                            @Html.CheckBoxFor(model => model.IncubationBL.InternalRegulation)
+                                                                            @Resources.IncubationRequest.BoardMemmbersRoles
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_BoardMeetingNumber" class="bmd-label-floating"> @Resources.IncubationRequest.BoarderMemmbersMeetings  </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.BoardMeetingNumber, new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_BoardDirectorRoles" class="bmd-label-floating"> @Resources.IncubationRequest.BoardMemmbersRolesForOrganiziation </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.BoardDirectorRoles, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                                                    @Resources.IncubationRequest.FinanceResource
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-sm-4"></div>
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="FRDevSpecialistsCountCheckBox">
+                                                                            @Html.CheckBox("FRDevSpecialistsCountCheckBox")
+                                                                            @Resources.IncubationRequest.IsThereIsSpecializeDepartmentForFinancialResources
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="FRDevSpecialistsCountDiv" class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_FRDevSpecialistsCount" class="bmd-label-floating"> @Resources.IncubationRequest.HowManyEmployees </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.FRDevSpecialistsCount, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_CorporateRevenuesLastYear" class="bmd-label-floating"> @Resources.IncubationRequest.VolumeOfOrganizationRevenue </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.CorporateRevenuesLastYear, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_SupportersCountLastYear" class="bmd-label-floating"> @Resources.IncubationRequest.NumberOfFinanceSupporter </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.SupportersCountLastYear, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                                                    <span style="font-size: 14px; font-weight: bold;" class="badge badge-pill badge-default">
+                                                                        @Resources.IncubationRequest.NumberOfDonors
+                                                                    </span>
+                                                                </div>
+                                                                <div class="row col-lg-12">
+                                                                    <div class="col-lg-2">
+                                                                        <div class="form-group">
+                                                                            <label for="IncubationBL_DonorInstitutions">
+                                                                                @Html.CheckBoxFor(model => model.IncubationBL.DonorInstitutions) @Resources.IncubationRequest.DonorFoundations
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-2">
+                                                                        <div class="form-group">
+                                                                            <label for="IncubationBL_GovernmentAgencies">
+                                                                                @Html.CheckBoxFor(model => model.IncubationBL.GovernmentAgencies) @Resources.IncubationRequest.GovernmentAgencies
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-2">
+                                                                        <div class="form-group">
+                                                                            <label for="IncubationBL_PrivateSector">
+                                                                                @Html.CheckBoxFor(model => model.IncubationBL.PrivateSector) @Resources.IncubationRequest.PrivateSector
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-2">
+                                                                        <div class="form-group">
+                                                                            <label for="IncubationBL_Individuals">
+                                                                                @Html.CheckBoxFor(model => model.IncubationBL.Individuals) @Resources.IncubationRequest.Individuals
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-2">
+                                                                        <div class="form-group">
+                                                                            <label for="IncubationBL_Investments">
+                                                                                @Html.CheckBoxFor(model => model.IncubationBL.Investments) @Resources.IncubationRequest.Investments
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-2">
+                                                                        <div class="form-group">
+                                                                            <label for="IncubationBL_Alms">
+                                                                                @Html.CheckBoxFor(model => model.IncubationBL.Alms) @Resources.IncubationRequest.Alms
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_BoardDirectorRoles" class="bmd-label-floating"> @Resources.IncubationRequest.PleaseIndicateNumberDonors </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.IndicateNumberAndSupportAmount, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_CurrentCorporateBudget" class="bmd-label-floating">@Resources.IncubationRequest.OrganzationBudget </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.CurrentCorporateBudget, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_CharteredAccountantNotesCount" class="bmd-label-floating"> @Resources.IncubationRequest.CharteredAccountantNotes </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.CharteredAccountantNotesCount, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div id="CharteredAccountantNotes_LinkDiv" class="col-sm-12">
+                                                                    <div>
+                                                                        <label for="CharteredAccountantNotes" class="bmd-label-floating">@Resources.IncubationRequest.AttachAccountantNotes </label>
+                                                                        <a class="text-rose" href="@Url.Action("DownloadIncubBLAttachment", new { URL = Model.IncubationBL.CharteredAccountantNotes })">
+                                                                            <i class="material-icons">get_app</i>
+                                                                        </a>
+                                                                        <a onclick="replaceAttachmentFile('@Model.IncubationBL.IncubationBaselineID', 'CharteredAccountantNotes', '@Model.IncubationBL.StrategicPlan')" class="text-danger remove" href="#" @*href="@Url.Action("DeleteIncubPPAttachment", new { Id = Model.IncubationBL.IncubationProjectProposalID, attach = "CharteredAccountantNotes", URL = Model.IncubationBL.CharteredAccountantNotes })"*@>
+                                                                            <i class="material-icons">delete</i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="CharteredAccountantNotes_UploadDiv" class="col-sm-12">
+                                                                    <div>
+                                                                        <label for="CharteredAccountantNotes" class="bmd-label-floating"> @Resources.IncubationRequest.AttachAccountantNotes </label>
+                                                                        @Html.TextBoxFor(model => model.CharteredAccountantNotes, "", new { @type = "file" })
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                                                    @Resources.IncubationRequest.ProgramsAndProjects
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-sm-4"></div>
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="specializedPandPDepartmentCheckBox">
+                                                                            @Html.CheckBox("specializedPandPDepartmentCheckBox")
+                                                                            @Resources.IncubationRequest.SpecializedForProgramsAndProjects
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="specializedPandPDepartmentDiv" class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_specializedPandPDepartmentEmpCount" class="bmd-label-floating"> @Resources.IncubationRequest.HowManyEmployees </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.specializedPandPDepartmentEmpCount, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_PlanAccordingStrategicObjectives">
+                                                                            @Html.CheckBoxFor(model => model.IncubationBL.PlanAccordingStrategicObjectives) @Resources.IncubationRequest.organizationStratgicObjectvies
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="PlanImplementationActivitiesParticipationClarifyCheckBox">
+                                                                            @Html.CheckBox("PlanImplementationActivitiesParticipationClarifyCheckBox")
+                                                                            @Resources.IncubationRequest.organizationStratgicObjectviesAndImplements
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="PlanImplementationActivitiesParticipationClarifyDiv" class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_PlanImplementationActivitiesParticipationClarify" class="bmd-label-floating"> @Resources.IncubationRequest.PleaseClarify </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.PlanImplementationActivitiesParticipationClarify, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_IndicateDevelopmentProjectsWorkingOrganization" class="bmd-label-floating"> @Resources.IncubationRequest.IndicateDevelopmentProjects </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.IndicateDevelopmentProjectsWorkingOrganization, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <label for="IncubationBL_BudgetAllocatedProjects"> @Resources.IncubationRequest.ProjectAllocatedBudget </label>
+                                                                    <div class="form-group">
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.BudgetAllocatedProjects, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <label for="IncubationBL_BudgetAllocatedOperation"> @Resources.IncubationRequest.ProjectAllocatedBudgetAmount</label>
+                                                                    <div class="form-group">
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.BudgetAllocatedOperation, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                                                    @Resources.IncubationRequest.FollowupAndEvaluation
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-sm-4"></div>
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="DepartmentFollowUpEvaluationCheckBox">
+                                                                            @Html.CheckBox("DepartmentFollowUpEvaluationCheckBox")
+                                                                            @Resources.IncubationRequest.SpecializedForEvalutionAndMonitoring
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="DepartmentFollowUpEvaluationDiv" class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_DepartmentFollowUpEvaluationEmpCount" class="bmd-label-floating"> @Resources.IncubationRequest.HowManyEmployees </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.DepartmentFollowUpEvaluationEmpCount, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_OrganizationFollowUpEvaluationPlan">
+                                                                            @Html.CheckBoxFor(model => model.IncubationBL.OrganizationFollowUpEvaluationPlan)
+                                                                            @Resources.IncubationRequest.FollowUpAndEvaluationProjectsAndPrograms
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_OrganizationFollowUpEvaluationReports">
+                                                                            @Html.CheckBoxFor(model => model.IncubationBL.OrganizationFollowUpEvaluationReports)
+                                                                            @Resources.IncubationRequest.FollowUpAndEvaluationImplentation
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="AttachFollowUpandEvaluationForms_LinkDiv" class="col-sm-6">
+                                                                    <div>
+                                                                        <label for="AttachFollowUpandEvaluationForms" class="bmd-label-floating"> @Resources.IncubationRequest.FollowUpAndEvaluationAttachment </label>
+                                                                        <a class="text-rose" href="@Url.Action("DownloadIncubBLAttachment", new { URL = Model.IncubationBL.AttachFollowUpandEvaluationForms })">
+                                                                            <i class="material-icons">get_app</i>
+                                                                        </a>
+                                                                        <a onclick="replaceAttachmentFile('@Model.IncubationBL.IncubationBaselineID', 'AttachFollowUpandEvaluationForms', '@Model.IncubationBL.StrategicPlan')" class="text-danger remove" href="#" @*href="@Url.Action("DeleteIncubPPAttachment", new { Id = Model.IncubationBL.IncubationProjectProposalID, attach = "AttachFollowUpandEvaluationForms", URL = Model.IncubationBL.AttachFollowUpandEvaluationForms })"*@>
+                                                                            <i class="material-icons">delete</i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="AttachFollowUpandEvaluationForms_UploadDiv" class="col-sm-6">
+                                                                    <div>
+                                                                        <label for="AttachFollowUpandEvaluationForms" class="bmd-label-floating"> @Resources.IncubationRequest.FollowUpAndEvaluationAttachment </label>
+                                                                        @Html.TextBoxFor(model => model.AttachFollowUpandEvaluationForms, "", new { @type = "file" })
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                                                    @Resources.IncubationRequest.ConnectionAndPublicRelations
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-sm-4"></div>
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="DepartmentCorporateCommunicationPublicRelationsCheckBox">
+                                                                            @Html.CheckBox("DepartmentCorporateCommunicationPublicRelationsCheckBox")
+                                                                            @Resources.IncubationRequest.SpecializedInRelationAndMedia
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="DepartmentCorporateCommunicationPublicRelationsDiv" class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_DepartmentCorporateCommunicationPublicRelationsEmpCount" class="bmd-label-floating"> @Resources.IncubationRequest.HowManyEmployees</label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.DepartmentCorporateCommunicationPublicRelationsEmpCount, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_CorporateCommunicationPlan">
+                                                                            @Html.CheckBoxFor(model => model.IncubationBL.CorporateCommunicationPlan)
+
+                                                                            @Resources.IncubationRequest.CommunicationPlan
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_SeparateItemGeneralBudget">
+                                                                            @Html.CheckBoxFor(model => model.IncubationBL.SeparateItemGeneralBudget)
+
+                                                                            @Resources.IncubationRequest.SeparateBudgetOfCorprateCommunication
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_BudgetAllocatedCorporateCommunication" class="bmd-label-floating">@Resources.IncubationRequest.BudgetOfCorprateCommunication </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.BudgetAllocatedCorporateCommunication, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                                                    @Resources.IncubationRequest.HumanResources
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-sm-4"></div>
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="DepartmentHRCheckBox">
+                                                                            @Html.CheckBox("DepartmentHRCheckBox")
+                                                                            @Resources.IncubationRequest.HRSpecializedDepartment
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="DepartmentHRDiv" class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_DepartmentHREmpCount" class="bmd-label-floating"> @Resources.IncubationRequest.HowManyEmployees </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.DepartmentHREmpCount, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                                                    <span class="badge badge-pill badge-default">
+                                                                        @Resources.IncubationRequest.AllEmployeeNumbers
+                                                                    </span>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_DepartmentHREmpCount" class="bmd-label-floating"> @Resources.IncubationRequest.FullTimeStaff </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.FullTimeStaff, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_DepartmentHREmpCount" class="bmd-label-floating"> @Resources.IncubationRequest.PartTimeStaff </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.PartTimeStaff, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_DepartmentHREmpCount" class="bmd-label-floating"> @Resources.IncubationRequest.VolunteerStaff </label>
+                                                                        @Html.TextBoxFor(model => model.IncubationBL.VolunteerStaff, "", new { @class = "form-control", @type = "number" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_AttractEmployees" class="bmd-label-floating"> @Resources.IncubationRequest.HowToAttractEmployees </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.AttractEmployees, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_StaffPerformanceMonitored" class="bmd-label-floating"> @Resources.IncubationRequest.HowStaffPerformanceIsMonitored </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.StaffPerformanceMonitored, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_OrganizationalStructureUnderHRManagement" class="bmd-label-floating"> @Resources.IncubationRequest.HROrganizationStructure </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.OrganizationalStructureUnderHRManagement, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                                        <label for="IncubationBL_TrainingNeedsCorporateStaffIdentified" class="bmd-label-floating"> @Resources.IncubationRequest.IdentfiyTrainingNeeds </label>
+                                                                        @Html.TextAreaFor(model => model.IncubationBL.TrainingNeedsCorporateStaffIdentified, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="Actions" class="row justify-content-center">
+                                                            <button id="saveBtn" class="btn btn-info">@Resources.General.Save</button>
+                                                            &nbsp;
+                                                            <input type="submit" class="btn btn-rose" name="Submit" value="@Resources.General.Submit">
+                                                            &nbsp;
+                                                            <a class="btn btn-default" href="@Url.Action("dashboard")">@Resources.General.Back</a>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+
+@section scripts
+{
+    <script>
+        function replaceAttachmentFile(IncubPPId, Attach, Url) {
+            $.getJSON('@Url.Action("DeleteIncubBLAttachment")', { Id: IncubPPId, attach: Attach, URL: Url }, function (Result) {
+                if (Result != null && !jQuery.isEmptyObject(Result)) {
+                    if (Result === "Deleted Succsesfully") {
+                        switch (Attach) {
+                            case "StrategicPlan":
+                                $("#StrategicPlan_LinkDiv").hide();
+                                $("#StrategicPlan_UploadDiv").show();
+                                break;
+                            case "OperatingPlan":
+                                $("#OperatingPlan_LinkDiv").hide();
+                                $("#OperatingPlan_UploadDiv").show();
+                                break;
+                            case "GovernanceGuide":
+                                $("#GovernanceGuide_LinkDiv").hide();
+                                $("#GovernanceGuide_UploadDiv").show();
+                                break;
+                            case "CharteredAccountantNotes":
+                                $("#CharteredAccountantNotes_LinkDiv").hide();
+                                $("#CharteredAccountantNotes_UploadDiv").show();
+                                break;
+                            case "AttachFollowUpandEvaluationForms":
+                                $("#AttachFollowUpandEvaluationForms_LinkDiv").hide();
+                                $("#AttachFollowUpandEvaluationForms_UploadDiv").show();
+                                break;
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+        $(document).ready(function () {
+            var status = '@ViewBag.IncubBLStatus';
+            if (status != '' && status != 'Draft' && status != 'Update Baseline Application Form') {
+                $(".remove").hide();
+                $("#saveBtn").hide();
+                $("#BodyContent *").attr("disabled", "disabled").off('click');
+            }
+            else {
+            }
+        });
+
+        $("#saveBtn").click(function () {
+            $("#DraftFlage").val(true)
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var Msg = '@ViewBag.Msg';
+            if (Msg != '' && Msg != null) {
+                md.showNotification('top', '@Resources.General.MsgTextAlign', 'notification_important', 'rose', '3e3', '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;"> ' + Msg + ' </h4>')
+            }
+
+            if ('@Model.IncubationBL.StrategicPlan' == "" || '@Model.IncubationBL.StrategicPlan' == null) {
+                $("#StrategicPlan_UploadDiv").show();
+                $("#StrategicPlan_LinkDiv").hide();
+            } else {
+                $("#StrategicPlan_UploadDiv").hide();
+                $("#StrategicPlan_LinkDiv").show();
+            }
+
+            if ('@Model.IncubationBL.OperatingPlan' == "" || '@Model.IncubationBL.OperatingPlan' == null) {
+                $("#OperatingPlan_UploadDiv").show();
+                $("#OperatingPlan_LinkDiv").hide();
+            } else {
+                $("#OperatingPlan_UploadDiv").hide();
+                $("#OperatingPlan_LinkDiv").show();
+            }
+
+            if ('@Model.IncubationBL.GovernanceGuide' == "" || '@Model.IncubationBL.GovernanceGuide' == null) {
+                $("#GovernanceGuide_UploadDiv").show();
+                $("#GovernanceGuide_LinkDiv").hide();
+            } else {
+                $("#GovernanceGuide_UploadDiv").hide();
+                $("#GovernanceGuide_LinkDiv").show();
+            }
+
+            if ('@Model.IncubationBL.CharteredAccountantNotes' == "" || '@Model.IncubationBL.CharteredAccountantNotes' == null) {
+                $("#CharteredAccountantNotes_UploadDiv").show();
+                $("#CharteredAccountantNotes_LinkDiv").hide();
+            } else {
+                $("#CharteredAccountantNotes_UploadDiv").hide();
+                $("#CharteredAccountantNotes_LinkDiv").show();
+            }
+
+            if ('@Model.IncubationBL.AttachFollowUpandEvaluationForms' == "" || '@Model.IncubationBL.AttachFollowUpandEvaluationForms' == null) {
+                $("#AttachFollowUpandEvaluationForms_UploadDiv").show();
+                $("#AttachFollowUpandEvaluationForms_LinkDiv").hide();
+            } else {
+                $("#AttachFollowUpandEvaluationForms_UploadDiv").hide();
+                $("#AttachFollowUpandEvaluationForms_LinkDiv").show();
+            }
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            if ('@Model.IncubationBL.OperatingPlan' == "" || '@Model.IncubationBL.OperatingPlan' == null || '@Model.IncubationBL.OperatingPlan' == 0) {
+                $("#OperatingPlanDiv").hide();
+                $("#OperatingPlanCheckBox").click(function () { if ($(this).is(":checked")) { $("#OperatingPlanDiv").show(); } else { $("#OperatingPlanDiv").hide(); } });
+            } else {
+                $("#OperatingPlanCheckBox").prop("checked", true);
+                $("#OperatingPlanCheckBox").click(function () { if ($(this).is(":checked")) { $("#OperatingPlanDiv").show(); } else { $("#OperatingPlanDiv").hide(); } });
+            }
+
+            if ('@Model.IncubationBL.DepartmentHREmpCount' == "" || '@Model.IncubationBL.DepartmentHREmpCount' == null || '@Model.IncubationBL.DepartmentHREmpCount' == 0) {
+                $("#DepartmentHRDiv").hide();
+                $("#DepartmentHRCheckBox").click(function () { if ($(this).is(":checked")) { $("#DepartmentHRDiv").show(); } else { $("#DepartmentHRDiv").hide(); } });
+            } else {
+                $("#DepartmentHRCheckBox").prop("checked", true);
+                $("#DepartmentHRCheckBox").click(function () { if ($(this).is(":checked")) { $("#DepartmentHRDiv").show(); } else { $("#DepartmentHRDiv").hide(); } });
+            }
+
+            if ('@Model.IncubationBL.DepartmentCorporateCommunicationPublicRelationsEmpCount' == "" || '@Model.IncubationBL.DepartmentCorporateCommunicationPublicRelationsEmpCount' == null || '@Model.IncubationBL.DepartmentCorporateCommunicationPublicRelationsEmpCount' == 0) {
+                $("#DepartmentCorporateCommunicationPublicRelationsDiv").hide();
+                $("#DepartmentCorporateCommunicationPublicRelationsCheckBox").click(function () { if ($(this).is(":checked")) { $("#DepartmentCorporateCommunicationPublicRelationsDiv").show(); } else { $("#DepartmentCorporateCommunicationPublicRelationsDiv").hide(); } });
+            } else {
+                $("#DepartmentCorporateCommunicationPublicRelationsCheckBox").prop("checked", true);
+                $("#DepartmentCorporateCommunicationPublicRelationsCheckBox").click(function () { if ($(this).is(":checked")) { $("#DepartmentCorporateCommunicationPublicRelationsDiv").show(); } else { $("#DepartmentCorporateCommunicationPublicRelationsDiv").hide(); } });
+            }
+
+            if ('@Model.IncubationBL.DepartmentFollowUpEvaluationEmpCount' == "" || '@Model.IncubationBL.DepartmentFollowUpEvaluationEmpCount' == null || '@Model.IncubationBL.DepartmentFollowUpEvaluationEmpCount' == 0) {
+                $("#DepartmentFollowUpEvaluationDiv").hide();
+                $("#DepartmentFollowUpEvaluationCheckBox").click(function () { if ($(this).is(":checked")) { $("#DepartmentFollowUpEvaluationDiv").show(); } else { $("#DepartmentFollowUpEvaluationDiv").hide(); } });
+            } else {
+                $("#DepartmentFollowUpEvaluationCheckBox").prop("checked", true);
+                $("#DepartmentFollowUpEvaluationCheckBox").click(function () { if ($(this).is(":checked")) { $("#DepartmentFollowUpEvaluationDiv").show(); } else { $("#DepartmentFollowUpEvaluationDiv").hide(); } });
+            }
+
+            if ('@Model.IncubationBL.PlanImplementationActivitiesParticipationClarify' == "" || '@Model.IncubationBL.PlanImplementationActivitiesParticipationClarify' == null || '@Model.IncubationBL.PlanImplementationActivitiesParticipationClarify' == 0) {
+                $("#PlanImplementationActivitiesParticipationClarifyDiv").hide();
+                $("#PlanImplementationActivitiesParticipationClarifyCheckBox").click(function () { if ($(this).is(":checked")) { $("#PlanImplementationActivitiesParticipationClarifyDiv").show(); } else { $("#PlanImplementationActivitiesParticipationClarifyDiv").hide(); } });
+            } else {
+                $("#PlanImplementationActivitiesParticipationClarifyCheckBox").prop("checked", true);
+                $("#PlanImplementationActivitiesParticipationClarifyCheckBox").click(function () { if ($(this).is(":checked")) { $("#PlanImplementationActivitiesParticipationClarifyDiv").show(); } else { $("#PlanImplementationActivitiesParticipationClarifyDiv").hide(); } });
+            }
+
+            if ('@Model.IncubationBL.specializedPandPDepartmentEmpCount' == "" || '@Model.IncubationBL.specializedPandPDepartmentEmpCount' == null || '@Model.IncubationBL.specializedPandPDepartmentEmpCount' == 0) {
+                $("#specializedPandPDepartmentDiv").hide();
+                $("#specializedPandPDepartmentCheckBox").click(function () { if ($(this).is(":checked")) { $("#specializedPandPDepartmentDiv").show(); } else { $("#specializedPandPDepartmentDiv").hide(); } });
+            } else {
+                $("#specializedPandPDepartmentCheckBox").prop("checked", true);
+                $("#specializedPandPDepartmentCheckBox").click(function () { if ($(this).is(":checked")) { $("#specializedPandPDepartmentDiv").show(); } else { $("#specializedPandPDepartmentDiv").hide(); } });
+            }
+
+            if ('@Model.IncubationBL.FRDevSpecialistsCount' == "" || '@Model.IncubationBL.FRDevSpecialistsCount' == null || '@Model.IncubationBL.FRDevSpecialistsCount' == 0) {
+                $("#FRDevSpecialistsCountDiv").hide();
+                $("#FRDevSpecialistsCountCheckBox").click(function () { if ($(this).is(":checked")) { $("#FRDevSpecialistsCountDiv").show(); } else { $("#FRDevSpecialistsCountDiv").hide(); } });
+            } else {
+                $("#FRDevSpecialistsCountCheckBox").prop("checked", true);
+                $("#FRDevSpecialistsCountCheckBox").click(function () { if ($(this).is(":checked")) { $("#FRDevSpecialistsCountDiv").show(); } else { $("#FRDevSpecialistsCountDiv").hide(); } });
+            }
+
+            if ('@Model.IncubationBL.GovernanceGuide' == "" || '@Model.IncubationBL.GovernanceGuide' == null || '@Model.IncubationBL.GovernanceGuide' == 0) {
+                $("#GovernanceGuideDiv").hide();
+                $("#GovernanceGuideCheckBox").click(function () { if ($(this).is(":checked")) { $("#GovernanceGuideDiv").show(); } else { $("#GovernanceGuideDiv").hide(); } });
+            } else {
+                $("#GovernanceGuideCheckBox").prop("checked", true);
+                $("#GovernanceGuideCheckBox").click(function () { if ($(this).is(":checked")) { $("#GovernanceGuideDiv").show(); } else { $("#GovernanceGuideDiv").hide(); } });
+            }
+
+            $("#IncubationBL_DateBoardApproval").datepicker({ changeYear: true, dateFormat: 'yy-mm-dd', altFormat: "yy-mm-dd" });
+            var dateBoardApproval = '@ViewBag.dateBoardApproval';
+            $('#IncubationBL_DateBoardApproval').datepicker('setDate', dateBoardApproval)
+
+            if ('@Resources.General.lang' == 'ar') {
+                var table = $('#AttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                }); } else {
+                var table = $('#AttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search records",
+                    }
+                });
+            }
+        });
+    </script>
+}

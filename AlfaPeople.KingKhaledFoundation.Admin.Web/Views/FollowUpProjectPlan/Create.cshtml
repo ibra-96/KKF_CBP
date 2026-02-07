@@ -1,0 +1,165 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.FollowUpProjectPlanVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@{
+    ViewBag.Title = Resources.General.CreateNewFollowUpProjectPlan;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+</style>
+<!-- Content -->
+<div id="dd" class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+            <div class="card ">
+                <div class="card-header card-header-rose card-header-text">
+                    <div class="card-text">
+                        <h4 class="card-title"> @Resources.FollowUpProjectPlan.ProjectDetails</h4>
+                    </div>
+                </div>
+                @using (Html.BeginForm("Create", "FollowUpProjectPlan", FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="card-body ">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row justify-content-center">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="Inp_ProjectName" class="bmd-label-floating"> @Resources.FollowUpProjectPlan.Name </label>
+                                    @Html.TextBoxFor(model => model.FollowUpProjectPlan.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FollowUpProjectPlan.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group select-wizard">
+                                    @Html.DropDownListFor(model => model.FollowUpProjectPlan.IncubationWorkshopID, (SelectList)ViewBag.WorkShop, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @data_style = "select-with-transition", @title = Resources.FollowUpProjectPlan.SelectWorkshop })
+                                    @Html.ValidationMessageFor(model => model.FollowUpProjectPlan.IncubationWorkshopID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group select-wizard">
+                                    <select id="FrontEndUsers" name="FrontEndUsers" required class="select-wizard form-control selectpicker" data-style="select-with-transition" multiple="multiple" title="@Resources.FollowUpProjectPlan.SelectCorpration"></select>
+                                    @Html.ValidationMessageFor(model => model.FrontEndUsers, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="Deadline"> @Resources.FollowUpProjectPlan.Deadline </label>
+                                    @Html.TextBoxFor(model => model.FollowUpProjectPlan.Deadline, new { @class = "form-control ", @id = "Deadline" })
+                                    @Html.ValidationMessageFor(model => model.FollowUpProjectPlan.Deadline, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Notes" class="bmd-label-floating">@Resources.FollowUpProjectPlan.Notes</label>
+                                    @Html.TextAreaFor(model => model.FollowUpProjectPlan.Notes, new { @class = "form-control", rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.FollowUpProjectPlan.Notes, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12" style="margin-top: 77px; margin-bottom: 135px;">
+                                <!-- Uploader Dropzone -->
+                                <div id="zdrop" class="fileuploader" onclick="document.getElementById('selectedFile').click();">
+                                    <div id="upload-label" style="width: 350px;">
+                                        <i class="material-icons">cloud_upload</i>
+                                        <span class="title">@Resources.General.Attachments</span>
+                                        <span id="fileText" style="display: block;"></span>
+                                        @Html.TextBoxFor(model => model.files, "", new { @id = "selectedFile", @type = "file", @multiple = "multiple", @style = "display: none;", @onchange = "getFileName();" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="row" style="display: contents;">
+                                    <div class="card-footer justify-content-center ">
+                                        <input type="submit" value="@Resources.General.Submit" class="btn btn-rose" />
+                                        <a class="btn btn-default" href="@Url.Action("Index")">@Resources.General.Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+
+@section Scripts {
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_FollowUpProjectPlan').addClass('active');
+            $('#Workshop').addClass('show');
+        };
+    </script>
+
+    <!-- CSS Just for File Uploader Style include it in your project -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js'></script>
+    <script src="~/Scripts/dropzone/dropzone.min.js"></script>
+    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="~/assets/js/plugins/jasny-bootstrap.min.js"></script>
+    <!-- Library for adding dinamically elements -->
+    <script src="~/assets/js/plugins/arrive.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#Deadline").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+        });
+
+        function getFileName() {
+            $('#fileText').html('');
+            $('#fileText').append($('#selectedFile')[0].files.length + ' Files Selected');
+        }
+
+        $("#FollowUpProjectPlan_IncubationWorkshopID").on('change', function () {
+            var selectedIncubationAdID = $("#FollowUpProjectPlan_IncubationWorkshopID").val();
+            var option = '';
+            if (selectedIncubationAdID != null && selectedIncubationAdID != '') {
+                $.getJSON('@Url.Action("GetUsers")', { Id: selectedIncubationAdID }, function (result) {
+                    if (result != null && !jQuery.isEmptyObject(result)) {
+                        $.each(result, function (index, data) {
+                            option = option + '<option value="' + data.Value + '">' + data.Text + "</option>"
+                        });
+                        $("#FrontEndUsers").html(option).selectpicker('refresh');
+                    }
+                    else {
+                        $('#FrontEndUsers').find('option').remove();
+                    };
+                });
+            }
+        });
+
+        $("form").submit(function (event) {
+            var msgConfirm = confirm("Are you sure about taken this action, This action will send an email to the corporates?");
+            if (msgConfirm == true) {
+                return true;
+            } else {
+                event.preventDefault();
+            }
+        });
+    </script>
+}

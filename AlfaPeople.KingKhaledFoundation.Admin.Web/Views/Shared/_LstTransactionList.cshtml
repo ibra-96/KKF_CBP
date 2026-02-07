@@ -1,0 +1,12 @@
+﻿
+@model IEnumerable<AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IWSBLTransactionsVM>
+
+@foreach (var transaction in Model)
+{
+    @Html.HiddenFor(m => transaction.TransID)
+    @Html.HiddenFor(m => transaction.TransTypeID)
+    @Html.HiddenFor(m => transaction.WorkshopID)
+    @Html.HiddenFor(m => transaction.WorkshopID, new { id = "HiddenWorkshopID1" })
+    @Html.HiddenFor(m => transaction.WorkshopID, new { id = "HiddenWorkshopID" })
+    @Html.Partial("_LstTransaction", transaction)
+}

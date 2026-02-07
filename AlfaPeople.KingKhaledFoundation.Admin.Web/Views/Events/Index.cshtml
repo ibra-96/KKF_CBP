@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.Events>
+
+@{
+    Layout = null;
+    ViewBag.Title = Resources.Events.EventsPage;
+}
+
+
+<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+       width="100%" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Resources.Events.EventName
+            </th>
+            <th>
+                @Resources.Events.IsActive
+
+            </th>
+            <th>
+                @Resources.Events.StartDate
+
+            </th>
+            <th>
+                @Resources.Events.EndDate
+
+            </th>
+            <th>@Resources.General.Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (ViewBag.lang == 3)
+                    {
+                        @Html.DisplayFor(modelItem => item.EventNameAR)
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.EventNameEN)
+                    }
+                </td>
+                <td>
+                    @if (item.IsActive == true)
+                    {
+                        <span class="badge badge-pill badge-success">
+                            @Resources.Events.Acitve
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-pill badge-danger">
+                            @Resources.Events.InAcitve
+                        </span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    <a class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditClassificationSectorNonProfit" onclick="Edit('@Url.Action("Edit", "Events", new { id=@item.EventID})')"><i class="material-icons">edit</i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

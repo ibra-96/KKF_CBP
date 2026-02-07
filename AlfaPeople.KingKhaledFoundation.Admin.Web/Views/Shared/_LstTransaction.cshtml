@@ -1,0 +1,399 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IWSBLTransactionsVM
+@using (Html.BeginCollectionItem("LstTransaction"))
+{
+<div class="row transactionRow">
+    <!-- الحقول المخفية -->
+    @Html.HiddenFor(m => m.TransID)
+    @Html.HiddenFor(m => m.TransTypeID)
+    @Html.HiddenFor(m => m.WorkshopID)
+    @*@{ var index = ViewData["Index"] ?? Guid.NewGuid().ToString(); }*@
+    <div class="col-sm-2">
+        <label for="FieldName">@Resources.General.QuestionEnglish</label>
+        @Html.EditorFor(m => m.FieldNameEn, new { htmlAttributes = new { @class = "form-control", @type = "text", @required = "required" } })
+        @Html.ValidationMessageFor(m => m.FieldNameEn, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="col-sm-2">
+        <label for="FieldName">@Resources.General.QuestionArabic</label>
+        @Html.EditorFor(m => m.FieldNameAr, new { htmlAttributes = new { @class = "form-control", @type = "text", @required = "required" } })
+        @Html.ValidationMessageFor(m => m.FieldNameAr, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="col-sm-2">
+        <label for="ControlID">@Resources.General.QuestionType</label>
+        <div class="form-group">
+            @if (ViewBag.IsNew == true)
+            {
+                @Html.DropDownListFor(m => m.ControlID,
+                         (SelectList)ViewBag.LstControls,
+                         new { @class = "select-wizard form-control", @required = "required", @onchange = "OnControlChanged(this);", @title = "Select Control", @id = "ControlID_" + Model.TransID })
+            }
+            else
+            {
+                @Html.DropDownListFor(m => m.ControlID,
+                         (SelectList)ViewBag.LstControls,
+                         new { @class = "select-wizard form-control", @required = "required", @onchange = "OnControlChanged(this);", @disabled = "disabled", @title = "Select Control", @id = "ControlID_" + Model.TransID })
+            }
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <label for="ControlTypeID">@Resources.General.AnswerType</label>
+        <div class="form-group">
+            @if (ViewBag.IsNew == true)
+            {
+                @Html.DropDownListFor(m => m.ControlTypeID,
+                         (SelectList)ViewBag.LstControlTypes,
+                         new { @class = "select-wizard form-control", @required = "required", @title = "Select Control Type", @onchange = "checkIfCheckbox(this);", @id = "ControlTypeID_" + Model.TransID })
+            }
+            else
+            {
+                @Html.DropDownListFor(m => m.ControlTypeID,
+                         (SelectList)ViewBag.LstControlTypes,
+                         new { @class = "select-wizard form-control", @required = "required", @onchange = "checkIfCheckbox(this);", @disabled = "disabled", @title = "Select Control Type", @id = "ControlTypeID_" + Model.TransID })
+            }
+        </div>
+    </div>
+
+    <div class="col-sm-1">
+        <label for="ViewList_Display">@Resources.General.IsVisible</label>
+        @Html.DropDownListFor(m => m.ViewList_Display,
+            (SelectList)ViewBag.LstRequired,
+            new { @class = "form-control", @required = "required", @title = "Select Is Visible" })
+    </div>
+
+    <div class="col-sm-1">
+        <label for="IsRequired">@Resources.General.IsRequired</label>
+        @Html.DropDownListFor(m => m.IsRequired,
+            (SelectList)ViewBag.LstRequired,
+            new { @class = "form-control", @required = "required", @title = "Select Is Required" })
+    </div>
+
+    <div class="col-sm-1">
+        <label for="RankNumber">@Resources.General.QuestionOrder</label>
+        @Html.EditorFor(m => m.RankNumber,
+            new { htmlAttributes = new { @class = "form-control", @type = "number", @required = "required" } })
+        @Html.ValidationMessageFor(m => m.RankNumber, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="col-sm-1">
+        <div class="form-group">
+            @if (ViewBag.IsNew == true)
+            {
+                <button id="btnDelete" name="btnDelete" type="button" class="btn btn-link btn-danger btn-just-icon remove" onclick="RemoveRow(this)">
+                    <i class="material-icons">delete</i>
+                </button>
+            }
+        </div>
+    </div>
+
+    @*<hr style="width: 100%; border: 1px double #e1b228; border-radius: 100%;" />*@
+
+    @{
+        var checkboxOptions = Model.Options
+            .Where(o => Model.ControlTypeID == "e1de6bd1-6ffa-41a1-b276-d9f3a47f0c3a")
+            .ToList();
+
+        var radioOptions = Model.Options
+            .Where(o => Model.ControlTypeID == "76da194e-c139-4db6-865b-f1ea0d546a91")
+            .ToList();
+    }
+
+
+
+
+
+    @*@(Model.Options != null && Model.Options.Any() ? "" : "style='display: none;'")*@
+    @*خيارات متعددة*@
+
+    <!--  عرض الخيارات فقط إذا كان نوع التحكم Checkbox -->
+    @*@if (Model.ControlTypeID == "e1de6bd1-6ffa-41a1-b276-d9f3a47f0c3a")
+        {*@
+    @*<div class="options-table-container" @(checkboxOptions.Any() ? "" : "style='display:none;'")>*@
+    @*<div class="options-table-container" @(Model.Options != null && Model.Options.Any() ? "" : "style='display:none;'")>*@
+    <div class="options-table-container" style="display: @(Model.ControlTypeID == "e1de6bd1-6ffa-41a1-b276-d9f3a47f0c3a" ? "block" : "none")">
+
+        <table class="table table-bordered">
+            <tr>
+                <td colspan="8">
+                    <label>@Resources.General.choices </label>
+                    <div class="checkbox-options-list">
+                        @if (Model.ControlTypeID == "e1de6bd1-6ffa-41a1-b276-d9f3a47f0c3a")
+                        {
+                        for (int i = 0; i < Model.Options.Count; i++)
+                        {
+                            <div class="row checkbox-option-item align-items-center" style="margin-bottom: 10px;">
+                                @Html.HiddenFor(m => m.Options[i].OptionID)
+                                @Html.Hidden("LstTransaction[" + ViewData.TemplateInfo.HtmlFieldPrefix.Replace("LstTransaction[", "").Split(']')[0] + $"].Options[{i}].TransID", Model.Options[i].TransID.ToString() ?? "null")
+
+
+                                <div class="col-sm-5">
+                                    @Html.TextBoxFor(m => m.Options[i].OptionNameEn, new { @class = "form-control", placeholder = Resources.General.choiceEn })
+                                    @Html.ValidationMessageFor(m => m.Options[i].OptionNameEn, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-sm-5">
+                                    @Html.TextBoxFor(m => m.Options[i].OptionNameAr, new { @class = "form-control", placeholder = Resources.General.choiceAr })
+                                    @Html.ValidationMessageFor(m => m.Options[i].OptionNameAr, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-sm-2 text-end">
+                                    @if (ViewBag.IsNew == true)
+                                    {
+                                        <button type="button" class="btn btn-link btn-danger btn-just-icon remove" onclick="removeCheckboxOption(this)">
+                                            <i class="material-icons">delete</i>
+                                        </button>
+                                    }
+                                </div>
+
+                            </div>
+                            }
+
+                        }
+                    </div>
+                    <div class="text-danger options-validation-error"></div>
+                    <button type="button" class="btn btn-success btn-sm add-checkbox-option"
+                            onclick="addCheckboxOption(this, '@(ViewData.TemplateInfo.HtmlFieldPrefix.Replace("LstTransaction[", "").Split(']')[0])', '@Model.TransID')">
+                        @Resources.General.Addchoice
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <hr style="width: 100%; border: 1px double #e1b228; border-radius: 100%;" />
+    @*}*@
+
+
+    <!--  عرض الخيارات فقط إذا كان نوع التحكم RadioButton -->
+    @*@if (Model.ControlTypeID == "76da194e-c139-4db6-865b-f1ea0d546a91")
+        {*@
+    @*<div class="radio-options-container" @(radioOptions.Any() ? "" : "style='display:none;'")*@
+    @*<div class="radio-options-container" @(Model.Options != null && Model.Options.Any() ? "" : "style='display:none;'")>*@
+    <div class="radio-options-container" style="display: @(Model.ControlTypeID == "76da194e-c139-4db6-865b-f1ea0d546a91" ? "block" : "none")">
+
+        <table class="table table-bordered">
+            <tr>
+                <td colspan="8">
+                    <label>@Resources.General.choices </label>
+                    <div class="radio-options-list">
+                        @if (Model.ControlTypeID == "76da194e-c139-4db6-865b-f1ea0d546a91")
+                        { 
+                        for (int i = 0; i < Model.Options.Count; i++)
+                        {
+                                <div class="row radio-option-item align-items-center" style="margin-bottom: 10px;">
+                                    @Html.HiddenFor(m => m.Options[i].OptionID)
+                                    @Html.Hidden("LstTransaction[" + ViewData.TemplateInfo.HtmlFieldPrefix.Replace("LstTransaction[", "").Split(']')[0] + $"].Options[{i}].TransID", Model.Options[i].TransID.ToString() ?? "null")
+
+                                    <div class="col-sm-5">
+                                        @Html.TextBoxFor(m => m.Options[i].OptionNameEn, new { @class = "form-control", placeholder = Resources.General.choiceEn })
+                                        @Html.ValidationMessageFor(m => m.Options[i].OptionNameEn, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="col-sm-5">
+                                        @Html.TextBoxFor(m => m.Options[i].OptionNameAr, new { @class = "form-control", placeholder = Resources.General.choiceAr })
+                                        @Html.ValidationMessageFor(m => m.Options[i].OptionNameAr, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="col-sm-2 text-end">
+                                        @if (ViewBag.IsNew == true)
+                                        {
+                                            <button type="button" class="btn btn-link btn-danger btn-just-icon remove" onclick="removeRadioOption(this)">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="text-danger options-validation-error"></div>
+                    <button type="button" class="btn btn-success btn-sm add-radio-option"
+                            onclick="addRadioOption(this, '@(ViewData.TemplateInfo.HtmlFieldPrefix.Replace("LstTransaction[", "").Split(']')[0])', '@Model.TransID')">
+                        @Resources.General.Addchoice
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    @*<hr style="width: 100%; border: 1px double #e1b228; border-radius: 100%;" />*@
+
+    @*}*@
+
+
+
+
+
+</div>
+
+
+}
+   
+
+<script>
+
+
+
+
+    $(document).ready(function () {
+        $('.options-table-container').each(function () {
+            var container = $(this);
+            var optionsCount = container.find('.checkbox-option-item').length;
+            // إذا كان هناك خيارات، أظهر الحاوية
+            if (optionsCount > 0) {
+                container.show();
+            } else {
+                container.hide();
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('.radio-options-container').each(function () {
+            var container = $(this);
+            var optionsCount = container.find('.radio-option-item').length;
+            // إذا كان هناك خيارات، أظهر الحاوية
+            if (optionsCount > 0) {
+                container.show();
+            } else {
+                container.hide();
+            }
+        });
+    });
+</script>
+<script>
+
+    function addCheckboxOption(button, transactionIndex) {
+        // جلب النصوص المترجمة من ملف الترجمة
+var placeholderEn = '@Resources.General.choiceEn';
+var placeholderAr = '@Resources.General.choiceAr';
+        try {
+            var parentContainer = $(button).closest('td').find('.checkbox-options-list');
+            var currentIndex = parentContainer.children('.checkbox-option-item').length;
+            var uniqueOptionID = crypto.randomUUID();
+
+            console.log(`إضافة خيار جديد: ${uniqueOptionID}, TransactionIndex: ${transactionIndex}`);
+
+            var newOption = `
+            <div class="row checkbox-option-item align-items-center" style="margin-bottom: 10px;">
+                <input type="hidden" name="LstTransaction[${transactionIndex}].Options[${currentIndex}].OptionID" value="${uniqueOptionID}" />
+                <input type="hidden" name="LstTransaction[${transactionIndex}].Options[${currentIndex}].TransID" value="" />
+
+                <div class="col-sm-5">
+                    <input type="text" class="form-control"
+                           name="LstTransaction[${transactionIndex}].Options[${currentIndex}].OptionNameEn"
+                           placeholder="${placeholderEn}" required />
+                </div>
+
+                <div class="col-sm-5">
+                    <input type="text" class="form-control"
+                           name="LstTransaction[${transactionIndex}].Options[${currentIndex}].OptionNameAr"
+                           placeholder="${placeholderAr}" required />
+                </div>
+
+                <div class="col-sm-2 text-end">
+                    <button type="button" class="btn btn-link btn-danger btn-just-icon remove" onclick="removeCheckboxOption(this)">
+                        <i class="material-icons">delete</i>
+                    </button>
+                </div>
+            </div>`;
+
+            parentContainer.append(newOption);
+        } catch (error) {
+            console.error("حدث خطأ أثناء إضافة الخيار:", error);
+        }
+    }
+
+    // إزالة الخيار عند الضغط على زر الحذف
+    function removeCheckboxOption(button) {
+        $(button).closest('.checkbox-option-item').remove();
+    }
+
+
+
+
+    //function RemoveRow(btnremove) {
+    //    $(btnremove).closest('.transactionRow').remove();
+    //}
+
+
+    function RemoveRow(btnremove) {
+        var parent = $(btnremove).parents();
+        var ff = parent[2];
+        ff.remove();
+        count--;
+    }
+
+
+
+
+
+    function removeCheckboxOption(button) {
+        // حذف الخيار المحدد
+        $(button).closest('.checkbox-option-item').remove();
+
+        // إعادة ترتيب أسماء الحقول بعد الحذف
+        $('.checkbox-options-list .checkbox-option-item').each(function (index, element) {
+            $(element).find('input').attr('name', 'questions[0].CheckboxOptions[' + index + '].OptionText');
+            $(element).find('input').attr('placeholder', 'الخيار ' + (index + 1));
+        });
+    }
+
+</script>
+<script>
+   function addRadioOption(button, transactionIndex, transID) {
+    var placeholderEn = '@Resources.General.choiceEn';
+    var placeholderAr = '@Resources.General.choiceAr';
+
+    try {
+        var parentContainer = $(button).closest('td').find('.radio-options-list');
+
+        //// التحقق مما إذا كان العنصر مكررًا قبل إضافته
+        //var existingOptions = parentContainer.find('.radio-option-item');
+        //if (existingOptions.length > 0) {
+        //    console.warn("الخيار موجود مسبقًا، لم تتم إضافته.");
+        //    return;
+        //}
+
+        var currentIndex = parentContainer.children('.radio-option-item').length;
+        var uniqueOptionID = crypto.randomUUID();
+
+        console.log(`إضافة خيار جديد Radio: ${uniqueOptionID}, TransactionIndex: ${transactionIndex}`);
+
+        var newOption = `
+        <div class="row radio-option-item align-items-center" style="margin-bottom: 10px;">
+            <input type="hidden" name="LstTransaction[${transactionIndex}].Options[${currentIndex}].OptionID" value="${uniqueOptionID}" />
+            <input type="hidden" name="LstTransaction[${transactionIndex}].Options[${currentIndex}].TransID" value="${transID}" />
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control"
+                       name="LstTransaction[${transactionIndex}].Options[${currentIndex}].OptionNameEn"
+                       placeholder="${placeholderEn}" required />
+            </div>
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control"
+                       name="LstTransaction[${transactionIndex}].Options[${currentIndex}].OptionNameAr"
+                       placeholder="${placeholderAr}" required />
+            </div>
+
+            <div class="col-sm-2 text-end">
+                <button type="button" class="btn btn-link btn-danger btn-just-icon remove" onclick="removeRadioOption(this)">
+                    <i class="material-icons">delete</i>
+                </button>
+            </div>
+        </div>`;
+
+        parentContainer.append(newOption);
+    } catch (error) {
+        console.error("حدث خطأ أثناء إضافة خيار Radio:", error);
+    }
+}
+
+
+    function removeRadioOption(button) {
+        $(button).closest('.radio-option-item').remove();
+    }
+
+</script>

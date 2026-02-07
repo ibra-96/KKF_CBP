@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accepted" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="AdvertisingDetails" xml:space="preserve">
+    <value>Advertisement Details</value>
+  </data>
+  <data name="AdvertisingName" xml:space="preserve">
+    <value>Advertising Name</value>
+  </data>
+  <data name="AllEmployeeNumbers" xml:space="preserve">
+    <value>What is the total number of the organization staff? Please indicate the number of organization staff (full time/part-time/volunteers).</value>
+  </data>
+  <data name="Alms" xml:space="preserve">
+    <value>Zakat</value>
+  </data>
+  <data name="AttachAccountantNotes" xml:space="preserve">
+    <value>Please attach chartered accountant notes.</value>
+  </data>
+  <data name="BoarderMemmbersMeetings" xml:space="preserve">
+    <value>How often does board members meet during the year?</value>
+  </data>
+  <data name="BoardMemmbersRoles" xml:space="preserve">
+    <value>Does the Board of Directors have internal regulations indicating the processes of work, positions and roles of the Board and its committees?</value>
+  </data>
+  <data name="BoardMemmbersRolesForOrganiziation" xml:space="preserve">
+    <value>What is the role of the organization's board of directors?</value>
+  </data>
+  <data name="BoardOfDirectors" xml:space="preserve">
+    <value>Board Of Directors  (Governance)</value>
+  </data>
+  <data name="BudgetOfCorprateCommunication" xml:space="preserve">
+    <value>What is the budget allocated for corporate communication\PR from the total budget of the organization?</value>
+  </data>
+  <data name="CharteredAccountantNotes" xml:space="preserve">
+    <value>How many repeated accountant notes?</value>
+  </data>
+  <data name="CommunicationPlan" xml:space="preserve">
+    <value>Does the organization have corporate communication plan?</value>
+  </data>
+  <data name="ConnectionAndPublicRelations" xml:space="preserve">
+    <value>Corporate Communications / Public Relations</value>
+  </data>
+  <data name="DateOfBoardApproval" xml:space="preserve">
+    <value>Board Approval's Date</value>
+  </data>
+  <data name="DoesTheOrganizationHaveAnAnnualOperatingPlan" xml:space="preserve">
+    <value>Does the organization have an annual operational plan?</value>
+  </data>
+  <data name="DoesTheOrganztionHaveAnStratgicObject" xml:space="preserve">
+    <value>Does the organization have a strategic objective that seeks to empower or increase income or improve the socio-economic status of the organization's beneficiaries?</value>
+  </data>
+  <data name="DonorFoundations" xml:space="preserve">
+    <value>Grank Making Foundations</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="EntryRequirements" xml:space="preserve">
+    <value>Registration Requirements</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="FinanceResource" xml:space="preserve">
+    <value>Financail Resources</value>
+  </data>
+  <data name="FollowupAndEvaluation" xml:space="preserve">
+    <value>Monitoring &amp; Evaluation</value>
+  </data>
+  <data name="FollowUpAndEvaluationAttachment" xml:space="preserve">
+    <value>Please attach the monitoring &amp; evaluation forms that you use in your organization.</value>
+  </data>
+  <data name="FollowUpAndEvaluationImplentation" xml:space="preserve">
+    <value>Does the organization produce monitoring &amp; evaluation reports that include corrective actions for the implemented projects?</value>
+  </data>
+  <data name="FollowUpAndEvaluationProjectsAndPrograms" xml:space="preserve">
+    <value>Does the organization have monitoring &amp; evaluation plan for its programs and projects?</value>
+  </data>
+  <data name="FullTimeStaff" xml:space="preserve">
+    <value>Full-Time Staff</value>
+  </data>
+  <data name="GovernmentAgencies" xml:space="preserve">
+    <value>Government Agencies</value>
+  </data>
+  <data name="HaveRelationAndMedia" xml:space="preserve">
+    <value>Does the organization have corporate communication/public relations department?</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Brief Introduction about the Organization</value>
+  </data>
+  <data name="HowManyBoardMembers" xml:space="preserve">
+    <value>How many board members you have in the organization?</value>
+  </data>
+  <data name="HowManyEmployees" xml:space="preserve">
+    <value>How many staff members at the organization?</value>
+  </data>
+  <data name="HowStaffPerformanceIsMonitored" xml:space="preserve">
+    <value>How do you monitor staff performane?</value>
+  </data>
+  <data name="HowTheStratgicPlanDeveloped" xml:space="preserve">
+    <value>How was your previous strategic plan developed, and  who participated in developing it from the organization?</value>
+  </data>
+  <data name="HowToAttractEmployees" xml:space="preserve">
+    <value>How do you recruit new employees?</value>
+  </data>
+  <data name="HROrganizationStructure" xml:space="preserve">
+    <value>Is there an organizational structure which human resources management in the organization is acting upon?</value>
+  </data>
+  <data name="HRSpecializedDepartment" xml:space="preserve">
+    <value>Is there a Human Resources department at the organization?</value>
+  </data>
+  <data name="HumanResources" xml:space="preserve">
+    <value>Human Resources</value>
+  </data>
+  <data name="IdentfiyTrainingNeeds" xml:space="preserve">
+    <value>How do you identify the training needs of staff members?</value>
+  </data>
+  <data name="IncubationAdvertisingDetails" xml:space="preserve">
+    <value>Incubation Advertising Details</value>
+  </data>
+  <data name="IncubationAdvertisingModels" xml:space="preserve">
+    <value>Select Advertisement Development Phases</value>
+  </data>
+  <data name="IndicateDevelopmentProjects" xml:space="preserve">
+    <value>Please indicate the development projects you are working on in the organization, giving an overview of each project.</value>
+  </data>
+  <data name="Individuals" xml:space="preserve">
+    <value>Individuals</value>
+  </data>
+  <data name="Investments" xml:space="preserve">
+    <value>Investors</value>
+  </data>
+  <data name="IsThereIsSpecializeDepartmentForFinancialResources" xml:space="preserve">
+    <value>Is there a fundraising department at the organization?</value>
+  </data>
+  <data name="Mission" xml:space="preserve">
+    <value>Mission</value>
+  </data>
+  <data name="NumberOfDonors" xml:space="preserve">
+    <value>Please specify the number of donors from each option selected and the amount of donation from each donor</value>
+  </data>
+  <data name="NumberOfFinanceSupporter" xml:space="preserve">
+    <value>How many corporates / individuals provided financial support to your organization last year</value>
+  </data>
+  <data name="Objectives" xml:space="preserve">
+    <value>Objectives</value>
+  </data>
+  <data name="OrganizationEstablishedFor" xml:space="preserve">
+    <value>What is the cause that you establish your organization for?</value>
+  </data>
+  <data name="OrganizationGovernmentGuid" xml:space="preserve">
+    <value>Does the organization have a governance manual?</value>
+  </data>
+  <data name="organizationStratgicObjectvies" xml:space="preserve">
+    <value>Does the organization plan its projects according to the strategic objectives?</value>
+  </data>
+  <data name="organizationStratgicObjectviesAndImplements" xml:space="preserve">
+    <value>Does the organization plan the implementation of its activities with the participation of the target groups and other stakeholders?</value>
+  </data>
+  <data name="OrganzationBudget" xml:space="preserve">
+    <value>What  is the Organization's total budget this  year?</value>
+  </data>
+  <data name="PartTimeStaff" xml:space="preserve">
+    <value>Part-time Employees</value>
+  </data>
+  <data name="PleaseAttachAGovernmentGuide" xml:space="preserve">
+    <value>Please attach your governance manual</value>
+  </data>
+  <data name="PleaseAttachTheStrategicPlan" xml:space="preserve">
+    <value>Please attach yout strategic plan</value>
+  </data>
+  <data name="PleaseAttachThisYearOperatingPlan" xml:space="preserve">
+    <value>Please attach the operational plan for this Year</value>
+  </data>
+  <data name="PleaseClarify" xml:space="preserve">
+    <value>Please Clarify</value>
+  </data>
+  <data name="PrivateSector" xml:space="preserve">
+    <value>Private Sector</value>
+  </data>
+  <data name="ProgramsAndProjects" xml:space="preserve">
+    <value>Programs &amp; Projects</value>
+  </data>
+  <data name="ProjectAllocatedBudget" xml:space="preserve">
+    <value>What is the budget allocated for programs and projects?</value>
+  </data>
+  <data name="ProjectAllocatedBudgetAmount" xml:space="preserve">
+    <value>What is the budget allocated for operations?</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>Project Name</value>
+  </data>
+  <data name="ProjectProposal" xml:space="preserve">
+    <value>Project Proposal</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="RequesterName" xml:space="preserve">
+    <value>Applicant's Name</value>
+  </data>
+  <data name="SeparateBudgetOfCorprateCommunication" xml:space="preserve">
+    <value>Does the organization have a separate budget line for corporate communication/Puplic Relations?</value>
+  </data>
+  <data name="SpecializedForEvalutionAndMonitoring" xml:space="preserve">
+    <value>Does the organization have a plan for programs &amp; projects' monitoring and evaluation?</value>
+  </data>
+  <data name="SpecializedForProgramsAndProjects" xml:space="preserve">
+    <value>Is there a specialized program and project department in FAO?</value>
+  </data>
+  <data name="SpecializedInRelationAndMedia" xml:space="preserve">
+    <value>Is there a project management department at the organization?</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TheStrategy" xml:space="preserve">
+    <value>The Strategy</value>
+  </data>
+  <data name="Vision" xml:space="preserve">
+    <value>Vision</value>
+  </data>
+  <data name="VolumeOfOrganizationRevenue" xml:space="preserve">
+    <value>What was the Organization's revenue last year?</value>
+  </data>
+  <data name="VolunteerStaff" xml:space="preserve">
+    <value>what is the number of volunteers in the organization</value>
+  </data>
+  <data name="Baseline" xml:space="preserve">
+    <value>Baseline Application Form</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="PleaseIndicateNumberDonors" xml:space="preserve">
+    <value>Please indicate the number of donors from each option selected above and the amount of support from each</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="count" xml:space="preserve">
+    <value>Count</value>
+  </data>
+</root>

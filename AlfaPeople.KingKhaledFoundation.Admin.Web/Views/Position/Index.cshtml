@@ -1,0 +1,56 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.BackendUserPosition>
+@{
+    Layout = null;
+    ViewBag.Title = @Resources.Popsations.PositionName;
+}
+<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+       width="100%" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Resources.Popsations.PositionName
+            </th>
+
+            <th>
+                @Resources.Popsations.IsActive
+            </th>
+            <th>
+                @Resources.General.Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (ViewBag.lang == 3)
+                    {
+                        @Html.DisplayFor(modelItem => item.NameAR)
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.NameEN)
+                    }
+                </td>
+                <td>
+                    @if (item.IsActive == true)
+                    {
+                        <span class="badge badge-pill badge-success">
+                            @Resources.Popsations.Active
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-pill badge-danger">
+                            @Resources.Popsations.InActive
+                        </span>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditClassificationSectorNonProfit" onclick="Edit('@Url.Action("Edit", "position", new { id=@item.BackendUserPositionID})')"><i class="material-icons">edit</i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

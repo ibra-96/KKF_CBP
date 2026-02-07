@@ -1,0 +1,452 @@
+﻿@*@model AlfaPeople.KingKhalidFoundation.Data.Model.IncubationWorkshopBLTransactionsType*@
+@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IncubationWSBaselineVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@{
+    ViewBag.title = Resources.General.BaselineRequest; // "Project Proposal Request";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+    .form-group {
+        margin-bottom: 20px; /*  يضيف مسافة بين الحقول */
+    }
+
+  
+
+</style>
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-body ">
+                    @using (Html.BeginForm("Details", "IncubationWorkshopBaseline", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+
+                      Model.IncubationWorkshopID = ViewBag.WorkshopID != null ? (Guid)ViewBag.WorkshopID : Guid.Empty;
+                            Model.WorkshopName = ViewBag.WorkshopName != null ? ViewBag.WorkshopName.ToString() : "";
+                       
+                            @Html.HiddenFor(model => model.IncubationWorkshopID)
+                            @Html.HiddenFor(model => model.WorkshopName)
+
+                            @Html.HiddenFor(model => model.FrontendUserID)
+
+                            @Html.HiddenFor(model => model.SubmissionDate)
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div id="BodyContent" class="row">
+                        @foreach (var item in Model.IncubationWorkshopBLTransactionsType.IncubationWorkshopBLTrans.OrderBy(o => o.RankNumber))
+                        {
+
+
+                            switch (item.IncubationWSControlsType.IncubationWorkshopControl.ControlsName)
+                            {
+                                case "TextBox":
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" class="bmd-label-floating">
+                                                @if (ViewBag.lang == 3)
+                                                {
+                                                    @item.FieldNameAr
+                                                }
+                                                else
+                                                {
+                                                    @item.FieldNameEn
+                                                }
+                                            </label>
+                                            <div class="form-group">
+                                                <input id="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" type="@item.IncubationWSControlsType.ControlTypeName" name="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" class="form-control" @if (item.IsRequired.ToString() == "true") { <text> required="required" </text> } value="@(item.IncubationWSBLTransactionsValue.FirstOrDefault(f => f.FrontendUserID == Model.FrontendUserID)?.Value)" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    break;
+                                case "Textarea":
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" class="bmd-label-floating">
+                                                @if (ViewBag.lang == 3)
+                                                {
+                                                    @item.FieldNameAr
+                                                }
+                                                else
+                                                {
+                                                    @item.FieldNameEn
+                                                }
+                                            </label>
+
+                                            <textarea id="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" name="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" class="form-control" @if (item.IsRequired.ToString() == "true") { <text> required="required" </text> }>@(item.IncubationWSBLTransactionsValue.FirstOrDefault(f => f.FrontendUserID == Model.FrontendUserID)?.Value)</textarea>
+                                        </div>
+                                    </div>
+                                    break;
+                                case "Checkbox":
+                                    <div class="col-lg-12">
+                                        <label>@(ViewBag.lang == 3 ? item.FieldNameAr : item.FieldNameEn)</label>
+                                        <div id="checkboxGroup_@item.TransID" class="checkbox-group">
+                                            <input type="hidden" id="CheckboxData" name="CheckboxData" value="[]" />
+
+                                            @if (item.Options != null && item.Options.Any())
+                                            {
+                                                foreach (var option in item.Options)
+                                                {
+                                                    var isChecked = item.IncubationWSBLTransactionsValue?.Where(v => v.FrontendUserID == ViewBag.frontEnd && v.IncubationWorkshopBLTrans.IncubationWorkshopID == ViewBag.workshopID)
+                                                        .SelectMany(v => v.OptionValues)
+                                                        .Any(o => o.OptionID == option.OptionID && o.Value == "true") ?? false;
+
+                                                    <div class="form-check">
+                                                        <input type="checkbox"
+                                                               class="option-checkbox"
+                                                               data-trans-id="@item.TransID"
+                                                               data-option-id="@option.OptionID"
+                                                               id="Option_@(item.TransID)_@(option.OptionID)"
+                                                               name="SelectedOptions[@item.TransID][@option.OptionID]"
+                                                               value="true"
+                                                               @(isChecked ? "checked" : "") />
+
+                                                        <input type="hidden"
+                                                               id="HiddenOption_@(item.TransID)_@(option.OptionID)"
+                                                               name="SelectedOptions[@item.TransID][@option.OptionID]"
+                                                               value="false" />
+
+                                                        <label for="Option_@(item.TransID)_@(option.OptionID)">
+
+                                                            @if (ViewBag.lang == 3)
+                                                            {
+                                                                @option.OptionNameAr
+                                                            }
+                                                            else
+                                                            {
+                                                                @option.OptionNameEn
+                                                            }
+                                                            @*@(ViewBag.lang == 3 ? option.OptionNameAr : option.OptionNameEn)*@
+                                                        </label>
+                                                    </div>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                //<p class="text-danger">لا توجد خيارات متاحة.</p>
+                                            }
+                                        </div>
+                                    </div>
+                                    break;
+                                case "RadioButton":
+                                    <div class="col-lg-12">
+                                        <label>@(ViewBag.lang == 3 ? item.FieldNameAr : item.FieldNameEn)</label>
+                                        <div id="radioGroup_@item.TransID" class="radio-group">
+                                            @if (item.Options != null && item.Options.Any())
+                                            {
+                                                foreach (var option in item.Options)
+                                                {
+                                                    var isChecked = item.IncubationWSBLTransactionsValue?
+                                                        .Where(v => v.FrontendUserID == ViewBag.frontEnd && v.IncubationWorkshopBLTrans.IncubationWorkshopID == ViewBag.workshopID)
+                                                        .SelectMany(v => v.OptionValues)
+                                                        .Any(o => o.OptionID == option.OptionID && o.Value == "true") ?? false;
+
+                                                    <div class="form-check">
+                                                        <input type="radio"
+                                                               class="option-radio"
+                                                               data-trans-id="@item.TransID"
+                                                               data-option-id="@option.OptionID"
+                                                               id="Option_@(item.TransID)_@(option.OptionID)"
+                                                               name="SelectedRadio[@item.TransID]"
+                                                               value="@option.OptionID"
+                                                               @(isChecked ? "checked" : "") />
+
+                                                        <label for="Option_@(item.TransID)_@(option.OptionID)">
+                                                            @(ViewBag.lang == 3 ? option.OptionNameAr : option.OptionNameEn)
+                                                        </label>
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                    break;
+
+
+                                @*case "Checkbox":
+                <div class="col-lg-6">
+                    <div class="form-check">
+                        <label for="@item.FieldNameEn.Trim().Replace(" ", string.Empty)">
+                            <input id="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" type="@item.IncubationWSControlsType.ControlTypeName" name="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" @if (item.IsRequired) { <text> required="required" </text> } @if (item.IncubationWSBLTransactionsValue.FirstOrDefault(f => f.FrontendUserID == Model.FrontendUserID)?.Value == "true") { <text> checked="checked" </text> } />
+                            @if (ViewBag.lang == 3)
+                            {
+                                @item.FieldNameAr
+                            }
+                            else
+                            {
+                                @item.FieldNameEn
+                            }
+                        </label>
+                    </div>
+                </div>
+                break;*@
+                                case "Attachments":
+                                    if (!string.IsNullOrWhiteSpace(item.IncubationWSBLTransactionsValue.FirstOrDefault(f => f.FrontendUserID == Model.FrontendUserID && f.IncubationWorkshopBLTrans.IncubationWorkshopID == ViewBag.WorkshopID)?.Value) && item.IncubationWSBLTransactionsValue.FirstOrDefault(f => f.FrontendUserID == Model.FrontendUserID && f.IncubationWorkshopBLTrans.IncubationWorkshopID == ViewBag.WorkshopID)?.IncubationWSBLTransValueAttachment?.Count > 0)
+                                    {
+                                        if (item.IncubationWSControlsType.ControlTypeName == "multi")
+                                        {
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" class="bmd-label">
+                                                        @if (ViewBag.lang == 3)
+                                                        {
+                                                            @item.FieldNameAr
+                                                        }
+                                                        else
+                                                        {
+                                                            @item.FieldNameEn
+                                                        }
+                                                    </label>
+                                                    @foreach (var itemAttachment in item.IncubationWSBLTransactionsValue.FirstOrDefault(f => f.FrontendUserID == Model.FrontendUserID && f.IncubationWorkshopBLTrans.IncubationWorkshopID == ViewBag.WorkshopID).IncubationWSBLTransValueAttachment)
+                                                    {
+                                                        <div class="@($"{item.FieldNameEn.Trim().Replace(" ", string.Empty)}_Div")">
+                                                            <div class="btn-group" role="group">
+                                                                <a href="@Url.Action("Download", new { URL = itemAttachment.URL })" class="btn btn-link btn-rose">
+                                                                    <i class="material-icons">get_app</i>
+                                                                    &nbsp; @itemAttachment.Name
+                                                                </a>
+                                                                <a href="#" class="btn btn-link btn-just-icon btn-danger remove" aria-label="Delete" onclick="DeleteAttachment(this, '@itemAttachment.TransAttachmentID', '@item.FieldNameEn.Trim().Replace(" ", string.Empty)', '@item.IsRequired.ToString()', '@item.IncubationWSControlsType.ControlTypeName')">
+                                                                    <i class="material-icons">delete</i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" class="bmd-label">
+                                                        @if (ViewBag.lang == 3)
+                                                        {
+                                                            @item.FieldNameAr
+                                                        }
+                                                        else
+                                                        {
+                                                            @item.FieldNameEn
+                                                        }
+                                                    </label>
+                                                    @foreach (var itemAttachment in item.IncubationWSBLTransactionsValue.FirstOrDefault(f => f.FrontendUserID == Model.FrontendUserID && f.IncubationWorkshopBLTrans.IncubationWorkshopID == ViewBag.WorkshopID).IncubationWSBLTransValueAttachment)
+                                                    {
+                                                        <div class="@($"{item.FieldNameEn.Trim().Replace(" ", string.Empty)}_Div")">
+                                                            <div class="btn-group" role="group">
+                                                                <a href="@Url.Action("Download", new { URL = itemAttachment.URL })" class="btn btn-link btn-rose">
+                                                                    <i class="material-icons">get_app</i>
+                                                                    &nbsp; @itemAttachment.Name
+                                                                </a>
+                                                                <a href="#" class="btn btn-link btn-just-icon btn-danger remove" aria-label="Delete" onclick="DeleteAttachment(this, '@itemAttachment.TransAttachmentID', '@item.FieldNameEn.Trim().Replace(" ", string.Empty)', '@item.IsRequired.ToString()', '@item.IncubationWSControlsType.ControlTypeName')">
+                                                                    <i class="material-icons">delete</i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" class="bmd-label">
+                                                    @if (ViewBag.lang == 3)
+                                                    {
+                                                        @item.FieldNameAr
+                                                    }
+                                                    else
+                                                    {
+                                                        @item.FieldNameEn
+                                                    }
+                                                </label>
+                                                <div class="@($"{item.FieldNameEn.Trim().Replace(" ", string.Empty)}_Div")">
+                                                    <div class="input-group">
+                                                        <span class="input-group-btn">
+                                                            <button type="button" id="@($"{item.FieldNameEn.Trim().Replace(" ", string.Empty)}_btnBrowse")" name="@($"{item.FieldNameEn.Trim().Replace(" ", string.Empty)}_btnBrowse")" class="btn btn-sm btn-default" aria-label="Browse File" onclick="OpenFileDialog(this);">
+                                                                <span class="material-icons"> open_in_browser </span>
+                                                                @Resources.General.Attachments
+                                                            </button>
+                                                            <input type="file" id="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" name="@item.FieldNameEn.Trim().Replace(" ", string.Empty)" class="form-control" style="display: none;" onchange="FillUploaderInput(this);" @if (item.IsRequired.ToString() == "true") { <text> required="required" </text> } @if (item.IncubationWSControlsType.ControlTypeName == "multi") { <text> multiple="multiple" </text> } />
+                                                        </span>
+                                                        <input type="text" id="@($"{item.FieldNameEn.Trim().Replace(" ", string.Empty)}_UploaderInput")" name="@($"{item.FieldNameEn.Trim().Replace(" ", string.Empty)}_UploaderInput")" class="form-control" disabled="disabled" style="width: 40%;" value="" onclick="OpenFileDialog(this);" oninput="OpenFileDialog(this);" @if (item.IsRequired.ToString() == "true") { <text> required="required" </text> } />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    break;
+                            }
+                        }
+                    </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Action">@Resources.General.Actions</label><br />
+                                    @Html.DropDownListFor(model => model.IncubationWSBLTransValStatusID, (SelectList)ViewBag.LstDrop, new { @class = "selectpicker form-control", @required = "required", data_style = "select-with-transition", @title = Resources.General.SelectAction, @id = "Action" })
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="feadback">@Resources.IncubationRequest.Feedback</label>
+                                    <input type="text" id="feadback" name="Feadback" class="form-control" required />
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <input type="submit" class="btn btn-rose" name="Save" value="@Resources.General.Submit">
+                                <a class="btn btn-default" href="@Url.Action("index")">@Resources.General.Back</a>
+                            </div>
+                        }
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+
+@section scripts {
+    <script>
+        window.onload = function (e) {
+            $('#navItem_IncubationWorkshopBaselineRequest').addClass('active');
+            $('#Workshop').addClass('show');
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".remove").hide();
+            $("#BodyContent *").attr("disabled", "disabled").off('click');
+        });
+    </script>
+
+    <script type="text/javascript">
+        //$(document).ready(function () {
+        //    $("input[type='checkbox']").each(function () {
+        //        if (this.checked) {
+        //            $(this).val(true);
+        //        } else {
+        //            $(this).val(false);
+        //        }
+        //    });
+        //});
+
+        function OpenFileDialog(caller) {
+            $(caller).parent().parent().find('input[type=file]').click();
+        }
+
+        function FillUploaderInput(caller) {
+            $('#' + caller.id + '_UploaderInput').val($(caller).val().split(/[\\|/]/).pop());
+        }
+
+        $("input[type='checkbox']").change(function () {
+            if (this.checked) {
+                $(this).val(true);
+            } else {
+                $(this).val(false);
+            }
+        });
+
+        function DeleteAttachment(caller, id, fieldName, isRequired, controlType) {
+            var msg = confirm("Are you sure? You will not be able to recover this file!");
+            if (msg == true) {
+                $.getJSON('@Url.Action("DeleteIncWSBLAppAttachment", "Home")', { id: id }, function (Result) {
+                        if (Result != null && !jQuery.isEmptyObject(Result)) {
+                            if (Result === "Deleted Succsesfully") {
+                                alert('Your imaginary file has been deleted successfully.');
+
+                                var divFilesClass = '.' + fieldName + '_Div';
+                                var numItems = $(divFilesClass).length
+                                if (numItems === 1) {
+                                    $(divFilesClass).html('');
+                                    $(divFilesClass).append('<div class="input-group"><span class="input-group-btn">' +
+                                        '<button type="button" id="' + fieldName + '_btnBrowse" name="' + fieldName + '_btnBrowse" class="btn btn-default" aria-label="Browse File" onclick="OpenFileDialog(this);">' +
+                                        '<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> &nbsp; Browse </button>' +
+                                        '<input type="file" id="' + fieldName + '" name="' + fieldName + '" class="form-control" style="display: none;" onchange="FillUploaderInput(this);"' + (isRequired == 'True' ? ' required="required"' : '') + (controlType == 'multi' ? ' multiple="multiple"' : '') + ' /></span>' +
+                                        '<input type="text" id="' + fieldName + '_UploaderInput" name="' + fieldName + '_UploaderInput" class="form-control" style="width: 40%;" value="" onclick="OpenFileDialog(this);" oninput="OpenFileDialog(this);"' + (isRequired == 'True' ? ' required="required"' : '') + ' /></div>');
+                                } else {
+                                    $(caller).parent().parent().remove();
+                                }
+                            } else {
+                                alert('failed to delete your imaginary file.');
+                            }
+                        }
+                    });
+            } else { alert('Cancelled, Your imaginary file is safe.'); }
+        }
+    </script>
+
+    <script>
+        $("form").submit(function (event) {
+            var selectedAction = $("#Action option:selected").text();
+            if (selectedAction == "" || $("#feadback").val() == "") {
+                alertify.notify("Please Cheose Action And feadback", 'custome', 4, function () { console.log('dismissed'); });
+                event.preventDefault();
+            }
+            else {
+                var r = confirm("Are you sure to " + selectedAction + " !");
+                if (r == true) {
+                    return true;
+                    //var msgConfirm = confirm("Are you sure about taken this action, This action will send an email to the corporates?");
+                    //if (msgConfirm == true) {
+                    //    return true;
+                    //} else {
+                    //    event.preventDefault();
+                    //}
+                } else {
+                    alert("Cancel")
+                    event.preventDefault();
+                }
+            }
+        });
+
+
+
+
+        $(document).ready(function () {
+            // تحديث الحقل المخفي عند التغيير
+            $(".option-checkbox").change(function () {
+                var checkboxData = [];
+
+                // اجمع جميع الخيارات الحالية
+                $(".option-checkbox").each(function () {
+                    var transId = $(this).data("trans-id");
+                    var optionId = $(this).data("option-id");
+                    var isChecked = $(this).is(":checked");
+
+                    // تحقق مما إذا كانت المعاملة موجودة مسبقًا
+                    var existingTransaction = checkboxData.find(t => t.TransID === transId);
+                    if (!existingTransaction) {
+                        existingTransaction = { TransID: transId, Options: [] };
+                        checkboxData.push(existingTransaction);
+                    }
+
+                    // أضف الخيار الحالي
+                    existingTransaction.Options.push({
+                        OptionID: optionId,
+                        Value: isChecked.toString().toLowerCase()
+                    });
+                });
+
+                // تحديث الحقل المخفي بتنسيق JSON
+                $("#CheckboxData").val(JSON.stringify(checkboxData));
+            });
+    </script>
+
+}

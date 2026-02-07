@@ -1,0 +1,491 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.WorkshopProjectProposal
+@{
+    ViewBag.Title = Resources.General.WorkshopRequests;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <div id="accordion" role="tablist">
+                        <div class="card-collapse">
+                            <div class="card-header" role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+                                        @Resources.Workshop.WorkshopDetails
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
+                                <div class="card-body ">
+                                    <div class="card-body">
+                                        <div class="row justify-content-center">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="WorkshopName" class="bmd-label-floating">@Resources.Workshop.WorkshopName </label>
+                                                    <input type="text" class="form-control" disabled="disabled" id="WorkshopName" name="WorkshopName" value="@Model.IncubationWorkshop.Name" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="WorkshopModel" class="bmd-label-floating">@Resources.Workshop.WorkshopModel </label>
+                                                    @if (ViewBag.lang == 3)
+                                                    {
+                                                        <input type="text" id="IncubationWorkshopModel" class="form-control" disabled="disabled" name="IncubationWorkshopModel" value="@Model.IncubationWorkshop.IncubationWorkshopModel.NameAR" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="text" id="IncubationWorkshopModel" class="form-control" disabled="disabled" name="IncubationWorkshopModel" value="@Model.IncubationWorkshop.IncubationWorkshopModel.NameEN" />
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="WorkshopStartDate"> @Resources.Workshop.StartDate </label>
+                                                    <input type="text" class="form-control" disabled="disabled" id="WorkshopStartDate" name="WorkshopStartDate" value="@Model.IncubationWorkshop.StartDate.ToString("yyy/MM/dd")" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="WorkshopEndDate"> @Resources.Workshop.EndDate </label>
+                                                    <input type="text" class="form-control" disabled="disabled" id="WorkshopEndDate" name="WorkshopEndDate" value="@Model.IncubationWorkshop.EndDate.ToString("yyy/MM/dd")" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="WorkshopLastTimeToApply"> @Resources.Workshop.LastTimeToApply </label>
+                                                    <input type="text" class="form-control" disabled="disabled" id="WorkshopLastTimeToApply" name="WorkshopLastTimeToApply" value="@Model.IncubationWorkshop.LastTimeToApply.ToString("yyy/MM/dd")" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="WorkshopProjectDurationInDays"> @Resources.Workshop.DurationOfTheProjectInDays  </label>
+                                                    <input type="text" class="form-control" disabled="disabled" id="WorkshopProjectDurationInDays" name="WorkshopProjectDurationInDays" value="@(Model.IncubationWorkshop.EndDate.Subtract(Model.IncubationWorkshop.StartDate).Days + 1)" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="WorkshopConsultant"> @Resources.Workshop.Consultant </label>
+                                                    <input type="text" class="form-control" disabled="disabled" id="WorkshopConsultant" name="WorkshopConsultant" value="@Model.IncubationWorkshop.Consultant.Name" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="WorkshopRegion"> @Resources.General.Region </label>
+                                                    @if (ViewBag.lang == 3)
+                                                    {
+                                                        <input type="text" class="form-control" disabled="disabled" id="WorkshopRegion" name="WorkshopRegion" value="@Model.IncubationWorkshop.Region.RegionNameAR" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="text" class="form-control" disabled="disabled" id="WorkshopRegion" name="WorkshopRegion" value="@Model.IncubationWorkshop.Region.RegionNameEN" />
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="WorkshopGovernorate"> @Resources.General.Governorate </label>
+                                                    @if (ViewBag.lang == 3)
+                                                    {
+                                                        <input type="text" class="form-control" disabled="disabled" id="WorkshopGovernorate" name="WorkshopGovernorate" value="@Model.IncubationWorkshop.Governorate.GovernorateAR" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="text" class="form-control" disabled="disabled" id="WorkshopGovernorate" name="WorkshopGovernorate" value="@Model.IncubationWorkshop.Governorate.GovernorateEN" />
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="WorkshopCity"> @Resources.General.Neighborhoods </label>
+                                                    @if (ViewBag.lang == 3)
+                                                    {
+                                                        <input type="text" class="form-control" disabled="disabled" id="WorkshopCity" name="WorkshopCity" value="@Model.IncubationWorkshop.City.CityNameAR" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="text" class="form-control" disabled="disabled" id="WorkshopCity" name="WorkshopCity" value="@Model.IncubationWorkshop.City.CityNameEN" />
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="WorkshopDescription" class="bmd-label-floating">  @Resources.Workshop.Description</label>
+                                                    <textarea class="form-control" rows="3" id="WorkshopDescription" name="WorkshopDescription" disabled="disabled">@Model.IncubationWorkshop.Description</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="WorkshopTrainingHeadquarters" class="bmd-label-floating">@Resources.Workshop.TrainingHeadquarters </label>
+                                                    <input type="text" class="form-control" disabled="disabled" id="WorkshopTrainingHeadquarters" name="WorkshopTrainingHeadquarters" value="@Model.IncubationWorkshop.TrainingHeadquarters" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="material-datatables">
+                                                    <table id="AttachmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>@Resources.General.AttachmentName</th>
+                                                                <th>@Resources.General.AttachmentType</th>
+                                                                <th>@Resources.General.AttachmentSize</th>
+                                                                <th class="disabled-sorting">@Resources.General.Actions</th>
+                                                            </tr>
+
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in Model.IncubationWorkshop.IncubationWorkshopAttachments)
+                                                            {
+                                                                <tr>
+                                                                    <td>
+                                                                        <a class="btn btn-link btn-default" href="@Url.Action("Download", new { id = item.AttachmentID })">
+                                                                            <i class="material-icons">attach_file</i>
+                                                                            @item.Name
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>@item.Type</td>
+                                                                    <td>@item.Size Bytes</td>
+                                                                    <td class="text-right">
+                                                                        <a class="btn btn-link btn-rose btn-just-icon" href="@Url.Action("Download", new { id = item.AttachmentID })">
+                                                                            <i class="material-icons">get_app</i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-collapse">
+                            <div class="card-header" role="tab" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        @Resources.IncubationWorkshops.JoinToTheWorkshop
+                                        <i class="material-icons">keyboard_arrow_down</i>
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body ">
+                                    <div class="row justify-content-center">
+                                        @if (Model.WorkshopPP_InvitationStatus == AlfaPeople.KingKhalidFoundation.Data.Model.WorkshopPPInvitationStatus.attend)
+                                        {
+                                            <div class="row justify-content-center" style="margin-top: 14px;">
+                                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                                    @Resources.Workshop.Attend
+                                                </span>
+                                            </div>
+                                            <div class="col-lg-12" style="margin-top: 70px; margin-bottom: 70px;">
+                                                <div class="material-datatables">
+                                                    <table id="AttendDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>@Resources.Workshop.AttendeeName</th>
+                                                                <th>@Resources.Workshop.AttendeeEmail</th>
+                                                                <th>@Resources.Workshop.AttendeeMobile</th>
+                                                                <th width="20%">@Resources.Workshop.EducationalQualificationAndSpecialization</th>
+                                                                <th>@Resources.Workshop.AttendeePosition</th>
+                                                                <th width="30%">@Resources.Workshop.PositionTasks</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in Model.EmployeesAttendIncubationWorkShops)
+                                                            {
+                                                                <tr>
+                                                                    <td>@item.Name</td>
+                                                                    <td>@item.Email</td>
+                                                                    <td>@item.Mobile</td>
+                                                                    <td width="20%">@item.EducationalQualificationAndSpecialization</td>
+                                                                    <td>@item.Position</td>
+                                                                    <td width="30%">@item.PositionTasks</td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="material-datatables">
+                                                    <table id="WsAttachmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>@Resources.General.AttachmentName</th>
+                                                                <th>@Resources.General.AttachmentType</th>
+                                                                <th>@Resources.General.AttachmentSize</th>
+                                                                <th class="disabled-sorting">@Resources.General.Actions</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in Model.WorkshopProjectProposalAttachments)
+                                                            {
+                                                                <tr>
+                                                                    <td>
+                                                                        <a class="btn btn-link btn-default" href="@Url.Action("DownloadWSRequest", new { id = item.AttachmentID })">
+                                                                            <i class="material-icons">attach_file</i>
+                                                                            @item.Name
+                                                                        </a>
+                                                                    </td>
+                                                                    <td>@item.Type</td>
+                                                                    <td>@item.Size Bytes</td>
+                                                                    <td class="text-right">
+                                                                        <a class="btn btn-link btn-rose btn-just-icon" href="@Url.Action("DownloadWSRequest", new { id = item.AttachmentID })">
+                                                                            <i class="material-icons">get_app</i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="row justify-content-center" style="margin-bottom: 14px;margin-top: 14px;">
+                                                <span style="font-size: 14px;" class="badge badge-pill badge-danger">
+                                                    @Resources.Workshop.absent
+                                                </span>
+                                            </div>
+                                        }
+                                    </div>
+                                    @using (Html.BeginForm("WorkshopRequests", "WorkshopRequest", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                                    {
+                                        <div class="row justify-content-center">
+                                            @Html.AntiForgeryToken()
+                                            @Html.HiddenFor(model => model.WorkshopProjectProposalID)
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            <div class="col-lg-12" style="margin-top: 70px;">
+                                                <div class="form-group">
+                                                    <label for="Action">@Resources.General.Action</label><br />
+                                                    @Html.DropDownList("ActionID", (SelectList)ViewBag.LstDrop, new { @class = "selectpicker form-control", @required = "required", data_style = "select-with-transition", @title = Resources.General.SelectAction, @id = "Action" })
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12" style="margin-top: 70px; margin-bottom: 70px;">
+                                                <div class="form-group">
+                                                    <label for="feadback">@Resources.IncubationRequest.Feedback</label>
+                                                    <textarea id="feadback" name="feadback" class="form-control" rows="3" required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <input type="submit" class="btn btn-rose" name="Save" value="@Resources.General.Submit">
+                                                <a class="btn btn-default" href="@Url.Action("Index")">@Resources.General.Back</a>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+
+@section scripts{
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_WorkshopRequest').addClass('active');
+            $('#Workshop').addClass('show');
+        };
+    </script>
+
+    <script>
+        $("form").submit(function (event) {
+            var selectedAction = $("#Action option:selected").text();
+            if (selectedAction == "" || $("#feadback").val() == "") {
+                alertify.notify("Please Cheose Action And feadback", 'custome', 4, function () { console.log('dismissed'); });
+                event.preventDefault();
+            }
+            else {
+                var r = confirm("Are you sure to " + selectedAction + " !");
+                if (r == true) {
+                    var msgConfirm = confirm("Are you sure about taken this action, This action will send an email to the corporates?");
+                    if (msgConfirm == true) {
+                        return true;
+                    } else {
+                        event.preventDefault();
+                    }
+                } else {
+                    alert("Cancel")
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $(document).ready(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                $('#AttendDatatables').DataTable({
+                    "paging": false,
+                    "searching": false,
+                    "info": false,
+                    "pagingType": false,
+                    "lengthMenu": false,
+                    responsive: true,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+
+                $('#AttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+
+                var table = $('#WsAttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                $('#AttendDatatables').DataTable({
+                    "paging": false,
+                    "searching": false,
+                    "info": false,
+                    "pagingType": false,
+                    "lengthMenu": false,
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search records",
+                    }
+                });
+
+                $('#AttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search records",
+                    }
+                });
+
+                var table = $('#WsAttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search records",
+                    }
+                });
+            }
+
+            // Delete a record
+            table.on('click', '.remove', function (e) {
+                $tr = $(this).closest('tr');
+                table.row($tr).remove().draw();
+                e.preventDefault();
+                console.log(table.rows().data().length);
+            });
+        });
+
+        function Delete(Id) {
+                swal({
+                    title: 'Are you sure?',
+                    text: 'You will not be able to recover this file!',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, keep it',
+                    confirmButtonClass: "btn btn-success",
+                    cancelButtonClass: "btn btn-danger",
+                    buttonsStyling: false
+                }).then(function () {
+
+                    $.getJSON('@Url.Action("DeleteAttachment")', { Id: Id }, function (Result) {
+                        if (Result != null && !jQuery.isEmptyObject(Result)) {
+                            if (Result === "Deleted Succsesfully") {
+                                swal({
+                                    title: 'Deleted!',
+                                    text: 'Your imaginary file has been deleted.',
+                                    type: 'success',
+                                    confirmButtonClass: "btn btn-success",
+                                    buttonsStyling: false
+                                }).catch(swal.noop)
+                            } else {
+                                swal({
+                                    title: 'Failed',
+                                    text: 'failed to delete your imaginary file :)',
+                                    type: 'error',
+                                    confirmButtonClass: "btn btn-danger",
+                                    buttonsStyling: false
+                                }).catch(swal.noop)
+                            }
+                        }
+                    });
+
+                }, function (dismiss) {
+                    if (dismiss === 'cancel') {
+                        swal({
+                            title: 'Cancelled',
+                            text: 'Your imaginary file is safe :)',
+                            type: 'error',
+                            confirmButtonClass: "btn btn-info",
+                            buttonsStyling: false
+                        }).catch(swal.noop)
+                    }
+                })
+        }
+    </script>
+}

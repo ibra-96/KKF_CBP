@@ -1,0 +1,581 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Web.Models.IndIvidualRegistrationFormVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="~/assets/img/piclogo.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>King Khalid Foundation</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/css.css" />
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="~/assets/css/material-dashboard.min.css?v=2.0.2" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="~/assets/demo/demo.css" rel="stylesheet" />
+
+    <link href="~/assets/jquery-ui.css" rel="stylesheet" />
+
+    <style>
+        .field-validation-error {
+            color: red;
+            display: block;
+            font-size: 11px;
+        }
+
+        input[type=text] {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body class="off-canvas-sidebar">
+    <!-- Extra details for Live View on GitHub Pages -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="wrapper ">
+        <!-- Content -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="content">
+                        <div class="container-fluid">
+                            <div class="col-md-8 col-12 mr-auto ml-auto">
+                                <!--      Wizard container        -->
+                                <div class="wizard-container">
+                                    <div class="card card-wizard" data-color="rose" id="wizardProfile">
+                                        @using (Html.BeginForm("IndIvidualRegistrationForm", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            @Html.HiddenFor(f => f._RegisterVM._RegisterViewModel.UserRoles)
+                                            @Html.HiddenFor(f => f._RegisterVM._RegisterViewModel.ConfirmPassword)
+                                            <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                                            <div class="card-header text-center">
+                                                <h3 class="card-title">
+                                                    Build Your Profile
+                                                </h3>
+                                                <h5 class="card-description">This information will let us know more about you.</h5>
+                                            </div>
+                                            <div class="wizard-navigation">
+                                                <ul class="nav nav-pills">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" href="#BasicData" data-toggle="tab" role="tab">
+                                                            Basic Data
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#Contacts" data-toggle="tab" role="tab">
+                                                            Contacts
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="#Account" data-toggle="tab" role="tab">
+                                                            Account
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" id="BasicData">
+                                                        <h5 class="info-text"> Let's start with the basic information </h5>
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-sm-4">
+                                                                <div class="picture-container">
+                                                                    <div class="picture">
+                                                                        <img src="~/assets/img/default-avatar.png" name="_IndIvidualApplicationForm.picture" class="picture-src" id="wizardPicturePreview" title="" />
+                                                                        <input type="file" name="file" id="wizard-picture">
+                                                                    </div>
+                                                                    @Html.ValidationMessage("Errors")
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label class="bmd-label-floating">FUll Name </label>
+                                                                        @Html.TextBoxFor(f => f._IndividualApplicationForm.Name, new { @class = "form-control", @required = "required" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.Name)
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label>Birth Date </label>
+                                                                        @Html.TextBoxFor(f => f._IndividualApplicationForm.BirthDate, new { @class = "form-control ", @id = "BirthDate", @required = "required" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.BirthDate)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group select-wizard">
+                                                                        <label class="bmd-label-floating">Gender &nbsp&nbsp</label>
+                                                                        @Html.DropDownListFor(f => f._IndividualApplicationForm.Gender, (SelectList)ViewBag.Gender, new { @class = "selectpicker", @required = "required", data_style = "select-with-transition", @title = "Select Gender", @id = "ddlCategory" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.Gender)
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label class="bmd-label-floating"> Identity Number </label>
+                                                                        @Html.TextBoxFor(f => f._IndividualApplicationForm.IdentityNumber, new { @class = "form-control", @required = "required" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.IdentityNumber)
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label> Work Start Date </label>
+                                                                        @Html.TextBoxFor(f => f._IndividualApplicationForm.WorkStartDate, new { @class = "form-control ", @id = "WorkStartDate" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.WorkStartDate)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group select-wizard">
+                                                                        <label class="bmd-label-floating"> Nationality</label>
+                                                                        @Html.DropDownListFor(f => f._IndividualApplicationForm.Nationality, (SelectList)ViewBag.Nationality, new { @class = "selectpicker", @required = "required", data_style = "select-with-transition", @id = "Nationality", @title = "Select Nationality" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.Nationality)
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label class="bmd-label-floating">Company Name </label>
+                                                                        @Html.TextBoxFor(f => f._IndividualApplicationForm.CompanyName, new { @class = "form-control", @required = "required" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.CompanyName)
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label class="bmd-label-floating"> Position </label>
+                                                                        @Html.TextBoxFor(f => f._IndividualApplicationForm.Position, new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.Position)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-10">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label class="bmd-label-floating">Explain the functions of the position in detail </label>
+                                                                        @Html.TextAreaFor(f => f._IndividualApplicationForm.PositionDetails, new { @class = "form-control", @rows = "5", @style = "width: 113%" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.PositionDetails)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane" id="Contacts">
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-sm-12">
+                                                                <h5 class="info-text"> Help us to contact with you </h5>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group select-wizard">
+                                                                        <label class="bmd-label-floating">Regions</label>
+                                                                        @Html.DropDownListFor(f => f._IndividualApplicationForm.RegionID, (SelectList)ViewBag.RegionID, new { @class = "selectpicker", @required = "required", data_style = "select-with-transition", @id = "Region", @title = "Select Region" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.RegionID)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group select-wizard">
+                                                                        <label class="bmd-label-floating">Governorate</label>
+                                                                        <select id="Governorate" name="_IndividualApplicationForm.GovernorateID" required class="selectpicker" data-style="select-with-transition"
+                                                                                title="Select Governorate"></select>
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.GovernorateID)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group select-wizard">
+                                                                        <label class="bmd-label-floating" style="margin-right:100%">Neighborhood</label>
+                                                                        <select id="City" name="_IndividualApplicationForm.CityID" required class="selectpicker" data-style="select-with-transition"
+                                                                                title="Select Neighborhood"></select>
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.CityID)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group" style="width: 100%;">
+                                                                        <label class="bmd-label-floating">Address </label>
+                                                                        @Html.TextBoxFor(f => f._IndividualApplicationForm.Address, new { @class = "form-control ", @required = "required" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.Address)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label class="bmd-label-floating">POBox </label>
+                                                                        @Html.TextBoxFor(f => f._IndividualApplicationForm.POBox, new { @class = "form-control ", @required = "required" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.POBox)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label class="bmd-label-floating">Postal Code </label>
+                                                                        @Html.TextBoxFor(f => f._IndividualApplicationForm.PostalCode, new { @class = "form-control ", @required = "required" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.PostalCode)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label class="bmd-label-floating">Mobile Number </label>
+                                                                        @Html.TextBoxFor(f => f._IndividualApplicationForm.MobileNumber, new { @class = "form-control ", @required = "required" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.MobileNumber)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label class="bmd-label-floating">Telephone Number </label>
+                                                                        @Html.TextBoxFor(f => f._IndividualApplicationForm.TelephoneNumber, new { @class = "form-control ", @required = "required" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.TelephoneNumber)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label class="bmd-label-floating">Extension </label>
+                                                                        @Html.TextBoxFor(f => f._IndividualApplicationForm.Extension, new { @class = "form-control ", @required = "required" })
+                                                                        @Html.ValidationMessageFor(f => f._IndividualApplicationForm.Extension)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane" id="Account">
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-sm-12">
+                                                                <h5 class="info-text"> Let's start with the building your Authentication </h5>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label for="Inp_UserName">User Name </label>
+                                                                        @Html.HiddenFor(f => f._RegisterVM.Username)
+                                                                        <input type="text" id="Inp_UserName" name="InpUserName" value="@Model._RegisterVM.Username" class="form-control" disabled />
+                                                                        @Html.ValidationMessageFor(f => f._RegisterVM.Username)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label for="Inp_Email">Email </label>
+                                                                        @Html.HiddenFor(f => f._RegisterVM._RegisterViewModel.Email)
+                                                                        <input type="text" id="Inp_Email" name="InpEmail" value="@Model._RegisterVM._RegisterViewModel.Email" class="form-control" disabled />
+                                                                        @Html.ValidationMessageFor(f => f._RegisterVM._RegisterViewModel.Email)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <div class="input-group form-control-lg">
+                                                                    <div class="form-group">
+                                                                        <label for="Inp_Password">Password </label>
+                                                                        <input type="password" class="form-control" id="Inp_Password" value=".........." name="Passwordhsh" disabled>
+                                                                        @Html.HiddenFor(f => f._RegisterVM._RegisterViewModel.Password)
+                                                                        @Html.ValidationMessageFor(f => f._RegisterVM._RegisterViewModel.Password)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="mr-auto">
+                                                        <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled" name="previous" value="Previous">
+                                                    </div>
+                                                    <div class="ml-auto">
+                                                        <input type="button" class="btn btn-next btn-fill btn-rose btn-wd" name="next" value="Next">
+                                                        <input type="submit" class="btn btn-finish btn-fill btn-rose btn-wd" name="finish" value="Finish" style="display: none;">
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <!-- wizard container -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Content -->
+        <!-- Footer -->
+        <footer class="footer" style="position:inherit;">
+            <div class="container">
+                <nav class="float-left">
+                    <ul>
+                        <li>
+                            <a href="https://kkf.org.sa/en/about-us/">
+                                @Resources.General.AboutUs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.clearvision.com.sa/index.php?module=case_study&page=list">
+                                @Resources.General.Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/muostafa-raafat/">
+                                @Resources.General.Licenses
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright float-right">
+                    &copy; @DateTime.Now.Year King Khalid Foundation. All rights reserved.
+
+
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+    </div>
+
+
+    <!--   Core JS Files   -->
+
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/respond.min.js"></script>
+    <script src="~/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="~/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="~/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Forms Validations Plugin -->
+
+    <!-- Plugin for the momentJs  -->
+    <script src="~/assets/js/plugins/moment.min.js"></script>
+    <!--  Plugin for Sweet Alert -->
+    <script src="~/assets/js/plugins/sweetalert2.js"></script>
+    <!--  DataTables.net Plugin, full documentation here: https://datatables.net/    -->
+    <script src="~/assets/js/plugins/jquery.dataTables.min.js"></script>
+    <!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+    <script src="~/assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+    <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+    <script src="~/assets/js/plugins/bootstrap-selectpicker.js"></script>
+    <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+    <script src="~/assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/assets/jquery-ui.js"></script>
+    <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+    <script src="~/assets/js/plugins/bootstrap-tagsinput.js"></script>
+    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="~/assets/js/plugins/jasny-bootstrap.min.js"></script>
+    <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+    <script src="~/assets/js/plugins/fullcalendar.min.js"></script>
+    <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+    <script src="~/assets/js/plugins/jquery-jvectormap.js"></script>
+    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="~/assets/js/plugins/nouislider.min.js"></script>
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <!-- Library for adding dinamically elements -->
+    <script src="~/assets/js/plugins/arrive.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Yno10-YTnLjjn_Vtk0V8cdcY5lC4plU"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Chartist JS -->
+    <script src="~/assets/js/plugins/chartist.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="~/assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="~/assets/js/material-dashboard.min.js?v=2.0.2" type="text/javascript"></script>
+    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+    <script src="~/assets/demo/demo.js"></script>
+    <script type="text/javascript">
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // Initialise the wizard
+            demo.initMaterialWizard();
+            setTimeout(function () {
+                $('.card.card-wizard').addClass('active');
+            }, 600);
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#BirthDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+            $("#WorkStartDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                var table = $('#datatables').DataTable({
+                    "paging": true,
+                    "searching": false,
+                    "info": false,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [10, 25, 50, -1],
+                        [10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                var table = $('#datatables').DataTable({
+                    "paging": true,
+                    "searching": false,
+                    "info": false,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [10, 25, 50, -1],
+                        [10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search records",
+                    }
+                });
+            }
+
+            // Edit record
+            table.on('click', '.edit', function () {
+                $tr = $(this).closest('tr');
+                var data = table.row($tr).data();
+                alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+            });
+
+            // Delete a record
+            table.on('click', '.remove', function (e) {
+                $tr = $(this).closest('tr');
+                table.row($tr).remove().draw();
+                e.preventDefault();
+                console.log(table.rows().data().length);
+            });
+
+            //Like record
+            table.on('click', '.like', function () {
+
+                table.row.add([
+                    'Doctorate Degree',
+                    'Management Information Systems',
+                    'King Khalid University',
+                    '2018/01/01',
+                    '<button class="btn btn-link btn-info btn-just-icon like" type="button"><i class= "material-icons"> add</i></button><button class= "btn btn-link btn-warning btn-just-icon edit" type = "button"><i class="material-icons">edit</i></button><button class="btn btn-link btn-danger btn-just-icon remove" type="button"><i class="material-icons">delete</i></button>'
+                ]).draw(false);
+
+                console.log(table.rows().data().length);
+            });
+        });
+    </script>
+
+    <script>
+        $("#Region").on('change', function () {
+            var selectedRegion = $("#Region").val();
+            var options = [];
+            var option = '';
+            if (selectedRegion != null && selectedRegion != '') {
+                $.getJSON('@Url.Action("GetGovernorates")', { Region: selectedRegion }, function (Governorates) {
+                    if (Governorates != null && !jQuery.isEmptyObject(Governorates)) {
+
+                        $.each(Governorates, function (index, Governorate) {
+                            option = option + '<option value="' + Governorate.Value + '">' + Governorate.Text + "</option>"
+                        });
+                        $("#Governorate").html(option).selectpicker('refresh');
+                    };
+                });
+            }
+        });
+
+        $("#Governorate").on('change', function () {
+            var selectedGovernorate = $("#Governorate").val();
+            var options = [];
+            var option = '';
+            if (selectedGovernorate != null && selectedGovernorate != '') {
+                $.getJSON('@Url.Action("GetCities")', { Governorate: selectedGovernorate }, function (Cities) {
+                    if (Cities != null && !jQuery.isEmptyObject(Cities)) {
+
+                        $.each(Cities, function (index, City) {
+                            option = option + '<option value="' + City.Value + '">' + City.Text + "</option>"
+                        });
+                        $("#City").html(option).selectpicker('refresh');
+                    };
+                });
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('form').one('submit', function () {
+                $(this).find("input[type='submit']").prop('disabled', true);
+                $(this).find('input[type="submit"]').attr('disabled', 'disabled');
+                $(this).find("button[type='submit']").prop('disabled', true);
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            });
+            $('form').submit(function () {
+                $(this).find("input[type='submit']").prop('disabled', true);
+                $(this).find('input[type="submit"]').attr('disabled', 'disabled');
+                $(this).find("button[type='submit']").prop('disabled', true);
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            });
+            $('input').focusout(function () {
+                if ($(this).val() != '') {
+                    $(':input[type="submit"]').prop('disabled', false);
+                    $(':button[type="submit"]').prop('disabled', false);
+
+                    $(':input[type="submit"]').removeAttr('disabled');
+                    $(':button[type="submit"]').removeAttr('disabled');
+                }
+            });
+            $('select').change(function () {
+                if ($(this).val() != '') {
+                    $(':input[type="submit"]').prop('disabled', false);
+                    $(':button[type="submit"]').prop('disabled', false);
+
+                    $(':input[type="submit"]').removeAttr('disabled');
+                    $(':button[type="submit"]').removeAttr('disabled');
+                }
+            });
+            $('textarea').focusout(function () {
+                if ($(this).val() != '') {
+                    $(':input[type="submit"]').prop('disabled', false);
+                    $(':button[type="submit"]').prop('disabled', false);
+
+                    $(':input[type="submit"]').removeAttr('disabled');
+                    $(':button[type="submit"]').removeAttr('disabled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

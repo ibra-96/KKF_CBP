@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.Consultant>
+
+@{
+     Layout = null;
+}
+<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+       width="100%" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Resources.Consultants.Name
+            </th>
+            <th>
+                @Resources.Consultants.Address
+            </th>  
+            <th>
+                @Resources.Consultants.OfficialMail
+            </th>
+            <th>
+                @Resources.Consultants.MobileNumber
+            </th>
+            <th>
+                @Resources.Consultants.IsActive
+            </th>
+    
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfficialMail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MobileNumber)
+                </td>
+                <td>
+
+                    @if (item.IsActive == true)
+                    {
+                    <span class="badge badge-pill badge-success">
+                        @Resources.Consultants.Acitve
+                    </span>
+
+                    }
+                    else
+                    {
+                    <span class="badge badge-pill badge-danger">
+                        @Resources.Consultants.InAcitve
+                    </span>
+
+                    }
+
+                </td>
+           
+                <td>
+                    <a class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditClassificationSectorNonProfit" onclick="Edit('@Url.Action("Edit", "Consultants", new { id=@item.ConsultantID})')"><i class="material-icons">edit</i></a>
+                  @*  <a class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditClassificationSectorNonProfit" onclick="Edit('@Url.Action("Edit", "IncubationModels", new { id=@item.IncubationModelID})')"><i class="material-icons">edit</i></a>*@
+               
+                 </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

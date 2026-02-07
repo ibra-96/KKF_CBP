@@ -1,0 +1,487 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Web.Models.IncubationWorkshopJoinVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@{
+    ViewBag.title = Model.incubationWorkshop.Name;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+
+<!-- Content -->
+@*<div class="content">*@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            @if (ViewBag.err != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.err
+                </div>
+            }
+            <div class="card" @if (Model.incubationWorkshop.FundingSource.UseCustomThemes) { <text> style="background-image: url('@Model.incubationWorkshop.FundingSource.GrantBackgroundPic'); background-size: cover; background-repeat: round; background-position: center;" </text> }>
+                <div class="card-header card-header-rose card-header-icon">
+                    @if (Model.incubationWorkshop.FundingSource.UseCustomThemes)
+                    {
+                        <div class="card-icon" style="padding:0px; background: rgba(0, 0, 0, 0); background-color: rgba(0, 0, 0, 0); box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);">
+                            <img src="@Model.incubationWorkshop.FundingSource.GrantHeaderPic" style="width:101%; border-radius: 3px;" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card-icon">
+                            <i class="material-icons">all_inclusive</i>
+                        </div>
+                    }
+                </div>
+                <div class="card-body">
+                    <div class="content">
+                        <div class="card-body">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="Name" class="bmd-label-floating">@Resources.IncubationWorkshops.WorkshopName </label>
+                                        @Html.EditorFor(model => model.incubationWorkshop.Name, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="IncubationWorkshopModel" class="bmd-label-floating">@Resources.IncubationWorkshops.WorkshopModel </label>
+                                        @if (ViewBag.lang == 3)
+                                        {
+                                            <input type="text" id="IncubationWorkshopModel" class="form-control" disabled="disabled" name="IncubationWorkshopModel" value="@Model.incubationWorkshop.IncubationWorkshopModel.NameAR" />
+                                        }
+                                        else
+                                        {
+                                            <input type="text" id="IncubationWorkshopModel" class="form-control" disabled="disabled" name="IncubationWorkshopModel" value="@Model.incubationWorkshop.IncubationWorkshopModel.NameEN" />
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="Inp_StartDate"> @Resources.IncubationWorkshops.StartDate </label>
+                                        <input type="text" class="form-control" disabled="disabled" name="IncubationWorkshopStartDate" value="@Model.incubationWorkshop.StartDate.ToString("yyy/MM/dd")" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="Inp_EndDate"> @Resources.IncubationWorkshops.EndDate </label>
+                                        <input type="text" class="form-control" disabled="disabled" name="IncubationWorkshopEndDate" value="@Model.incubationWorkshop.EndDate.ToString("yyy/MM/dd")" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="LastTimeToApply"> @Resources.IncubationWorkshops.LastTimeToApply</label>
+                                        <input type="text" class="form-control" disabled="disabled" name="IncubationWorkshopLastTimeToApply" value="@Model.incubationWorkshop.LastTimeToApply.ToString("yyy/MM/dd")" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="incubation_ProjectDurationInDays"> @Resources.IncubationWorkshops.DurationOfTheProjectInDays </label>
+                                        <input type="text" class="form-control" disabled="disabled" name="IncubationWorkshopProjectDurationInDays" value="@(Model.incubationWorkshop.EndDate.Subtract(Model.incubationWorkshop.StartDate).Days + 1)" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="LastTimeToApply"> @Resources.IncubationWorkshops.SelectConsultant</label>
+                                        <input type="text" class="form-control" disabled="disabled" name="IncubationWorkshopConsultant" value="@Model.incubationWorkshop.Consultant.Name" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="LastTimeToApply"> @Resources.IncubationWorkshops.SelectRegion</label>
+                                        <input type="text" class="form-control" disabled="disabled" name="IncubationWorkshopRegion" value="@Model.incubationWorkshop.Region.RegionNameEN" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="LastTimeToApply"> @Resources.IncubationWorkshops.SelectGovernorate</label>
+                                        <input type="text" class="form-control" disabled="disabled" name="IncubationWorkshopGovernorate" value="@Model.incubationWorkshop.Governorate.GovernorateEN" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="LastTimeToApply"> @Resources.IncubationWorkshops.SelectNeighborhoods</label>
+                                        <input type="text" class="form-control" disabled="disabled" name="IncubationWorkshopCity" value="@Model.incubationWorkshop.City.CityNameEN" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="Description" class="bmd-label-floating">@Resources.IncubationWorkshops.Description</label>
+                                        @Html.TextAreaFor(model => model.incubationWorkshop.Description, new { @class = "form-control", @disabled = "disabled" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="TrainingHeadquarters" class="bmd-label-floating">@Resources.IncubationWorkshops.TrainingHeadquarters </label>
+                                        @Html.EditorFor(model => model.incubationWorkshop.TrainingHeadquarters, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                    </div>
+                                </div>
+
+                             
+                                <div class="form-group d-flex align-items-center gap-2" style="gap: 10px;">
+                                    <input type="checkbox" id="CommitmentAgreementCheckbox" required />
+                                    <label for="CommitmentAgreementCheckbox" class="mb-0">
+                                        @*أوافق على
+                                        <a href="javascript:void(0);" onclick="previewPdfFile('@Url.Action("PreviewCommitmentFile1", "Home", new { id = ViewBag.CommitmentFileID })')">
+            إقرار الالتزام*@
+        @*</a>*@
+                                        <a href="@Url.Action("PreviewCommitmentFile","Home", new { id = ViewBag.CommitmentFileID })" class="btn btn-sm btn-info" target="_blank">
+                                             <i class="material-icons">visibility</i>أوافق على إقرار الالتزام
+                                        </a>
+                                    </label>
+                                </div>
+
+                                <div class="text-danger" id="agreementError" style="display: none;">
+                                    @Resources.IncubationWorkshops.MustAgreeOnCommitment
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="material-datatables">
+                                        <table id="AttachmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>@Resources.General.AttachmentName</th>
+                                                    <th>@Resources.General.AttachmentType</th>
+                                                    <th>@Resources.General.AttachmentSize</th>
+                                                    <th class="disabled-sorting">@Resources.General.Actions</th>
+                                                </tr>s
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.incubationWorkshop.IncubationWorkshopAttachments.Where(a => a.IsCommitmentFile != true))
+                                                {
+                                                    @*@foreach (var item in Model.incubationWorkshop.IncubationWorkshopAttachments)
+                                                        {*@
+                                                    <tr>
+                                                        <td>
+                                                            <a class="btn btn-link btn-default" href="@Url.Action("DownloadIncubationWorkshopAttachments", new { id = item.AttachmentID })">
+                                                                <i class="material-icons">attach_file</i>
+                                                                @item.Name
+                                                            </a>
+                                                        </td>
+                                                        <td>@item.Type</td>
+                                                        <td>@item.Size Bytes</td>
+                                                        <td class="text-right">
+                                                            <a class="btn btn-link btn-rose btn-just-icon" href="@Url.Action("DownloadIncubationWorkshopAttachments", new { id = item.AttachmentID })">
+                                                                <i class="material-icons">get_app</i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <hr style="width: 100%; border: 1px double #e1b228; border-radius: 100%;" />
+                    <br />
+                    <br />
+
+                    <div class="content">
+                        @using (Html.BeginForm("IncubationWorkshopJoin", "Home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(f => f.incubationWorkshop.IncubationWorkshopID)
+                            @Html.HiddenFor(f => f.incubationWorkshop.Name)
+                            @Html.HiddenFor(f => f.incubationWorkshop.IncubationWorkshopModelID)
+                            @Html.HiddenFor(f => f.incubationWorkshop.IncubationtWorkshopStatusID)
+                            @Html.HiddenFor(f => f.incubationWorkshop.StartDate)
+                            @Html.HiddenFor(f => f.incubationWorkshop.EndDate)
+                            @Html.HiddenFor(f => f.incubationWorkshop.LastTimeToApply)
+                            @Html.HiddenFor(f => f.incubationWorkshop.ConsultantID)
+                            @Html.HiddenFor(f => f.incubationWorkshop.RegionID)
+                            @Html.HiddenFor(f => f.incubationWorkshop.GovernorateID)
+                            @Html.HiddenFor(f => f.incubationWorkshop.CityID)
+                            @Html.HiddenFor(f => f.incubationWorkshop.FundingSourceID)
+                            @Html.HiddenFor(f => f.incubationWorkshop.Description)
+                            @Html.HiddenFor(f => f.incubationWorkshop.TrainingHeadquarters)
+                            @Html.HiddenFor(f => f.incubationWorkshop.ISPublic)
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="row justify-content-center">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="InvitationStatus" class="bmd-label-floating"> @Resources.IncubationWorkshops.InvitationStatus </label>
+                                        @Html.EnumDropDownListFor(mode => mode.WorkshopProjectProposal.WorkshopPP_InvitationStatus, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "InvitationStatus" })
+                                        @Html.ValidationMessageFor(model => model.WorkshopProjectProposal.WorkshopPP_InvitationStatus, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" id="_AddAttendeeList">
+                                    <button class="btn btn-link btn-info" type="button" id="addAttendee" name="addAttendee">
+                                        <i class="material-icons col-md-4" style="font-size: 200%;">group_add</i> @Resources.IncubationWorkshops.AddAttendee
+                                    </button>
+                                    <br />
+                                    <div class="form-group">
+                                        <div id="new-Employee">
+                                            @foreach (var employee_WS in Model.LstEmployee_WS)
+                                            {
+                                                Html.RenderPartial("_LstEmployee_WS", employee_WS);
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" id="fileuploader_Div" style="margin-top: 57px; margin-bottom: 145px;">
+                                    <div id="zdrop" class="fileuploader" onclick="document.getElementById('selectedFile').click();">
+                                        <div id="upload-label" style="width: 350px;">
+                                            <i class="material-icons">cloud_upload</i>
+                                            <span class="title">@Resources.General.Attachments</span>
+                                            <span id="fileText" style="display: block;"></span>
+                                            @Html.TextBoxFor(model => model.files, "", new { @id = "selectedFile", @type = "file", @multiple = "multiple", @style = "display: none;", @onchange = "getFileName();" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <input type="submit" onclick="return validateBeforeSubmit();" class="btn btn-rose" name="Save" value="@Resources.General.Submit">
+                                        <a class="btn btn-default" href="@Url.Action("dashboard")">@Resources.General.Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal لعرض ملف PDF -->
+@*<div class="modal fade" id="pdfPreviewModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">معاينة إقرار الالتزام</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="pdfFrame" src="" width="100%" height="600px" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>*@
+<!-- Modal -->
+<div class="modal fade" id="pdfPreviewModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">معاينة إقرار الالتزام</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="إغلاق">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfFrame" src="" width="100%" height="600px" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*</div>*@
+<!-- End Content -->
+
+@section scripts
+{
+    <script>
+        function previewPdfFile(url) {
+            $("#pdfFrame").attr("src", url);
+            $("#pdfPreviewModal").modal("show");
+        }
+
+
+    </script>
+    <script>
+
+
+
+        function validateBeforeSubmit() {
+            if (!document.getElementById("CommitmentAgreementCheckbox").checked) {
+                document.getElementById("agreementError").style.display = "block";
+                return false; // منع الإرسال
+            }
+            return true; // الاستمرار
+        }
+
+    </script>
+
+
+    <script>
+        function ValidateEmail(inputText) {
+            var mailformat = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (inputText.value.match(mailformat)) {
+                document.form1.text1.focus();
+                return true;
+            }
+            else {
+                alert("You have entered an invalid email address!");
+                document.form1.text1.focus();
+                return false;
+            }
+        }
+        $(document).ready(function () {
+            var _selectedInvitationStatus = $("#InvitationStatus").val();
+            if (_selectedInvitationStatus == 0) {
+                $("#_AddAttendeeList").show();
+                $("#fileuploader_Div").show();
+            } else {
+                $("#_AddAttendeeList").hide();
+                $("#fileuploader_Div").hide();
+            }
+            if ('@Resources.General.lang' == 'ar') {
+                var table = $('#AttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                var table = $('#AttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search records",
+                    }
+                });
+            }
+
+            // Delete a record
+            table.on('click', '.remove', function (e) {
+                $tr = $(this).closest('tr');
+                table.row($tr).remove().draw();
+                e.preventDefault();
+                console.log(table.rows().data().length);
+            });
+
+        });
+
+        function Delete(Id) {
+                swal({
+                    title: 'Are you sure?',
+                    text: 'You will not be able to recover this file!',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, keep it',
+                    confirmButtonClass: "btn btn-success",
+                    cancelButtonClass: "btn btn-danger",
+                    buttonsStyling: false
+                }).then(function () {
+
+                    $.getJSON('@Url.Action("DeleteAttachment")', { Id: Id }, function (Result) {
+                        if (Result != null && !jQuery.isEmptyObject(Result)) {
+                            if (Result === "Deleted Succsesfully") {
+                                swal({
+                                    title: 'Deleted!',
+                                    text: 'Your imaginary file has been deleted.',
+                                    type: 'success',
+                                    confirmButtonClass: "btn btn-success",
+                                    buttonsStyling: false
+                                }).catch(swal.noop)
+                            } else {
+                                swal({
+                                    title: 'Failed',
+                                    text: 'failed to delete your imaginary file :)',
+                                    type: 'error',
+                                    confirmButtonClass: "btn btn-danger",
+                                    buttonsStyling: false
+                                }).catch(swal.noop)
+                            }
+                        }
+                    });
+
+                }, function (dismiss) {
+                    // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+                    if (dismiss === 'cancel') {
+                        swal({
+                            title: 'Cancelled',
+                            text: 'Your imaginary file is safe :)',
+                            type: 'error',
+                            confirmButtonClass: "btn btn-info",
+                            buttonsStyling: false
+                        }).catch(swal.noop)
+                    }
+                })
+        }
+    </script>
+
+    <script type="text/javascript">
+        var count = 0;
+        $('#addAttendee').on('click', function () {
+
+        if (count<2) {
+            $.ajax({
+                type: "GET",
+                async: false,
+                url: '@Url.Action("AppendLst_WS")',
+                success: function (partialView) {
+                    $('#new-Employee').append(partialView);
+                }
+            });
+        }
+        count++
+            if (count == 2) {
+                $("#addAttendee").hide();
+            }
+        });
+
+        function RemoveRow(btnremove) {
+            var parent = $(btnremove).parents();
+            var ff = parent[0];
+            ff.remove();
+            $("#addAttendee").show();
+            count--;
+        }
+    </script>
+
+    <script>
+        $("#InvitationStatus").on('change', function () {
+            var selectedInvitationStatus = $("#InvitationStatus").val();
+            if (selectedInvitationStatus == 0) {
+                $("#_AddAttendeeList").show();
+                $("#fileuploader_Div").show();
+            } else {
+                $("#_AddAttendeeList").hide();
+                $("#fileuploader_Div").hide();
+            }
+        });
+
+        function getFileName() {
+            $('#fileText').html('');
+            $('#fileText').append($('#selectedFile')[0].files.length + ' Files Selected');
+        }
+    </script>
+}

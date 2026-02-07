@@ -1,0 +1,284 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IncubationResultDto
+@{
+    ViewBag.Title = Resources.AccelerationReport.Title;
+}
+<link href="~/Content/chosen.min.css" rel="stylesheet" />
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-text">
+                        <div class="card-text">
+                            <h4 class="card-title">@Resources.AccelerationReport.Title</h4>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        @using (Html.BeginForm("Incubation", "Reports", FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="row justify-content-center">
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="DateFrom" class="bmd-label-floating">@Resources.CorporationsReport.DateFrom </label>
+                                        @Html.TextBoxFor(model => model.SearchDto.DateFrom, htmlAttributes: new { @class = "form-control ", @id = "DateFrom" })
+
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="DateTo" class="bmd-label-floating">@Resources.CorporationsReport.DateTo </label>
+                                        @Html.TextBoxFor(model => model.SearchDto.DateTo, htmlAttributes: new { @class = "form-control ", @id = "DateTo" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="SearchDto_CorporationName"> @Resources.CorporationsReport.CorprationName</label>
+                                        @Html.DropDownListFor(model => model.SearchDto.CorporationName, (SelectList)ViewBag.Corporations, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @title = Resources.CorporationsReport.CorprationName })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="SearchDto_CorporationsCategoryID" class="bmd-label-floating">@Resources.CorporationsReport.Category </label>
+                                        @Html.DropDownListFor(model => model.SearchDto.CorporationsCategoryID, (SelectList)ViewBag.CorporationsCategoryID, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @title = Resources.CorporationsReport.SelectCategory })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>@Resources.AccelerationReport.Consultant</label>
+                                        @Html.DropDownListFor(model => model.SearchDto.Cunsaltant, (SelectList)ViewBag.Consultants, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @id = "Governorate", @title = Resources.AccelerationReport.Consultant })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>@Resources.CorporationsReport.FieldOfWork</label>
+                                        @Html.DropDownListFor(model => model.SearchDto.CorporateFieldOfWorkID, (SelectList)ViewBag.CorporateFieldOfWorkName, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @id = "Governorate", @title = Resources.CorporationsReport.FieldOfWork })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>@Resources.IncubationWorkshops.SelectGovernorate </label>
+                                        @Html.DropDownListFor(model => model.SearchDto.Government, (SelectList)ViewBag.GovernorateID, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @id = "Governorate", @title = Resources.IncubationWorkshops.SelectGovernorate })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="card-footer justify-content-center ">
+                                        <input type="submit" id="submit" class="btn btn-rose" name="submit" value="@Resources.General.View">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body" style="direction: @Resources.General.dir;text-align: @Resources.General.TextAlign;">
+        <div class="toolbar">
+            <button class="" id="export" onclick="Export()">@Resources.General.Export</button>
+            <button class="" onclick="PrintTable()">@Resources.General.Print</button>
+        </div>
+        <div class="material-datatables">
+            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                   width="100%" style="width:100%">
+                <thead id="header">
+                    <tr>
+                        <th>
+                            @Resources.AccelerationReport.CorperationName
+                        </th>
+                        <th>
+                            @Resources.AccelerationReport.FoundedYear
+                        </th>
+                        <th>
+                            @Resources.AccelerationReport.Age
+                        </th>
+                        <th>
+                            @Resources.AccelerationReport.Governate
+                        </th>
+                        <th>
+                            @Resources.AccelerationReport.FundingSource
+                        </th>
+                        <th>
+                            @Resources.General.Consultants
+                        </th>
+                        <th>
+                            @Resources.General.CorporationsCategory
+                        </th>
+                        <th>
+                            @Resources.AccelerationReport.Gender
+                        </th>
+                        <th>
+                            @Resources.AccelerationReport.FieldOfWork
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="body">
+                    @foreach (var item in Model.Incubations)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Corporation)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FoundedYear)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Age)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Governate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FundingSource)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Consultant)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CorporationCategory)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Gender)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FieldOfWork)
+                            </td>
+                        </tr>}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        window.onload = function (e) {
+            $('#navItem_incubation').addClass('active');
+            $('#cbReports').addClass('show');
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#DateFrom").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#DateTo").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#DateFrom").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function () {
+                var minValue = $(this).val();
+                minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+                minValue.setDate(minValue.getDate());
+                $("#DateTo").datepicker("option", "minDate", minValue);
+            });
+        });
+    </script>
+
+    <script>
+        function Export() {
+            window.location = '/Reports/Download?fileGuid=@Model.FileGuid';
+            document.getElementById('export').disabled = true;
+        }
+
+        function PrintTable() {
+            PrintElem('header', 'body');
+        }
+
+        function PrintElem(elem1, elem2) {
+
+            var mywindow = window.open('', 'PRINT', 'height=750,width=750');
+            mywindow.document.write('<html>');
+            mywindow.document.write('<head>');
+            mywindow.document.write('<title>' + document.title + '</title>');
+            mywindow.document.write('<link rel="stylesheet" type="text/css" href="../assets/css/css.css" />');
+            mywindow.document.write('<style>');
+            mywindow.document.writeln('table, th, td { padding:5px;border: 1px solid black;border-collapse: collapse;0} th, td {padding: 5px;}');
+            mywindow.document.write('</style>')
+            mywindow.document.write('<style type="text/css" media="print">');
+            mywindow.document.writeln('@@page { /*size: A4;*/ margin: 0in 0.14in 0in 0.14in; }');
+            mywindow.document.write('</style>');
+            mywindow.document.write('</head>');
+
+            mywindow.document.write('<body @if (AlfaPeople.KingKhaledFoundation.Admin.Web.Helper.CultureHelper.CurrentCulture == 3) {<TEXT>style="direction: @Resources.General.dir;text-align: @Resources.General.TextAlign;font-family: Suisse, Mabry;"</TEXT>} else {<TEXT>style="direction: @Resources.General.dir;text-align: @Resources.General.TextAlign;font-family: Mabry, Suisse;"</TEXT>} >');
+            mywindow.document.write('<img src="../assets/img/PrintLogo.png" />')
+            mywindow.document.write('<h2 style="text-align: center;">@Resources.AccelerationReport.Title</h2>');
+            mywindow.document.write('<hr style="border: 1px double black;width: 30%;position: relative;top: -17px;" />');
+
+            mywindow.document.write('<table class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%; font-size: 12px;">');
+            mywindow.document.write(document.getElementById(elem1).innerHTML);
+            mywindow.document.write(document.getElementById(elem2).innerHTML);
+            mywindow.document.write('</table>');
+
+            mywindow.document.write('<footer class="footer" style="width: 100%;padding: .9375rem 0;text-align: center;border-top: 3px double #e7e7e7;position: fixed;top: 93%;right: 0px;">@Resources.General.AllRightsReserved</footer>');
+            mywindow.document.write('</body>');
+            mywindow.document.write('</html>');
+
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10*/
+            mywindow.print();
+            //mywindow.close();
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('form').one('submit', function () {
+                $(this).find("input[type='submit']").prop('disabled', true);
+                $(this).find('input[type="submit"]').attr('disabled', 'disabled');
+                $(this).find("button[type='submit']").prop('disabled', true);
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            });
+            $('form').submit(function () {
+                $(this).find("input[type='submit']").prop('disabled', true);
+                $(this).find('input[type="submit"]').attr('disabled', 'disabled');
+                $(this).find("button[type='submit']").prop('disabled', true);
+                $(this).find('button[type="submit"]').attr('disabled', 'disabled');
+            });
+            $('input').focusout(function () {
+                if ($(this).val() != '') {
+                    $(':input[type="submit"]').prop('disabled', false);
+                    $(':button[type="submit"]').prop('disabled', false);
+
+                    $(':input[type="submit"]').removeAttr('disabled');
+                    $(':button[type="submit"]').removeAttr('disabled');
+                }
+            });
+            $('select').change(function () {
+                if ($(this).val() != '') {
+                    $(':input[type="submit"]').prop('disabled', false);
+                    $(':button[type="submit"]').prop('disabled', false);
+
+                    $(':input[type="submit"]').removeAttr('disabled');
+                    $(':button[type="submit"]').removeAttr('disabled');
+                }
+            });
+            $('textarea').focusout(function () {
+                if ($(this).val() != '') {
+                    $(':input[type="submit"]').prop('disabled', false);
+                    $(':button[type="submit"]').prop('disabled', false);
+
+                    $(':input[type="submit"]').removeAttr('disabled');
+                    $(':button[type="submit"]').removeAttr('disabled');
+                }
+            });
+        });
+    </script>
+}

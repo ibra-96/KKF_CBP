@@ -1,0 +1,776 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IncubationAdvertisingVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            @if (ViewBag.err != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.err
+                </div>
+            }
+            <div class="col-md-12">
+                <div class="card ">
+                    @*<div class="card-header card-header-rose card-header-text">
+                            <div class="card-text">
+                                <h4 class="card-title">Grant Details</h4>
+                            </div>
+                        </div>*@
+                    <div class="card-body ">
+                        @using (Html.BeginForm("Edit", "IncubationAdvertising", new { Type = Request.QueryString["Type"] }, FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(f => f.incubationAdvertising.IncubationAdID)
+                            @Html.HiddenFor(f => f.incubationAdvertising.IncubationTypeID)
+                            @Html.HiddenFor(f => f.incubationAdvertising.IsActive)
+                            @Html.HiddenFor(f => f.incubationAdvertising.ISPublic)
+
+                            <div class="row justify-content-center">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="Name" class="bmd-label-floating">
+                                            @Resources.IncubationAdvertising.AdvertisingName
+                                        </label>
+                                        @Html.EditorFor(model => model.incubationAdvertising.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.incubationAdvertising.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group select-wizard">
+                                        @Html.DropDownListFor(f => f.IncubationAdvertisingModels, (MultiSelectList)ViewBag.IncubationModels, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @multiple = "multiple", @title = Resources.IncubationAdvertising.SelectAdvertisingModels })
+                                        @Html.ValidationMessageFor(model => model.IncubationAdvertisingModels, "", new { @class = "text-danger" })
+                                    </div>
+                                </div><div class="col-sm-4">
+                                    <div class="form-group select-wizard">
+                                        @Html.DropDownListFor(model => model.incubationAdvertising.FundingSourceID, (SelectList)ViewBag.FundingSource, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @data_style = "select-with-transition", @title = Resources.Incubation.SelectAdvertising })
+                                        @Html.ValidationMessageFor(model => model.incubationAdvertising.FundingSourceID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="StartDate" class="bmd-label-floating"> @Resources.IncubationAdvertising.StartDate </label>
+                                        @Html.EditorFor(model => model.incubationAdvertising.StartDate, new { htmlAttributes = new { @class = "form-control", @id = "StartDate" } })
+                                        @Html.ValidationMessageFor(model => model.incubationAdvertising.StartDate, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="EndDate" class="bmd-label-floating"> @Resources.IncubationAdvertising.EndDate </label>
+                                        @Html.EditorFor(model => model.incubationAdvertising.EndDate, new { htmlAttributes = new { @class = "form-control", @id = "EndDate" } })
+                                        @Html.ValidationMessageFor(model => model.incubationAdvertising.EndDate, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="GuidelinesForGrant" class="bmd-label-floating">@Resources.IncubationAdvertising.AdvertisingDetails</label>
+                                        @Html.TextAreaFor(model => model.incubationAdvertising.AdvertisingDetails, new { @class = "form-control", rows = "3" })
+                                        @Html.ValidationMessageFor(model => model.incubationAdvertising.AdvertisingDetails, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="GuidelinesForGrant" class="bmd-label-floating">@Resources.IncubationAdvertising.EntryRequirements</label>
+                                        @Html.TextAreaFor(model => model.incubationAdvertising.EntryRequirements, new { @class = "form-control", rows = "3" })
+                                        @Html.ValidationMessageFor(model => model.incubationAdvertising.EntryRequirements, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-10">
+                                    <div style="display:none" id="autGroup" class="form-group">
+                                        <label class="bmd-label-floating">@Resources.IncubationAdvertising.Email</label>
+                                        <input name="LstOfEmails" id="myAutocomplete" type="text" class="form-control">
+                                        @Html.ValidationMessage("invalidEmails", "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                @if (!Model.incubationAdvertising.ISPublic)
+                                {
+                                    <div class="col-md-12 mt-lg-5">
+                                        <div class="card card-plain">
+                                            <div class="card-header card-header-default card-header-text">
+                                                <div class="card-text float-left">
+                                                    <h6 class="card-title font-weight-bold">@Resources.IncubationAdvertising.IsPrivetStatment</h6>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="toolbar text-right">
+                                                    <button type="button" class="btn btn-rose btn-round" data-toggle="modal" rel="tooltip" title="@Resources.General.Add" data-original-title="@Resources.General.Add" data-target="#myModal">
+                                                        <i class="material-icons">add</i>
+                                                    </button>
+                                                </div>
+                                                <div class="material-datatables">
+                                                    <table id="TargetSegmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>@Resources.IncubationAdvertising.Email  </th>
+                                                                <th>
+                                                                    @*اسم الجمعية*@
+                                                                    @Resources.CorporationProfile.CorporateName
+                                                                </th>
+                                                                <th>@*الحالة*@  @Resources.FollowUpProjectPlan.Status</th>
+
+                                                                <th>@*إجراءات*@ </th>
+                                                            </tr>
+                                                        </thead>
+                                                        @* 20-2-2025 *@
+                                                        <tbody>
+                                                            @foreach (var invitation in Model.incubationAdvertising.IncubationPrivateInvitations)
+                                                            {
+                                                                <tr>
+                                                                    <td>@invitation.Email</td>
+                                                                    <td>@(invitation.FrontendUser?.CorporateApplicationForms.FirstOrDefault()?.Name ?? "غير متوفر")</td>
+
+                                                                    <td id="status-@invitation.ID">
+                                                                        @if (invitation.Status == InvitationStatus.pending)
+                                                                        {
+                                                                            @Resources.General.Pending
+                                                                        }
+
+                                                                        else if (invitation.Status == InvitationStatus.attend)
+                                                                        {
+                                                                            @Resources.IncubationAdvertising.attend
+                                                                        }
+                                                                        else if (invitation.Status == InvitationStatus.cancel)
+                                                                        {
+                                                                            @Resources.IncubationAdvertising.Canceled
+                                                                        }
+                                                                    </td>
+
+
+
+                                                                    @*<td id="status-@invitation.ID">@invitation.Status</td>*@
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-danger btn-sm cancel-btn"
+                                                                                data-id="@invitation.ID"
+                                                                                @(invitation.Status != InvitationStatus.pending ? "disabled" : "")>
+                                                                            @Resources.IncubationAdvertising.cancel
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            }
+
+                                                        </tbody>
+
+
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-md-12">
+                                    <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                        <span style="font-size: 14px;" class="badge badge-pill badge-default">-->
+                                    @*This is a private grant and this is your target segment.*@
+                                    <!--@Resources.IncubationAdvertising.IsPrivetStatment
+                                            </span>
+                                        </div>
+                                        <div class="col-sm-4"></div>
+                                        <div class="material-datatables">
+                                            <table id="TargetSegmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>@Resources.IncubationAdvertising.Email </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model.incubationAdvertising.IncubationPrivateInvitations)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.Email</td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>-->
+                                }
+                                else
+                                {
+                                    <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                        <span style="font-size: 14px;" class="badge badge-pill badge-default">
+                                            @*This is a public grant and the segment you are targeting is all portal users.*@
+                                            @Resources.IncubationAdvertising.IsPublicStatment
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-4"></div>
+                                }
+
+                                <br />
+                                <br />
+                                <div class="col-lg-12" style="margin-top: 57px; margin-bottom: 145px;">
+                                    <!-- Uploader Dropzone -->
+                                    <div id="zdrop" class="fileuploader" onclick="document.getElementById('selectedFile').click();">
+                                        <div id="upload-label" style="width: 350px;">
+                                            <i class="material-icons">cloud_upload</i>
+                                            <span class="title">@Resources.General.Attachments</span>
+                                            <span id="fileText" style="display: block;"></span>
+                                            @Html.TextBoxFor(model => model.files, null, new { @id = "selectedFile", @type = "file", @multiple = "multiple", @style = "display: none;", @onchange = "getFileName();" })
+                                            @*@Html.ValidationMessageFor(model => model.grantm.files, "", new { @class = "text-danger" })*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <br />
+                                <div class="col-md-12">
+                                    <div class="material-datatables">
+                                        <table id="AttachmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>@Resources.General.AttachmentName</th>
+                                                    <th>@Resources.General.AttachmentType</th>
+                                                    <th>@Resources.General.AttachmentSize</th>
+                                                    <th class="disabled-sorting">@Resources.General.Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.incubationAdvertising.IncubationAdvertisingAttachments)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            <a class="btn btn-link btn-default" href="@Url.Action("Download", new { id = item.AttachmentID })">
+                                                                <i class="material-icons">attach_file</i>
+                                                                @item.Name
+                                                            </a>
+                                                        </td>
+                                                        <td>@item.Type</td>
+                                                        <td>@item.Size Bytes</td>
+                                                        <td class="text-right">
+                                                            <a class="btn btn-link btn-rose btn-just-icon" href="@Url.Action("Download", new { id = item.AttachmentID })">
+                                                                @*<i class="material-icons">cloud_download</i>*@
+                                                                @*<i class="material-icons">play_for_work</i>*@
+                                                                <i class="material-icons">get_app</i>
+                                                            </a>
+                                                            <button class="btn btn-link btn-danger btn-just-icon remove" type="button" onclick="Delete('@item.AttachmentID')">
+                                                                <i class="material-icons">delete</i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row" style="display: contents;">
+                                    <div class="col-lg-12">
+                                        <div class="card-footer justify-content-center ">
+                                            <input type="submit" value="@Resources.General.Save" class="btn btn-rose" />
+                                            <a class="btn btn-default" href="@Url.Action("Index",new {Type=ViewBag.Type})">@Resources.General.Back</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+<!-- Classic Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title font-weight-bold">
+                    @Resources.General.Add
+                    <i class="material-icons">add</i>
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="material-icons">clear</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="incWSInvEmailAutocomplete" class="bmd-label-floating font-weight-bold">@Resources.General.Email </label>
+                    <input id="incWSInvEmailAutocomplete" type="email" class="form-control font-weight-bold" name="incWSInvEmailAutocomplete" required />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-rose btn-link font-weight-bold" data-dismiss="modal" onclick="CreateNewInvitation()">@Resources.General.Submit</button>
+                <button type="button" class="btn btn-danger btn-link font-weight-bold" data-dismiss="modal">@Resources.General.Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  End Modal -->
+@section Scripts{
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('Type')) {
+            if (urlParams.get('Type') == "Incubation") {
+                window.onload = function (e) {
+                    $('#navItem_Inc_IncubationAdvertising').addClass('active');
+                    $('#Incubation').addClass('show');
+                };
+            }
+            else if (urlParams.get('Type') == "Acceleration") {
+                window.onload = function (e) {
+                    $('#navItem_Acc_IncubationAdvertising').addClass('active');
+                    $('#Acceleration').addClass('show');
+                };
+            }
+        }
+    </script>
+
+    <script>
+        function getFileName() {
+            $('#fileText').html('');
+            $('#fileText').append($('#selectedFile')[0].files.length + ' Files Selected');
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                var tstable = $('#TargetSegmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    //24-2-2024
+                    "pageLength": 20, // تعيين القيمة الافتراضية لعرض 20 صفًا
+                    responsive: true,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+                var table = $('#AttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    //24-2-2024
+                    "pageLength": 20, // تعيين القيمة الافتراضية لعرض 20 صفًا
+                    responsive: true,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                var tstable = $('#TargetSegmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search records",
+                    }
+                });
+                var table = $('#AttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search records",
+                    }
+                });
+            }
+            //var data = table.rows().data();
+
+            // Edit record
+            /*table.on('click', '.edit', function () {
+                $tr = $(this).closest('tr');
+                var data = table.row($tr).data();
+                alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+            });*/
+
+            // Delete a record
+            table.on('click', '.remove', function (e) {
+                $tr = $(this).closest('tr');
+                table.row($tr).remove().draw();
+                e.preventDefault();
+                console.log(table.rows().data().length);
+            });
+
+            //Like record
+            /*table.on('click', '.like', function () {
+                //alert('You clicked on Like button');
+
+                table.row.add([
+                    'Doctorate Degree',
+                    'Management Information Systems',
+                    'King Khalid University',
+                    '2018/01/01',
+                    '<button class="btn btn-link btn-info btn-just-icon like" type="button"><i class= "material-icons"> add</i></button><button class= "btn btn-link btn-warning btn-just-icon edit" type = "button"><i class="material-icons">edit</i></button><button class="btn btn-link btn-danger btn-just-icon remove" type="button"><i class="material-icons">delete</i></button>'
+                ]).draw(false);
+
+                console.log(table.rows().data().length);
+            });*/
+        });
+
+        function Delete(Id) {
+                swal({
+                    title: 'Are you sure?',
+                    text: 'You will not be able to recover this file!',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, keep it',
+                    confirmButtonClass: "btn btn-success",
+                    cancelButtonClass: "btn btn-danger",
+                    buttonsStyling: false
+                }).then(function () {
+
+                    $.getJSON('@Url.Action("DeleteAttachment")', { Id: Id }, function (Result) {
+                        if (Result != null && !jQuery.isEmptyObject(Result)) {
+                            //alertify.notify(Result, 'custome', 3, function () { console.log('dismissed'); });
+                            if (Result === "Deleted Succsesfully") {
+                                swal({
+                                    title: 'Deleted!',
+                                    text: 'Your imaginary file has been deleted.',
+                                    type: 'success',
+                                    confirmButtonClass: "btn btn-success",
+                                    buttonsStyling: false
+                                }).catch(swal.noop)
+                            } else {
+                                swal({
+                                    title: 'Failed',
+                                    text: 'failed to delete your imaginary file :)',
+                                    type: 'error',
+                                    confirmButtonClass: "btn btn-danger",
+                                    buttonsStyling: false
+                                }).catch(swal.noop)
+                            }
+                        }
+                    });
+
+                }, function (dismiss) {
+                    // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+                    if (dismiss === 'cancel') {
+                        swal({
+                            title: 'Cancelled',
+                            text: 'Your imaginary file is safe :)',
+                            type: 'error',
+                            confirmButtonClass: "btn btn-info",
+                            buttonsStyling: false
+                        }).catch(swal.noop)
+                    }
+                })
+        }
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#EndDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#StartDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#StartDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function () {
+                var minValue = $(this).val();
+                minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+                minValue.setDate(minValue.getDate());
+                $("#EndDate").datepicker("option", "minDate", minValue);
+            })
+
+            var StartDate = '@ViewBag.StartDate';
+            var EndDate = '@ViewBag.EndDate';
+            $('#EndDate').datepicker('setDate', EndDate)
+            $('#StartDate').datepicker('setDate', StartDate)
+        });
+
+    </script>
+    <script>
+        //24-2-2025
+
+    function CreateNewInvitation() {
+        var email = $("#incWSInvEmailAutocomplete").val();
+        var IncubationAdID = $("#incubationAdvertising_IncubationAdID").val();
+        var Type = '@ViewBag.Type';
+
+        if (ValidateEmail(email) && email) {
+            if (confirm("هل أنت متأكد من إرسال الدعوة؟")) {
+                $.getJSON('@Url.Action("CreateNewInvitation", "IncubationAdvertising")',
+                    { "IncubationAdID": IncubationAdID, "email": email, "Type": Type },
+                    function (result) {
+
+                        if (result === "Success") {
+                            md.showNotification('top', '@Resources.General.MsgTextAlign', 'notification_important', 'rose', '3e3',
+                                '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">تم إرسال الدعوة بنجاح</h4>'
+                            );
+                            $("#incWSInvEmailAutocomplete").val("");
+
+                            // تحديث الجدول بعد الإضافة مباشرة
+                            $.getJSON('@Url.Action("GetInvitationDetails", "IncubationAdvertising")',
+                                { "IncubationAdID": IncubationAdID, "email": email },
+                                function (invitationDetails) {
+                                    if (invitationDetails) {
+                                        var table = $('#TargetSegmentDatatables').DataTable();
+                                        table.row.add([
+                                            invitationDetails.Email, // البريد الإلكتروني
+                                            invitationDetails.OrganizationName || "غير متوفر", // اسم الجمعية (إذا وجد)
+                                            "@Resources.General.Pending", // الحالة الجديدة
+                                            '<button type="button" class="btn btn-danger btn-sm cancel-btn" ' +
+                                            'data-id="' + invitationDetails.ID + '">إلغاء الدعوة</button>' // زر الإلغاء
+                                        ]).draw(false);
+                                    }
+                                });
+
+                        } else if (result === "Invitation Already Exists") {
+                            md.showNotification('top', '@Resources.General.MsgTextAlign', 'bug_report', 'danger', '3e3',
+                                '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">هذه الجمعية تمت دعوتها بالفعل</h4>'
+                            );
+                        } else if (result.includes("لا يمكن إرسال الدعوة لأن فترة الإعلان قد انتهت")) {
+                            md.showNotification('top', '@Resources.General.MsgTextAlign', 'bug_report', 'danger', '3e3',
+                                '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">لا يمكن إرسال الدعوة لأن فترة الإعلان قد انتهت</h4>'
+                            );
+                        } else {
+                            md.showNotification('top', '@Resources.General.MsgTextAlign', 'bug_report', 'danger', '3e3',
+                                '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">' + result + '</h4>'
+                            );
+                        }
+                    });
+            }
+        } else {
+            md.showNotification('top', '@Resources.General.MsgTextAlign', 'bug_report', 'danger', '3e3',
+                '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">يرجى إدخال بريد إلكتروني صحيح!</h4>'
+            );
+        }
+    }
+
+
+    @*function CreateNewInvitation() {
+            var email = $("#incWSInvEmailAutocomplete").val();
+            var IncubationAdID = $("#incubationAdvertising_IncubationAdID").val();
+            var Type = '@ViewBag.Type';
+
+            if (ValidateEmail(email) && email) {
+                if (confirm("هل أنت متأكد من إرسال الدعوة؟")) {
+                    $.getJSON('@Url.Action("CreateNewInvitation", "IncubationAdvertising")',
+                              { "IncubationAdID": IncubationAdID, "email": email, "Type": Type },
+                              function (result) {
+
+                        if (result === "Success") {
+                            alert("تم إرسال الدعوة بنجاح");
+                            $("#incWSInvEmailAutocomplete").val("") ;
+                            //  تحديث الجدول مباشرة بعد الإضافة
+                            $.getJSON('@Url.Action("GetInvitationDetails", "IncubationAdvertising")',
+                                      { "IncubationAdID": IncubationAdID, "email": email },
+                                      function (invitationDetails) {
+
+                                if (invitationDetails) {
+                                    var table = $('#TargetSegmentDatatables').DataTable();
+                                    table.row.add([
+                                        invitationDetails.Email,  // البريد الإلكتروني
+                                        invitationDetails.OrganizationName || "غير متوفر", // اسم الجمعية (إذا وجد)
+                                        "@Resources.General.Pending", // الحالة الجديدة
+                                        '<button type="button" class="btn btn-danger btn-sm cancel-btn" ' +
+                                        'data-id="' + invitationDetails.ID + '">إلغاء الدعوة</button>' // زر إلغاء الدعوة
+                                    ]).draw(false);
+                                }
+                            });
+
+                        } else if (result === "Invitation Already Exists") {
+                            alert("هذه الجمعية تمت دعوتها بالفعل.");
+                        } else if (result.includes("لا يمكن إرسال الدعوة لأن فترة الإعلان قد انتهت")) {
+                            alert("خطأ: لا يمكن إرسال الدعوة لأن فترة الإعلان قد انتهت.");
+                        } else {
+                            alert("حدث خطأ: " + result);
+                        }
+                    });
+                }
+            } else {
+                alert("يرجى إدخال بريد إلكتروني صحيح!");
+            }
+        }*@
+
+    @*function CreateNewInvitation () {
+            var email = $("#incWSInvEmailAutocomplete").val();
+            var IncubationAdID = $("#incubationAdvertising_IncubationAdID").val();
+            var Type = '@ViewBag.Type';
+
+            if (ValidateEmail(email) && email) {
+                if (confirm("هل أنت متأكد من إرسال الدعوة؟")) {
+                    $.getJSON('@Url.Action("CreateNewInvitation", "IncubationAdvertising")',
+                              { "IncubationAdID": IncubationAdID, "email": email, "Type": Type },
+                              function (result) {
+                        if (result === "Success") {
+                            alert("تم إرسال الدعوة بنجاح");
+                            $('#TargetSegmentDatatables').DataTable().row.add([email]).draw();
+                        } else if (result === "Invitation Already Exists") {
+                            alert("هذه الجمعية تمت دعوتها بالفعل.");
+                        } else {
+                            alert("حدث خطأ: " + result);
+                        }
+                    });
+                }
+            } else {
+                alert("يرجى إدخال بريد إلكتروني صحيح!");
+            }
+        }*@
+
+    // دالة للتحقق من صحة البريد الإلكتروني
+    function ValidateEmail(inputText) {
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (inputText.match(validRegex)) {
+    return true;
+    }
+    else {
+    return false;
+    }
+    }
+
+
+
+    </script>
+    <script>
+    $(document).ready(function () {
+        $(".cancel-btn").click(function () {
+            var invitationId = $(this).data("id");
+            var row = $(this).closest("tr"); // تحديد الصف المحدد
+
+            // تأكيد الإلغاء
+            if (!confirm("هل أنت متأكد أنك تريد إلغاء هذه الدعوة؟")) {
+                return;
+            }
+
+            $.ajax({
+                url: "/IncubationAdvertising/CancelInvitation",
+                type: "POST",
+                data: { invitationId: invitationId },
+                success: function (response) {
+                    if (response.success) {
+                        $("#incWSInvEmailAutocomplete").val("");
+
+                        // عرض إشعار نجاح الإلغاء
+                        md.showNotification('top', '@Resources.General.MsgTextAlign',
+                            'check_circle', 'success', '3e3',
+                            '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">' +
+                            response.message + '</h4>');
+
+                        // تحديث الجدول مباشرة بعد الإلغاء
+                        var table = $('#TargetSegmentDatatables').DataTable();
+                        table.row(row).remove().draw(); // إزالة الصف من الجدول
+                    } else {
+                        // عرض إشعار خطأ في حالة الفشل
+                        md.showNotification('top', '@Resources.General.MsgTextAlign',
+                            'error', 'danger', '3e3',
+                            '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">' +
+                            response.message + '</h4>');
+                    }
+                },
+                error: function () {
+                    // عرض إشعار خطأ عند حدوث مشكلة في الاتصال بالسيرفر
+                    md.showNotification('top', '@Resources.General.MsgTextAlign',
+                        'error', 'danger', '3e3',
+                        '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">' +
+                        'حدث خطأ أثناء محاولة إلغاء الدعوة.</h4>');
+                }
+            });
+
+            return false; // منع أي تصرف إضافي قد يؤدي إلى تحديث الصفحة
+        });
+    });
+    </script>
+
+    <script>
+
+
+            //24-2-2025
+            //$(document).ready(function () {
+            //    $(".cancel-btn").click(function () {
+            //        var invitationId = $(this).data("id");
+            //        var row = $(this).closest("tr"); // الحصول على الصف المحدد
+
+            //        // تأكيد الإلغاء
+            //        if (!confirm("هل أنت متأكد أنك تريد إلغاء هذه الدعوة؟")) {
+            //            return;
+            //        }
+
+            //        $.ajax({
+            //            url: "/IncubationAdvertising/CancelInvitation",
+            //            type: "POST",
+            //            data: { invitationId: invitationId },
+            //            success: function (response) {
+            //                if (response.success) {
+            //                    $("#incWSInvEmailAutocomplete").val("");
+            //                    alert(response.message);
+
+            //                    //  تحديث الجدول مباشرة بعد الإلغاء
+            //                    var table = $('#TargetSegmentDatatables').DataTable();
+            //                    table.row(row).remove().draw(); // إزالة الصف من الجدول
+
+            //                } else {
+            //                    alert(response.message);
+            //                }
+            //            },
+            //            error: function () {
+            //                alert("حدث خطأ أثناء محاولة إلغاء الدعوة.");
+            //            }
+            //        });
+            //        return false; //  منع أي تصرف إضافي قد يؤدي إلى تحديث الصفحة
+            //    });
+            //});
+
+            //$(document).ready(function () {
+            //    $(".cancel-btn").click(function () {
+            //        var invitationId = $(this).data("id");
+
+            //        // تأكيد إلغاء الدعوة
+            //        if (!confirm("هل أنت متأكد أنك تريد إلغاء هذه الدعوة؟")) {
+            //            return;
+            //        }
+
+            //        $.ajax({
+            //            url: "/IncubationAdvertising/CancelInvitation",
+            //            type: "POST",
+            //            data: { invitationId: invitationId },
+            //            success: function (response) {
+            //                if (response.success) {
+            //                    alert(response.message);
+            //                    $("#status-" + invitationId).text("cancel"); // تحديث الحالة في الجدول
+            //                    $(this).prop("disabled", true); // تعطيل الزر بعد الإلغاء
+            //                } else {
+            //                    alert(response.message);
+            //                }
+            //            },
+            //            error: function () {
+            //                alert("حدث خطأ أثناء محاولة إلغاء الدعوة.");
+            //            }
+            //        });
+            //    });
+            //});
+
+    </script>
+
+
+}

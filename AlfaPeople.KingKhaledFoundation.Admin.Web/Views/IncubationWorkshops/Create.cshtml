@@ -1,0 +1,521 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IncubationWorkshopVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+<link href="~/Content/chosen.min.css" rel="stylesheet" />
+<style>
+    #multiSelectDropDown {
+        width: 100%;
+    }
+</style>
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<style>
+    .small-file-uploader {
+        border: 1px dashed #ccc;
+        padding: 10px;
+        cursor: pointer;
+        text-align: right;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 350px;
+        background-color: #f9f9f9;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .small-file-uploader:hover {
+            background-color: #efefef;
+        }
+
+        .small-file-uploader .upload-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .small-file-uploader .material-icons {
+            font-size: 22px;
+            color: #555;
+        }
+
+    .file-name-label {
+        font-size: 13px;
+        color: #333;
+    }
+
+</style>
+
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-body ">
+                        @using (Html.BeginForm("Create", "IncubationWorkshops", FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="row justify-content-center">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="Name" class="bmd-label-floating">@Resources.IncubationWorkshops.WorkshopName </label>
+                                        @Html.EditorFor(model => model.IncubationWorkshop.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.IncubationWorkshop.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(f => f.IncubationWorkshop.IncubationWorkshopModelID, (SelectList)ViewBag.IncubationWorkshopModelID, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @title = Resources.IncubationWorkshops.SelectModel })
+                                        @Html.ValidationMessageFor(model => model.IncubationWorkshop.IncubationWorkshopModelID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="Inp_StartDate"> @Resources.IncubationWorkshops.StartDate </label>
+                                        @Html.TextBoxFor(model => model.IncubationWorkshop.StartDate, new { @class = "form-control ", @id = "StartDate" })
+                                        @Html.ValidationMessageFor(model => model.IncubationWorkshop.StartDate, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="Inp_EndDate"> @Resources.IncubationWorkshops.EndDate </label>
+                                        @Html.TextBoxFor(model => model.IncubationWorkshop.EndDate, htmlAttributes: new { @class = "form-control ", @id = "EndDate" })
+                                        @Html.ValidationMessageFor(model => model.IncubationWorkshop.EndDate, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="LastTimeToApply"> @Resources.IncubationWorkshops.LastTimeToApply</label>
+                                        @Html.EditorFor(model => model.IncubationWorkshop.LastTimeToApply, new { htmlAttributes = new { @class = "form-control", @id = "LastTimeToApply" } })
+                                        @Html.ValidationMessageFor(model => model.IncubationWorkshop.LastTimeToApply, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="incubation_ProjectDurationInDays"> @Resources.IncubationWorkshops.DurationOfTheProjectInDays</label>
+                                        @Html.Editor("ProjectDurationInDays", new { htmlAttributes = new { @class = "form-control", @type = "number", @disabled = "disabled" } })
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(f => f.IncubationWorkshop.ConsultantID, (SelectList)ViewBag.ConsultantID, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @title = Resources.IncubationWorkshops.SelectConsultant })
+                                        @Html.ValidationMessageFor(model => model.IncubationWorkshop.ConsultantID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group select-wizard">
+                                        @Html.DropDownListFor(model => model.IncubationWorkshop.FundingSourceID, (SelectList)ViewBag.FundingSource, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @data_style = "select-with-transition", @title = Resources.Incubation.SelectFundingSource })
+                                        @Html.ValidationMessageFor(model => model.IncubationWorkshop.FundingSourceID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(f => f.IncubationWorkshop.RegionID, (SelectList)ViewBag.RegionID, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "Region", @title = Resources.IncubationWorkshops.SelectRegion })
+                                        @Html.ValidationMessageFor(f => f.IncubationWorkshop.RegionID)
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(f => f.IncubationWorkshop.GovernorateID, (SelectList)ViewBag.GovernorateID, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "Governorate", @title = Resources.IncubationWorkshops.SelectGovernorate })
+                                        @Html.ValidationMessageFor(model => model.IncubationWorkshop.GovernorateID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(f => f.IncubationWorkshop.CityID, (SelectList)ViewBag.CityID, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "City", @title = Resources.IncubationWorkshops.SelectNeighborhoods })
+                                        @Html.ValidationMessageFor(model => model.IncubationWorkshop.CityID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="Description" class="bmd-label-floating">@Resources.IncubationWorkshops.Description</label>
+                                        @Html.TextAreaFor(model => model.IncubationWorkshop.Description, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.IncubationWorkshop.Description, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="TrainingHeadquarters" class="bmd-label-floating">@Resources.IncubationWorkshops.TrainingHeadquarters </label>
+                                        @Html.EditorFor(model => model.IncubationWorkshop.TrainingHeadquarters, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.IncubationWorkshop.TrainingHeadquarters, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-1">
+                                            <div class="form-group">
+                                                <label for="Inp_Problem" class="bmd-label-floating">@Resources.IncubationWorkshops.IsPublic</label>
+                                                @Html.CheckBoxFor(model => model.IncubationWorkshop.ISPublic)
+                                                @Html.ValidationMessageFor(model => model.IncubationWorkshop.ISPublic, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-11">
+                                            <div style="display:block" id="autGroup" class="form-group">
+                                                <label class="bmd-label-floating" for="myAutocomplete">@Resources.General.Email</label>
+                                                <input name="LstOfEmails" id="myAutocomplete" type="text" class="form-control">
+                                                @Html.ValidationMessage("invalidEmails", "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        @* 24-3-2025 *@
+                                        <div class="col-lg-12">
+                                            <label class="bmd-label-floating">إرفاق ملف إقرار الالتزام (PDF فقط)</label>
+                                            <div id="commitmentUploader" class="fileuploader small-file-uploader" onclick="document.getElementById('CommitmentFile').click();">
+                                                <div class="upload-label">
+                                                    <i class="material-icons">file_upload</i>
+                                                    <span class="title">إرفاق ملف</span>
+                                                    <span id="commitmentFileName" class="file-name-label">لم يتم اختيار أي ملف</span>
+                                                </div>
+                                                <input type="file" name="CommitmentFile" id="CommitmentFile"
+                                                       accept=".pdf"
+                                                       required
+                                                       onchange="updateCommitmentFileName()" style="display: none;" />
+                                            </div>
+                                            <span class="text-danger" id="fileError" style="display: none;">الرجاء رفع ملف PDF بصيغة صحيحة</span>
+                                        </div>
+
+
+                                        @* shadia23-1-2025 *@
+                                        <div class="col-lg-12">
+                                            <div style="display:block" id="FieldofWorkGroup" class="form-group">
+                                                <label class="bmd-label" for="CorporateFieldOfWork">
+                                                    @Resources.IncubationWorkshops.SelectFieldofWork
+                                                    @*Select Field of Work*@
+                                                </label>
+                                                @Html.ListBox("SelectedFieldsOfWork",
+                                                              new MultiSelectList(ViewBag.FieldsOfWork, "CorporateFieldOfWorkID", "CorporateFieldOfWorkNameAR"),
+                                                              new { @class = "select-wizard form-control selectpicker", @multiple = "multiple", data_style = "select-with-transition", data_live_search = "true", @id = "CorporateFieldOfWork", @title = Resources.IncubationWorkshops.SelectFieldofWork })
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-12">
+                                            <div style="display:block" id="RegionGroup" class="form-group">
+                                                <label class="bmd-label" for="SelectedRegions">
+                                                    @Resources.IncubationWorkshops.SelectRegion
+                                                </label>
+                                                @Html.ListBox("SelectedRegions",
+                                                              new MultiSelectList(ViewBag.Regions, "RegionID", "RegionNameAR"),
+                                                              new { @class = "select-wizard form-control selectpicker", @multiple = "multiple", data_style = "select-with-transition", data_live_search = "true", @id = "RegionList", @title = Resources.IncubationWorkshops.SelectRegion })
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" style="margin-top: 57px; margin-bottom: 145px;">
+                                    <!-- Uploader Dropzone -->
+                                    <div id="zdrop" class="fileuploader" onclick="document.getElementById('selectedFile').click();">
+                                        <div id="upload-label" style="width: 350px;">
+                                            <i class="material-icons">cloud_upload</i>
+                                            <span class="title">@Resources.General.Attachments</span>
+                                            <span id="fileText" style="display: block;"></span>
+                                            @Html.TextBoxFor(model => model.files, "", new { @id = "selectedFile", @type = "file", @multiple = "multiple", @style = "display: none;", @onchange = "getFileName();" })
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <input type="submit" class="btn btn-rose" name="Save" id="submitButton" value="@Resources.General.Save">
+                                        <a class="btn btn-default" href="@Url.Action("Index")">@Resources.General.Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+
+
+@section Scripts{
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_IncubationWorkshops').addClass('active');
+            $('#Workshop').addClass('show');
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#StartDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#EndDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#LastTimeToApply").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#StartDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function () {
+                var maxValue = $(this).val();
+                maxValue = $.datepicker.parseDate("yy-mm-dd", maxValue);
+                maxValue.setDate(maxValue.getDate());
+                $("#LastTimeToApply").datepicker("option", "maxDate", maxValue);
+                $("#LastTimeToApply").datepicker("option", "minDate", $.datepicker.formatDate('yy-mm-dd', new Date()));
+            })
+
+            $("#StartDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function () {
+                var minValue = $(this).val();
+                if (minValue != '') {
+                    minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+                    minValue.setDate(minValue.getDate() + 1);
+                    $("#EndDate").datepicker("option", "minDate", minValue);
+                }
+                var endDateValue = new Date($("#EndDate").val());
+                if (endDateValue != '' && minValue != '') {
+                    var diffTime = diffTime = Math.abs(endDateValue.getTime() - minValue.getTime());
+                    var result = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+                    $("#ProjectDurationInDays").val(result);
+                } else { $("#ProjectDurationInDays").val(''); }
+            });
+
+            $("#EndDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function () {
+                var endDateValue = new Date($(this).val());
+                var startDateValue = new Date($("#StartDate").val());
+                var diffTime = diffTime = Math.abs(endDateValue.getTime() - startDateValue.getTime());
+                var result = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+                $("#ProjectDurationInDays").val(result);
+            });
+        });
+
+    </script>
+
+    <script>
+        $("#Region").on('change', function () {
+            var selectedRegion = $("#Region").val();
+            var options = [];
+            var option = '';
+            if (selectedRegion != null && selectedRegion != '') {
+                $.getJSON('@Url.Action("GetGovernorates")', { Region: selectedRegion }, function (Governorates) {
+                    if (Governorates != null && !jQuery.isEmptyObject(Governorates)) {
+
+                        $.each(Governorates, function (index, Governorate) {
+                            option = option + '<option value="' + Governorate.Value + '">' + Governorate.Text + "</option>"
+                        });
+                        $("#Governorate").html(option).selectpicker('refresh');
+                    };
+                });
+            }
+        });
+
+        $("#Governorate").on('change', function () {
+            var selectedGovernorate = $("#Governorate").val();
+            var options = [];
+            var option = '';
+            if (selectedGovernorate != null && selectedGovernorate != '') {
+                $.getJSON('@Url.Action("GetCities")', { Governorate: selectedGovernorate }, function (Cities) {
+                    if (Cities != null && !jQuery.isEmptyObject(Cities)) {
+
+                        $.each(Cities, function (index, City) {
+                            option = option + '<option value="' + City.Value + '">' + City.Text + "</option>"
+                        });
+                        $("#City").html(option).selectpicker('refresh');
+                    };
+                });
+            }
+        });
+    </script>
+
+    <script>
+        function getFileName() {
+            $('#fileText').html('');
+            $('#fileText').append($('#selectedFile')[0].files.length + ' Files Selected');
+        }
+    </script>
+
+    <script>
+
+        function ValidateEmail(inputText) {
+            var mailformat = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+            var res = inputText.split(",");
+            for (var i = 0; i < res.length; i++) {
+                str = res[i].replace(/\s/g, '');
+                if (str.match(mailformat)) {
+
+                    return true;
+                }
+                else {
+                    alert("You have entered an invalid email address!");
+
+                    return false;
+                }
+            }
+
+        }
+
+        $("form").submit(function (event) {
+            var commitmentFile = document.getElementById("CommitmentFile").files[0];
+            if (!commitmentFile) {
+                alert("يرجى رفع ملف إقرار الالتزام بصيغة PDF.");
+                event.preventDefault();
+
+                // إعادة تفعيل زر الحفظ (إذا كان تعطل سابقًا)
+                var submitBtn = document.getElementById("submitButton");
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                }
+                return;
+            }
+
+
+            if ($("#IncubationWorkshop_ISPublic").is(":checked")) {
+                var msgConfirm = confirm("Are you sure about taken this action, This action will send an email to the corporates?");
+                if (msgConfirm == true) {
+                    return true;
+                } else {
+                    event.preventDefault();
+                }
+            }
+            else {
+                var hasEmails = $("#myAutocomplete").val().trim() !== ""; // التحقق إذا تم إدخال إيميلات
+
+                var hasFieldsOfWork = $("#CorporateFieldOfWork").val() !== null && $("#CorporateFieldOfWork").val().length > 0; // التحقق إذا تم اختيار تصنيفات
+                var hasRegions = $("#RegionList").val() !== null && $("#RegionList").val().length > 0;
+
+                if (hasEmails || hasFieldsOfWork || hasRegions) {
+                    if (hasEmails) { var istrue = ValidateEmail($("#myAutocomplete").val());}
+
+                    var msgConfirm = confirm("Are you sure about taken this action, This action will send an email to the corporates?");
+                    if (msgConfirm == true) {
+                        return true;
+                    } else {
+                        event.preventDefault();
+                    }
+                }
+                else {
+                    alert("Please select either emails, fields of work, or choose 'Public'.");
+                    event.preventDefault();
+                }
+            }
+
+        });
+        $("#IncubationWorkshop_ISPublic").click(function () {
+            if ($(this).is(":checked")) {
+                $("#myAutocomplete").val('');
+                $("#autGroup").hide();
+                $("#RegionGroup").hide();
+
+                //2-6-2025
+                $("#FieldofWorkGroup").hide();
+            } else {
+                $("#myAutocomplete").val('');
+                $("#autGroup").show();
+                $("#FieldofWorkGroup").show();
+                $("#RegionGroup").show();
+            }
+        });
+
+        $(function () {
+
+            function split(val) {
+                return val.split(/,\s*/);
+            }
+            function extractLast(term) {
+                return split(term).pop();
+            }
+
+            $("#myAutocomplete")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+              if (event.keyCode === $.ui.keyCode.TAB &&
+                  $(this).autocomplete("instance").menu.active) {
+                  event.preventDefault();
+              }
+          })
+            .autocomplete({
+                minLength: 0,
+                source: function (request, response) {
+                    $.getJSON('@Url.Action("Search", "IncubationWorkshops")', {
+                        term: extractLast(request.term)
+                    }, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+                    var terms = split(this.value);
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push(ui.item.value);
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push("");
+                    this.value = terms.join(", ");
+                    return false;
+                }
+            });
+        })
+
+    </script>
+    @* 24-3-2025 *@
+    <script>
+        function updateFileName() {
+            var fileInput = document.getElementById("CommitmentFile");
+            var label = document.getElementById("fileLabel");
+            var error = document.getElementById("fileError");
+
+            if (fileInput.files.length > 0) {
+                var file = fileInput.files[0];
+                var fileName = file.name;
+                var extension = fileName.split('.').pop().toLowerCase();
+
+                if (extension !== "pdf") {
+                    error.style.display = "block";
+                    fileInput.value = "";
+                    label.innerText = "اختر ملف PDF...";
+                } else {
+                    error.style.display = "none";
+                    label.innerText = fileName;
+                }
+            }
+        }
+        function updateCommitmentFileName() {
+            var fileInput = document.getElementById("CommitmentFile");
+            var label = document.getElementById("commitmentFileName");
+            var error = document.getElementById("fileError");
+            var submitBtn = document.getElementById("submitButton");
+
+            if (fileInput.files.length > 0) {
+                var file = fileInput.files[0];
+                var fileName = file.name;
+                var extension = fileName.split('.').pop().toLowerCase();
+
+                if (extension !== "pdf") {
+                    error.style.display = "block";
+                    fileInput.value = "";
+                    label.innerText = "لم يتم اختيار أي ملف";
+                    // تفعيل الزر (احتياطًا)
+                    if (submitBtn) submitBtn.disabled = false;
+                } else {
+                    error.style.display = "none";
+                    label.innerText = fileName;
+                    // تفعيل الزر إذا كان معطل
+                    if (submitBtn) submitBtn.disabled = false;
+                }
+            }
+        }
+
+
+    </script>
+
+
+}

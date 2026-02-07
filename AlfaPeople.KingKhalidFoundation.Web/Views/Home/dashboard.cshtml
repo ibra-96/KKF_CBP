@@ -1,0 +1,695 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Web.Models.DashboardVM
+@{
+    ViewBag.title = Resources.General.Dashboard;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+<!-- Content -->
+<div class="content" style="direction:@Resources.General.dir;">
+    <div class="content">
+
+
+
+
+
+
+
+
+        <div class="container-fluid">
+            @*@if (!string.IsNullOrEmpty(ViewBag.Msg))
+            {
+                <script>
+        Swal.fire({
+            title: "إشعار",
+            text: "@ViewBag.Msg",
+            icon: "success",
+            confirmButtonText: "موافق"
+        });
+                </script>*@
+            @*}*@
+
+            @*@if (ViewBag.Msg != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @ViewBag.Msg
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }*@
+
+            @{
+                if (ViewBag.ProgramName == "Capacity Building")
+                {
+                    if (Model._inc.Count != 0)
+                    {
+                        <h3 style="text-align: @Resources.General.TextAlign;">@Resources.Dashboard.Incubation</h3>
+                        <br>
+                        <div class="row">
+                            @if (Model._inc.Count != 0)
+                            {
+                                foreach (var item in Model._inc)
+                                {
+                                    <div id="@item.IncubationAdID" class="col-lg-3 col-md-6 col-sm-6">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-info card-header-icon" style="text-align: @Resources.General.TextAlign;">
+                                                @if (item.FundingSource.UseCustomThemes)
+                                                {
+                                                    <div class="card-icon" style="padding:0px; background: rgba(0, 0, 0, 0); background-color: rgba(0, 0, 0, 0); box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);">
+                                                        <img src="@item.FundingSource.GrantLogoPic" width="86" height="86" style="border-radius: 3px;" />
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="card-icon">
+                                                        <i class="material-icons">all_inclusive</i>
+                                                    </div>
+                                                }
+                                                <h4 class="card-title" style="text-align: @Resources.General.TextAlign;">@item.Name </h4>
+                                                @if ((item.EndDate.Subtract(DateTime.Now.Date).Days + 1) <= 15)
+                                                {
+                                                    <p class="card-category text-danger">@(item.EndDate.Subtract(DateTime.Now.Date).Days + 1) @Resources.Dashboard.DaysRemaining </p>
+                                                }
+                                                else if ((item.EndDate.Subtract(DateTime.Now.Date).Days + 1) <= 10)
+                                                {
+                                                    <p class="card-category text-warning">@(item.EndDate.Subtract(DateTime.Now.Date).Days + 1) @Resources.Dashboard.DaysRemaining</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="card-category text-muted">@(item.EndDate.Subtract(DateTime.Now.Date).Days + 1) @Resources.Dashboard.DaysRemaining</p>
+                                                }
+                                            </div>
+                                            <div class="card-footer justify-content-center">
+                                                @if (item.FundingSource.UseCustomThemes)
+                                                {
+                                                    <a href="@Url.Action("IncubationProjectProposal", new { id = item.IncubationAdID })" class="btn btn-rose btn-round">@Resources.Dashboard.Join</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("IncubationProjectProposal", new { id = item.IncubationAdID })" class="btn btn-info btn-round">    @Resources.General.Join</a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <text>
+                                    <h4 class="label-primary" style="text-align: @Resources.General.TextAlign;">@Resources.Dashboard.NoIncubationAvailable</h4>
+                                </text>
+                            }
+                        </div>
+                        <br>
+                    }
+
+                    if (Model._incAcc.Count != 0)
+                    {
+                        <h3 style="text-align: @Resources.General.TextAlign;">@Resources.Dashboard.Acceleration</h3>
+                        <br>
+                        <div class="row">
+                            @if (Model._incAcc.Count != 0)
+                            {
+                                foreach (var item in Model._incAcc)
+                                {
+                                    <div id="@item.IncubationAdID" class="col-lg-3 col-md-6 col-sm-6">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-rose card-header-icon" style="text-align: @Resources.General.TextAlign;">
+                                                @if (item.FundingSource.UseCustomThemes)
+                                                {
+                                                    <div class="card-icon" style="padding:0px; background: rgba(0, 0, 0, 0); background-color: rgba(0, 0, 0, 0); box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);">
+                                                        <img src="@item.FundingSource.GrantLogoPic" width="86" height="86" style="border-radius: 3px;" />
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="card-icon">
+                                                        <i class="material-icons">spa</i>
+                                                    </div>
+                                                }
+                                                <h4 class="card-title" style="text-align: @Resources.General.TextAlign;">@item.Name</h4>
+                                                @if ((item.EndDate.Subtract(DateTime.Now.Date).Days + 1) <= 15)
+                                                {
+                                                    <p class="text-danger">@(item.EndDate.Subtract(DateTime.Now.Date).Days + 1) @Resources.Dashboard.DaysRemaining</p>
+                                                }
+                                                else if ((item.EndDate.Subtract(DateTime.Now.Date).Days + 1) <= 10)
+                                                {
+                                                    <p class="card-category text-warning">@(item.EndDate.Subtract(DateTime.Now.Date).Days + 1) @Resources.Dashboard.DaysRemaining</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="card-category">@(item.EndDate.Subtract(DateTime.Now.Date).Days + 1) @Resources.Dashboard.DaysRemaining</p>
+                                                }
+                                            </div>
+                                            <div class="card-footer justify-content-center">
+                                                <a href="@Url.Action("IncubationProjectProposal", new { id = item.IncubationAdID })" class="btn btn-rose btn-round">@Resources.Dashboard.Join</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <text>
+                                    <h4 class="label-primary" style="text-align: @Resources.General.TextAlign;">@Resources.Dashboard.NoIncubationAvailable</h4>
+                                </text>
+
+                            }
+                        </div>
+                        <br>
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    if (Model._workShop != null && Model._workShop.Any(w =>
+                        Model.WorkshopStatuses.ContainsKey(w.IncubationWorkshopID) &&
+                        !string.IsNullOrEmpty(Model.WorkshopStatuses[w.IncubationWorkshopID]) &&
+                        Model.WorkshopStatuses[w.IncubationWorkshopID] != "Rejected"))
+                    {
+                        <h3 style="text-align:@Resources.General.TextAlign;">@Resources.General.Workshops</h3>
+                        <div class="row">
+                            @foreach (var item in Model._workShop
+                                .Where(w => Model.WorkshopStatuses.ContainsKey(w.IncubationWorkshopID) &&
+                                            !string.IsNullOrEmpty(Model.WorkshopStatuses[w.IncubationWorkshopID]) &&
+                                            Model.WorkshopStatuses[w.IncubationWorkshopID] != "Rejected"))
+                            {
+                                string workshopStatus = Model.WorkshopStatuses[item.IncubationWorkshopID];
+
+                                <div id="@item.IncubationWorkshopID" class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-primary card-header-icon" style="text-align:@Resources.General.TextAlign;">
+                                            @if (item.FundingSource.UseCustomThemes)
+                                            {
+                                                <div class="card-icon" style="background:transparent;">
+                                                    <img src="@item.FundingSource.GrantLogoPic" width="86" height="86" style="border-radius:3px;" />
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="card-icon">
+                                                    <i class="material-icons">play_for_work</i>
+                                                </div>
+                                            }
+                                            <h4 class="card-title">@item.Name</h4>
+
+                                            @if ((item.LastTimeToApply.Subtract(DateTime.Now.Date).Days + 1) <= 15)
+                                            {
+                                                <p class="card-category text-danger">
+                                                    @(item.LastTimeToApply.Subtract(DateTime.Now.Date).Days + 1) @Resources.Dashboard.DaysRemaining
+                                                </p>
+                                            }
+                                            else if ((item.LastTimeToApply.Subtract(DateTime.Now.Date).Days + 1) <= 10)
+                                            {
+                                                <p class="card-category text-warning">
+                                                    @(item.LastTimeToApply.Subtract(DateTime.Now.Date).Days + 1) @Resources.Dashboard.DaysRemaining
+                                                </p>
+                                            }
+                                            else
+                                            {
+                                                <p class="card-category text-muted">
+                                                    @(item.LastTimeToApply.Subtract(DateTime.Now.Date).Days + 1) @Resources.Dashboard.DaysRemaining
+                                                </p>
+                                            }
+                                        </div>
+
+                                        <div class="card-footer justify-content-center">
+                                            @if (workshopStatus == "Update")
+                                            {
+                                                <a href="@Url.Action("IncubationWorkshopJoin", new { id = item.IncubationWorkshopID })" class="btn btn-primary btn-round">
+                                                    @Resources.General.Update
+                                                </a>
+                                            }
+                                            else if (workshopStatus == "Pending" || workshopStatus == "Updated")
+                                            {
+                                                <a href="@Url.Action("IncubationWorkshopJoin", new { id = item.IncubationWorkshopID })" class="btn btn-primary btn-round">
+                                                    @Resources.General.Pending
+                                                </a>
+                                            }
+                                            else if (workshopStatus == "Accepted")
+                                            {
+                                                <a href="@Url.Action("IncubationWorkshopJoin", new { id = item.IncubationWorkshopID })" class="btn btn-primary btn-round">
+                                                    @Resources.Dashboard.ConfirmAttendance
+                                                </a>
+                                            }
+                                            else if (workshopStatus == "Join")
+                                            {
+                                                <a href="@Url.Action("IncubationWorkshopJoin", new { id = item.IncubationWorkshopID })" class="btn btn-primary btn-round">
+                                                    @Resources.Dashboard.Join
+                                                </a>
+                                            }
+
+
+                                            <button class="btn btn-info btn-round" data-bs-toggle="modal" data-bs-target="#workshopDetailsModal"
+                                                    onclick="loadWorkshopDetails('@item.IncubationWorkshopID')">
+                                                @Resources.General.ViewDetails
+                                            </button>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    <div class="modal fade" id="workshopDetailsModal" tabindex="-1" role="dialog" aria-labelledby="workshopDetailsLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="workshopDetailsLabel">@Resources.IncubationWorkshops.WorkshopDetails</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        <i class="material-icons">clear</i>
+                                    </button>
+                                </div>
+                                <div class="modal-body" style="direction: @Resources.General.dir;text-align: @Resources.General.TextAlign;">
+                                    <div class="row">
+                                        <div class="col-md-6"><strong>@Resources.IncubationWorkshops.WorkshopName:</strong> <span id="modalWorkshopName"></span></div>
+                                        <div class="col-md-6"><strong>@Resources.IncubationWorkshops.WorkshopModel:</strong> <span id="modalWorkshopModel"></span></div>
+                                        <div class="col-md-6"><strong>@Resources.IncubationWorkshops.StartDate:</strong> <span id="modalStartDate"></span></div>
+                                        <div class="col-md-6"><strong>@Resources.IncubationWorkshops.EndDate:</strong> <span id="modalEndDate"></span></div>
+                                        <div class="col-md-6"><strong>@Resources.IncubationWorkshops.LastTimeToApply:</strong> <span id="modalLastTimeToApply"></span></div>
+                                        @* <div class="col-md-6"><strong>@Resources.IncubationWorkshops.DurationOfTheProjectInDays:</strong> <span id="modalDuration"></span></div>*@
+                                        @*<div class="col-md-6"><strong>@Resources.IncubationWorkshops.FundingSource:</strong> <span id="modalFundingSource"></span></div>*@
+                                        <div class="col-md-6"><strong>@Resources.General.Region:</strong> <span id="modalRegion"></span></div>
+                                        <div class="col-md-6"><strong>@Resources.General.Governorate:</strong> <span id="modalGovernorate"></span></div>
+                                        <div class="col-md-6"><strong>@Resources.Cities.City:</strong> <span id="modalCity"></span></div>
+                                        <div class="col-md-12"><strong>@Resources.IncubationWorkshops.Description:</strong> <p id="modalDescription"></p></div>
+                                        @*<div class="col-md-12" id="commitmentSection" style="display: none;">
+                                            <strong>ملف إقرار الالتزام:</strong>
+                                            <a id="commitmentFileLink" href="#" target="_blank"></a>
+                                        </div>*@
+
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    @*<a class="btn btn-link" target="_blank" href="~/assets/Manual/CB_C_Manual.pdf">@Resources.General.CB_Instructions</a>*@
+                                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">@Resources.General.Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<!-- Modal لعرض تفاصيل الورشة -->
+                    <!--<div class="modal fade" id="workshopDetailsModal" tabindex="-1" aria-labelledby="workshopDetailsLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="workshopDetailsLabel">@Resources.IncubationWorkshops.WorkshopDetails</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6"><strong>@Resources.IncubationWorkshops.WorkshopName:</strong> <span id="modalWorkshopName"></span></div>
+                                        <div class="col-md-6"><strong>@Resources.IncubationWorkshops.WorkshopModel:</strong> <span id="modalWorkshopModel"></span></div>
+                                        <div class="col-md-6"><strong>@Resources.IncubationWorkshops.StartDate:</strong> <span id="modalStartDate"></span></div>
+                                        <div class="col-md-6"><strong>@Resources.IncubationWorkshops.EndDate:</strong> <span id="modalEndDate"></span></div>
+                                        <div class="col-md-6"><strong>@Resources.IncubationWorkshops.LastTimeToApply:</strong> <span id="modalLastTimeToApply"></span></div>-->
+                                        @* <div class="col-md-6"><strong>@Resources.IncubationWorkshops.DurationOfTheProjectInDays:</strong> <span id="modalDuration"></span></div>*@
+                                        @*<div class="col-md-6"><strong>@Resources.IncubationWorkshops.FundingSource:</strong> <span id="modalFundingSource"></span></div>*@
+                                        @*<div class="col-md-6"><strong>@Resources.General.Region:</strong> <span id="modalRegion"></span></div>
+                                        <div class="col-md-6"><strong>@Resources.General.Governorate:</strong> <span id="modalGovernorate"></span></div>
+                                        <div class="col-md-6"><strong>@Resources.Cities.City:</strong> <span id="modalCity"></span></div>
+                                        <div class="col-md-12"><strong>@Resources.IncubationWorkshops.Description:</strong> <p id="modalDescription"></p></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Resources.General.Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    if (Model.LstUpdateWorkshopProjectProposal.Count != 0)
+                    {
+                        <h3 style="text-align: @Resources.General.TextAlign;">@Resources.General.Workshops</h3>
+                        <br>
+                        <div class="row">
+                            @if (Model.LstUpdateWorkshopProjectProposal.Count != 0)
+                            {
+                                foreach (var item in Model.LstUpdateWorkshopProjectProposal)
+                                {
+                                    <div id="@item.WorkshopProjectProposalID" class="col-lg-3 col-md-6 col-sm-6">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-primary card-header-icon" style="text-align: @Resources.General.TextAlign;">
+                                                @if (item.IncubationWorkshop.FundingSource.UseCustomThemes)
+                                                {
+                                                    <div class="card-icon" style="padding:0px; background: rgba(0, 0, 0, 0); background-color: rgba(0, 0, 0, 0); box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);">
+                                                        <img src="@item.IncubationWorkshop.FundingSource.GrantLogoPic" width="86" height="86" style="border-radius: 3px;" />
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="card-icon">
+                                                        <i class="material-icons">play_for_work</i>
+                                                    </div>
+                                                }
+                                                <h4 class="card-title" style="text-align: @Resources.General.TextAlign;">@item.IncubationWorkshop.Name </h4>
+                                                @if (ViewBag.lang == 3)
+                                                {
+                                                    <p class="card-category text-muted">@item.WorkshopProjectProposalStatu.NameAR</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="card-category text-muted">@item.WorkshopProjectProposalStatu.NameEN</p>
+                                                }
+                                            </div>
+                                            <div class="card-footer justify-content-center">
+                                                @if (item.IncubationWorkshop.FundingSource.UseCustomThemes)
+                                                {
+                                                    <a href="@Url.Action("UpdateWorkshopProjectProposal", new { id = item.WorkshopProjectProposalID })" class="btn btn-rose btn-round">@Resources.General.Update</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("UpdateWorkshopProjectProposal", new { id = item.WorkshopProjectProposalID })" class="btn btn-primary btn-round">@Resources.General.Update</a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <text>
+                                    <h4 class="label-primary" style="text-align: @Resources.General.TextAlign;">@Resources.Dashboard.NoWorkshopPropsalAvilable</h4>
+                                </text>
+                            }
+                        </div>
+                        <br>
+                    }
+
+                    if (Model._incubationWorkshopRating.Count != 0)
+                    {
+                        <h3 style="text-align: @Resources.General.TextAlign;"> @Resources.IncubationWorkshopRating.WorkshopRating</h3>
+                        <br>
+                        <div class="row">
+                            @if (Model._incubationWorkshopRating.Count != 0)
+                            {
+                                foreach (var item in Model._incubationWorkshopRating)
+                                {
+                                    <div id="@item.IncubationWorkshopID" class="col-lg-3 col-md-6 col-sm-6">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-info card-header-icon" style="text-align: @Resources.General.TextAlign;">
+                                                @if (item.FundingSource.UseCustomThemes)
+                                                {
+                                                    <div class="card-icon" style="padding:0px; background: rgba(0, 0, 0, 0); background-color: rgba(0, 0, 0, 0); box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);">
+                                                        <img src="@item.FundingSource.GrantLogoPic" width="86" height="86" style="border-radius: 3px;" />
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="card-icon">
+                                                        <i class="material-icons">play_for_work</i>
+                                                    </div>
+                                                }
+                                                <h4 class="card-title" style="text-align: @Resources.General.TextAlign;">@item.Name </h4>
+                                                <p class="card-category text-muted">@Resources.IncubationWorkshopRating.WorkshopRating</p>
+                                            </div>
+                                            <div class="card-footer justify-content-center">
+                                                @if (item.FundingSource.UseCustomThemes)
+                                                {
+                                                    <a href="@Url.Action("CreatWorkshopRating", new { IncubationWorkshopID = item.IncubationWorkshopID })" class="btn btn-rose btn-round">@Resources.Dashboard.Join</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("CreatWorkshopRating", new { IncubationWorkshopID = item.IncubationWorkshopID })" class="btn btn-info btn-round">@Resources.Dashboard.Join</a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <text>
+                                    <h4 class="label-primary" style="text-align: @Resources.General.TextAlign;">@Resources.Dashboard.NoFollowUpProjectPlan</h4>
+                                </text>
+                            }
+                        </div>
+                        <br>
+                    }
+
+                    if (Model._followUpProjectPlan.Count != 0)
+                    {
+                        <h3 style="text-align: @Resources.General.TextAlign;"> @Resources.General.FollowUpProjectPlan</h3>
+                        <br>
+                        <div class="row">
+                            @if (Model._followUpProjectPlan.Count != 0)
+                            {
+                                foreach (var item in Model._followUpProjectPlan)
+                                {
+                                    <div id="@item.FollowUpProjectPlanRequestId" class="col-lg-3 col-md-6 col-sm-6">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-info card-header-icon" style="text-align: @Resources.General.TextAlign;">
+                                                @if (item.FollowUpProjectPlan.IncubationWorkshop.FundingSource.UseCustomThemes)
+                                                {
+                                                    <div class="card-icon" style="padding:0px; background: rgba(0, 0, 0, 0); background-color: rgba(0, 0, 0, 0); box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);">
+                                                        <img src="@item.FollowUpProjectPlan.IncubationWorkshop.FundingSource.GrantLogoPic" width="86" height="86" style="border-radius: 3px;" />
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="card-icon">
+                                                        <i class="material-icons">play_for_work</i>
+                                                    </div>
+                                                }
+                                                <h4 class="card-title" style="text-align: @Resources.General.TextAlign;">@item.FollowUpProjectPlan.Name </h4>
+                                                @if ((item.FollowUpProjectPlan.Deadline.Subtract(DateTime.Now.Date).Days + 1) <= 15)
+                                                {
+                                                    <p class="card-category text-danger">@(item.FollowUpProjectPlan.Deadline.Subtract(DateTime.Now.Date).Days + 1) @Resources.Dashboard.DaysRemaining</p>
+                                                }
+                                                else if ((item.FollowUpProjectPlan.Deadline.Subtract(DateTime.Now.Date).Days + 1) <= 10)
+                                                {
+                                                    <p class="card-category text-warning">@(item.FollowUpProjectPlan.Deadline.Subtract(DateTime.Now.Date).Days + 1) @Resources.Dashboard.DaysRemaining</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="card-category text-muted">@(item.FollowUpProjectPlan.Deadline.Subtract(DateTime.Now.Date).Days + 1) @Resources.Dashboard.DaysRemaining</p>
+                                                }
+                                            </div>
+                                            <div class="card-footer justify-content-center">
+
+                                                @if (item.FollowUpProjectPlan.IncubationWorkshop.FundingSource.UseCustomThemes)
+                                                {
+                                                    <a href="@Url.Action("FollowUpProjectPlanJoin", new { id = item.FollowUpProjectPlanRequestId })" class="btn btn-rose btn-round">@Resources.Dashboard.Join</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("FollowUpProjectPlanJoin", new { id = item.FollowUpProjectPlanRequestId })" class="btn btn-info btn-round">@Resources.Dashboard.Join</a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <text>
+                                    <h4 class="label-primary" style="text-align: @Resources.General.TextAlign;">@Resources.Dashboard.NoFollowUpProjectPlan</h4>
+                                </text>
+                            }
+                        </div>
+                        <br>
+                    }
+
+                    if (Model.LstUpdateIncubationProjectProposal.Count != 0)
+                    {
+                        <h3 style="text-align: @Resources.General.TextAlign;">@Resources.Dashboard.IncubationProjectProposal</h3>
+                        <br>
+                        <div class="row">
+                            @if (Model.LstUpdateIncubationProjectProposal.Count != 0)
+                            {
+                                foreach (var item in Model.LstUpdateIncubationProjectProposal)
+                                {
+                                    <div id="@item.IncubationProjectProposalID" class="col-lg-3 col-md-6 col-sm-6">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-info card-header-icon" style="text-align: @Resources.General.TextAlign;">
+                                                @if (item.IncubationAdvertising.FundingSource.UseCustomThemes)
+                                                {
+                                                    <div class="card-icon" style="padding:0px; background: rgba(0, 0, 0, 0); background-color: rgba(0, 0, 0, 0); box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);">
+                                                        <img src="@item.IncubationAdvertising.FundingSource.GrantLogoPic" width="86" height="86" style="border-radius: 3px;" />
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="card-icon">
+                                                        <i class="material-icons">play_for_work</i>
+                                                    </div>
+                                                }
+                                                <h4 class="card-title" style="text-align: @Resources.General.TextAlign;">@item.IncubationAdvertising.Name </h4>
+                                                <p class="card-category">@Resources.Dashboard.WaitingToProjectProposal</p>
+                                            </div>
+                                            <div class="card-footer justify-content-center">
+                                                @if (item.IncubationAdvertising.FundingSource.UseCustomThemes)
+                                                {
+                                                    <a href="@Url.Action("IncubationProjectProposal", new { id = item.IncubationProjectProposalID })" class="btn btn-rose btn-round">@Resources.Dashboard.Join</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("IncubationProjectProposal", new { id = item.IncubationProjectProposalID })" class="btn btn-info btn-round">@Resources.Dashboard.Join</a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <text>
+                                    <h4 class="label-primary" style="text-align: @Resources.General.TextAlign;">@Resources.Dashboard.NoIncubationAvailable</h4>
+                                </text>
+                            }
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+@section Scripts{
+
+
+
+
+    <script>
+       function loadWorkshopDetails(workshopID) {
+    console.log("تم استدعاء الدالة بنجاح مع معرف الورشة:", workshopID); // تأكد أن الدالة تعمل
+
+    $.ajax({
+        url: '/Home/GetWorkshopDetails', // تأكد أن الرابط صحيح
+        type: 'GET',
+        data: { id: workshopID },
+        success: function (response) {
+            console.log(response);
+            if (response.success) {
+                document.getElementById("modalWorkshopName").innerText = response.data.Name;
+                document.getElementById("modalWorkshopModel").innerText = response.data.WorkshopModel;
+                document.getElementById("modalStartDate").innerText = response.data.StartDate;
+                document.getElementById("modalEndDate").innerText = response.data.EndDate;
+                document.getElementById("modalLastTimeToApply").innerText = response.data.LastTimeToApply;
+                document.getElementById("modalRegion").innerText = response.data.Region;
+                document.getElementById("modalGovernorate").innerText = response.data.Governorate;
+                document.getElementById("modalCity").innerText = response.data.City;
+                document.getElementById("modalDescription").innerText = response.data.Description;
+                //if (response.data.CommitmentFileUrl) {
+
+                //    document.getElementById("commitmentSection").style.display = "block";
+                //    document.getElementById("commitmentFileLink").href = response.data.CommitmentFileUrl;
+                //    document.getElementById("commitmentFileLink").innerText = response.data.CommitmentFileName;
+                //} else {
+                //    document.getElementById("commitmentSection").style.display = "none";
+                //}
+
+                $('#workshopDetailsModal').modal('show'); // فتح النافذة
+            } else {
+                alert("حدث خطأ أثناء جلب بيانات الورشة.");
+            }
+        },
+        error: function () {
+            alert("حدث خطأ في الاتصال بالخادم.");
+        }
+    });
+}
+
+    </script>
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_Dashboard').addClass('active');
+        };
+    </script>
+    @* shadia *@
+    @*<script>
+        $(document).ready(function () {
+            var Msg = '@TempData["Msg1"]';
+           /* && Msg !== 'undefined'*/
+            if (Msg !== '' && Msg !== null ) {
+                md.showNotification('top', '@Resources.General.MsgTextAlign', 'notification_important', 'rose', '3e3',
+                    '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">' + Msg + '</h4>');
+            }
+        });
+        </script>*@
+    <script>
+    $(document).ready(function () {
+        var Msg = '@TempData["Msg"]';
+       /* && Msg !== 'undefined'*/
+        if (Msg !== '' && Msg !== null ) {
+            md.showNotification('top', '@Resources.General.MsgTextAlign', 'notification_important', 'rose', '3e3',
+                '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">' + Msg + '</h4>');
+        }
+    });
+    </script>
+    @*<script>
+        $(document).ready(function () {
+            var Msg = '@ViewBag.Msg';
+           /* && Msg !== 'undefined'*/
+            if (Msg !== '' && Msg !== null ) {
+                md.showNotification('top', '@Resources.General.MsgTextAlign', 'notification_important', 'rose', '3e3',
+                    '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">' + Msg + '</h4>');
+            }
+        });
+        </script>*@
+    @*  *@
+    <script>
+
+        $(document).ready(function () {
+            var urlParams = new URLSearchParams(location.search);
+            if (urlParams.has('Msg')) {
+                md.showNotification('top', '@Resources.General.MsgTextAlign', 'notification_important', 'rose', '3e3', '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;"> ' + urlParams.get('Msg') + ' </h4>')
+            }
+            // Initialise the wizard
+            demo.initMaterialWizard();
+            setTimeout(function () {
+                $('.card.card-wizard').addClass('active');
+            }, 600);
+        });
+    </script>
+}

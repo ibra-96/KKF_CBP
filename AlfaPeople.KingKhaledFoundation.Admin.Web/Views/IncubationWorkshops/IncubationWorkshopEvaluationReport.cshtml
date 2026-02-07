@@ -1,0 +1,404 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IncubationWorkshopEvaluationReportVM
+@{
+    ViewBag.Title = Resources.Workshop.WorkshopRatingReport;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.HowDoYouEvaluateTheWorkshop
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="HowDoYouEvaluateTheWorkshop" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.WorkshopAchieveObjectives
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="WorkshopAchieveObjectives" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.IsWorkshopUseful
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="IsWorkshopUseful" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.TrainingMaterial
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="TrainingMaterial" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.HowDoYouEvaluateParticpation
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="HowDoYouEvaluateParticpation" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.TheAbilityToDeliverTheInformation
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="TheAbilityToDeliverTheInformation" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.BodyLanguage
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="BodyLanguage" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.ClarityOfVoiceAndTone
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="ClarityOfVoiceAndTone" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.MasteryOfTrainingMaterial
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="MasteryOfTrainingMaterial" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.AbilityToManageDiscussionAndHandleQuestions
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="AbilityToManageDiscussionAndHandleQuestions" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.LinkingTheTrainingMaterialToReality
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="LinkingTheTrainingMaterialToReality" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.AbilityToAchieveAGoal
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="AbilityToAchieveAGoal" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.WorkshopClass
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="WorkshopClass" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">insert_chart</i>
+                            </div>
+                            <h4 class="card-title">
+                                @Resources.IncubationWorkshopRating.Hosting
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="Hosting" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.onload = function (e) {
+            $('#navItem_IncubationWorkshops').addClass('active');
+            $('#Workshop').addClass('show');
+        };
+    </script>
+
+    <script>
+        md.startAnimationForBarChart(Chartist.Bar('#HowDoYouEvaluateTheWorkshop', {
+            labels: [
+                '@Resources.TrainingWorkshop.VeryGood',
+                '@Resources.TrainingWorkshop.Average',
+                '@Resources.TrainingWorkshop.Bad'
+            ],
+            series: [
+                [@Model.HowDoYouEvaluateTheWorkshop.VeryGood, @Model.HowDoYouEvaluateTheWorkshop.Average, @Model.HowDoYouEvaluateTheWorkshop.Bad]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#WorkshopAchieveObjectives', {
+            labels: [
+                '@Resources.AchievingGoal.GoalsAchievedCompletely',
+                '@Resources.AchievingGoal.TheGoalsWerePartiallyAchieved',
+                '@Resources.AchievingGoal.DidNotAchieveGoals'
+            ],
+            series: [
+                [@Model.WorkshopAchieveObjectives.GoalsAchievedCompletely, @Model.WorkshopAchieveObjectives.TheGoalsWerePartiallyAchieved, @Model.WorkshopAchieveObjectives.DidNotAchieveGoals]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#IsWorkshopUseful', {
+            labels: [
+                '@Resources.MeetTheWorkRequirement.Useful',
+                '@Resources.MeetTheWorkRequirement.SomewhatUseful',
+                '@Resources.MeetTheWorkRequirement.Unuseful'
+            ],
+            series: [
+                [@Model.IsWorkshopUseful.Useful, @Model.IsWorkshopUseful.SomewhatUseful, @Model.IsWorkshopUseful.Unuseful]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#TrainingMaterial', {
+            labels: [
+                '@Resources.TrainingWorkshop.VeryGood',
+                '@Resources.TrainingWorkshop.Average',
+                '@Resources.TrainingWorkshop.Bad'
+            ],
+            series: [
+                [@Model.TrainingMaterial.VeryGood, @Model.TrainingMaterial.Average, @Model.TrainingMaterial.Bad]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#HowDoYouEvaluateParticpation', {
+            labels: [
+                '@Resources.TrainingWorkshop.VeryGood',
+                '@Resources.TrainingWorkshop.Average',
+                '@Resources.TrainingWorkshop.Bad'
+            ],
+            series: [
+                [@Model.HowDoYouEvaluateParticpation.VeryGood, @Model.HowDoYouEvaluateParticpation.Average, @Model.HowDoYouEvaluateParticpation.Bad]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#TheAbilityToDeliverTheInformation', {
+            labels: [
+                '@Resources.TrainerRating.Excellent',
+                '@Resources.TrainerRating.VGood',
+                '@Resources.TrainerRating.Good',
+                '@Resources.TrainerRating.OK',
+                '@Resources.TrainerRating.Bad'
+            ],
+            series: [
+                [@Model.TheAbilityToDeliverTheInformation.Excellent, @Model.TheAbilityToDeliverTheInformation.VGood, @Model.TheAbilityToDeliverTheInformation.Good, @Model.TheAbilityToDeliverTheInformation.OK, @Model.TheAbilityToDeliverTheInformation.Bad]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#BodyLanguage', {
+            labels: [
+                '@Resources.TrainerRating.Excellent',
+                '@Resources.TrainerRating.VGood',
+                '@Resources.TrainerRating.Good',
+                '@Resources.TrainerRating.OK',
+                '@Resources.TrainerRating.Bad'
+            ],
+            series: [
+                [@Model.BodyLanguage.Excellent, @Model.BodyLanguage.VGood, @Model.BodyLanguage.Good, @Model.BodyLanguage.OK, @Model.BodyLanguage.Bad]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#ClarityOfVoiceAndTone', {
+            labels: [
+                '@Resources.TrainerRating.Excellent',
+                '@Resources.TrainerRating.VGood',
+                '@Resources.TrainerRating.Good',
+                '@Resources.TrainerRating.OK',
+                '@Resources.TrainerRating.Bad'
+            ],
+            series: [
+                [@Model.ClarityOfVoiceAndTone.Excellent, @Model.ClarityOfVoiceAndTone.VGood, @Model.ClarityOfVoiceAndTone.Good, @Model.ClarityOfVoiceAndTone.OK, @Model.ClarityOfVoiceAndTone.Bad]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#MasteryOfTrainingMaterial', {
+            labels: [
+                '@Resources.TrainerRating.Excellent',
+                '@Resources.TrainerRating.VGood',
+                '@Resources.TrainerRating.Good',
+                '@Resources.TrainerRating.OK',
+                '@Resources.TrainerRating.Bad'
+            ],
+            series: [
+                [@Model.MasteryOfTrainingMaterial.Excellent, @Model.MasteryOfTrainingMaterial.VGood, @Model.MasteryOfTrainingMaterial.Good, @Model.MasteryOfTrainingMaterial.OK, @Model.MasteryOfTrainingMaterial.Bad]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#AbilityToManageDiscussionAndHandleQuestions', {
+            labels: [
+                '@Resources.TrainerRating.Excellent',
+                '@Resources.TrainerRating.VGood',
+                '@Resources.TrainerRating.Good',
+                '@Resources.TrainerRating.OK',
+                '@Resources.TrainerRating.Bad'
+            ],
+            series: [
+                [@Model.AbilityToManageDiscussionAndHandleQuestions.Excellent, @Model.AbilityToManageDiscussionAndHandleQuestions.VGood, @Model.AbilityToManageDiscussionAndHandleQuestions.Good, @Model.AbilityToManageDiscussionAndHandleQuestions.OK, @Model.AbilityToManageDiscussionAndHandleQuestions.Bad]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#LinkingTheTrainingMaterialToReality', {
+            labels: [
+                '@Resources.TrainerRating.Excellent',
+                '@Resources.TrainerRating.VGood',
+                '@Resources.TrainerRating.Good',
+                '@Resources.TrainerRating.OK',
+                '@Resources.TrainerRating.Bad'
+            ],
+            series: [
+                [@Model.LinkingTheTrainingMaterialToReality.Excellent, @Model.LinkingTheTrainingMaterialToReality.VGood, @Model.LinkingTheTrainingMaterialToReality.Good, @Model.LinkingTheTrainingMaterialToReality.OK, @Model.LinkingTheTrainingMaterialToReality.Bad]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#AbilityToAchieveAGoal', {
+            labels: [
+                '@Resources.TrainerRating.Excellent',
+                '@Resources.TrainerRating.VGood',
+                '@Resources.TrainerRating.Good',
+                '@Resources.TrainerRating.OK',
+                '@Resources.TrainerRating.Bad'
+            ],
+            series: [
+                [@Model.AbilityToAchieveAGoal.Excellent, @Model.AbilityToAchieveAGoal.VGood, @Model.AbilityToAchieveAGoal.Good, @Model.AbilityToAchieveAGoal.OK, @Model.AbilityToAchieveAGoal.Bad]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#WorkshopClass', {
+            labels: [
+                '@Resources.WorkshopClass.Fit',
+                '@Resources.WorkshopClass.FairlyAppropriate',
+                '@Resources.WorkshopClass.Unfit'
+            ],
+            series: [
+                [@Model.WorkshopClass.Fit, @Model.Hosting.FairlyAppropriate, @Model.WorkshopClass.Unfit]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+        md.startAnimationForBarChart(Chartist.Bar('#Hosting', {
+            labels: [
+                '@Resources.WorkshopClass.Fit',
+                '@Resources.WorkshopClass.FairlyAppropriate',
+                '@Resources.WorkshopClass.Unfit'
+            ],
+            series: [
+                [@Model.Hosting.Fit, @Model.Hosting.FairlyAppropriate, @Model.Hosting.Unfit]
+            ]
+        }, { seriesBarDistance: 10, axisX: { showGrid: true }, height: '250px' }
+        ));
+    </script>
+}

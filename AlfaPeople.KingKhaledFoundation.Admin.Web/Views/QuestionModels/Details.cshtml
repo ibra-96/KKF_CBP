@@ -1,0 +1,83 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.QuestionModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>QuestionModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IncubationWorkshop.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncubationWorkshop.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnglishQuestion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnglishQuestion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArabicQuestion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArabicQuestion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnswerType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnswerType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsVisible)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsVisible)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsRequired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsRequired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
