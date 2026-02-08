@@ -1,0 +1,2696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Khalid Foundation - Capacity Building Program Admin Manual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: 'Mabry';
+            src: local('Mabry Pro'), local('MabryPro');
+        }
+
+        @font-face {
+            font-family: 'Suisse';
+            src: local('Suisse Intl'), local('SuisseIntl');
+        }
+
+        body {
+            font-family: 'Mabry', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Cover Page - Matching Login Screen */
+        .cover-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.85) 0%, rgba(27, 94, 32, 0.9) 100%),
+                        linear-gradient(45deg, #1B5E20 0%, #2E7D32 50%, #388E3C 100%);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Geometric pattern overlay similar to login screen */
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 50%, transparent 50%),
+                linear-gradient(-45deg, transparent 30%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 50%, transparent 50%);
+            background-size: 100px 100px;
+            opacity: 0.3;
+        }
+
+        .cover-page-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-logo {
+            width: 250px;
+            height: auto;
+            margin-bottom: 50px;
+            filter: brightness(0) invert(1);
+        }
+
+        .cover-page h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .cover-page h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+        }
+
+        .cover-page h3 {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            font-weight: 400;
+            opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+        }
+
+        .cover-page .version {
+            font-size: 1.2rem;
+            margin-top: 60px;
+            opacity: 0.9;
+            padding: 10px 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cover-page .date {
+            font-size: 1rem;
+            margin-top: 15px;
+            opacity: 0.85;
+        }
+
+        /* Table of Contents */
+        .toc {
+            padding: 60px 80px;
+            page-break-after: always;
+        }
+
+        .toc h2 {
+            font-size: 2.5rem;
+            color: #2E7D32;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #2E7D32;
+            padding-bottom: 15px;
+        }
+
+        .toc h2::before {
+            content: '\f02d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 15px;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc ul li {
+            margin: 15px 0;
+            font-size: 1.1rem;
+        }
+
+        .toc ul li a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .toc ul li a:hover {
+            color: #2E7D32;
+            padding-left: 10px;
+        }
+
+        .toc ul ul {
+            margin-left: 30px;
+        }
+
+        .toc ul ul li a {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 60px 80px;
+            page-break-inside: avoid;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #2E7D32;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #2E7D32;
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            font-size: 1.8rem;
+            color: #388E3C;
+            margin: 30px 0 20px 0;
+        }
+
+        .section h4 {
+            font-size: 1.3rem;
+            color: #2E7D32;
+            margin: 20px 0 15px 0;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        .section li {
+            margin: 8px 0;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: #E8F5E9;
+            border-left: 5px solid #2E7D32;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .info-box.warning {
+            background: #FFF3E0;
+            border-left-color: #F57C00;
+        }
+
+        .info-box.important {
+            background: #FFEBEE;
+            border-left-color: #D32F2F;
+        }
+
+        .info-box.tip {
+            background: #E3F2FD;
+            border-left-color: #1976D2;
+        }
+
+        .info-box h4 {
+            margin-top: 0;
+            color: inherit;
+        }
+
+        .info-box h4::before {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .info-box h4::before {
+            content: '\f05a';
+        }
+
+        .info-box.warning h4::before {
+            content: '\f071';
+        }
+
+        .info-box.important h4::before {
+            content: '\f06a';
+        }
+
+        .info-box.tip h4::before {
+            content: '\f0eb';
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: #fff;
+            border: 2px solid #E0E0E0;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover {
+            border-color: #2E7D32;
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .feature-card h4 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card h4::before {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .feature-card ul {
+            margin-left: 20px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        table thead {
+            background: #2E7D32;
+            color: white;
+        }
+
+        table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        table tbody tr:hover {
+            background: #F5F5F5;
+        }
+
+        table tbody tr:nth-child(even) {
+            background: #FAFAFA;
+        }
+
+        /* Step by Step Guide */
+        .step {
+            background: #F5F5F5;
+            border-left: 5px solid #2E7D32;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            position: relative;
+            padding-left: 80px;
+        }
+
+        .step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #2E7D32;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .step h4 {
+            margin-top: 0;
+            color: #388E3C;
+        }
+
+        /* Screenshots Placeholder */
+        .screenshot {
+            background: #E0E0E0;
+            border: 2px dashed #999;
+            border-radius: 10px;
+            padding: 60px 20px;
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+        }
+
+        /* Navigation Menu Tree */
+        .menu-tree {
+            background: #F9F9F9;
+            border: 1px solid #E0E0E0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .menu-tree ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .menu-tree li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .menu-tree li::before {
+            content: "\f105";
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 5px;
+            color: #2E7D32;
+        }
+
+        .menu-tree ul ul li::before {
+            content: "\f111";
+            font-size: 0.5rem;
+            top: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1B5E20;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        /* Print Styles */
+        @media print {
+            .cover-page, .toc, .section {
+                page-break-after: always;
+            }
+            
+            .feature-card {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0 5px;
+        }
+
+        .badge.required {
+            background: #D32F2F;
+            color: white;
+        }
+
+        .badge.optional {
+            background: #1976D2;
+            color: white;
+        }
+
+        .badge.admin-only {
+            background: #F57C00;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- COVER PAGE -->
+        <div class="cover-page">
+            <div class="cover-page-content">
+                <!-- KKF Logo - Using SVG placeholder, replace with actual logo path -->
+                <svg class="cover-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">
+                    <text x="150" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" 
+                          text-anchor="middle" fill="white">
+                        KING KHALID FOUNDATION
+                    </text>
+                    <text x="150" y="75" font-family="Arial, sans-serif" font-size="14" 
+                          text-anchor="middle" fill="white" opacity="0.9">
+                        ????? ????? ????
+                    </text>
+                </svg>
+                
+                <h1><i class="fas fa-book"></i> ADMINISTRATOR MANUAL</h1>
+                <h2>Capacity Building Program</h2>
+                <h3><i class="fas fa-chart-line"></i> Scaling for Impact</h3>
+                <div class="version"><i class="fas fa-tag"></i> Version 1.0</div>
+                <div class="date"><i class="fas fa-calendar-alt"></i> Last Updated: January 2025</div>
+            </div>
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#introduction"><span><i class="fas fa-info-circle"></i> 1. Introduction</span><span>Page 3</span></a></li>
+                <li><a href="#getting-started"><span><i class="fas fa-rocket"></i> 2. Getting Started</span><span>Page 4</span></a></li>
+                <ul>
+                    <li><a href="#login"><span>2.1 Login Process</span><span>Page 4</span></a></li>
+                    <li><a href="#dashboard"><span>2.2 Dashboard Overview</span><span>Page 5</span></a></li>
+                    <li><a href="#navigation"><span>2.3 Navigation Menu</span><span>Page 6</span></a></li>
+                </ul>
+                <li><a href="#user-management"><span><i class="fas fa-users"></i> 3. User Management</span><span>Page 7</span></a></li>
+                <li><a href="#join-requests"><span><i class="fas fa-file-alt"></i> 4. Join Requests Management</span><span>Page 9</span></a></li>
+                <ul>
+                    <li><a href="#corporation-requests"><span>4.1 Corporation Requests</span><span>Page 9</span></a></li>
+                    <li><a href="#corporation-registered"><span>4.2 Registered Corporations</span><span>Page 11</span></a></li>
+                </ul>
+                <li><a href="#incubation"><span><i class="fas fa-seedling"></i> 5. Incubation Management</span><span>Page 13</span></a></li>
+                <ul>
+                    <li><a href="#incubation-models"><span>5.1 Incubation Models</span><span>Page 13</span></a></li>
+                    <li><a href="#incubation-advertising"><span>5.2 Advertising</span><span>Page 15</span></a></li>
+                    <li><a href="#incubation-projects"><span>5.3 Projects</span><span>Page 16</span></a></li>
+                    <li><a href="#incubation-consultants"><span>5.4 Consultants</span><span>Page 18</span></a></li>
+                    <li><a href="#incubation-requests"><span>5.5 Incubation Requests</span><span>Page 19</span></a></li>
+                </ul>
+                <li><a href="#acceleration"><span><i class="fas fa-rocket"></i> 6. Acceleration Management</span><span>Page 21</span></a></li>
+                <li><a href="#workshops"><span><i class="fas fa-chalkboard-teacher"></i> 7. Workshop Management</span><span>Page 24</span></a></li>
+                <ul>
+                    <li><a href="#workshop-models"><span>7.1 Workshop Models</span><span>Page 24</span></a></li>
+                    <li><a href="#workshop-classes"><span>7.2 Workshop Classes</span><span>Page 25</span></a></li>
+                    <li><a href="#workshop-invitations"><span>7.3 Invitations</span><span>Page 26</span></a></li>
+                    <li><a href="#workshop-rating"><span>7.4 Workshop Rating</span><span>Page 27</span></a></li>
+                </ul>
+                <li><a href="#reports"><span><i class="fas fa-chart-bar"></i> 8. Reports</span><span>Page 29</span></a></li>
+                <li><a href="#system-settings"><span><i class="fas fa-cog"></i> 9. System Settings</span><span>Page 32</span></a></li>
+                <li><a href="#troubleshooting"><span><i class="fas fa-tools"></i> 10. Troubleshooting</span><span>Page 34</span></a></li>
+            </ul>
+        </div>
+
+        <!-- SECTION 1: INTRODUCTION -->
+        <div class="section" id="introduction">
+            <h2>1. Introduction</h2>
+            
+            <h3>Welcome to the Capacity Building Program Admin Portal</h3>
+            <p>
+                This comprehensive administrator manual is designed to guide you through all features and functionalities 
+                of the King Khalid Foundation's Capacity Building Program Admin Portal. The system is built to empower 
+                administrators to efficiently manage the foundation's capacity building initiatives, including incubation 
+                programs, acceleration projects, workshops, and corporate partnerships.
+            </p>
+
+            <h3>Purpose of this Manual</h3>
+            <p>
+                This manual serves as a complete reference guide for administrators, providing step-by-step instructions 
+                for all system operations. Whether you're a new administrator or an experienced user, this document will 
+                help you navigate the platform effectively and utilize all available features to support nonprofits and 
+                companies in delivering sustainable social and economic change.
+            </p>
+
+            <h3>About the Capacity Building Program</h3>
+            <div class="info-box">
+                <h4>Program Mission</h4>
+                <p>
+                    The Capacity Building Program aims to empower nonprofits and companies to deliver sustainable social 
+                    and economic change through comprehensive support, training, and mentorship.
+                </p>
+            </div>
+
+            <h3>System Overview</h3>
+            <p>The Admin Portal provides the following key capabilities:</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><i class="fas fa-building"></i> Organization Management</h4>
+                    <ul>
+                        <li>Review join requests</li>
+                        <li>Manage registered corporations</li>
+                        <li>Track organization profiles</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-seedling"></i> Incubation & Acceleration</h4>
+                    <ul>
+                        <li>Manage program models</li>
+                        <li>Track projects and participants</li>
+                        <li>Assign consultants</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-chalkboard-teacher"></i> Workshop Management</h4>
+                    <ul>
+                        <li>Create and schedule workshops</li>
+                        <li>Manage invitations</li>
+                        <li>Track attendance and ratings</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-chart-line"></i> Reporting & Analytics</h4>
+                    <ul>
+                        <li>Generate comprehensive reports</li>
+                        <li>Track program effectiveness</li>
+                        <li>Monitor key metrics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Who Should Use This Manual</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Responsibilities</th>
+                        <th>Access Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Admin</strong></td>
+                        <td>Full system access, user management, all features</td>
+                        <td><i class="fas fa-circle" style="color: #D32F2F;"></i> Full Access</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CB Manager</strong></td>
+                        <td>Capacity Building program management</td>
+                        <td><i class="fas fa-circle" style="color: #F57C00;"></i> Program Access</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CB Supervisor</strong></td>
+                        <td>Supervise capacity building activities</td>
+                        <td><i class="fas fa-circle" style="color: #388E3C;"></i> Limited Access</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CB Analyst</strong></td>
+                        <td>Analyze program data and generate reports</td>
+                        <td><i class="fas fa-circle" style="color: #388E3C;"></i> Limited Access</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box tip">
+                <h4>Navigation Tip</h4>
+                <p>
+                    Throughout this manual, you'll find color-coded information boxes like this one providing tips, 
+                    warnings, and important notes to enhance your understanding and usage of the system.
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 2: GETTING STARTED -->
+        <div class="section" id="getting-started">
+            <h2>2. Getting Started</h2>
+
+            <h3 id="login">2.1 Login Process</h3>
+            <p>
+                To access the Admin Portal, you must have valid administrator credentials provided by the system administrator.
+            </p>
+
+            <div class="step" data-step="1">
+                <h4>Navigate to the Admin Portal</h4>
+                <p>Open your web browser and go to the Admin Portal URL (provided by your organization)</p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Enter Your Credentials</h4>
+                <p>
+                    Enter your username and password in the login form. The portal supports both Arabic and English languages. 
+                    Use the language switcher in the top navigation to change the interface language.
+                </p>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Click Sign In</h4>
+                <p>Click the "Sign In" button to access the system. If your credentials are valid, you'll be redirected to the dashboard.</p>
+            </div>
+
+            <div class="info-box warning">
+                <h4>Security Best Practices</h4>
+                <ul>
+                    <li>Never share your login credentials with anyone</li>
+                    <li>Use a strong password with at least 8 characters</li>
+                    <li>Log out when finished, especially on shared computers</li>
+                    <li>Change your password regularly (recommended every 90 days)</li>
+                </ul>
+            </div>
+
+            <h3 id="dashboard">2.2 Dashboard Overview</h3>
+            <p>
+                Upon successful login, you'll be presented with the main dashboard. The dashboard provides a comprehensive 
+                overview of your program's key metrics and recent activities.
+            </p>
+
+            <h4>Dashboard Components</h4>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><i class="fas fa-chart-pie"></i> Statistics Cards</h4>
+                    <p>View at-a-glance metrics including:</p>
+                    <ul>
+                        <li>Total organizations</li>
+                        <li>Active incubation projects</li>
+                        <li>Upcoming workshops</li>
+                        <li>Pending requests</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-calendar-alt"></i> Calendar View</h4>
+                    <p>Visual representation of:</p>
+                    <ul>
+                        <li>Scheduled events</li>
+                        <li>Workshop dates</li>
+                        <li>Important deadlines</li>
+                        <li>Milestones</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-bell"></i> Recent Activities</h4>
+                    <p>Latest system activities:</p>
+                    <ul>
+                        <li>New join requests</li>
+                        <li>Workshop registrations</li>
+                        <li>Project updates</li>
+                        <li>System notifications</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-bolt"></i> Quick Actions</h4>
+                    <p>Commonly used functions:</p>
+                    <ul>
+                        <li>Create new workshop</li>
+                        <li>Review requests</li>
+                        <li>Generate reports</li>
+                        <li>Manage users</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 id="navigation">2.3 Navigation Menu</h3>
+            <p>
+                The left sidebar contains the main navigation menu, organized by functional areas. Click on any menu item 
+                to expand sub-menus and access specific features.
+            </p>
+
+            <div class="menu-tree">
+                <h4>Main Navigation Structure</h4>
+                <ul>
+                    <li><i class="fas fa-home"></i> Dashboard</li>
+                    <li><i class="fas fa-calendar"></i> Events</li>
+                    <li><i class="fas fa-clipboard-list"></i> Join Requests
+                        <ul>
+                            <li>Corporation Requests</li>
+                            <li>Corporation Registered</li>
+                        </ul>
+                    </li>
+                    <li><i class="fas fa-seedling"></i> Incubations
+                        <ul>
+                            <li>Incubation Models</li>
+                            <li>Advertising</li>
+                            <li>Projects</li>
+                            <li>Consultants</li>
+                            <li>Incubation Requests</li>
+                        </ul>
+                    </li>
+                    <li><i class="fas fa-rocket"></i> Accelerations
+                        <ul>
+                            <li>Acceleration Models</li>
+                            <li>Advertising</li>
+                            <li>Projects</li>
+                            <li>Consultants</li>
+                            <li>Acceleration Requests</li>
+                            <li>Baseline Request</li>
+                            <li>Baseline Request Report</li>
+                        </ul>
+                    </li>
+                    <li><i class="fas fa-book"></i> Workshops
+                        <ul>
+                            <li>Workshop Models</li>
+                            <li>Workshop Classes</li>
+                            <li>Invitations</li>
+                            <li>Rating & Feedback</li>
+                        </ul>
+                    </li>
+                    <li><i class="fas fa-chart-bar"></i> Reports
+                        <ul>
+                            <li>Corporation Reports</li>
+                            <li>Workshop Reports</li>
+                            <li>Incubation Reports</li>
+                            <li>Acceleration Reports</li>
+                            <li>Beneficiaries Reports</li>
+                        </ul>
+                    </li>
+                    <li><i class="fas fa-cogs"></i> System Settings
+                        <ul>
+                            <li>Regions & Cities</li>
+                            <li>Classification Sectors</li>
+                            <li>Authorization Authorities</li>
+                            <li>Funding Sources</li>
+                            <li>Field of Work</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-box tip">
+                <h4>User Profile Menu</h4>
+                <p>
+                    Click on your name in the sidebar to access:
+                </p>
+                <ul>
+                    <li><strong>Change Password:</strong> Update your account password</li>
+                    <li><strong>Employees:</strong> <span class="badge admin-only">Admin Only</span> Manage employee accounts</li>
+                    <li><strong>Positions:</strong> <span class="badge admin-only">Admin Only</span> Manage position types</li>
+                    <li><strong>Language:</strong> Switch between Arabic and English</li>
+                    <li><strong>Sign Out:</strong> Logout from the system</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 3: USER MANAGEMENT -->
+        <div class="section" id="user-management">
+            <h2>3. User Management</h2>
+            <p class="badge admin-only">Admin Role Required</p>
+
+            <h3>Overview</h3>
+            <p>
+                The User Management module allows administrators to create, modify, and manage employee accounts and their 
+                associated positions. This is a critical function for maintaining system security and access control.
+            </p>
+
+            <h3>Managing Employees</h3>
+            <p>Access: <strong>User Profile Menu ? Employees</strong></p>
+
+            <div class="step" data-step="1">
+                <h4>View All Employees</h4>
+                <p>
+                    The employee listing page displays all registered staff members with their details including name, 
+                    email, position, and status.
+                </p>
+                <ul>
+                    <li>Use the search box to find specific employees</li>
+                    <li>Filter by position or status</li>
+                    <li>Sort by any column header</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Add New Employee</h4>
+                <p>Click the "Add New Employee" button and fill in the required information:</p>
+                <ul>
+                    <li><strong>Full Name:</strong> <span class="badge required">Required</span> Employee's complete name</li>
+                    <li><strong>Email Address:</strong> <span class="badge required">Required</span> Used for login (must be unique)</li>
+                    <li><strong>Position:</strong> <span class="badge required">Required</span> Select from available positions</li>
+                    <li><strong>Phone Number:</strong> <span class="badge optional">Optional</span> Contact number</li>
+                    <li><strong>Role:</strong> <span class="badge required">Required</span> Assign user role (Admin, CB Manager, etc.)</li>
+                    <li><strong>Initial Password:</strong> <span class="badge required">Required</span> Temporary password (must be changed on first login)</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Edit Employee Details</h4>
+                <p>
+                    Click the "Edit" button next to any employee to modify their information. You can update all fields 
+                    except the email address (which serves as the unique identifier).
+                </p>
+            </div>
+
+            <div class="step" data-step="4">
+                <h4>Deactivate/Activate Employee</h4>
+                <p>
+                    Use the status toggle to temporarily disable or re-enable employee accounts without deleting them. 
+                    Deactivated accounts cannot log in but their data is preserved.
+                </p>
+            </div>
+
+            <div class="info-box warning">
+                <h4>Important Security Notes</h4>
+                <ul>
+                    <li>Never use weak or easily guessable passwords</li>
+                    <li>Ensure employees change their initial password on first login</li>
+                    <li>Regularly review and update employee access levels</li>
+                    <li>Deactivate accounts immediately when employees leave</li>
+                    <li>Audit employee activities periodically</li>
+                </ul>
+            </div>
+
+            <h3>Managing Positions</h3>
+            <p>Access: <strong>User Profile Menu ? Positions</strong></p>
+
+            <p>
+                Positions define job roles within your organization. Each employee must be assigned to a position.
+            </p>
+
+            <div class="step" data-step="1">
+                <h4>View All Positions</h4>
+                <p>The positions page displays all available job roles in the system.</p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Add New Position</h4>
+                <p>Click "Add New Position" and provide:</p>
+                <ul>
+                    <li><strong>Position Name (English):</strong> <span class="badge required">Required</span></li>
+                    <li><strong>Position Name (Arabic):</strong> <span class="badge required">Required</span></li>
+                    <li><strong>Description:</strong> <span class="badge optional">Optional</span> Brief description of the role</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Edit or Delete Position</h4>
+                <p>
+                    Use the action buttons to modify or remove positions. Note that you cannot delete a position that 
+                    has active employees assigned to it.
+                </p>
+            </div>
+
+            <h3>User Roles and Permissions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Join Requests</th>
+                        <th>Incubation/Acceleration</th>
+                        <th>Workshops</th>
+                        <th>Reports</th>
+                        <th>Settings</th>
+                        <th>User Mgmt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Admin</strong></td>
+                        <td><i class="fas fa-check-circle" style="color: #388E3C;"></i> Full</td>
+                        <td><i class="fas fa-check-circle" style="color: #388E3C;"></i> Full</td>
+                        <td><i class="fas fa-check-circle" style="color: #388E3C;"></i> Full</td>
+                        <td><i class="fas fa-check-circle" style="color: #388E3C;"></i> Full</td>
+                        <td><i class="fas fa-check-circle" style="color: #388E3C;"></i> Full</td>
+                        <td><i class="fas fa-check-circle" style="color: #388E3C;"></i> Full</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CB Manager</strong></td>
+                        <td>? Full</td>
+                        <td>? Full</td>
+                        <td>? Full</td>
+                        <td>? Full</td>
+                        <td>?? Read</td>
+                        <td>? None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CB Supervisor</strong></td>
+                        <td>? Full</td>
+                        <td>? Full</td>
+                        <td>? Full</td>
+                        <td>? Full</td>
+                        <td>?? Read</td>
+                        <td>? None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CB Analyst</strong></td>
+                        <td>?? Read</td>
+                        <td>?? Read</td>
+                        <td>?? Read</td>
+                        <td>? Full</td>
+                        <td>?? Read</td>
+                        <td>? None</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 4: JOIN REQUESTS MANAGEMENT -->
+        <div class="section" id="join-requests">
+            <h2>4. Join Requests Management</h2>
+
+            <h3>Overview</h3>
+            <p>
+                The Join Requests module manages organizations that wish to participate in the Capacity Building Program. 
+                This includes processing new applications and maintaining records of registered corporations.
+            </p>
+
+            <h3 id="corporation-requests">4.1 Corporation Requests</h3>
+            <p>Access: <strong>Join Requests ? Corporation Requests</strong></p>
+
+            <p>
+                This section handles incoming join requests from organizations (corporations, nonprofits, NGOs) seeking 
+                to participate in the program.
+            </p>
+
+            <h4>Viewing Requests</h4>
+            <div class="step" data-step="1">
+                <h4>Access the Requests List</h4>
+                <p>Navigate to Corporation Requests to see all pending and processed applications.</p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Review Request Details</h4>
+                <p>Click on any request to view comprehensive information including:</p>
+                <ul>
+                    <li><strong>Organization Information:</strong> Name, type, sector, field of work</li>
+                    <li><strong>Contact Details:</strong> Primary contact person, email, phone, address</li>
+                    <li><strong>Legal Information:</strong> Registration number, authorization authority, establishment date</li>
+                    <li><strong>Program Interest:</strong> Which programs they're interested in (Incubation, Acceleration, Workshops)</li>
+                    <li><strong>Additional Details:</strong> Organization size, number of employees, current projects</li>
+                    <li><strong>Attachments:</strong> Supporting documents (registration certificate, authorization documents, etc.)</li>
+                </ul>
+            </div>
+
+            <h4>Processing Requests</h4>
+            <div class="step" data-step="3">
+                <h4>Review and Validate</h4>
+                <p>Carefully review all submitted information and verify:</p>
+                <ul>
+                    <li>Completeness of information</li>
+                    <li>Validity of legal documents</li>
+                    <li>Alignment with program eligibility criteria</li>
+                    <li>Authenticity of contact information</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="4">
+                <h4>Make a Decision</h4>
+                <p>Based on your review, you can:</p>
+                <ul>
+                    <li><strong>Approve:</strong> Accept the organization into the program</li>
+                    <li><strong>Reject:</strong> Decline the application with a reason</li>
+                    <li><strong>Request More Information:</strong> Ask for additional details or clarification</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="5">
+                <h4>Complete the Process</h4>
+                <p>
+                    Upon approval, the organization is automatically moved to the "Registered Corporations" list and 
+                    receives a notification email with login credentials.
+                </p>
+            </div>
+
+            <div class="info-box tip">
+                <h4>Evaluation Criteria</h4>
+                <p>Consider these factors when evaluating requests:</p>
+                <ul>
+                    <li><strong>Legal Status:</strong> Valid registration and authorization</li>
+                    <li><strong>Sector Alignment:</strong> Organization's work aligns with program focus areas</li>
+                    <li><strong>Capacity to Benefit:</strong> Organization can meaningfully participate and benefit</li>
+                    <li><strong>Commitment:</strong> Demonstrates genuine interest and commitment to the program</li>
+                    <li><strong>Resource Availability:</strong> Has basic resources to engage in program activities</li>
+                </ul>
+            </div>
+
+            <h4>Search and Filter</h4>
+            <p>Use the search and filter tools to efficiently manage requests:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Filter Type</th>
+                        <th>Options</th>
+                        <th>Use Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Status</strong></td>
+                        <td>Pending, Approved, Rejected, More Info Requested</td>
+                        <td>Focus on specific request status</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sector</strong></td>
+                        <td>Healthcare, Education, Environment, Social Services, etc.</td>
+                        <td>Group by organization sector</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Region</strong></td>
+                        <td>All Saudi regions and cities</td>
+                        <td>Geographic distribution</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Program Interest</strong></td>
+                        <td>Incubation, Acceleration, Workshops</td>
+                        <td>Match organizations to programs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Date Submitted</strong></td>
+                        <td>Date range picker</td>
+                        <td>Process requests by submission date</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="corporation-registered">4.2 Registered Corporations</h3>
+            <p>Access: <strong>Join Requests ? Corporation Registered</strong></p>
+
+            <p>
+                This section maintains the master list of all organizations that have been approved to participate in the 
+                Capacity Building Program.
+            </p>
+
+            <h4>Viewing Registered Corporations</h4>
+            <div class="step" data-step="1">
+                <h4>Access the Registry</h4>
+                <p>Navigate to Corporation Registered to see all approved organizations.</p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>View Corporation Profile</h4>
+                <p>Click on any organization to access their complete profile including:</p>
+                <ul>
+                    <li><strong>Profile Information:</strong> All registration details</li>
+                    <li><strong>Contact Persons:</strong> List of contacts associated with the organization</li>
+                    <li><strong>Program Participation:</strong> Which programs they're enrolled in</li>
+                    <li><strong>Activity History:</strong> Timeline of their engagement</li>
+                    <li><strong>Workshop Attendance:</strong> Record of attended workshops</li>
+                    <li><strong>Incubation/Acceleration Projects:</strong> Current and past projects</li>
+                    <li><strong>Documents:</strong> All uploaded files and certificates</li>
+                </ul>
+            </div>
+
+            <h4>Managing Corporation Information</h4>
+            <div class="step" data-step="3">
+                <h4>Edit Corporation Details</h4>
+                <p>
+                    Click the "Edit" button to update any organization information. This is useful when corporations 
+                    change their contact details, expand their services, or update their legal status.
+                </p>
+            </div>
+
+            <div class="step" data-step="4">
+                <h4>Manage Contacts</h4>
+                <p>Add, edit, or remove contact persons associated with each organization:</p>
+                <ul>
+                    <li>Add multiple contacts per organization</li>
+                    <li>Designate primary and secondary contacts</li>
+                    <li>Update contact details as needed</li>
+                    <li>Deactivate contacts who are no longer with the organization</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="5">
+                <h4>View Engagement History</h4>
+                <p>
+                    Track the organization's complete history with the foundation including all workshops attended, 
+                    programs participated in, and interactions with staff.
+                </p>
+            </div>
+
+            <div class="info-box">
+                <h4>Organization Status Indicators</h4>
+                <ul>
+                    <li><strong>Active:</strong> Currently participating in programs</li>
+                    <li><strong>Inactive:</strong> Registered but not currently engaged</li>
+                    <li><strong>On Hold:</strong> Temporarily suspended from activities</li>
+                    <li><strong>Graduated:</strong> Successfully completed program(s)</li>
+                </ul>
+            </div>
+
+            <h4>Bulk Actions</h4>
+            <p>Perform actions on multiple corporations simultaneously:</p>
+            <ul>
+                <li><strong>Export to Excel:</strong> Download corporation list for external analysis</li>
+                <li><strong>Send Mass Email:</strong> Communicate with multiple organizations at once</li>
+                <li><strong>Update Status:</strong> Change status for selected corporations</li>
+                <li><strong>Generate Reports:</strong> Create comprehensive reports on registered organizations</li>
+            </ul>
+        </div>
+
+        <!-- SECTION 5: INCUBATION MANAGEMENT -->
+        <div class="section" id="incubation">
+            <h2>5. Incubation Management</h2>
+
+            <h3>Overview</h3>
+            <p>
+                The Incubation program supports early-stage projects and organizations by providing structured mentorship, 
+                resources, and guidance. This module manages all aspects of the incubation journey from program design 
+                to participant graduation.
+            </p>
+
+            <div class="info-box">
+                <h4>What is Incubation?</h4>
+                <p>
+                    Incubation is a structured program designed to help nascent organizations and projects develop their 
+                    capabilities, refine their strategies, and build sustainable operations. Participants receive 
+                    one-on-one mentorship, attend specialized workshops, and gain access to resources and networks.
+                </p>
+            </div>
+
+            <h3 id="incubation-models">5.1 Incubation Models</h3>
+            <p>Access: <strong>Incubations ? Incubation Models</strong></p>
+
+            <p>
+                Incubation Models are templates that define the structure, duration, and requirements of different 
+                incubation programs. Each model can be customized for specific sectors or organization types.
+            </p>
+
+            <h4>Creating a New Model</h4>
+            <div class="step" data-step="1">
+                <h4>Define Basic Information</h4>
+                <p>Provide the fundamental details of the program model:</p>
+                <ul>
+                    <li><strong>Model Name (English & Arabic):</strong> <span class="badge required">Required</span></li>
+                    <li><strong>Description:</strong> <span class="badge required">Required</span> Clear explanation of the program</li>
+                    <li><strong>Duration:</strong> <span class="badge required">Required</span> Program length in months</li>
+                    <li><strong>Target Sector:</strong> <span class="badge optional">Optional</span> Specific sectors this model serves</li>
+                    <li><strong>Capacity:</strong> <span class="badge required">Required</span> Maximum number of participants per cohort</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Define Program Phases</h4>
+                <p>Break down the incubation journey into phases:</p>
+                <ul>
+                    <li><strong>Phase 1 - Assessment:</strong> Initial evaluation and baseline</li>
+                    <li><strong>Phase 2 - Planning:</strong> Develop action plans and goals</li>
+                    <li><strong>Phase 3 - Implementation:</strong> Execute plans with support</li>
+                    <li><strong>Phase 4 - Evaluation:</strong> Assess progress and outcomes</li>
+                    <li><strong>Phase 5 - Graduation:</strong> Final review and certification</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Set Requirements</h4>
+                <p>Define eligibility criteria and participant commitments:</p>
+                <ul>
+                    <li>Eligibility requirements</li>
+                    <li>Time commitment expected from participants</li>
+                    <li>Prerequisites or pre-program activities</li>
+                    <li>Required resources from participants</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="4">
+                <h4>Configure Support Services</h4>
+                <p>Specify the support provided to participants:</p>
+                <ul>
+                    <li>Number of mentorship sessions</li>
+                    <li>Workshop series included</li>
+                    <li>Resource access (tools, templates, etc.)</li>
+                    <li>Networking opportunities</li>
+                    <li>Financial support (if applicable)</li>
+                </ul>
+            </div>
+
+            <h4>Managing Existing Models</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Description</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>View</strong></td>
+                        <td>See complete model details</td>
+                        <td>Read-only access</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Edit</strong></td>
+                        <td>Modify model parameters</td>
+                        <td>Affects future cohorts only</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Duplicate</strong></td>
+                        <td>Create copy for customization</td>
+                        <td>Creates new model</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Archive</strong></td>
+                        <td>Deactivate without deleting</td>
+                        <td>No longer available for new cohorts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Delete</strong></td>
+                        <td>Permanently remove model</td>
+                        <td>Only if never used</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box tip">
+                <h4>Model Design Best Practices</h4>
+                <ul>
+                    <li>Start with shorter durations (3-6 months) for pilot programs</li>
+                    <li>Build in regular checkpoint evaluations</li>
+                    <li>Include both group and individual activities</li>
+                    <li>Allow flexibility for participant-specific needs</li>
+                    <li>Define clear success metrics from the start</li>
+                </ul>
+            </div>
+
+            <h3 id="incubation-advertising">5.2 Advertising</h3>
+            <p>Access: <strong>Incubations ? Advertising</strong></p>
+
+            <p>
+                Create and manage advertising campaigns to recruit participants for incubation cohorts.
+            </p>
+
+            <div class="step" data-step="1">
+                <h4>Create New Advertisement</h4>
+                <p>Launch a call for applications:</p>
+                <ul>
+                    <li><strong>Title:</strong> <span class="badge required">Required</span> Compelling campaign title</li>
+                    <li><strong>Model:</strong> <span class="badge required">Required</span> Select incubation model</li>
+                    <li><strong>Description:</strong> <span class="badge required">Required</span> Detailed program information</li>
+                    <li><strong>Start Date:</strong> <span class="badge required">Required</span> When applications open</li>
+                    <li><strong>End Date:</strong> <span class="badge required">Required</span> Application deadline</li>
+                    <li><strong>Cohort Start:</strong> <span class="badge required">Required</span> Program start date</li>
+                    <li><strong>Target Audience:</strong> <span class="badge optional">Optional</span> Specific sectors or regions</li>
+                    <li><strong>Banner Image:</strong> <span class="badge optional">Optional</span> Visual for the campaign</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Publish Advertisement</h4>
+                <p>
+                    Once created, advertisements can be published to the public-facing portal where organizations can 
+                    view details and submit applications.
+                </p>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Monitor Applications</h4>
+                <p>Track incoming applications in real-time:</p>
+                <ul>
+                    <li>Number of applications received</li>
+                    <li>Applicant demographics</li>
+                    <li>Application completion rate</li>
+                    <li>Geographic distribution</li>
+                </ul>
+            </div>
+
+            <h3 id="incubation-projects">5.3 Projects (Incubations)</h3>
+            <p>Access: <strong>Incubations ? Projects</strong></p>
+
+            <p>
+                Manage active incubation projects and track participant progress throughout their journey.
+            </p>
+
+            <h4>Creating a New Project</h4>
+            <div class="step" data-step="1">
+                <h4>Select Participant</h4>
+                <p>Choose the organization from approved incubation requests</p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Assign Program Details</h4>
+                <p>Configure the project:</p>
+                <ul>
+                    <li><strong>Model:</strong> <span class="badge required">Required</span> Select incubation model</li>
+                    <li><strong>Start Date:</strong> <span class="badge required">Required</span></li>
+                    <li><strong>Expected End Date:</strong> <span class="badge required">Required</span></li>
+                    <li><strong>Consultant:</strong> <span class="badge required">Required</span> Assign primary mentor</li>
+                    <li><strong>Additional Support:</strong> <span class="badge optional">Optional</span> Secondary consultants or specialists</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Define Project Goals</h4>
+                <p>Work with the participant to set SMART goals:</p>
+                <ul>
+                    <li>Specific objectives for each program phase</li>
+                    <li>Measurable indicators of progress</li>
+                    <li>Realistic timelines</li>
+                    <li>Key milestones</li>
+                </ul>
+            </div>
+
+            <h4>Managing Active Projects</h4>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><i class="fas fa-tasks"></i> Progress Tracking</h4>
+                    <ul>
+                        <li>View current phase</li>
+                        <li>Check milestone completion</li>
+                        <li>Review activity logs</li>
+                        <li>Monitor engagement level</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-calendar-check"></i> Session Management</h4>
+                    <ul>
+                        <li>Schedule mentorship sessions</li>
+                        <li>Record session notes</li>
+                        <li>Track attendance</li>
+                        <li>Document action items</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-chart-line"></i> Evaluation</h4>
+                    <ul>
+                        <li>Conduct phase assessments</li>
+                        <li>Collect baseline data</li>
+                        <li>Track KPIs</li>
+                        <li>Generate progress reports</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-file-alt"></i> Documentation</h4>
+                    <ul>
+                        <li>Store project documents</li>
+                        <li>Upload deliverables</li>
+                        <li>Maintain communication logs</li>
+                        <li>Archive project files</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>Project Status Workflow</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Description</th>
+                        <th>Next Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong><i class="fas fa-plus-circle" style="color: #2196F3;"></i> New</strong></td>
+                        <td>Project just created</td>
+                        <td>Schedule kickoff meeting</td>
+                    </tr>
+                    <tr>
+                        <td><strong><i class="fas fa-play-circle" style="color: #388E3C;"></i> Active</strong></td>
+                        <td>Program in progress</td>
+                        <td>Regular monitoring and support</td>
+                    </tr>
+                    <tr>
+                        <td><strong><i class="fas fa-pause-circle" style="color: #F57C00;"></i> On Hold</strong></td>
+                        <td>Temporarily paused</td>
+                        <td>Plan resumption</td>
+                    </tr>
+                    <tr>
+                        <td><strong><i class="fas fa-exclamation-triangle" style="color: #D32F2F;"></i> At Risk</strong></td>
+                        <td>Facing challenges</td>
+                        <td>Intervention required</td>
+                    </tr>
+                    <tr>
+                        <td><strong>? Completed</strong></td>
+                        <td>Successfully finished</td>
+                        <td>Final evaluation and graduation</td>
+                    </tr>
+                    <tr>
+                        <td><strong><i class="fas fa-times-circle" style="color: #666;"></i> Terminated</strong></td>
+                        <td>Ended prematurely</td>
+                        <td>Document reasons and lessons</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="incubation-consultants">5.4 Consultants</h3>
+            <p>Access: <strong>Incubations ? Consultants</strong></p>
+
+            <p>
+                Manage the roster of mentors and consultants who provide expertise and guidance to incubation participants.
+            </p>
+
+            <div class="step" data-step="1">
+                <h4>Add New Consultant</h4>
+                <p>Register consultants in the system:</p>
+                <ul>
+                    <li><strong>Name:</strong> <span class="badge required">Required</span></li>
+                    <li><strong>Specialization:</strong> <span class="badge required">Required</span> Areas of expertise</li>
+                    <li><strong>Contact Information:</strong> <span class="badge required">Required</span> Email and phone</li>
+                    <li><strong>Biography:</strong> <span class="badge required">Required</span> Professional background</li>
+                    <li><strong>Availability:</strong> <span class="badge required">Required</span> Hours per month</li>
+                    <li><strong>Languages:</strong> <span class="badge required">Required</span> Arabic, English, or both</li>
+                    <li><strong>Sectors:</strong> <span class="badge optional">Optional</span> Preferred sectors to work with</li>
+                    <li><strong>Hourly Rate:</strong> <span class="badge optional">Optional</span> If applicable</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>View Consultant Profile</h4>
+                <p>Access comprehensive consultant information:</p>
+                <ul>
+                    <li>Complete profile details</li>
+                    <li>Current and past assignments</li>
+                    <li>Participant feedback and ratings</li>
+                    <li>Availability calendar</li>
+                    <li>Performance metrics</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Assign to Projects</h4>
+                <p>Match consultants with appropriate incubation projects based on:</p>
+                <ul>
+                    <li>Specialization alignment</li>
+                    <li>Sector experience</li>
+                    <li>Availability</li>
+                    <li>Language requirements</li>
+                    <li>Past performance</li>
+                </ul>
+            </div>
+
+            <h3 id="incubation-requests">5.5 Incubation Requests</h3>
+            <p>Access: <strong>Incubations ? Incubation Requests</strong></p>
+
+            <p>
+                Review and process applications from organizations interested in joining the incubation program.
+            </p>
+
+            <div class="step" data-step="1">
+                <h4>Review Application</h4>
+                <p>Evaluate each request based on:</p>
+                <ul>
+                    <li>Organization readiness</li>
+                    <li>Project viability</li>
+                    <li>Alignment with program objectives</li>
+                    <li>Capacity to commit</li>
+                    <li>Potential for impact</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Conduct Initial Assessment</h4>
+                <p>
+                    Schedule and conduct an assessment call or meeting to better understand the organization's needs 
+                    and determine fit.
+                </p>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Make Decision</h4>
+                <p>Choose to:</p>
+                <ul>
+                    <li><strong>Accept:</strong> Approve for incubation and create project</li>
+                    <li><strong>Waitlist:</strong> Hold for future cohort</li>
+                    <li><strong>Refer:</strong> Suggest alternative program (e.g., workshops)</li>
+                    <li><strong>Decline:</strong> Reject with constructive feedback</li>
+                </ul>
+            </div>
+
+            <div class="info-box important">
+                <h4>Selection Criteria</h4>
+                <p>Prioritize applications that demonstrate:</p>
+                <ul>
+                    <li><strong>Clear Need:</strong> Specific challenges that incubation can address</li>
+                    <li><strong>Commitment:</strong> Willingness to dedicate time and resources</li>
+                    <li><strong>Potential:</strong> Capacity to benefit and create impact</li>
+                    <li><strong>Readiness:</strong> Appropriate stage for incubation support</li>
+                    <li><strong>Alignment:</strong> Fits program focus areas and objectives</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 6: ACCELERATION MANAGEMENT -->
+        <div class="section" id="acceleration">
+            <h2>6. Acceleration Management</h2>
+
+            <h3>Overview</h3>
+            <p>
+                The Acceleration program is designed for more mature organizations ready to scale their impact. It provides 
+                intensive support to help organizations grow rapidly, expand their reach, and increase their effectiveness.
+            </p>
+
+            <div class="info-box">
+                <h4>Incubation vs. Acceleration</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Incubation ??</th>
+                            <th>Acceleration ??</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Target</strong></td>
+                            <td>Early-stage organizations</td>
+                            <td>Established organizations</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Focus</strong></td>
+                            <td>Building foundations</td>
+                            <td>Scaling impact</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Duration</strong></td>
+                            <td>Typically 6-12 months</td>
+                            <td>Typically 3-6 months</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Intensity</strong></td>
+                            <td>Steady, foundational</td>
+                            <td>High-intensity, rapid</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Outcomes</strong></td>
+                            <td>Operational stability</td>
+                            <td>Exponential growth</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Acceleration Module Structure</h3>
+            <p>
+                The Acceleration module mirrors the Incubation module in structure but with different focus and methodologies. 
+                All sections previously described for Incubation apply to Acceleration:
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><i class="fas fa-th-list"></i> Acceleration Models</h4>
+                    <p>Access: <strong>Accelerations ? Acceleration Models</strong></p>
+                    <ul>
+                        <li>Define intensive program structures</li>
+                        <li>Set aggressive growth targets</li>
+                        <li>Configure rapid-deployment support</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-bullhorn"></i> Acceleration Advertising</h4>
+                    <p>Access: <strong>Accelerations ? Advertising</strong></p>
+                    <ul>
+                        <li>Recruit high-potential organizations</li>
+                        <li>Promote cohort opportunities</li>
+                        <li>Manage competitive selection process</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-bullseye"></i> Acceleration Projects</h4>
+                    <p>Access: <strong>Accelerations ? Projects</strong></p>
+                    <ul>
+                        <li>Track intensive growth initiatives</li>
+                        <li>Monitor rapid scaling activities</li>
+                        <li>Measure exponential impact</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-user-tie"></i> Acceleration Consultants</h4>
+                    <p>Access: <strong>Accelerations ? Consultants</strong></p>
+                    <ul>
+                        <li>Engage expert advisors</li>
+                        <li>Provide specialized expertise</li>
+                        <li>Connect with industry leaders</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Acceleration-Specific Features</h3>
+
+            <h4>Baseline Request System</h4>
+            <p>Access: <strong>Accelerations ? Baseline Request</strong></p>
+
+            <p>
+                The baseline assessment is a critical component of the acceleration program, establishing a comprehensive 
+                starting point to measure growth and impact.
+            </p>
+
+            <div class="step" data-step="1">
+                <h4>Initiate Baseline Request</h4>
+                <p>
+                    When an organization is accepted into acceleration, initiate a baseline request to collect comprehensive 
+                    data about their current state.
+                </p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Review Submitted Baseline</h4>
+                <p>Participants submit detailed information including:</p>
+                <ul>
+                    <li><strong>Organizational Metrics:</strong> Staff size, budget, geographic reach</li>
+                    <li><strong>Programmatic Data:</strong> Number of beneficiaries, programs offered, outcomes achieved</li>
+                    <li><strong>Financial Health:</strong> Revenue streams, expenses, sustainability</li>
+                    <li><strong>Operational Capacity:</strong> Systems, processes, technology</li>
+                    <li><strong>Strategic Position:</strong> Goals, challenges, opportunities</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Validate and Approve</h4>
+                <p>
+                    Review the baseline submission for completeness and accuracy. Request clarification or additional 
+                    information as needed.
+                </p>
+            </div>
+
+            <h4>Baseline Survey Report</h4>
+            <p>Access: <strong>Accelerations ? Baseline Request Report</strong></p>
+
+            <p>
+                Generate comprehensive reports analyzing baseline data across all acceleration participants.
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><i class="fas fa-chart-bar"></i> Aggregate Analysis</h4>
+                    <ul>
+                        <li>Overall cohort characteristics</li>
+                        <li>Average starting metrics</li>
+                        <li>Common challenges identified</li>
+                        <li>Resource gaps</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-chart-line"></i> Comparative Insights</h4>
+                    <ul>
+                        <li>Sector comparisons</li>
+                        <li>Regional differences</li>
+                        <li>Size-based analysis</li>
+                        <li>Maturity level distribution</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-bullseye"></i> Program Design</h4>
+                    <ul>
+                        <li>Identify common needs</li>
+                        <li>Tailor support offerings</li>
+                        <li>Group participants strategically</li>
+                        <li>Allocate resources effectively</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-chart-area"></i> Benchmark Setting</h4>
+                    <ul>
+                        <li>Establish baseline averages</li>
+                        <li>Set growth targets</li>
+                        <li>Define success metrics</li>
+                        <li>Plan evaluation framework</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box tip">
+                <h4>Using Baseline Data Effectively</h4>
+                <ul>
+                    <li><strong>Customization:</strong> Use baseline to tailor support to each organization's specific needs</li>
+                    <li><strong>Goal Setting:</strong> Establish realistic but ambitious targets based on starting point</li>
+                    <li><strong>Resource Allocation:</strong> Direct intensive support to areas of greatest need</li>
+                    <li><strong>Progress Tracking:</strong> Regularly compare current state to baseline to measure growth</li>
+                    <li><strong>Impact Evaluation:</strong> Use baseline as reference point for final impact assessment</li>
+                </ul>
+            </div>
+
+            <h3>Acceleration Best Practices</h3>
+            <div class="info-box">
+                <h4>Keys to Successful Acceleration</h4>
+                <ol>
+                    <li><strong>Rigorous Selection:</strong> Only accept organizations truly ready to scale</li>
+                    <li><strong>Clear Expectations:</strong> Be explicit about intensity and time commitment</li>
+                    <li><strong>Intensive Support:</strong> Provide frequent touchpoints and immediate assistance</li>
+                    <li><strong>Cohort Model:</strong> Leverage peer learning and networking</li>
+                    <li><strong>Milestone Focus:</strong> Drive toward specific, measurable achievements</li>
+                    <li><strong>Expert Access:</strong> Connect with specialized consultants and advisors</li>
+                    <li><strong>Resource Linkage:</strong> Facilitate connections to funding and partnerships</li>
+                    <li><strong>Continuous Evaluation:</strong> Monitor progress closely and adjust quickly</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SECTION 7: WORKSHOP MANAGEMENT -->
+        <div class="section" id="workshops">
+            <h2>7. Workshop Management</h2>
+
+            <h3>Overview</h3>
+            <p>
+                The Workshop Management module enables you to design, deliver, and evaluate capacity-building workshops 
+                for registered organizations. Workshops are an essential component of the program, providing group learning 
+                opportunities on critical topics.
+            </p>
+
+            <h3 id="workshop-models">7.1 Workshop Models</h3>
+            <p>Access: <strong>Workshops ? Workshop Models</strong></p>
+
+            <p>
+                Workshop Models are reusable templates that define the structure and content of different workshop types.
+            </p>
+
+            <div class="step" data-step="1">
+                <h4>Create Workshop Model</h4>
+                <p>Define the workshop template:</p>
+                <ul>
+                    <li><strong>Workshop Title (English & Arabic):</strong> <span class="badge required">Required</span></li>
+                    <li><strong>Category:</strong> <span class="badge required">Required</span> (e.g., Strategic Planning, Financial Management, Fundraising)</li>
+                    <li><strong>Description:</strong> <span class="badge required">Required</span> Learning objectives and content overview</li>
+                    <li><strong>Duration:</strong> <span class="badge required">Required</span> Workshop length (hours or days)</li>
+                    <li><strong>Target Audience:</strong> <span class="badge required">Required</span> Appropriate participant level</li>
+                    <li><strong>Prerequisites:</strong> <span class="badge optional">Optional</span> Required prior knowledge</li>
+                    <li><strong>Maximum Participants:</strong> <span class="badge required">Required</span> Capacity limit</li>
+                    <li><strong>Materials Needed:</strong> <span class="badge optional">Optional</span> Required resources</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Design Curriculum</h4>
+                <p>Build the workshop agenda:</p>
+                <ul>
+                    <li>Session breakdown</li>
+                    <li>Learning activities</li>
+                    <li>Time allocation</li>
+                    <li>Discussion topics</li>
+                    <li>Exercises and case studies</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Upload Resources</h4>
+                <p>Attach supporting materials:</p>
+                <ul>
+                    <li>Presentation slides</li>
+                    <li>Handouts and worksheets</li>
+                    <li>Reading materials</li>
+                    <li>Templates and tools</li>
+                    <li>Assessment forms</li>
+                </ul>
+            </div>
+
+            <h3 id="workshop-classes">7.2 Workshop Classes</h3>
+            <p>Access: <strong>Workshops ? Workshop Classes</strong></p>
+
+            <p>
+                Workshop Classes are specific instances of Workshop Models scheduled at particular dates and times.
+            </p>
+
+            <h4>Scheduling a Workshop</h4>
+            <div class="step" data-step="1">
+                <h4>Select Model</h4>
+                <p>Choose the workshop model you want to deliver</p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Set Schedule Details</h4>
+                <p>Configure the specific workshop instance:</p>
+                <ul>
+                    <li><strong>Model:</strong> <span class="badge required">Required</span> Selected workshop template</li>
+                    <li><strong>Date(s):</strong> <span class="badge required">Required</span> Workshop date(s)</li>
+                    <li><strong>Time:</strong> <span class="badge required">Required</span> Start and end times</li>
+                    <li><strong>Location:</strong> <span class="badge required">Required</span> Physical address or online meeting link</li>
+                    <li><strong>Format:</strong> <span class="badge required">Required</span> In-person, virtual, or hybrid</li>
+                    <li><strong>Language:</strong> <span class="badge required">Required</span> Arabic, English, or bilingual</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Assign Facilitators</h4>
+                <p>Select trainers/facilitators:</p>
+                <ul>
+                    <li><strong>Primary Facilitator:</strong> <span class="badge required">Required</span> Lead trainer</li>
+                    <li><strong>Co-Facilitators:</strong> <span class="badge optional">Optional</span> Supporting trainers</li>
+                    <li><strong>Technical Support:</strong> <span class="badge optional">Optional</span> For virtual workshops</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="4">
+                <h4>Set Capacity and Registration</h4>
+                <p>Configure participant limits:</p>
+                <ul>
+                    <li>Maximum participants</li>
+                    <li>Registration deadline</li>
+                    <li>Waitlist enabled/disabled</li>
+                    <li>Registration requirements</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="5">
+                <h4>Publish Workshop</h4>
+                <p>
+                    Make the workshop visible to registered organizations on the public portal, allowing them to view 
+                    details and register.
+                </p>
+            </div>
+
+            <h4>Managing Scheduled Workshops</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Description</th>
+                        <th>Actions Available</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong><i class="fas fa-file-alt" style="color: #666;"></i> Draft</strong></td>
+                        <td>Being prepared, not visible</td>
+                        <td>Edit, Delete, Publish</td>
+                    </tr>
+                    <tr>
+                        <td><strong><i class="fas fa-bullhorn" style="color: #2196F3;"></i> Open</strong></td>
+                        <td>Published, accepting registrations</td>
+                        <td>Edit, Close Registration, Cancel</td>
+                    </tr>
+                    <tr>
+                        <td><strong><i class="fas fa-lock" style="color: #F57C00;"></i> Closed</strong></td>
+                        <td>Registration ended, workshop upcoming</td>
+                        <td>View, Send Reminders, Cancel</td>
+                    </tr>
+                    <tr>
+                        <td><strong>? Completed</strong></td>
+                        <td>Workshop finished</td>
+                        <td>Enter Attendance, Collect Feedback</td>
+                    </tr>
+                    <tr>
+                        <td><strong><i class="fas fa-ban" style="color: #D32F2F;"></i> Cancelled</strong></td>
+                        <td>Workshop did not occur</td>
+                        <td>View, Reschedule</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="workshop-invitations">7.3 Invitations</h3>
+            <p>Access: <strong>Workshops ? Invitations</strong></p>
+
+            <p>
+                Manage workshop invitations and registrations from organizations.
+            </p>
+
+            <h4>Invitation Process</h4>
+            <div class="step" data-step="1">
+                <h4>View Registrations</h4>
+                <p>
+                    When a workshop is published, organizations can register through the public portal. View all 
+                    registrations in the Invitations section.
+                </p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Review and Confirm</h4>
+                <p>Review each registration:</p>
+                <ul>
+                    <li>Organization details</li>
+                    <li>Participant information</li>
+                    <li>Registration date</li>
+                    <li>Any special requests or requirements</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Approve or Decline</h4>
+                <p>Make registration decisions:</p>
+                <ul>
+                    <li><strong>Approve:</strong> Confirm attendance (automatic confirmation email sent)</li>
+                    <li><strong>Waitlist:</strong> If workshop is full, add to waitlist</li>
+                    <li><strong>Decline:</strong> Reject registration with reason</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="4">
+                <h4>Send Communications</h4>
+                <p>Keep participants informed:</p>
+                <ul>
+                    <li>Confirmation emails</li>
+                    <li>Pre-workshop reminders</li>
+                    <li>Location/access details</li>
+                    <li>Pre-work or preparation instructions</li>
+                    <li>Follow-up communications</li>
+                </ul>
+            </div>
+
+            <h4>Day-of Workshop Management</h4>
+            <div class="info-box tip">
+                <h4>Workshop Day Checklist</h4>
+                <ul>
+                    <li><i class="fas fa-check"></i> Print attendance sheet from system</li>
+                    <li><i class="fas fa-check"></i> Prepare name tags/badges</li>
+                    <li><i class="fas fa-check"></i> Set up sign-in table</li>
+                    <li><i class="fas fa-check"></i> Distribute materials</li>
+                    <li><i class="fas fa-check"></i> Record actual attendance in system</li>
+                    <li><i class="fas fa-check"></i> Note any no-shows</li>
+                    <li><i class="fas fa-check"></i> Collect feedback forms</li>
+                    <li><i class="fas fa-check"></i> Take photos for documentation</li>
+                </ul>
+            </div>
+
+            <h3 id="workshop-rating">7.4 Workshop Rating & Feedback</h3>
+            <p>Access: <strong>Workshops ? Rating & Feedback</strong></p>
+
+            <p>
+                Collect and analyze participant feedback to continuously improve workshop quality.
+            </p>
+
+            <h4>Feedback Collection</h4>
+            <div class="step" data-step="1">
+                <h4>Deploy Evaluation Form</h4>
+                <p>After workshop completion, send evaluation forms to participants. The system can:</p>
+                <ul>
+                    <li>Automatically email forms post-workshop</li>
+                    <li>Provide online evaluation link</li>
+                    <li>Track completion rates</li>
+                    <li>Send reminders to non-respondents</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Review Responses</h4>
+                <p>Evaluate participant feedback on:</p>
+                <ul>
+                    <li><strong>Content Quality:</strong> Relevance, depth, usefulness</li>
+                    <li><strong>Facilitation:</strong> Trainer effectiveness, engagement</li>
+                    <li><strong>Materials:</strong> Quality of handouts and resources</li>
+                    <li><strong>Logistics:</strong> Venue, timing, organization</li>
+                    <li><strong>Overall Satisfaction:</strong> Would recommend, met expectations</li>
+                    <li><strong>Suggestions:</strong> Open feedback for improvement</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Analyze Trends</h4>
+                <p>Look for patterns across workshops:</p>
+                <ul>
+                    <li>Average ratings by workshop type</li>
+                    <li>Facilitator performance trends</li>
+                    <li>Common suggestions for improvement</li>
+                    <li>Topics requested by participants</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="4">
+                <h4>Take Action</h4>
+                <p>Use feedback to enhance future workshops:</p>
+                <ul>
+                    <li>Update workshop models based on feedback</li>
+                    <li>Provide coaching to facilitators</li>
+                    <li>Improve logistics and materials</li>
+                    <li>Develop new workshops based on requests</li>
+                </ul>
+            </div>
+
+            <h4>Rating Scale</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rating</th>
+                        <th>Score</th>
+                        <th>Meaning</th>
+                        <th>Action Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="fas fa-star" style="color: #FFB300;"></i><i class="fas fa-star" style="color: #FFB300;"></i><i class="fas fa-star" style="color: #FFB300;"></i><i class="fas fa-star" style="color: #FFB300;"></i><i class="fas fa-star" style="color: #FFB300;"></i></td>
+                        <td>4.5 - 5.0</td>
+                        <td>Excellent</td>
+                        <td>Maintain quality, share best practices</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-star" style="color: #FFB300;"></i><i class="fas fa-star" style="color: #FFB300;"></i><i class="fas fa-star" style="color: #FFB300;"></i><i class="fas fa-star" style="color: #FFB300;"></i></td>
+                        <td>3.5 - 4.4</td>
+                        <td>Good</td>
+                        <td>Minor improvements possible</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-star" style="color: #FFB300;"></i><i class="fas fa-star" style="color: #FFB300;"></i><i class="fas fa-star" style="color: #FFB300;"></i></td>
+                        <td>2.5 - 3.4</td>
+                        <td>Satisfactory</td>
+                        <td>Review and enhance</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-star" style="color: #FFB300;"></i><i class="fas fa-star" style="color: #FFB300;"></i></td>
+                        <td>1.5 - 2.4</td>
+                        <td>Needs Improvement</td>
+                        <td>Significant changes required</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-star" style="color: #FFB300;"></i></td>
+                        <td>1.0 - 1.4</td>
+                        <td>Poor</td>
+                        <td>Immediate intervention needed</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box important">
+                <h4>Quality Assurance</h4>
+                <p>Maintain high workshop standards:</p>
+                <ul>
+                    <li>Target average rating of 4.0 or higher</li>
+                    <li>Address workshops rated below 3.5 immediately</li>
+                    <li>Recognize and reward high-performing facilitators</li>
+                    <li>Retire or significantly revise workshops consistently rated poorly</li>
+                    <li>Seek detailed feedback when ratings are low</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 8: REPORTS -->
+        <div class="section" id="reports">
+            <h2>8. Reports</h2>
+
+            <h3>Overview</h3>
+            <p>
+                The reporting module provides comprehensive analytics and insights across all program activities. Use 
+                reports for monitoring, evaluation, decision-making, and stakeholder communication.
+            </p>
+
+            <h3>Available Reports</h3>
+            <p>Access: <strong>Reports (Main Menu)</strong></p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><i class="fas fa-building"></i> Corporation Reports</h4>
+                    <ul>
+                        <li>Registered organizations overview</li>
+                        <li>Organization demographics</li>
+                        <li>Sector distribution</li>
+                        <li>Geographic spread</li>
+                        <li>Engagement levels</li>
+                        <li>Contact directory</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-chalkboard-teacher"></i> Workshop Reports</h4>
+                    <ul>
+                        <li>Workshop attendance statistics</li>
+                        <li>Evaluation results</li>
+                        <li>Participant satisfaction</li>
+                        <li>Facilitator performance</li>
+                        <li>Workshop series analysis</li>
+                        <li>Attendance trends</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-seedling"></i> Incubation Reports</h4>
+                    <ul>
+                        <li>Active projects overview</li>
+                        <li>Phase completion rates</li>
+                        <li>Success metrics</li>
+                        <li>Consultant utilization</li>
+                        <li>Participant progress</li>
+                        <li>Program outcomes</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-rocket"></i> Acceleration Reports</h4>
+                    <ul>
+                        <li>Cohort performance</li>
+                        <li>Baseline vs. endline comparison</li>
+                        <li>Growth metrics</li>
+                        <li>Impact indicators</li>
+                        <li>Scaling achievements</li>
+                        <li>ROI analysis</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-users"></i> Beneficiaries Reports</h4>
+                    <ul>
+                        <li>Total reach statistics</li>
+                        <li>Direct beneficiaries</li>
+                        <li>Indirect beneficiaries</li>
+                        <li>Demographic breakdown</li>
+                        <li>Geographic coverage</li>
+                        <li>Impact stories</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4><i class="fas fa-chart-pie"></i> Aggregate Analytics</h4>
+                    <ul>
+                        <li>Cross-program metrics</li>
+                        <li>Trend analysis</li>
+                        <li>Year-over-year comparison</li>
+                        <li>Program effectiveness</li>
+                        <li>Resource utilization</li>
+                        <li>Strategic insights</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Generating Reports</h3>
+            <div class="step" data-step="1">
+                <h4>Select Report Type</h4>
+                <p>Navigate to the Reports section and choose the report category you need.</p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Set Parameters</h4>
+                <p>Configure report filters:</p>
+                <ul>
+                    <li><strong>Date Range:</strong> Select time period for analysis</li>
+                    <li><strong>Programs:</strong> Include specific programs or all</li>
+                    <li><strong>Regions:</strong> Filter by geographic area</li>
+                    <li><strong>Sectors:</strong> Focus on specific sectors</li>
+                    <li><strong>Status:</strong> Active, completed, or all projects</li>
+                    <li><strong>Cohorts:</strong> Specific cohorts or all</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Choose Output Format</h4>
+                <p>Select how you want to receive the report:</p>
+                <ul>
+                    <li><strong>View Online:</strong> Interactive web-based report</li>
+                    <li><strong>Export to Excel:</strong> Spreadsheet for further analysis</li>
+                    <li><strong>Export to PDF:</strong> Printable document</li>
+                    <li><strong>Email:</strong> Send directly to specified recipients</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="4">
+                <h4>Generate and Review</h4>
+                <p>
+                    Click "Generate Report" to create the report based on your parameters. Review the output and adjust 
+                    filters as needed.
+                </p>
+            </div>
+
+            <h3>Key Performance Indicators (KPIs)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>KPI Category</th>
+                        <th>Metrics</th>
+                        <th>Target</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Reach</strong></td>
+                        <td>
+                            • Organizations served<br>
+                            • Workshop participants<br>
+                            • Beneficiaries reached
+                        </td>
+                        <td>Set annually</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Engagement</strong></td>
+                        <td>
+                            • Program completion rate<br>
+                            • Workshop attendance rate<br>
+                            • Active participation level
+                        </td>
+                        <td>
+                            • &gt;80% completion<br>
+                            • &gt;85% attendance<br>
+                            • High engagement
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quality</strong></td>
+                        <td>
+                            • Workshop satisfaction<br>
+                            • Program effectiveness<br>
+                            • Participant feedback
+                        </td>
+                        <td>
+                            • &gt;4.0/5.0 rating<br>
+                            • Positive outcomes<br>
+                            • 90% satisfaction
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Impact</strong></td>
+                        <td>
+                            • Capacity improvement<br>
+                            • Organization growth<br>
+                            • Social/economic change
+                        </td>
+                        <td>Demonstrated improvement</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Efficiency</strong></td>
+                        <td>
+                            • Cost per beneficiary<br>
+                            • Staff utilization<br>
+                            • Resource effectiveness
+                        </td>
+                        <td>Within budget targets</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Report Scheduling</h3>
+            <p>Automate regular reporting:</p>
+            <div class="step" data-step="1">
+                <h4>Set Up Scheduled Reports</h4>
+                <p>Configure automatic report generation:</p>
+                <ul>
+                    <li><strong>Frequency:</strong> Daily, weekly, monthly, quarterly</li>
+                    <li><strong>Recipients:</strong> Email distribution list</li>
+                    <li><strong>Parameters:</strong> Pre-configured filters</li>
+                    <li><strong>Format:</strong> Preferred output format</li>
+                </ul>
+            </div>
+
+            <div class="info-box tip">
+                <h4>Reporting Best Practices</h4>
+                <ul>
+                    <li><strong>Regular Review:</strong> Examine key reports weekly or monthly</li>
+                    <li><strong>Trend Analysis:</strong> Look for patterns over time, not just snapshots</li>
+                    <li><strong>Actionable Insights:</strong> Translate data into specific improvement actions</li>
+                    <li><strong>Share Widely:</strong> Distribute relevant reports to team members and stakeholders</li>
+                    <li><strong>Data Quality:</strong> Ensure accurate data entry for meaningful reports</li>
+                    <li><strong>Visualization:</strong> Use charts and graphs for easier understanding</li>
+                    <li><strong>Context:</strong> Provide narrative context with numerical data</li>
+                </ul>
+            </div>
+
+            <h3>Dashboard vs. Reports</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Dashboard</th>
+                        <th>Reports</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Purpose</strong></td>
+                        <td>Quick overview, real-time monitoring</td>
+                        <td>Detailed analysis, historical trends</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data</strong></td>
+                        <td>Current, high-level metrics</td>
+                        <td>Comprehensive, detailed data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Customization</strong></td>
+                        <td>Limited, pre-configured</td>
+                        <td>Highly customizable filters</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Export</strong></td>
+                        <td>Not typically exportable</td>
+                        <td>Multiple export formats</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Best For</strong></td>
+                        <td>Daily monitoring, quick checks</td>
+                        <td>Analysis, presentations, decision-making</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 9: SYSTEM SETTINGS -->
+        <div class="section" id="system-settings">
+            <h2>9. System Settings</h2>
+
+            <h3>Overview</h3>
+            <p>
+                System Settings allow you to configure the foundational data that supports all program operations. These 
+                settings ensure data consistency and provide standardized options throughout the system.
+            </p>
+
+            <div class="info-box warning">
+                <h4>?? Important: Settings Impact</h4>
+                <p>
+                    Changes to system settings affect all areas of the platform. Exercise caution when modifying or 
+                    deleting settings as they may impact existing data and reports.
+                </p>
+            </div>
+
+            <h3>Available Settings Modules</h3>
+
+            <h4>Regions & Cities</h4>
+            <p>Access: <strong>System Settings ? Regions & Cities</strong></p>
+            <p>
+                Manage the geographic hierarchy used throughout the system for organization locations, workshop venues, 
+                and regional analysis.
+            </p>
+            <ul>
+                <li><strong>Regions:</strong> Saudi Arabia's administrative regions</li>
+                <li><strong>Governorates:</strong> Sub-regions within each region</li>
+                <li><strong>Cities:</strong> Cities and towns within governorates</li>
+            </ul>
+
+            <h4>Classification Sectors</h4>
+            <p>Access: <strong>System Settings ? Classification Sectors</strong></p>
+            <p>
+                Define and manage the sectors used to categorize organizations by their primary focus area 
+                (e.g., Healthcare, Education, Environment, Social Services).
+            </p>
+            <ul>
+                <li>Add new sectors as needed</li>
+                <li>Edit sector names and descriptions</li>
+                <li>Deactivate unused sectors</li>
+                <li>Organize sub-sectors under main sectors</li>
+            </ul>
+
+            <h4>Authorization Authorities</h4>
+            <p>Access: <strong>System Settings ? Authorization Authorities</strong></p>
+            <p>
+                Maintain the list of governmental and regulatory bodies that authorize and oversee nonprofit organizations 
+                (e.g., Ministry of Human Resources and Social Development).
+            </p>
+            <ul>
+                <li>Official authority names</li>
+                <li>Contact information</li>
+                <li>Types of organizations they oversee</li>
+            </ul>
+
+            <h4>Funding Sources</h4>
+            <p>Access: <strong>System Settings ? Funding Sources</strong></p>
+            <p>
+                Track common funding sources for organizations (e.g., Government Grants, Donations, Earned Revenue, 
+                Private Foundations).
+            </p>
+
+            <h4>Corporate Field of Work</h4>
+            <p>Access: <strong>System Settings ? Field of Work</strong></p>
+            <p>
+                Specify the specific areas of work or services provided by organizations (e.g., Youth Development, 
+                Disability Services, Community Development).
+            </p>
+
+            <h4>Type of Intervention</h4>
+            <p>Access: <strong>System Settings ? Type of Intervention</strong></p>
+            <p>
+                Define types of support and intervention provided through programs (e.g., Training, Consulting, Mentorship, 
+                Financial Support).
+            </p>
+
+            <h3>Managing Settings</h3>
+            <p>All settings modules follow a similar management pattern:</p>
+
+            <div class="step" data-step="1">
+                <h4>View All Items</h4>
+                <p>See the complete list of items in each category, with bilingual names (Arabic and English).</p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Add New Item</h4>
+                <p>Click "Add New" and provide:</p>
+                <ul>
+                    <li><strong>Name (English):</strong> <span class="badge required">Required</span></li>
+                    <li><strong>Name (Arabic):</strong> <span class="badge required">Required</span></li>
+                    <li><strong>Description:</strong> <span class="badge optional">Optional</span></li>
+                    <li><strong>Sort Order:</strong> <span class="badge optional">Optional</span> Display order in dropdowns</li>
+                    <li><strong>Status:</strong> Active/Inactive</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Edit Existing Item</h4>
+                <p>Click the "Edit" button to modify any field of an existing setting.</p>
+            </div>
+
+            <div class="step" data-step="4">
+                <h4>Deactivate vs. Delete</h4>
+                <p>
+                    <strong>Deactivate:</strong> Recommended approach. Item is hidden from new selections but preserved 
+                    for historical data.<br>
+                    <strong>Delete:</strong> Only allowed if the item has never been used. Permanent removal.
+                </p>
+            </div>
+
+            <div class="info-box tip">
+                <h4>Settings Maintenance Tips</h4>
+                <ul>
+                    <li><strong>Consistency:</strong> Use clear, consistent naming conventions</li>
+                    <li><strong>Bilingual:</strong> Always provide both Arabic and English translations</li>
+                    <li><strong>Review:</strong> Periodically review and clean up unused items</li>
+                    <li><strong>Hierarchy:</strong> Maintain logical groupings and parent-child relationships</li>
+                    <li><strong>Documentation:</strong> Add descriptions to clarify usage when needed</li>
+                </ul>
+            </div>
+
+            <h3>Data Integrity</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rule</th>
+                        <th>Description</th>
+                        <th>System Enforcement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>No Duplicates</strong></td>
+                        <td>Each setting item must be unique</td>
+                        <td>System prevents duplicate names</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Required Fields</strong></td>
+                        <td>Bilingual names are mandatory</td>
+                        <td>Cannot save without both languages</td>
+                    </tr>
+                    <tr>
+                        <td><strong>In-Use Protection</strong></td>
+                        <td>Cannot delete items in active use</td>
+                        <td>System prevents deletion</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Historical Preservation</strong></td>
+                        <td>Deactivated items remain for reports</td>
+                        <td>Data integrity maintained</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 10: TROUBLESHOOTING -->
+        <div class="section" id="troubleshooting">
+            <h2>10. Troubleshooting</h2>
+
+            <h3>Common Issues and Solutions</h3>
+
+            <h4>Login Issues</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Possible Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Invalid credentials error</td>
+                        <td>Wrong username or password</td>
+                        <td>Double-check credentials, use password reset if needed</td>
+                    </tr>
+                    <tr>
+                        <td>Account locked</td>
+                        <td>Multiple failed login attempts</td>
+                        <td>Wait 15 minutes or contact administrator</td>
+                    </tr>
+                    <tr>
+                        <td>Page not loading</td>
+                        <td>Browser cache issues</td>
+                        <td>Clear browser cache and cookies, try again</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Data Entry Issues</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Possible Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cannot save form</td>
+                        <td>Required fields missing</td>
+                        <td>Look for red error messages, fill all required fields</td>
+                    </tr>
+                    <tr>
+                        <td>Dropdown empty</td>
+                        <td>No settings configured</td>
+                        <td>Add items in System Settings first</td>
+                    </tr>
+                    <tr>
+                        <td>File upload fails</td>
+                        <td>File too large or wrong format</td>
+                        <td>Check file size (&lt;5MB) and format (PDF, DOCX, JPG)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Report Generation Issues</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Possible Cause</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>No data in report</td>
+                        <td>Filters too restrictive</td>
+                        <td>Broaden date range or remove some filters</td>
+                    </tr>
+                    <tr>
+                        <td>Export not working</td>
+                        <td>Browser pop-up blocker</td>
+                        <td>Allow pop-ups for this site</td>
+                    </tr>
+                    <tr>
+                        <td>Report takes too long</td>
+                        <td>Large data set</td>
+                        <td>Narrow date range or add more filters</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Error Messages</h3>
+            <div class="info-box">
+                <h4>Common Error Messages Explained</h4>
+                <ul>
+                    <li><strong>"Session Expired":</strong> You've been inactive too long. Log in again.</li>
+                    <li><strong>"Access Denied":</strong> Your role doesn't have permission. Contact admin.</li>
+                    <li><strong>"Record Not Found":</strong> Item may have been deleted. Refresh the page.</li>
+                    <li><strong>"Duplicate Entry":</strong> Item already exists. Use a different name.</li>
+                    <li><strong>"Cannot Delete":</strong> Item is in use. Deactivate instead of deleting.</li>
+                </ul>
+            </div>
+
+            <h3>Browser Compatibility</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Browser</th>
+                        <th>Minimum Version</th>
+                        <th>Recommended</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Google Chrome</td>
+                        <td>Version 90+</td>
+                        <td><i class="fas fa-check-circle" style="color: #388E3C;"></i> Best Performance</td>
+                    </tr>
+                    <tr>
+                        <td>Microsoft Edge</td>
+                        <td>Version 90+</td>
+                        <td><i class="fas fa-check-circle" style="color: #388E3C;"></i> Recommended</td>
+                    </tr>
+                    <tr>
+                        <td>Firefox</td>
+                        <td>Version 88+</td>
+                        <td><i class="fas fa-check-circle" style="color: #388E3C;"></i> Supported</td>
+                    </tr>
+                    <tr>
+                        <td>Safari</td>
+                        <td>Version 14+</td>
+                        <td><i class="fas fa-exclamation-triangle" style="color: #F57C00;"></i> Limited Testing</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Getting Help</h3>
+            <div class="step" data-step="1">
+                <h4>Check Documentation</h4>
+                <p>Review this manual for guidance on features and processes.</p>
+            </div>
+
+            <div class="step" data-step="2">
+                <h4>Contact IT Support</h4>
+                <p>For technical issues:</p>
+                <ul>
+                    <li>Email: itsupport@kkf.org.sa</li>
+                    <li>Phone: +966 XX XXX XXXX</li>
+                    <li>Include screenshot of error if possible</li>
+                </ul>
+            </div>
+
+            <div class="step" data-step="3">
+                <h4>Contact Program Team</h4>
+                <p>For questions about processes or policies:</p>
+                <ul>
+                    <li>Email: capacitybuilding@kkf.org.sa</li>
+                    <li>Consult with your supervisor or program manager</li>
+                </ul>
+            </div>
+
+            <div class="info-box tip">
+                <h4>When Reporting Issues</h4>
+                <p>Provide these details to help resolve issues quickly:</p>
+                <ul>
+                    <li>What you were trying to do</li>
+                    <li>What happened instead</li>
+                    <li>Exact error message (screenshot if possible)</li>
+                    <li>Browser and version you're using</li>
+                    <li>Date and time the issue occurred</li>
+                    <li>Your username (never your password!)</li>
+                </ul>
+            </div>
+
+            <h3>System Maintenance</h3>
+            <p>
+                The system undergoes regular maintenance to ensure optimal performance and security:
+            </p>
+            <ul>
+                <li><strong>Scheduled Maintenance:</strong> Typically Fridays 11:00 PM - 1:00 AM (announced in advance)</li>
+                <li><strong>Emergency Maintenance:</strong> Rare, notifications sent if system goes offline</li>
+                <li><strong>Updates:</strong> New features deployed quarterly with user training</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>Mobile Access</h4>
+                <p>
+                    While the admin portal is optimized for desktop use, you can access basic features on mobile devices:
+                </p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> View dashboards and lists</li>
+                    <li><i class="fas fa-check-circle"></i> Review requests and applications</li>
+                    <li><i class="fas fa-check-circle"></i> Check attendance</li>
+                    <li><i class="fas fa-exclamation-circle"></i> Complex data entry better on desktop</li>
+                    <li><i class="fas fa-exclamation-circle"></i> Report generation recommended on desktop</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <h3><i class="fas fa-phone-alt"></i> Contact Information</h3>
+            <p>
+                <strong>King Khalid Foundation</strong><br>
+                Capacity Building Program<br>
+                Email: capacitybuilding@kkf.org.sa<br>
+                Website: www.kkf.org.sa
+            </p>
+            <p style="margin-top: 30px;">
+                <small>
+                    This document is confidential and intended for authorized administrators only.<br>
+                    © 2025 King Khalid Foundation. All rights reserved.<br>
+                    Last Updated: January 2025 | Version 1.0
+                </small>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Add print functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // You can add interactive features here if needed
+            console.log('Admin Manual Loaded Successfully');
+        });
+    </script>
+</body>
+</html>
