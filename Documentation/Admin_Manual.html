@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,10 +39,11 @@
         /* Cover Page - Matching Login Screen */
         .cover-page {
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(46, 125, 50, 0.85) 0%, rgba(27, 94, 32, 0.9) 100%),
-                        linear-gradient(45deg, #1B5E20 0%, #2E7D32 50%, #388E3C 100%);
+            background-image: 
+                linear-gradient(135deg, rgba(46, 125, 50, 0.85) 0%, rgba(27, 94, 32, 0.9) 100%),
+                url('../AlfaPeople.KingKhalidFoundation.Admin.Web/assets/img/background.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: bottom center;
             color: white;
             display: flex;
             flex-direction: column;
@@ -76,10 +77,10 @@
         }
 
         .cover-logo {
-            width: 250px;
-            height: auto;
+            width: auto;
+            height: 120px;
             margin-bottom: 50px;
-            filter: brightness(0) invert(1);
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
         }
 
         .cover-page h1 {
@@ -467,15 +468,21 @@
         <!-- COVER PAGE -->
         <div class="cover-page">
             <div class="cover-page-content">
-                <!-- KKF Logo - Using SVG placeholder, replace with actual logo path -->
-                <svg class="cover-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">
+                <!-- KKF Logo -->
+                <img src="../AlfaPeople.KingKhalidFoundation.Admin.Web/assets/img/logo.png" 
+                     alt="King Khalid Foundation Logo" 
+                     class="cover-logo"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                
+                <!-- Fallback SVG Logo if image not found -->
+                <svg class="cover-logo" style="display:none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">
                     <text x="150" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" 
                           text-anchor="middle" fill="white">
                         KING KHALID FOUNDATION
                     </text>
                     <text x="150" y="75" font-family="Arial, sans-serif" font-size="14" 
                           text-anchor="middle" fill="white" opacity="0.9">
-                        ????? ????? ????
+                        مؤسسة الملك خالد
                     </text>
                 </svg>
                 
@@ -814,7 +821,7 @@
             </p>
 
             <h3>Managing Employees</h3>
-            <p>Access: <strong>User Profile Menu ? Employees</strong></p>
+            <p>Access: <strong>User Profile Menu → Employees</strong></p>
 
             <div class="step" data-step="1">
                 <h4>View All Employees</h4>
@@ -870,7 +877,7 @@
             </div>
 
             <h3>Managing Positions</h3>
-            <p>Access: <strong>User Profile Menu ? Positions</strong></p>
+            <p>Access: <strong>User Profile Menu → Positions</strong></p>
 
             <p>
                 Positions define job roles within your organization. Each employee must be assigned to a position.
@@ -924,30 +931,30 @@
                     </tr>
                     <tr>
                         <td><strong>CB Manager</strong></td>
-                        <td>? Full</td>
-                        <td>? Full</td>
-                        <td>? Full</td>
-                        <td>? Full</td>
-                        <td>?? Read</td>
-                        <td>? None</td>
+                        <td>✅ Full</td>
+                        <td>✅ Full</td>
+                        <td>✅ Full</td>
+                        <td>✅ Full</td>
+                        <td>📖 Read</td>
+                        <td>❌ None</td>
                     </tr>
                     <tr>
                         <td><strong>CB Supervisor</strong></td>
-                        <td>? Full</td>
-                        <td>? Full</td>
-                        <td>? Full</td>
-                        <td>? Full</td>
-                        <td>?? Read</td>
-                        <td>? None</td>
+                        <td>✅ Full</td>
+                        <td>✅ Full</td>
+                        <td>✅ Full</td>
+                        <td>✅ Full</td>
+                        <td>📖 Read</td>
+                        <td>❌ None</td>
                     </tr>
                     <tr>
                         <td><strong>CB Analyst</strong></td>
-                        <td>?? Read</td>
-                        <td>?? Read</td>
-                        <td>?? Read</td>
-                        <td>? Full</td>
-                        <td>?? Read</td>
-                        <td>? None</td>
+                        <td>📖 Read</td>
+                        <td>📖 Read</td>
+                        <td>📖 Read</td>
+                        <td>✅ Full</td>
+                        <td>📖 Read</td>
+                        <td>❌ None</td>
                     </tr>
                 </tbody>
             </table>
@@ -964,7 +971,7 @@
             </p>
 
             <h3 id="corporation-requests">4.1 Corporation Requests</h3>
-            <p>Access: <strong>Join Requests ? Corporation Requests</strong></p>
+            <p>Access: <strong>Join Requests → Corporation Requests</strong></p>
 
             <p>
                 This section handles incoming join requests from organizations (corporations, nonprofits, NGOs) seeking 
@@ -1072,7 +1079,7 @@
             </table>
 
             <h3 id="corporation-registered">4.2 Registered Corporations</h3>
-            <p>Access: <strong>Join Requests ? Corporation Registered</strong></p>
+            <p>Access: <strong>Join Requests → Corporation Registered</strong></p>
 
             <p>
                 This section maintains the master list of all organizations that have been approved to participate in the 
@@ -1168,7 +1175,7 @@
             </div>
 
             <h3 id="incubation-models">5.1 Incubation Models</h3>
-            <p>Access: <strong>Incubations ? Incubation Models</strong></p>
+            <p>Access: <strong>Incubations → Incubation Models</strong></p>
 
             <p>
                 Incubation Models are templates that define the structure, duration, and requirements of different 
@@ -1273,7 +1280,7 @@
             </div>
 
             <h3 id="incubation-advertising">5.2 Advertising</h3>
-            <p>Access: <strong>Incubations ? Advertising</strong></p>
+            <p>Access: <strong>Incubations → Advertising</strong></p>
 
             <p>
                 Create and manage advertising campaigns to recruit participants for incubation cohorts.
@@ -1314,7 +1321,7 @@
             </div>
 
             <h3 id="incubation-projects">5.3 Projects (Incubations)</h3>
-            <p>Access: <strong>Incubations ? Projects</strong></p>
+            <p>Access: <strong>Incubations → Projects</strong></p>
 
             <p>
                 Manage active incubation projects and track participant progress throughout their journey.
@@ -1420,7 +1427,7 @@
                         <td>Intervention required</td>
                     </tr>
                     <tr>
-                        <td><strong>? Completed</strong></td>
+                        <td><strong>✅ Completed</strong></td>
                         <td>Successfully finished</td>
                         <td>Final evaluation and graduation</td>
                     </tr>
@@ -1433,7 +1440,7 @@
             </table>
 
             <h3 id="incubation-consultants">5.4 Consultants</h3>
-            <p>Access: <strong>Incubations ? Consultants</strong></p>
+            <p>Access: <strong>Incubations → Consultants</strong></p>
 
             <p>
                 Manage the roster of mentors and consultants who provide expertise and guidance to incubation participants.
@@ -1479,7 +1486,7 @@
             </div>
 
             <h3 id="incubation-requests">5.5 Incubation Requests</h3>
-            <p>Access: <strong>Incubations ? Incubation Requests</strong></p>
+            <p>Access: <strong>Incubations → Incubation Requests</strong></p>
 
             <p>
                 Review and process applications from organizations interested in joining the incubation program.
@@ -1545,8 +1552,8 @@
                     <thead>
                         <tr>
                             <th>Aspect</th>
-                            <th>Incubation ??</th>
-                            <th>Acceleration ??</th>
+                            <th>Incubation 🌱</th>
+                            <th>Acceleration 🚀</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1588,7 +1595,7 @@
             <div class="feature-grid">
                 <div class="feature-card">
                     <h4><i class="fas fa-th-list"></i> Acceleration Models</h4>
-                    <p>Access: <strong>Accelerations ? Acceleration Models</strong></p>
+                    <p>Access: <strong>Accelerations → Acceleration Models</strong></p>
                     <ul>
                         <li>Define intensive program structures</li>
                         <li>Set aggressive growth targets</li>
@@ -1597,7 +1604,7 @@
                 </div>
                 <div class="feature-card">
                     <h4><i class="fas fa-bullhorn"></i> Acceleration Advertising</h4>
-                    <p>Access: <strong>Accelerations ? Advertising</strong></p>
+                    <p>Access: <strong>Accelerations → Advertising</strong></p>
                     <ul>
                         <li>Recruit high-potential organizations</li>
                         <li>Promote cohort opportunities</li>
@@ -1606,7 +1613,7 @@
                 </div>
                 <div class="feature-card">
                     <h4><i class="fas fa-bullseye"></i> Acceleration Projects</h4>
-                    <p>Access: <strong>Accelerations ? Projects</strong></p>
+                    <p>Access: <strong>Accelerations → Projects</strong></p>
                     <ul>
                         <li>Track intensive growth initiatives</li>
                         <li>Monitor rapid scaling activities</li>
@@ -1615,7 +1622,7 @@
                 </div>
                 <div class="feature-card">
                     <h4><i class="fas fa-user-tie"></i> Acceleration Consultants</h4>
-                    <p>Access: <strong>Accelerations ? Consultants</strong></p>
+                    <p>Access: <strong>Accelerations → Consultants</strong></p>
                     <ul>
                         <li>Engage expert advisors</li>
                         <li>Provide specialized expertise</li>
@@ -1627,7 +1634,7 @@
             <h3>Acceleration-Specific Features</h3>
 
             <h4>Baseline Request System</h4>
-            <p>Access: <strong>Accelerations ? Baseline Request</strong></p>
+            <p>Access: <strong>Accelerations → Baseline Request</strong></p>
 
             <p>
                 The baseline assessment is a critical component of the acceleration program, establishing a comprehensive 
@@ -1663,7 +1670,7 @@
             </div>
 
             <h4>Baseline Survey Report</h4>
-            <p>Access: <strong>Accelerations ? Baseline Request Report</strong></p>
+            <p>Access: <strong>Accelerations → Baseline Request Report</strong></p>
 
             <p>
                 Generate comprehensive reports analyzing baseline data across all acceleration participants.
@@ -1747,7 +1754,7 @@
             </p>
 
             <h3 id="workshop-models">7.1 Workshop Models</h3>
-            <p>Access: <strong>Workshops ? Workshop Models</strong></p>
+            <p>Access: <strong>Workshops → Workshop Models</strong></p>
 
             <p>
                 Workshop Models are reusable templates that define the structure and content of different workshop types.
@@ -1793,7 +1800,7 @@
             </div>
 
             <h3 id="workshop-classes">7.2 Workshop Classes</h3>
-            <p>Access: <strong>Workshops ? Workshop Classes</strong></p>
+            <p>Access: <strong>Workshops → Workshop Classes</strong></p>
 
             <p>
                 Workshop Classes are specific instances of Workshop Models scheduled at particular dates and times.
@@ -1873,7 +1880,7 @@
                         <td>View, Send Reminders, Cancel</td>
                     </tr>
                     <tr>
-                        <td><strong>? Completed</strong></td>
+                        <td><strong>✅ Completed</strong></td>
                         <td>Workshop finished</td>
                         <td>Enter Attendance, Collect Feedback</td>
                     </tr>
@@ -1886,7 +1893,7 @@
             </table>
 
             <h3 id="workshop-invitations">7.3 Invitations</h3>
-            <p>Access: <strong>Workshops ? Invitations</strong></p>
+            <p>Access: <strong>Workshops → Invitations</strong></p>
 
             <p>
                 Manage workshop invitations and registrations from organizations.
@@ -1950,7 +1957,7 @@
             </div>
 
             <h3 id="workshop-rating">7.4 Workshop Rating & Feedback</h3>
-            <p>Access: <strong>Workshops ? Rating & Feedback</strong></p>
+            <p>Access: <strong>Workshops → Rating & Feedback</strong></p>
 
             <p>
                 Collect and analyze participant feedback to continuously improve workshop quality.
@@ -2193,53 +2200,53 @@
                     <tr>
                         <td><strong>Reach</strong></td>
                         <td>
-                            � Organizations served<br>
-                            � Workshop participants<br>
-                            � Beneficiaries reached
+                            • Organizations served<br>
+                            • Workshop participants<br>
+                            • Beneficiaries reached
                         </td>
                         <td>Set annually</td>
                     </tr>
                     <tr>
                         <td><strong>Engagement</strong></td>
                         <td>
-                            � Program completion rate<br>
-                            � Workshop attendance rate<br>
-                            � Active participation level
+                            • Program completion rate<br>
+                            • Workshop attendance rate<br>
+                            • Active participation level
                         </td>
                         <td>
-                            � &gt;80% completion<br>
-                            � &gt;85% attendance<br>
-                            � High engagement
+                            • &gt;80% completion<br>
+                            • &gt;85% attendance<br>
+                            • High engagement
                         </td>
                     </tr>
                     <tr>
                         <td><strong>Quality</strong></td>
                         <td>
-                            � Workshop satisfaction<br>
-                            � Program effectiveness<br>
-                            � Participant feedback
+                            • Workshop satisfaction<br>
+                            • Program effectiveness<br>
+                            • Participant feedback
                         </td>
                         <td>
-                            � &gt;4.0/5.0 rating<br>
-                            � Positive outcomes<br>
-                            � 90% satisfaction
+                            • &gt;4.0/5.0 rating<br>
+                            • Positive outcomes<br>
+                            • 90% satisfaction
                         </td>
                     </tr>
                     <tr>
                         <td><strong>Impact</strong></td>
                         <td>
-                            � Capacity improvement<br>
-                            � Organization growth<br>
-                            � Social/economic change
+                            • Capacity improvement<br>
+                            • Organization growth<br>
+                            • Social/economic change
                         </td>
                         <td>Demonstrated improvement</td>
                     </tr>
                     <tr>
                         <td><strong>Efficiency</strong></td>
                         <td>
-                            � Cost per beneficiary<br>
-                            � Staff utilization<br>
-                            � Resource effectiveness
+                            • Cost per beneficiary<br>
+                            • Staff utilization<br>
+                            • Resource effectiveness
                         </td>
                         <td>Within budget targets</td>
                     </tr>
@@ -2322,7 +2329,7 @@
             </p>
 
             <div class="info-box warning">
-                <h4>?? Important: Settings Impact</h4>
+                <h4>⚠️ Important: Settings Impact</h4>
                 <p>
                     Changes to system settings affect all areas of the platform. Exercise caution when modifying or 
                     deleting settings as they may impact existing data and reports.
@@ -2332,7 +2339,7 @@
             <h3>Available Settings Modules</h3>
 
             <h4>Regions & Cities</h4>
-            <p>Access: <strong>System Settings ? Regions & Cities</strong></p>
+            <p>Access: <strong>System Settings → Regions & Cities</strong></p>
             <p>
                 Manage the geographic hierarchy used throughout the system for organization locations, workshop venues, 
                 and regional analysis.
@@ -2344,7 +2351,7 @@
             </ul>
 
             <h4>Classification Sectors</h4>
-            <p>Access: <strong>System Settings ? Classification Sectors</strong></p>
+            <p>Access: <strong>System Settings → Classification Sectors</strong></p>
             <p>
                 Define and manage the sectors used to categorize organizations by their primary focus area 
                 (e.g., Healthcare, Education, Environment, Social Services).
@@ -2357,7 +2364,7 @@
             </ul>
 
             <h4>Authorization Authorities</h4>
-            <p>Access: <strong>System Settings ? Authorization Authorities</strong></p>
+            <p>Access: <strong>System Settings → Authorization Authorities</strong></p>
             <p>
                 Maintain the list of governmental and regulatory bodies that authorize and oversee nonprofit organizations 
                 (e.g., Ministry of Human Resources and Social Development).
@@ -2369,21 +2376,21 @@
             </ul>
 
             <h4>Funding Sources</h4>
-            <p>Access: <strong>System Settings ? Funding Sources</strong></p>
+            <p>Access: <strong>System Settings → Funding Sources</strong></p>
             <p>
                 Track common funding sources for organizations (e.g., Government Grants, Donations, Earned Revenue, 
                 Private Foundations).
             </p>
 
             <h4>Corporate Field of Work</h4>
-            <p>Access: <strong>System Settings ? Field of Work</strong></p>
+            <p>Access: <strong>System Settings → Field of Work</strong></p>
             <p>
                 Specify the specific areas of work or services provided by organizations (e.g., Youth Development, 
                 Disability Services, Community Development).
             </p>
 
             <h4>Type of Intervention</h4>
-            <p>Access: <strong>System Settings ? Type of Intervention</strong></p>
+            <p>Access: <strong>System Settings → Type of Intervention</strong></p>
             <p>
                 Define types of support and intervention provided through programs (e.g., Training, Consulting, Mentorship, 
                 Financial Support).
@@ -2678,7 +2685,7 @@
             <p style="margin-top: 30px;">
                 <small>
                     This document is confidential and intended for authorized administrators only.<br>
-                    � 2025 King Khalid Foundation. All rights reserved.<br>
+                    © 2025 King Khalid Foundation. All rights reserved.<br>
                     Last Updated: January 2025 | Version 1.0
                 </small>
             </p>
