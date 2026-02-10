@@ -1,0 +1,98 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.Events
+@{
+    Layout = null;
+    ViewBag.Title = Resources.General.Edit;
+}
+@using (Html.BeginForm("Edit", "Events", FormMethod.Post, new { onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("Index", "Events", new { id = 0 }) }))//data-resetUrl
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-body">
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.EventID)
+            <div class="form-group">
+                <label for="EventNameAR" class="bmd-label-floating"> @Resources.Events.EventNameAR</label>
+
+                @*@Html.LabelFor(model => model.EventNameAR, htmlAttributes: new { @class = "bmd-label-floating" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EventNameAR, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.EventNameAR, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="EventNameEN" class="bmd-label-floating"> @Resources.Events.EventNameEN</label>
+
+                @*@Html.LabelFor(model => model.EventNameEN, htmlAttributes: new { @class = "bmd-label-floating" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EventNameEN, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.EventNameEN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Description" class="bmd-label-floating"> @Resources.Events.Description</label>
+
+                @*@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "bmd-label-floating" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "bmd-label-floating", @for = "EventEStartDate" })*@
+                <label for="StartDate" class="bmd-label-floating"> @Resources.Events.StartDate</label>
+
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.StartDate, new { @class = "form-control ", @id = "EventEStartDate" })
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="EndDate" class="bmd-label-floating"> @Resources.Events.EndDate</label>
+
+                @*@Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "bmd-label-floating", @for = "EventEEndDate" })*@
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.EndDate, new { @class = "form-control ", @id = "EventEEndDate" })
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="IsActive" class="bmd-label-floating"> @Resources.Events.IsActive</label>
+
+                @*@Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "bmd-label-floating" })*@
+                <div class="col-md-10">
+                    @Html.CheckBoxFor(model => model.IsActive, new { htmlAttributes = new { @class = "toggle" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-info btn-link">@Resources.General.Edit</button>
+        <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">@Resources.General.Close</button>
+    </div>
+}
+
+@*@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var eventStartDate = '@ViewBag.eventStartDate';
+            var eventEndDate = '@ViewBag.eventEndDate';
+            $("#EventStartDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+            $("#EventEndDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+            $('#EventStartDate').datepicker('setDate', eventStartDate)
+            $('#EventEndDate').datepicker('setDate', eventEndDate)
+        });
+    </script>
+}*@

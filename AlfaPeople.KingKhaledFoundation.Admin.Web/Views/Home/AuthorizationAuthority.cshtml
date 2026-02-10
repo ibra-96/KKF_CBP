@@ -1,0 +1,252 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.AuthorizationAuthority>
+
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- <div class="col-md-10 ml-auto mr-auto"> -->
+            <div class="col-md-12">
+                <div class="card">
+                    <!-- <div class="card-header card-header-rose card-header-icon">
+                    <div class="card-icon">
+                    <i class="material-icons"></i>
+                    </div>
+                    <h4 class="card-title">AuthorizationAuthority</h4>
+                    </div> -->
+                    <div class="card-body">
+                        <div class="toolbar">
+                            <button style="float: right;"  class="btn btn-link btn-info btn-just-icon like" data-toggle="modal" data-target="#AddAuthorizationAuthority">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </div>
+                        <div class="material-datatables">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                                   width="100%" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.AuthorizationAuthorityNameAR)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.AuthorizationAuthorityNameEN)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.IsActive)
+                                        </th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                  
+                                <tbody>
+                                    @{
+                                        int Counter = 1;
+                                    }
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td style="text-align:center">
+            @Html.DisplayFor(modelItem => item.AuthorizationAuthorityNameAR)
+        </td>
+        <td style="text-align:center">
+            @Html.DisplayFor(modelItem => item.AuthorizationAuthorityNameEN)
+        </td>
+   
+        <td style="text-align:center">
+            @if (item.IsActive == true)
+            {
+                <span class="badge badge-pill badge-success">
+                    Acitve
+                </span>
+
+            }
+            else
+            {
+                <span class="badge badge-pill badge-danger">
+                    InAcitve
+                </span>
+
+            }
+
+
+        </td>
+
+
+        <td style="text-align:center" class="text-right">
+
+            <button date-id="@item.AuthorizationAuthorityID" onclick="GetAuthObjectToUpdate('@item.AuthorizationAuthorityID','@Counter')" class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditAuthorizationAuthority">
+                <i class="material-icons">edit</i>
+            </button>
+
+        </td>
+        <td>
+            <button onclick="ActiveDeactiveAuth('@item.AuthorizationAuthorityID','@Counter')" class="btn btn-link btn-danger  remove">
+                @*<i class="material-icons">delete</i>*@
+
+                @if (item.IsActive == false)
+                {
+                    <span class="badge badge-pill badge-success">
+                        Activeate
+                    </span>
+
+                }
+                else
+                {
+                    <span class="badge badge-pill badge-danger">
+                        Deactivate
+                    </span>
+
+                }
+
+
+            </button>
+
+        </td>
+    </tr>
+    Counter++;
+}
+
+
+                               
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<!-- End Content -->
+
+
+<!-- Modals -->
+<!-- Modal Add AuthorizationAuthority -->
+<div class="modal fade" id="AddAuthorizationAuthority" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="RegisterValidation" action="" method="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <b> + </b> Add New AuthorizationAuthority
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Inp_EN" class="bmd-label-floating"> AuthorizationAuthority EN *</label>
+                        <input class="form-control" type="text" id="AuthorizationAuthorityEN" name="EN" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Inp_AR" class="bmd-label-floating">AuthorizationAuthority AR *</label>
+                        <input class="form-control" type="text" id="AuthorizationAuthorityAR" name="AR" required />
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="AddNewAuth()" data-dismiss="modal" class="btn btn-info btn-link">Add</button>
+                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal Add AuthorizationAuthority -->
+<!-- Modal Edit AuthorizationAuthority -->
+<div class="modal fade" id="EditAuthorizationAuthority" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="RegisterValidation" action="" method="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <i class="material-icons">edit</i> Edit AuthorizationAuthority
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Inp_EN" class="bmd-label-floating"> AuthorizationAuthority EN *</label>
+                        <input class="form-control" type="text" id="AuthorizationAuthorityENEdited" name="EN" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Inp_AR" class="bmd-label-floating"> AuthorizationAuthority AR *</label>
+                        <input class="form-control" type="text" id="AuthorizationAuthorityAREdited" name="AR" required />
+                        <input type="hidden" id="AuthID" />
+                        <input type="hidden" id="index" />
+                     </div>
+               
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="UpdateAuth()" class="btn btn-info btn-link" data-dismiss="modal">Edit</button>
+                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal Edit AuthorizationAuthority -->
+<!-- End Modals -->
+@section Scripts{
+    
+    <script>
+        function GetAuthObjectToUpdate(AuthId, index) {
+            $.getJSON('@Url.Action("GetAuthObjectToUpdate", "Home")', { "AuthId": AuthId }, function (Result) {
+
+                $("#index").val(index);
+                $("#AuthorizationAuthorityENEdited").val(Result.AuthorizationAuthorityNameEN);
+                $("#AuthorizationAuthorityAREdited").val(Result.AuthorizationAuthorityNameAR);
+                $("#AuthID").val(Result.AuthorizationAuthorityID)             
+            });
+        }
+
+        function UpdateAuth() {
+            var AuthorizationAuthorityENEdited = $("#AuthorizationAuthorityENEdited").val();
+            var AuthorizationAuthorityAREdited = $("#AuthorizationAuthorityAREdited").val();
+            var AuthID = $("#AuthID").val();
+            var Index = $("#index").val()
+            $.getJSON('@Url.Action("UpdateAuth", "Home")', { "AuthorizationAuthorityENEdited": AuthorizationAuthorityENEdited, "AuthorizationAuthorityAREdited": AuthorizationAuthorityAREdited, "AuthID": AuthID }, function (Result) {
+                document.getElementById("datatables").rows[Index].cells[0].innerHTML = '<td style="text-align:center">' + AuthorizationAuthorityAREdited + '</td>';
+                document.getElementById("datatables").rows[Index].cells[1].innerHTML = '<td style="text-align:center">' + AuthorizationAuthorityENEdited + '</td>';
+                alertify.success("Authority Updated");
+            });
+        }
+
+
+        function ActiveDeactiveAuth(AuthId, Index) {
+            $.getJSON('@Url.Action("ActiveDeactiveAuth", "Home")', { "AuthId": AuthId }, function (Result) {
+                if (Result) {
+                    document.getElementById("datatables").rows[Index].cells[2].innerHTML = '<td><span class="badge badge-pill badge-success"> Acitve</span></td>';
+                    document.getElementById("datatables").rows[Index].cells[4].innerHTML = ' <td> <button onclick="ActiveDeactiveAuth(' + "'" + AuthId + "'" + ',' + "'" + Index + "'" + ')" class="btn btn-link btn-danger  remove"> <span class="badge badge-pill badge-danger"> DeActivate</span> </td>'
+
+                    alertify.success("Authority Activated");
+                }
+                else {
+                    document.getElementById("datatables").rows[Index].cells[2].innerHTML = '<td><span class="badge badge-pill badge-danger"> InAcitve</span></td>';
+                    document.getElementById("datatables").rows[Index].cells[4].innerHTML = ' <td> <button onclick="ActiveDeactiveAuth(' + "'" + AuthId + "'" + ',' + "'" + Index + "'" + ')" class="btn btn-link btn-danger  remove"> <span class="badge badge-pill badge-success"> Activate</span> </td>'
+                    alertify.success("Authority DeActivated");
+                }
+            });
+        }
+
+
+        function AddNewAuth() {
+
+            $.getJSON('@Url.Action("AddNewAuth", "Home")', { "AuthorizationAuthorityEN": $("#AuthorizationAuthorityEN").val(), "AuthorizationAuthorityAR": $("#AuthorizationAuthorityAR").val() }, function (Result) {
+                var rows = document.getElementById("datatables").getElementsByTagName("tbody")[0].getElementsByTagName("tr").length;
+                var newRow = parseInt(rows) + 1;
+                $("#datatables").append('<tr><td  style="text-align:center">' + $("#AuthorizationAuthorityAR").val() + '</td><td style="text-align:center">' + $("#AuthorizationAuthorityEN").val() + '</td><td style="text-align:center">     <span class="badge badge-pill badge-success">  Acitve  </span></td><td style="text-align:center" class="text-right">   <button date-id="Result" onclick="GetAuthObjectToUpdate(' + "'" + Result + "'" + ',' + "'" + newRow + "'" + ')" class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditAuthorizationAuthority"><i class="material-icons">edit</i> </button>  </td><td >   <button onclick="ActiveDeactiveAuth(' + "'" + Result + "'" + ',' + "'" + newRow + "'" + ')" class="btn btn-link btn-danger  remove"> <span class="badge badge-pill badge-success">Activeate </span></button> </td></tr>');
+            });
+
+
+        }
+
+    </script>
+    
+    }

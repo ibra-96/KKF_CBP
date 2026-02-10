@@ -1,0 +1,2202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\app.publish\</_PublishTargetUrl>
+    <History>True|2026-02-09T06:02:13.0630860Z;True|2026-02-08T12:55:52.9953033+03:00;True|2026-02-03T09:06:54.8159857+03:00;True|2026-02-03T08:24:56.4848996+03:00;True|2025-04-16T12:07:26.4229254+03:00;True|2025-04-08T15:42:26.8306574+03:00;True|2025-04-07T14:17:04.6714575+03:00;True|2025-04-07T11:27:43.0905258+03:00;True|2025-04-06T16:49:56.1635934+03:00;True|2025-04-06T11:14:07.8621028+03:00;True|2025-03-27T12:35:16.7769590+03:00;True|2025-03-19T13:06:14.4280517+03:00;True|2025-03-13T15:17:20.6276358+03:00;True|2025-03-13T15:16:07.0808997+03:00;True|2025-03-12T15:28:56.1114500+03:00;True|2025-03-12T15:03:50.6847474+03:00;True|2025-03-12T13:09:26.8492137+03:00;True|2025-03-09T12:21:18.9060543+03:00;True|2025-03-06T15:19:03.9764364+03:00;True|2025-03-06T13:21:26.7915953+03:00;True|2025-03-03T23:10:28.6992738+03:00;True|2025-02-25T16:19:57.1020814+03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>09/12/2024 13:17:44</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/alertify.js">
+      <publishTime>09/12/2024 13:17:47</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/alertify.min.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/alertify.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/alertify.min.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/alertify.rtl.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/alertify.rtl.min.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/themes/bootstrap.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/themes/bootstrap.min.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/themes/bootstrap.rtl.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/themes/bootstrap.rtl.min.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/themes/default.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/themes/default.min.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/themes/default.rtl.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/themes/default.rtl.min.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/themes/semantic.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/themes/semantic.min.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/themes/semantic.rtl.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/alertifyjs/css/themes/semantic.rtl.min.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/css/css.css">
+      <publishTime>09/17/2024 10:26:39</publishTime>
+    </File>
+    <File Include="assets/css/FileUploaderStyle.css">
+      <publishTime>09/17/2024 10:26:29</publishTime>
+    </File>
+    <File Include="assets/css/font-awesome.min.css">
+      <publishTime>09/15/2024 09:33:29</publishTime>
+    </File>
+    <File Include="assets/css/material-dashboard.min.css">
+      <publishTime>09/15/2024 09:37:39</publishTime>
+    </File>
+    <File Include="assets/css/materialize.min.css">
+      <publishTime>09/15/2024 09:36:45</publishTime>
+    </File>
+    <File Include="assets/demo/demo.css">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/demo/demo.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/demo/jquery.sharrre.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/images/7.JPG">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/images/ui-icons_444444_256x240.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/images/ui-icons_555555_256x240.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/images/ui-icons_777620_256x240.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/images/ui-icons_777777_256x240.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/images/ui-icons_cc0000_256x240.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/images/ui-icons_ffffff_256x240.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/img/17 KKF Master Brand wordmark.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/img/background.jpg">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/img/default-avatar.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/img/favicon.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/img/logo.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/img/logo1.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/img/PicBG.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/img/piclogo.ico">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/img/piclogo.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/img/textlogo.png">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/jquery-ui.css">
+      <publishTime>09/12/2024 13:17:47</publishTime>
+    </File>
+    <File Include="assets/jquery-ui.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/js/buttons.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/js/cloudflare-static/email-decode.min.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/js/core.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/js/core/bootstrap-material-design.min.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/js/core/jquery.min.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/js/core/popper.min.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/js/FileUploaderIndex.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/js/js.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/js/material-dashboard.min.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/js/plugins/arrive.min.js">
+      <publishTime>09/12/2024 13:17:48</publishTime>
+    </File>
+    <File Include="assets/js/plugins/bootstrap-datetimepicker.min.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/bootstrap-notify.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/bootstrap-selectpicker.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/bootstrap-tagsinput.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/chartist.min.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/fullcalendar.min.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/jasny-bootstrap.min.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/jquery-jvectormap.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/jquery.bootstrap-wizard.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/jquery.dataTables.min.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/jquery.validate.min.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/moment.min.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/nouislider.min.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/perfect-scrollbar.jquery.min.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="assets/js/plugins/sweetalert2.js">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="bin/AlfaPeople.KingKhaledFoundation.Admin.Web.dll">
+      <publishTime>02/09/2026 09:02:08</publishTime>
+    </File>
+    <File Include="bin/AlfaPeople.KingKhaledFoundation.Admin.Web.pdb">
+      <publishTime>02/09/2026 09:02:08</publishTime>
+    </File>
+    <File Include="bin/AlfaPeople.KingKhalidFoundation.Data.dll">
+      <publishTime>02/09/2026 09:01:40</publishTime>
+    </File>
+    <File Include="bin/AlfaPeople.KingKhalidFoundation.Data.dll.config">
+      <publishTime>12/16/2024 13:25:16</publishTime>
+    </File>
+    <File Include="bin/AlfaPeople.KingKhalidFoundation.Data.pdb">
+      <publishTime>02/09/2026 09:01:40</publishTime>
+    </File>
+    <File Include="bin/AlphaPeople.Core.dll">
+      <publishTime>02/09/2026 09:01:40</publishTime>
+    </File>
+    <File Include="bin/AlphaPeople.Core.dll.config">
+      <publishTime>09/12/2024 13:18:03</publishTime>
+    </File>
+    <File Include="bin/AlphaPeople.Core.pdb">
+      <publishTime>02/09/2026 09:01:40</publishTime>
+    </File>
+    <File Include="bin/AlphaPeople.Repository.dll">
+      <publishTime>02/09/2026 09:01:40</publishTime>
+    </File>
+    <File Include="bin/AlphaPeople.Repository.dll.config">
+      <publishTime>09/12/2024 13:18:03</publishTime>
+    </File>
+    <File Include="bin/AlphaPeople.Repository.pdb">
+      <publishTime>02/09/2026 09:01:40</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>09/10/2013 19:29:20</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>09/10/2013 19:29:20</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>09/12/2024 13:17:44</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AccelerationReport.ar-EG.designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AccelerationReport.ar-EG.resx">
+      <publishTime>02/15/2021 20:02:52</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AccelerationReport.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AccelerationReport.resx">
+      <publishTime>11/21/2019 10:52:59</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AchievingGoal.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AchievingGoal.ar-EG.resx">
+      <publishTime>02/15/2021 18:11:42</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AchievingGoal.Designer.cs">
+      <publishTime>11/24/2024 12:52:35</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AchievingGoal.resx">
+      <publishTime>02/05/2021 21:26:47</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AttendeesList.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AttendeesList.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:04</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AttendeesList.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AttendeesList.resx">
+      <publishTime>11/18/2019 19:56:05</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AuthorizationAuthorities.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AuthorizationAuthorities.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:05</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AuthorizationAuthorities.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/AuthorizationAuthorities.resx">
+      <publishTime>11/18/2019 19:56:05</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Cities.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Cities.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:05</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Cities.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Cities.resx">
+      <publishTime>10/23/2019 00:58:41</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/ClassificationSectors.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/ClassificationSectors.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:06</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/ClassificationSectors.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/ClassificationSectors.resx">
+      <publishTime>11/18/2019 19:56:05</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Consultants.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Consultants.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:05</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Consultants.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Consultants.en-GB.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Consultants.en-GB.resx">
+      <publishTime>11/18/2019 19:56:05</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Consultants.resx">
+      <publishTime>10/06/2019 00:38:38</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporateFieldOfWork.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporateFieldOfWork.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:05</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporateFieldOfWork.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporateFieldOfWork.resx">
+      <publishTime>11/18/2019 19:56:05</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationContactReport.ar-EG.designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationContactReport.ar-EG.resx">
+      <publishTime>11/14/2019 20:26:41</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationContactReport.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationContactReport.resx">
+      <publishTime>11/14/2019 20:26:41</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationProfile.ar-EG.designer.cs">
+      <publishTime>12/09/2024 15:51:11</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationProfile.ar-EG.resx">
+      <publishTime>12/09/2024 15:51:10</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationProfile.Designer.cs">
+      <publishTime>12/09/2024 08:58:55</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationProfile.resx">
+      <publishTime>12/09/2024 08:58:55</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationRegistered.ar-EG.Designer.cs">
+      <publishTime>01/29/2026 12:36:55</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationRegistered.ar-EG.resx">
+      <publishTime>01/29/2026 12:36:55</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationRegistered.Designer.cs">
+      <publishTime>01/29/2026 12:33:51</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationRegistered.en-GB.Designer.cs">
+      <publishTime>01/29/2026 12:33:13</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationRegistered.en-GB.resx">
+      <publishTime>01/29/2026 12:33:13</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationRegistered.resx">
+      <publishTime>01/29/2026 12:33:51</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationsCategory.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationsCategory.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:05</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationsCategory.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationsCategory.resx">
+      <publishTime>11/18/2019 19:56:05</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationsReport.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationsReport.ar-EG.resx">
+      <publishTime>12/08/2019 04:29:38</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationsReport.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/CorporationsReport.resx">
+      <publishTime>11/13/2019 20:09:41</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Events.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Events.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:05</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Events.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Events.en-GB.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Events.en-GB.resx">
+      <publishTime>11/18/2019 19:56:06</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Events.resx">
+      <publishTime>10/06/2019 00:38:39</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FinalReportsPS.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FinalReportsPS.ar-EG.resx">
+      <publishTime>11/19/2019 06:44:14</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FinalReportsPS.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FinalReportsPS.resx">
+      <publishTime>11/19/2019 06:43:46</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FinalReportsSE.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FinalReportsSE.ar-EG.resx">
+      <publishTime>11/18/2019 23:57:36</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FinalReportsSE.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FinalReportsSE.resx">
+      <publishTime>12/22/2019 15:35:56</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FollowUpProjectPlan.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FollowUpProjectPlan.ar-EG.resx">
+      <publishTime>11/28/2019 07:31:16</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FollowUpProjectPlan.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FollowUpProjectPlan.resx">
+      <publishTime>11/18/2019 23:57:36</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FundingSource.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FundingSource.ar-EG.resx">
+      <publishTime>01/12/2021 02:09:17</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FundingSource.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/FundingSource.resx">
+      <publishTime>01/12/2021 02:09:17</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/General.ar-EG.Designer.cs">
+      <publishTime>04/08/2025 11:21:18</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/General.ar-EG.resx">
+      <publishTime>04/08/2025 11:21:18</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/General.Designer.cs">
+      <publishTime>04/08/2025 11:20:21</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/General.en-GB.Designer.cs">
+      <publishTime>04/08/2025 11:21:27</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/General.en-GB.resx">
+      <publishTime>04/08/2025 11:21:27</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/General.resx">
+      <publishTime>04/08/2025 11:20:21</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Governorates.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Governorates.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:06</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Governorates.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Governorates.resx">
+      <publishTime>10/07/2019 12:54:08</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Grant.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Grant.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:06</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Grant.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Grant.resx">
+      <publishTime>11/18/2019 19:56:06</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantModel.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantModel.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:06</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantModel.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantModel.resx">
+      <publishTime>11/18/2019 19:56:06</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantProjectIdeaRequest.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantProjectIdeaRequest.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:06</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantProjectIdeaRequest.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantProjectIdeaRequest.resx">
+      <publishTime>11/18/2019 19:56:06</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantReport.ar-EG.designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantReport.ar-EG.resx">
+      <publishTime>11/19/2019 06:58:46</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantReport.designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantReport.resx">
+      <publishTime>11/19/2019 06:58:29</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantsRequest.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantsRequest.ar-EG.resx">
+      <publishTime>11/20/2019 02:49:56</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantsRequest.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantsRequest.resx">
+      <publishTime>11/20/2019 02:48:52</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantWorkshops.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantWorkshops.ar-EG.resx">
+      <publishTime>11/18/2019 22:48:55</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantWorkshops.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/GrantWorkshops.resx">
+      <publishTime>11/18/2019 19:56:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Incubation.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Incubation.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Incubation.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Incubation.en-GB.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Incubation.en-GB.resx">
+      <publishTime>11/18/2019 19:56:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Incubation.resx">
+      <publishTime>10/19/2019 01:39:58</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationAdvertising.ar-EG.Designer.cs">
+      <publishTime>03/06/2025 12:52:23</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationAdvertising.ar-EG.resx">
+      <publishTime>03/06/2025 12:52:23</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationAdvertising.Designer.cs">
+      <publishTime>03/06/2025 12:53:09</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationAdvertising.en-GB.Designer.cs">
+      <publishTime>03/06/2025 12:53:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationAdvertising.en-GB.resx">
+      <publishTime>03/06/2025 12:53:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationAdvertising.resx">
+      <publishTime>03/06/2025 12:53:09</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationFollowUpEvaluation.ar-EG.Designer.cs">
+      <publishTime>08/20/2024 12:25:22</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationFollowUpEvaluation.ar-EG.resx">
+      <publishTime>12/08/2019 04:42:45</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationFollowUpEvaluation.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationFollowUpEvaluation.resx">
+      <publishTime>11/28/2019 08:01:40</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationFollowUpEvaluationLines.ar-EG.Designer.cs">
+      <publishTime>08/20/2024 12:25:22</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationFollowUpEvaluationLines.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationFollowUpEvaluationLines.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationFollowUpEvaluationLines.resx">
+      <publishTime>11/18/2019 19:56:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationRequest.ar-EG.Designer.cs">
+      <publishTime>04/08/2025 10:29:59</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationRequest.ar-EG.resx">
+      <publishTime>04/08/2025 10:29:59</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationRequest.Designer.cs">
+      <publishTime>04/08/2025 10:33:19</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationRequest.en-GB.Designer.cs">
+      <publishTime>04/08/2025 10:30:01</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationRequest.en-GB.resx">
+      <publishTime>04/08/2025 10:30:01</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationRequest.resx">
+      <publishTime>04/08/2025 10:33:19</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshopFollowUpEvaluation.ar-EG.Designer.cs">
+      <publishTime>08/20/2024 12:25:22</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshopFollowUpEvaluation.ar-EG.resx">
+      <publishTime>08/20/2024 12:25:22</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshopFollowUpEvaluation.Designer.cs">
+      <publishTime>08/20/2024 12:25:22</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshopFollowUpEvaluation.resx">
+      <publishTime>10/16/2019 23:09:35</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkShopFollowUpEvaluationLines.ar-EG.Designer.cs">
+      <publishTime>08/20/2024 12:25:22</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkShopFollowUpEvaluationLines.ar-EG.resx">
+      <publishTime>08/20/2024 12:25:22</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkShopFollowUpEvaluationLines.Designer.cs">
+      <publishTime>08/20/2024 12:25:22</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkShopFollowUpEvaluationLines.resx">
+      <publishTime>08/20/2024 12:25:22</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshopModels.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshopModels.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:08</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshopModels.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshopModels.resx">
+      <publishTime>11/18/2019 19:56:09</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshopRating.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshopRating.ar-EG.resx">
+      <publishTime>02/15/2021 23:23:39</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshopRating.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshopRating.resx">
+      <publishTime>02/15/2021 23:22:10</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshops.ar-EG.Designer.cs">
+      <publishTime>04/07/2025 10:32:54</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshops.ar-EG.resx">
+      <publishTime>04/07/2025 10:32:54</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshops.Designer.cs">
+      <publishTime>04/07/2025 10:32:55</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshops.en-GB.Designer.cs">
+      <publishTime>04/07/2025 10:32:55</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshops.en-GB.resx">
+      <publishTime>04/07/2025 10:32:55</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/IncubationWorkshops.resx">
+      <publishTime>04/07/2025 10:32:55</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/MeetTheWorkRequirement.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/MeetTheWorkRequirement.ar-EG.resx">
+      <publishTime>02/05/2021 21:26:47</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/MeetTheWorkRequirement.Designer.cs">
+      <publishTime>11/24/2024 12:52:35</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/MeetTheWorkRequirement.resx">
+      <publishTime>02/05/2021 21:26:47</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/OutPut.ar-EG.designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/OutPut.ar-EG.resx">
+      <publishTime>11/24/2019 03:47:57</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/OutPut.designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/OutPut.resx">
+      <publishTime>11/21/2019 10:52:58</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Popsations.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Popsations.ar-EG.resx">
+      <publishTime>11/18/2019 20:15:20</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Popsations.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Popsations.resx">
+      <publishTime>11/18/2019 20:27:29</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/ProjectResult.ar-EG.designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/ProjectResult.ar-EG.resx">
+      <publishTime>11/24/2019 03:47:58</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/ProjectResult.designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/ProjectResult.resx">
+      <publishTime>12/23/2019 17:22:39</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Regions.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Regions.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:08</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Regions.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Regions.resx">
+      <publishTime>10/07/2019 12:54:08</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/ReportOnBeneficiaries.ar-EG.designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/ReportOnBeneficiaries.ar-EG.resx">
+      <publishTime>11/17/2019 17:12:23</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/ReportOnBeneficiaries.designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/ReportOnBeneficiaries.resx">
+      <publishTime>11/17/2019 17:12:23</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TargetSegmentType.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TargetSegmentType.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:08</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TargetSegmentType.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TargetSegmentType.resx">
+      <publishTime>11/18/2019 19:56:09</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TrainerRating.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TrainerRating.ar-EG.resx">
+      <publishTime>02/15/2021 18:56:54</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TrainerRating.Designer.cs">
+      <publishTime>11/24/2024 12:52:35</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TrainerRating.resx">
+      <publishTime>02/15/2021 18:56:46</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TrainingWorkshop.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TrainingWorkshop.ar-EG.resx">
+      <publishTime>02/15/2021 18:54:01</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TrainingWorkshop.Designer.cs">
+      <publishTime>11/24/2024 12:52:35</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TrainingWorkshop.resx">
+      <publishTime>02/15/2021 18:55:20</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TypeOfIntervention.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TypeOfIntervention.ar-EG.resx">
+      <publishTime>11/18/2019 19:56:09</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TypeOfIntervention.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/TypeOfIntervention.resx">
+      <publishTime>10/07/2019 12:54:08</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Workshop.ar-EG.Designer.cs">
+      <publishTime>07/15/2024 12:26:45</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Workshop.ar-EG.resx">
+      <publishTime>07/15/2024 12:26:45</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Workshop.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/Workshop.resx">
+      <publishTime>02/06/2021 22:47:55</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/WorkshopClass.ar-EG.Designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/WorkshopClass.ar-EG.resx">
+      <publishTime>02/15/2021 17:14:35</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/WorkshopClass.Designer.cs">
+      <publishTime>11/24/2024 12:52:35</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/WorkshopClass.resx">
+      <publishTime>02/15/2021 17:14:22</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/WorkshopReport.ar-EG.designer.cs">
+      <publishTime>05/31/2021 11:19:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/WorkshopReport.ar-EG.resx">
+      <publishTime>11/27/2019 18:46:07</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/WorkshopReport.Designer.cs">
+      <publishTime>05/31/2021 11:19:08</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/WorkshopReport.resx">
+      <publishTime>11/27/2019 18:46:07</publishTime>
+    </File>
+    <File Include="bin/ar-EG/AlfaPeople.KingKhaledFoundation.Admin.Web.resources.dll">
+      <publishTime>02/09/2026 09:02:08</publishTime>
+    </File>
+    <File Include="bin/ar-EG/AlfaPeople.KingKhalidFoundation.Data.resources.dll">
+      <publishTime>02/09/2026 09:01:40</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>10/16/2020 18:36:54</publishTime>
+    </File>
+    <File Include="bin/BeginCollectionItem.dll">
+      <publishTime>10/13/2012 13:01:58</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.dll">
+      <publishTime>08/19/2023 02:05:30</publishTime>
+    </File>
+    <File Include="bin/DocumentFormat.OpenXml.dll">
+      <publishTime>04/06/2023 22:08:02</publishTime>
+    </File>
+    <File Include="bin/en-GB/AlfaPeople.KingKhaledFoundation.Admin.Web.resources.dll">
+      <publishTime>02/09/2026 09:02:08</publishTime>
+    </File>
+    <File Include="bin/en-GB/AlfaPeople.KingKhalidFoundation.Data.resources.dll">
+      <publishTime>02/09/2026 09:01:41</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>04/16/2020 23:38:42</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>04/16/2020 23:38:56</publishTime>
+    </File>
+    <File Include="bin/ExcelNumberFormat.dll">
+      <publishTime>10/02/2020 11:42:28</publishTime>
+    </File>
+    <File Include="bin/FastMember.dll">
+      <publishTime>05/24/2019 16:38:00</publishTime>
+    </File>
+    <File Include="bin/Irony.dll">
+      <publishTime>06/04/2019 14:33:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>06/27/2017 15:59:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>07/19/2022 22:55:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.pdb">
+      <publishTime>07/19/2022 22:53:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>07/19/2022 22:54:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.pdb">
+      <publishTime>07/19/2022 22:53:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>07/19/2022 22:55:18</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.pdb">
+      <publishTime>07/19/2022 22:53:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>07/19/2022 22:54:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.pdb">
+      <publishTime>07/19/2022 22:53:16</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>07/19/2022 22:54:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.pdb">
+      <publishTime>07/19/2022 22:53:12</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>07/19/2022 22:54:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.pdb">
+      <publishTime>07/19/2022 22:52:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>06/21/2023 13:16:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>06/21/2023 13:16:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>06/21/2023 13:16:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.TelemetryCorrelation.dll">
+      <publishTime>07/03/2020 00:36:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>03/06/2023 01:41:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>05/11/2022 02:31:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>05/11/2022 02:31:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>05/11/2022 02:31:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>05/11/2022 02:31:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
+      <publishTime>05/11/2022 02:31:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Google.dll">
+      <publishTime>05/11/2022 02:31:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
+      <publishTime>05/11/2022 02:31:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
+      <publishTime>05/11/2022 02:31:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
+      <publishTime>05/11/2022 02:31:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>04/11/2022 22:09:46</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>03/08/2023 10:09:56</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/27/2012 16:00:52</publishTime>
+    </File>
+    <File Include="bin/Resources/AchievingGoal.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/AchievingGoal.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/AchievingGoal.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/AchievingGoal.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationPerformance.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationPerformance.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationPerformance.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationPerformance.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationProfile.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationProfile.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationProfile.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationProfile.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationRegistered.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationRegistered.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationRegistered.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationRegistered.en-GB.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationRegistered.en-GB.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/CorporationRegistered.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/DonorTypes.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/DonorTypes.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/DonorTypes.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/DonorTypes.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/EvaluationGrants.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/EvaluationGrants.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/EvaluationGrants.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/EvaluationGrants.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/FieldOfEmployment.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/FieldOfEmployment.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/FieldOfEmployment.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/FieldOfEmployment.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/FollowUpMethod.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/FollowUpMethod.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/FollowUpMethod.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/FollowUpMethod.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/FollowUpProjectPlanStatus.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/FollowUpProjectPlanStatus.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/FollowUpProjectPlanStatus.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/FollowUpProjectPlanStatus.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/GenderPerson.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/GenderPerson.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/GenderPerson.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/GenderPerson.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/Genders.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/Genders.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/Genders.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/Genders.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/GrantProjectIdeaRequest.ar-EG.Designer.cs">
+      <publishTime>01/17/2026 18:49:18</publishTime>
+    </File>
+    <File Include="bin/Resources/GrantProjectIdeaRequest.ar-EG.resx">
+      <publishTime>01/17/2026 18:49:18</publishTime>
+    </File>
+    <File Include="bin/Resources/GrantProjectIdeaRequest.Designer.cs">
+      <publishTime>01/17/2026 18:51:01</publishTime>
+    </File>
+    <File Include="bin/Resources/GrantProjectIdeaRequest.resx">
+      <publishTime>01/17/2026 18:51:01</publishTime>
+    </File>
+    <File Include="bin/Resources/InvitationStatus.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/InvitationStatus.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/InvitationStatus.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/InvitationStatus.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/MeetTheWorkRequirement.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/MeetTheWorkRequirement.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/MeetTheWorkRequirement.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/MeetTheWorkRequirement.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/ProjectSuccessRate.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/ProjectSuccessRate.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:56</publishTime>
+    </File>
+    <File Include="bin/Resources/ProjectSuccessRate.Designer.cs">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/ProjectSuccessRate.resx">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/TrainerRating.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/TrainerRating.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/TrainerRating.Designer.cs">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/TrainerRating.resx">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/TrainingWorkshop.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/TrainingWorkshop.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/TrainingWorkshop.Designer.cs">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/TrainingWorkshop.resx">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/WorkshopClass.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/WorkshopClass.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/WorkshopClass.Designer.cs">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/WorkshopClass.resx">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/WorkshopPPInvitationStatus.ar-EG.Designer.cs">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/WorkshopPPInvitationStatus.ar-EG.resx">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/WorkshopPPInvitationStatus.Designer.cs">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/Resources/WorkshopPPInvitationStatus.resx">
+      <publishTime>09/12/2024 13:17:57</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>02/15/2022 08:38:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>02/15/2022 08:38:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>02/15/2022 08:21:10</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>02/15/2022 08:38:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>02/15/2022 08:38:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>02/15/2022 08:21:14</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>02/15/2022 08:33:12</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>02/15/2022 08:36:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>02/15/2022 08:38:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>02/15/2022 08:33:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>02/15/2022 08:33:26</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>02/15/2022 08:34:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>02/15/2022 08:21:10</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>10/05/2021 03:47:54</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>10/05/2021 03:49:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.CurrentVersions.targets">
+      <publishTime>02/15/2022 08:33:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>02/15/2022 08:21:10</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>02/15/2022 08:21:10</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Buffers.dll">
+      <publishTime>02/19/2020 13:05:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>10/19/2020 21:37:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Memory.dll">
+      <publishTime>02/19/2020 13:05:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Numerics.Vectors.dll">
+      <publishTime>05/15/2018 16:29:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>10/19/2020 21:45:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>10/19/2020 21:46:30</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>11/29/2018 18:39:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Threading.Tasks.Extensions.dll">
+      <publishTime>02/19/2020 13:05:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>02/15/2022 08:34:58</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>02/15/2022 08:34:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>02/15/2022 08:21:12</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>02/15/2022 08:38:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>02/15/2022 08:38:42</publishTime>
+    </File>
+    <File Include="bin/SixLabors.Fonts.dll">
+      <publishTime>08/11/2023 15:04:56</publishTime>
+    </File>
+    <File Include="bin/System.Buffers.dll">
+      <publishTime>02/19/2020 13:05:18</publishTime>
+    </File>
+    <File Include="bin/System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>02/16/2023 03:55:30</publishTime>
+    </File>
+    <File Include="bin/System.IO.Packaging.dll">
+      <publishTime>10/18/2022 19:35:26</publishTime>
+    </File>
+    <File Include="bin/System.Memory.dll">
+      <publishTime>05/08/2022 06:31:02</publishTime>
+    </File>
+    <File Include="bin/System.Numerics.Vectors.dll">
+      <publishTime>05/15/2018 16:29:44</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>10/23/2021 02:40:18</publishTime>
+    </File>
+    <File Include="bin/System.ValueTuple.dll">
+      <publishTime>05/15/2018 16:29:52</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>05/28/2022 02:41:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>05/28/2022 02:42:20</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 18:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>05/28/2022 02:42:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>05/28/2022 02:42:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>05/28/2022 02:42:16</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>05/28/2022 02:42:50</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>01/23/2014 16:57:34</publishTime>
+    </File>
+    <File Include="bin/XLParser.dll">
+      <publishTime>08/17/2023 17:56:08</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="Content/chosen-sprite.png">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="Content/chosen.min.css">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>09/12/2024 13:17:44</publishTime>
+    </File>
+    <File Include="fonts/BngMUXZYTXPIvIBgJJSb6ufA5qW54A.woff2">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="fonts/BngMUXZYTXPIvIBgJJSb6ufB5qW54A.woff2">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="fonts/BngMUXZYTXPIvIBgJJSb6ufC5qW54A.woff2">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="fonts/BngMUXZYTXPIvIBgJJSb6ufD5qW54A.woff2">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="fonts/BngMUXZYTXPIvIBgJJSb6ufJ5qW54A.woff2">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="fonts/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/BngMUXZYTXPIvIBgJJSb6ufO5qW54A.woff2">
+      <publishTime>09/12/2024 13:17:49</publishTime>
+    </File>
+    <File Include="fonts/BngRUXZYTXPIvIBgJJSb6u92w7CCwR26eg.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/BngRUXZYTXPIvIBgJJSb6u92w7CFwR26eg.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/BngRUXZYTXPIvIBgJJSb6u92w7CGwR0.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/BngRUXZYTXPIvIBgJJSb6u92w7CIwR26eg.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/BngRUXZYTXPIvIBgJJSb6u92w7CJwR26eg.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/BngRUXZYTXPIvIBgJJSb6u92w7CKwR26eg.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/BngRUXZYTXPIvIBgJJSb6u92w7CLwR26eg.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmEU9fABc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmEU9fBBc4.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmEU9fBxc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmEU9fCBc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmEU9fChc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmEU9fCRc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmEU9fCxc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmSU5fABc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmSU5fBBc4.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmSU5fBxc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmSU5fCBc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmSU5fChc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmSU5fCRc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmSU5fCxc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmWUlfABc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmWUlfBBc4.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmWUlfBxc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmWUlfCBc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmWUlfCRc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:50</publishTime>
+    </File>
+    <File Include="fonts/KFOlCnqEu92Fr1MmWUlfCxc4EsA.woff2">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/KFOmCnqEu92Fr1Mu4mxK.woff2">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/KFOmCnqEu92Fr1Mu4WxKOzY.woff2">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/KFOmCnqEu92Fr1Mu5mxKOzY.woff2">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/KFOmCnqEu92Fr1Mu72xKOzY.woff2">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/KFOmCnqEu92Fr1Mu7GxKOzY.woff2">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/KFOmCnqEu92Fr1Mu7mxKOzY.woff2">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/KFOmCnqEu92Fr1Mu7WxKOzY.woff2">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/mabry-black-pro.woff2">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/MabryPro-Bold.otf">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/MabryPro-Light.otf">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/MabryPro-Medium.otf">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/SuisseIntl-Black.otf">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/SuisseIntl-Bold.otf">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/SuisseIntl-Light.otf">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/SuisseIntl-Medium.otf">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/SuisseIntl-Regular.otf">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/SuisseIntl-SemiBold.otf">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="fonts/SuisseIntl-Thin.otf">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>09/12/2024 13:17:44</publishTime>
+    </File>
+    <File Include="Scripts/ai.0.22.9-build00167.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Scripts/ai.0.22.9-build00167.min.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Scripts/chosen.jquery.min.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Scripts/dropzone/basic.css">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/dropzone/basic.min.css">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/dropzone/dropzone-amd-module.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/dropzone/dropzone-amd-module.min.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/dropzone/dropzone.css">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/dropzone/dropzone.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/dropzone/dropzone.min.css">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/dropzone/dropzone.min.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.min.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.min.map">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.slim.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.slim.min.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.slim.min.map">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/jquery.dataTables.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.dataTables.min.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>11/24/2024 12:52:35</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.8.3.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/respond.matchmedia.addListener.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/respond.matchmedia.addListener.min.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>09/12/2024 13:17:51</publishTime>
+    </File>
+    <File Include="Views/Accelerations/Create.cshtml">
+      <publishTime>07/14/2024 02:28:02</publishTime>
+    </File>
+    <File Include="Views/Accelerations/Edit.cshtml">
+      <publishTime>07/14/2024 02:28:55</publishTime>
+    </File>
+    <File Include="Views/Accelerations/Index.cshtml">
+      <publishTime>07/14/2024 02:30:10</publishTime>
+    </File>
+    <File Include="Views/Account/ConfirmEmail.cshtml">
+      <publishTime>02/10/2019 19:57:53</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
+      <publishTime>02/10/2019 19:57:53</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginFailure.cshtml">
+      <publishTime>02/10/2019 19:57:53</publishTime>
+    </File>
+    <File Include="Views/Account/ForgotPassword.cshtml">
+      <publishTime>02/10/2019 19:57:53</publishTime>
+    </File>
+    <File Include="Views/Account/ForgotPasswordConfirmation.cshtml">
+      <publishTime>02/10/2019 19:57:53</publishTime>
+    </File>
+    <File Include="Views/Account/Login.cshtml">
+      <publishTime>04/07/2025 13:41:06</publishTime>
+    </File>
+    <File Include="Views/Account/NotFound.cshtml">
+      <publishTime>09/12/2023 01:58:49</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>02/10/2019 19:57:53</publishTime>
+    </File>
+    <File Include="Views/Account/ResetPassword.cshtml">
+      <publishTime>02/10/2019 19:57:53</publishTime>
+    </File>
+    <File Include="Views/Account/ResetPasswordConfirmation.cshtml">
+      <publishTime>02/10/2019 19:57:53</publishTime>
+    </File>
+    <File Include="Views/Account/SendCode.cshtml">
+      <publishTime>02/10/2019 19:57:53</publishTime>
+    </File>
+    <File Include="Views/Account/VerifyCode.cshtml">
+      <publishTime>02/10/2019 19:57:53</publishTime>
+    </File>
+    <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
+      <publishTime>02/10/2019 19:57:53</publishTime>
+    </File>
+    <File Include="Views/AuthorizationAuthorities/All.cshtml">
+      <publishTime>12/24/2019 13:19:45</publishTime>
+    </File>
+    <File Include="Views/AuthorizationAuthorities/Create.cshtml">
+      <publishTime>10/07/2019 12:54:08</publishTime>
+    </File>
+    <File Include="Views/AuthorizationAuthorities/Edit.cshtml">
+      <publishTime>10/07/2019 12:54:08</publishTime>
+    </File>
+    <File Include="Views/AuthorizationAuthorities/Index.cshtml">
+      <publishTime>10/07/2019 12:54:08</publishTime>
+    </File>
+    <File Include="Views/Calender/Index.cshtml">
+      <publishTime>12/18/2019 18:31:35</publishTime>
+    </File>
+    <File Include="Views/Cities/All.cshtml">
+      <publishTime>12/24/2019 13:24:20</publishTime>
+    </File>
+    <File Include="Views/Cities/Create.cshtml">
+      <publishTime>10/07/2019 12:54:08</publishTime>
+    </File>
+    <File Include="Views/Cities/Edit.cshtml">
+      <publishTime>10/07/2019 12:54:08</publishTime>
+    </File>
+    <File Include="Views/Cities/Index.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/ClassificationSectors/All.cshtml">
+      <publishTime>12/24/2019 13:24:39</publishTime>
+    </File>
+    <File Include="Views/ClassificationSectors/Create.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/ClassificationSectors/Edit.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/ClassificationSectors/Index.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/Consultants/All.cshtml">
+      <publishTime>03/09/2025 10:14:34</publishTime>
+    </File>
+    <File Include="Views/Consultants/Create.cshtml">
+      <publishTime>10/06/2019 00:38:46</publishTime>
+    </File>
+    <File Include="Views/Consultants/Edit.cshtml">
+      <publishTime>10/06/2019 00:38:47</publishTime>
+    </File>
+    <File Include="Views/Consultants/Index.cshtml">
+      <publishTime>10/06/2019 00:38:47</publishTime>
+    </File>
+    <File Include="Views/CorporateFieldOfWork/All.cshtml">
+      <publishTime>12/24/2019 13:24:58</publishTime>
+    </File>
+    <File Include="Views/CorporateFieldOfWork/Create.cshtml">
+      <publishTime>10/07/2019 12:54:08</publishTime>
+    </File>
+    <File Include="Views/CorporateFieldOfWork/Edit.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/CorporateFieldOfWork/Index.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/CorporationRegistered/Index.cshtml">
+      <publishTime>02/02/2026 09:46:47</publishTime>
+    </File>
+    <File Include="Views/CorporationRegistered/RejectedIndex.cshtml">
+      <publishTime>02/02/2026 09:51:25</publishTime>
+    </File>
+    <File Include="Views/CorporationRequests/All.cshtml">
+      <publishTime>12/24/2019 13:25:59</publishTime>
+    </File>
+    <File Include="Views/CorporationRequests/CorporateIndex.cshtml">
+      <publishTime>03/03/2025 15:03:53</publishTime>
+    </File>
+    <File Include="Views/CorporationRequests/Details.cshtml">
+      <publishTime>02/10/2019 19:57:54</publishTime>
+    </File>
+    <File Include="Views/CorporationRequests/Index.cshtml">
+      <publishTime>03/03/2025 15:05:14</publishTime>
+    </File>
+    <File Include="Views/CorporationsCategory/All.cshtml">
+      <publishTime>12/24/2019 13:08:33</publishTime>
+    </File>
+    <File Include="Views/CorporationsCategory/Create.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/CorporationsCategory/Edit.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/CorporationsCategory/Index.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/Employee/All.cshtml">
+      <publishTime>01/08/2021 20:12:57</publishTime>
+    </File>
+    <File Include="Views/Employee/Create.cshtml">
+      <publishTime>01/08/2021 19:46:15</publishTime>
+    </File>
+    <File Include="Views/Employee/Edit.cshtml">
+      <publishTime>01/08/2021 19:45:45</publishTime>
+    </File>
+    <File Include="Views/Employee/Index.cshtml">
+      <publishTime>03/20/2021 22:08:42</publishTime>
+    </File>
+    <File Include="Views/Events/All.cshtml">
+      <publishTime>12/24/2019 13:07:35</publishTime>
+    </File>
+    <File Include="Views/Events/Create.cshtml">
+      <publishTime>10/06/2019 00:38:47</publishTime>
+    </File>
+    <File Include="Views/Events/Edit.cshtml">
+      <publishTime>10/06/2019 00:38:47</publishTime>
+    </File>
+    <File Include="Views/Events/Index.cshtml">
+      <publishTime>02/19/2020 16:58:36</publishTime>
+    </File>
+    <File Include="Views/FollowUpProjectPlan/Create.cshtml">
+      <publishTime>02/03/2026 14:11:28</publishTime>
+    </File>
+    <File Include="Views/FollowUpProjectPlan/Edit.cshtml">
+      <publishTime>03/13/2021 20:43:43</publishTime>
+    </File>
+    <File Include="Views/FollowUpProjectPlan/Index.cshtml">
+      <publishTime>12/24/2019 13:03:38</publishTime>
+    </File>
+    <File Include="Views/FollowUpProjectPlanRequest/Details.cshtml">
+      <publishTime>11/24/2024 12:52:36</publishTime>
+    </File>
+    <File Include="Views/FollowUpProjectPlanRequest/Index.cshtml">
+      <publishTime>05/31/2021 15:09:08</publishTime>
+    </File>
+    <File Include="Views/FundingSource/Create.cshtml">
+      <publishTime>02/06/2021 20:31:05</publishTime>
+    </File>
+    <File Include="Views/FundingSource/Edit.cshtml">
+      <publishTime>01/12/2021 02:28:19</publishTime>
+    </File>
+    <File Include="Views/FundingSource/Index.cshtml">
+      <publishTime>12/15/2020 21:24:51</publishTime>
+    </File>
+    <File Include="Views/Governorates/All.cshtml">
+      <publishTime>12/24/2019 13:31:36</publishTime>
+    </File>
+    <File Include="Views/Governorates/Create.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/Governorates/Edit.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/Governorates/Index.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/Home/AuthorizationAuthority.cshtml">
+      <publishTime>02/11/2019 00:57:48</publishTime>
+    </File>
+    <File Include="Views/Home/Categories.cshtml">
+      <publishTime>02/10/2019 19:57:55</publishTime>
+    </File>
+    <File Include="Views/Home/ClassificationSectors.cshtml">
+      <publishTime>02/10/2019 19:57:55</publishTime>
+    </File>
+    <File Include="Views/Home/dashboard.cshtml">
+      <publishTime>03/24/2025 12:17:25</publishTime>
+    </File>
+    <File Include="Views/IncubationAdvertising/CanceledInvitationsView.cshtml">
+      <publishTime>03/06/2025 12:55:31</publishTime>
+    </File>
+    <File Include="Views/IncubationAdvertising/Create.cshtml">
+      <publishTime>03/06/2025 12:50:02</publishTime>
+    </File>
+    <File Include="Views/IncubationAdvertising/Edit.cshtml">
+      <publishTime>02/25/2025 08:38:57</publishTime>
+    </File>
+    <File Include="Views/IncubationAdvertising/Index.cshtml">
+      <publishTime>04/07/2025 14:45:18</publishTime>
+    </File>
+    <File Include="Views/IncubationAdvertising/PublicAdDetails.cshtml">
+      <publishTime>04/07/2025 14:54:17</publishTime>
+    </File>
+    <File Include="Views/IncubationBaselineRequest/BaselineSurveyReport.cshtml">
+      <publishTime>04/08/2025 11:25:50</publishTime>
+    </File>
+    <File Include="Views/IncubationBaselineRequest/CorporateProfile.cshtml">
+      <publishTime>11/24/2024 12:52:36</publishTime>
+    </File>
+    <File Include="Views/IncubationBaselineRequest/Details.cshtml">
+      <publishTime>04/08/2025 09:34:28</publishTime>
+    </File>
+    <File Include="Views/IncubationBaselineRequest/Index.cshtml">
+      <publishTime>12/15/2024 09:22:44</publishTime>
+    </File>
+    <File Include="Views/IncubationFollowUpEvaluation/Create.cshtml">
+      <publishTime>02/03/2026 14:41:33</publishTime>
+    </File>
+    <File Include="Views/IncubationFollowUpEvaluation/Edit.cshtml">
+      <publishTime>12/17/2023 02:48:00</publishTime>
+    </File>
+    <File Include="Views/IncubationFollowUpEvaluation/Index.cshtml">
+      <publishTime>03/13/2021 20:43:43</publishTime>
+    </File>
+    <File Include="Views/IncubationModels/All.cshtml">
+      <publishTime>12/24/2019 13:47:57</publishTime>
+    </File>
+    <File Include="Views/IncubationModels/Create.cshtml">
+      <publishTime>10/06/2019 00:38:47</publishTime>
+    </File>
+    <File Include="Views/IncubationModels/Edit.cshtml">
+      <publishTime>10/06/2019 00:38:47</publishTime>
+    </File>
+    <File Include="Views/IncubationModels/Index.cshtml">
+      <publishTime>02/23/2020 12:43:59</publishTime>
+    </File>
+    <File Include="Views/IncubationRequest/IncubationProjectProposalRequest.cshtml">
+      <publishTime>02/19/2025 10:44:10</publishTime>
+    </File>
+    <File Include="Views/IncubationRequest/Index.cshtml">
+      <publishTime>05/31/2021 15:04:49</publishTime>
+    </File>
+    <File Include="Views/Incubations/Create.cshtml">
+      <publishTime>09/15/2024 09:32:45</publishTime>
+    </File>
+    <File Include="Views/Incubations/Edit.cshtml">
+      <publishTime>12/22/2020 02:18:25</publishTime>
+    </File>
+    <File Include="Views/Incubations/IncubationRequests.cshtml">
+      <publishTime>02/05/2021 18:57:46</publishTime>
+    </File>
+    <File Include="Views/Incubations/Index.cshtml">
+      <publishTime>12/24/2019 13:46:02</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopBaseline/Details.cshtml">
+      <publishTime>03/13/2025 14:06:56</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopBaseline/Index.cshtml">
+      <publishTime>12/16/2024 12:39:03</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopBLTransactions/Manage.cshtml">
+      <publishTime>03/13/2025 13:17:19</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopBLTransactions/WorkshopDynamicReport.cshtml">
+      <publishTime>04/07/2025 16:46:15</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopFollowUpEvaluation/Create.cshtml">
+      <publishTime>02/03/2026 14:39:57</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopFollowUpEvaluation/Edit.cshtml">
+      <publishTime>12/17/2023 03:01:50</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopFollowUpEvaluation/Index.cshtml">
+      <publishTime>03/13/2021 20:43:43</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopModels/All.cshtml">
+      <publishTime>07/14/2024 03:04:27</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopModels/Create.cshtml">
+      <publishTime>07/14/2024 03:04:19</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopModels/Edit.cshtml">
+      <publishTime>10/12/2019 03:11:46</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopModels/Index.cshtml">
+      <publishTime>02/23/2020 13:08:14</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopPostImpactTransactions/ManagePostImpact.cshtml">
+      <publishTime>02/03/2026 15:32:27</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopRating/Detial.cshtml">
+      <publishTime>07/14/2024 03:04:27</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshopRating/Index.cshtml">
+      <publishTime>07/14/2024 03:04:27</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshops/AttendeesList.cshtml">
+      <publishTime>11/24/2024 12:52:36</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshops/CanceledWorkshopInvitationsReport.cshtml">
+      <publishTime>03/06/2025 13:10:58</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshops/Create.cshtml">
+      <publishTime>01/17/2026 17:47:28</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshops/Edit.cshtml">
+      <publishTime>04/06/2025 12:40:00</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshops/IncubationWorkshopEvaluationReport.cshtml">
+      <publishTime>08/20/2024 12:25:30</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshops/Index.cshtml">
+      <publishTime>02/02/2026 10:16:06</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshops/PublicWorkshopDetails.cshtml">
+      <publishTime>04/07/2025 14:47:02</publishTime>
+    </File>
+    <File Include="Views/IncubationWorkshops/WorkshopInvitations.cshtml">
+      <publishTime>02/06/2021 22:43:14</publishTime>
+    </File>
+    <File Include="Views/Manage/AddPhoneNumber.cshtml">
+      <publishTime>02/10/2019 19:57:55</publishTime>
+    </File>
+    <File Include="Views/Manage/ChangePassword.cshtml">
+      <publishTime>12/18/2019 18:16:50</publishTime>
+    </File>
+    <File Include="Views/Manage/Index.cshtml">
+      <publishTime>02/10/2019 19:57:56</publishTime>
+    </File>
+    <File Include="Views/Manage/ManageLogins.cshtml">
+      <publishTime>02/10/2019 19:57:56</publishTime>
+    </File>
+    <File Include="Views/Manage/SetPassword.cshtml">
+      <publishTime>02/10/2019 19:57:56</publishTime>
+    </File>
+    <File Include="Views/Manage/VerifyPhoneNumber.cshtml">
+      <publishTime>02/10/2019 19:57:56</publishTime>
+    </File>
+    <File Include="Views/Position/All.cshtml">
+      <publishTime>07/14/2024 02:47:25</publishTime>
+    </File>
+    <File Include="Views/Position/Create.cshtml">
+      <publishTime>07/14/2024 02:51:32</publishTime>
+    </File>
+    <File Include="Views/Position/Edit.cshtml">
+      <publishTime>11/18/2019 20:12:01</publishTime>
+    </File>
+    <File Include="Views/Position/Index.cshtml">
+      <publishTime>11/18/2019 20:27:57</publishTime>
+    </File>
+    <File Include="Views/ProjectImpactEvaluation/Create.cshtml">
+      <publishTime>02/08/2026 12:44:43</publishTime>
+    </File>
+    <File Include="Views/ProjectImpactEvaluation/Details.cshtml">
+      <publishTime>02/08/2026 12:09:52</publishTime>
+    </File>
+    <File Include="Views/ProjectImpactEvaluation/Edit.cshtml">
+      <publishTime>02/08/2026 10:57:19</publishTime>
+    </File>
+    <File Include="Views/ProjectImpactEvaluation/Index.cshtml">
+      <publishTime>02/08/2026 10:28:26</publishTime>
+    </File>
+    <File Include="Views/ProjectImpactEvaluation/PostImpactDetails.cshtml">
+      <publishTime>02/08/2026 11:01:13</publishTime>
+    </File>
+    <File Include="Views/Regions/All.cshtml">
+      <publishTime>07/14/2024 02:44:36</publishTime>
+    </File>
+    <File Include="Views/Regions/Create.cshtml">
+      <publishTime>07/14/2024 02:44:35</publishTime>
+    </File>
+    <File Include="Views/Regions/Delete.cshtml">
+      <publishTime>02/10/2019 19:57:56</publishTime>
+    </File>
+    <File Include="Views/Regions/Details.cshtml">
+      <publishTime>02/10/2019 19:57:56</publishTime>
+    </File>
+    <File Include="Views/Regions/Edit.cshtml">
+      <publishTime>07/14/2024 02:47:25</publishTime>
+    </File>
+    <File Include="Views/Regions/Index.cshtml">
+      <publishTime>07/14/2024 02:47:25</publishTime>
+    </File>
+    <File Include="Views/Reports/Acceleration.cshtml">
+      <publishTime>09/15/2024 09:37:45</publishTime>
+    </File>
+    <File Include="Views/Reports/AccelerationResult.cshtml">
+      <publishTime>07/14/2024 02:39:52</publishTime>
+    </File>
+    <File Include="Views/Reports/ChartArrayBasic.cshtml">
+      <publishTime>07/14/2024 02:40:21</publishTime>
+    </File>
+    <File Include="Views/Reports/CorporatesResult.cshtml">
+      <publishTime>06/04/2021 03:07:52</publishTime>
+    </File>
+    <File Include="Views/Reports/Corporations.cshtml">
+      <publishTime>11/25/2024 10:22:32</publishTime>
+    </File>
+    <File Include="Views/Reports/Incubation.cshtml">
+      <publishTime>11/25/2024 10:23:53</publishTime>
+    </File>
+    <File Include="Views/Reports/IncubationResult.cshtml">
+      <publishTime>07/14/2024 02:42:23</publishTime>
+    </File>
+    <File Include="Views/Reports/WorkShops.cshtml">
+      <publishTime>11/25/2024 09:35:12</publishTime>
+    </File>
+    <File Include="Views/Reports/WorkShopsResult.cshtml">
+      <publishTime>07/14/2024 02:43:28</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Collection.cshtml">
+      <publishTime>05/31/2021 14:51:05</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>12/04/2024 11:57:12</publishTime>
+    </File>
+    <File Include="Views/Shared/Lockout.cshtml">
+      <publishTime>09/15/2024 09:43:44</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>09/15/2024 09:47:11</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutLogin.cshtml">
+      <publishTime>09/15/2024 09:47:11</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutPage.cshtml">
+      <publishTime>02/04/2026 08:46:38</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>07/15/2024 14:20:23</publishTime>
+    </File>
+    <File Include="Views/Shared/_LstIncubationFollowUpEvaluationLines.cshtml">
+      <publishTime>09/15/2024 09:47:11</publishTime>
+    </File>
+    <File Include="Views/Shared/_LstIncubationWorkshopFollowUpEvaluationLines.cshtml">
+      <publishTime>09/15/2024 09:47:11</publishTime>
+    </File>
+    <File Include="Views/Shared/_LstTransaction.cshtml">
+      <publishTime>03/13/2025 13:20:11</publishTime>
+    </File>
+    <File Include="Views/Shared/_LstTransactionList.cshtml">
+      <publishTime>12/08/2024 16:14:21</publishTime>
+    </File>
+    <File Include="Views/TypeOfIntervention/All.cshtml">
+      <publishTime>07/14/2024 02:38:10</publishTime>
+    </File>
+    <File Include="Views/TypeOfIntervention/Create.cshtml">
+      <publishTime>07/14/2024 02:38:47</publishTime>
+    </File>
+    <File Include="Views/TypeOfIntervention/Edit.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/TypeOfIntervention/Index.cshtml">
+      <publishTime>10/07/2019 12:54:09</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Views/WorkshopRequest/Index.cshtml">
+      <publishTime>07/14/2024 02:34:44</publishTime>
+    </File>
+    <File Include="Views/WorkshopRequest/WorkshopRequests.cshtml">
+      <publishTime>04/06/2025 17:02:10</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>09/12/2024 13:17:52</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/09/2026 09:02:09</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

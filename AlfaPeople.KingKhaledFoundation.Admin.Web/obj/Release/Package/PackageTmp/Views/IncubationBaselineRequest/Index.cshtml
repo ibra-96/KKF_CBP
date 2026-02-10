@@ -1,0 +1,1278 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.IncubationBaseline>
+@{
+    ViewBag.title = Resources.General.BaselineRequest;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- <div class="col-md-10 ml-auto mr-auto"> -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="toolbar">
+                        </div>
+                        <div class="material-datatables">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                                   width="100%" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Resources.IncubationRequest.RequesterName
+                                        </th>
+                                        <th>
+                                            @Resources.IncubationRequest.Status
+                                        </th>
+                                        <th>@Resources.General.View</th>
+                                        <th>@Resources.General.Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FrontendUser.CorporateApplicationForms.FirstOrDefault().Name)
+                                            </td>
+                                            <td>
+                                                @if (item.IncubationBaselineStatus.NameEN == "Accepted")
+                                                {
+                                                    <span class="badge badge-pill badge-success">
+                                                        @Resources.IncubationRequest.Accepted
+                                                    </span>
+                                                }
+                                                else if (item.IncubationBaselineStatus.NameEN == "Rejected")
+                                                {
+                                                    <span class="badge badge-pill badge-danger">
+                                                        @Resources.IncubationRequest.Rejected
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge btn-warning">
+                                                        @if (ViewBag.lang == 3)
+                                                        {
+                                                            @(item.IncubationBaselineStatus.NameAR)
+                                                        }
+                                                        else
+                                                        {
+                                                            @(item.IncubationBaselineStatus.NameEN)
+                                                        }
+                                                    </span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-default btn-link" data-toggle="modal" onclick="GetDataInd('@item.FrontendUserID','@item.FrontendUser.AspNetUser.AspNetRoles.First().Name')" data-target='#@item.FrontendUser.AspNetUser.AspNetRoles.First().Name'>
+                                                    @*rel="tooltip" data-placement="bottom">*@
+                                                    <i class="material-icons">art_track</i>
+                                                </button>
+                                                @*<a href="@Url.Action("CorporateProfile",new { id = item.FrontendUserID})">
+                                                        <i class="material-icons">art_track</i>
+                                                    </a>*@
+                                            </td>
+                                            <td>
+                                                @*<a href="@Url.Action("Details",new { id = item.IncubationBaselineID, Type = Request.QueryString["Type"] })">
+                                                    <i class="material-icons">details</i>
+                                                </a>*@
+                                                @if (item.IncubationBaselineStatus.NameEN == "Pending" || item.IncubationBaselineStatus.NameEN == "Baseline Application Form Updated")
+                                                    {
+                                                        <a href="@Url.Action("Details",new { id = item.IncubationBaselineID})">
+                                                            <i class="material-icons">details</i>
+                                                        </a>
+                                                    }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<!-- End Content -->
+<!-- Modals -->
+<!-- Modal Add Employee -->
+<div class="modal fade" id="Corporation" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    <!-- <b> + </b> Add New Employee -->
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--      Wizard container        -->
+                <div class="wizard-container">
+                    <div class="card card-wizard active" data-color="rose" id="AddEmployee" style="box-shadow: none;">
+
+                        <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                        <div class="card-header text-center">
+                            <!-- <h3 class="card-title">
+                                    </h3>
+                                    <h5 class="card-description"></h5> -->
+                        </div>
+                        <div class="wizard-navigation">
+                            <ul class="nav nav-pills">
+
+                                @*<li class="nav-item">
+                                        <a class="nav-link active" href="#RegistrationData" data-toggle="tab" role="tab">
+                                            @Resources.CorporationRegistered.RegistrationData
+                                        </a>
+                                    </li>*@
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#BasicData" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.BasicData
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Contacts" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.Contacts
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Account" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.Account
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Attachment" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.Attachment
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                @*<div class="tab-pane active" id="RegistrationData">
+                                        <h5 class="info-text"> @Resources.CorporationRegistered.WhyWouldYouLikeToJoinUs </h5>
+                                        <div class="row justify-content-center">
+                                             <div class="col-lg-10 mt-3">
+                                              <div class="form-group select-wizard">
+                                                <label for="dbd_Join" class="bmd-label-floating"> Registration Purpose: </label>
+                                                <select id="dbd_Join" required class="selectpicker" data-size="7" data-style="select-with-transition" title="Select Purpose">
+                                                  <option value="Programs"> Join to Programs </option>
+                                                  <option value="Workshops"> Join to Workshops </option>
+                                                </select>
+                                              </div>
+                                            </div>
+                                            <div id="div_Program" class="col-lg-10 mt-3">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Program" class="bmd-label-floating"> @Resources.CorporationRegistered.ProgramType </label>
+                                                    <select id="dbd_Program" required class="selectpicker" data-size="7" data-style="select-with-transition" title="Select Program">
+                                                            <option value="CapacityBuilding"> Capacity building program </option>
+                                                            <option value="SocialInvestment"> Social Investment Program </option>
+                                                        </select>
+
+                                                    <input type="text" class="form-control" id="Program" value="uhiuh" name="Program" required disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                <div class="tab-pane active" id="BasicData">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-4">
+                                            <div class="picture-container">
+                                                <div class="picture">
+                                                    <img src="" class="picture-src" id="PictureCor" />
+
+                                                </div>
+                                                <!-- <h6 class="description">Choose Picture</h6> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Name" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.CorporationName
+                                                    </label>
+                                                    <input type="text" class="form-control" id="Name" value="National Housing" name="Name"
+                                                           required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Date">@Resources.CorporationRegistered.FoundedYear </label>
+                                                    <input type="text" class="form-control " value="09/07/1975" id="FoundedYear"
+                                                           name="Date" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Join" class="bmd-label-floating">@Resources.CorporationRegistered.Sector</label>
+                                                    <input type="text" class="form-control " id="CorporationsCategoryName" value="uuu" />
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Join" class="bmd-label-floating">@Resources.CorporationRegistered.FieldOfWork</label>
+                                                    <input type="text" class="form-control " id="CorporateFieldOfWorkName" value="uuu" />
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_RegistrationNumber" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.CorporationRegitrationNumber
+
+                                                    </label>
+                                                    <input type="text" class="form-control" id="RegistrationNumber" value="95135782645"
+                                                           name="RegistrationNumber" required>
+                                                </div>
+                                            </div>
+                                            @*<div class="input-group form-control-lg">
+                                                    <div class="togglebutton">
+                                                        <label>
+                                                            @Resources.CorporationRegistered.IsThereABoardOfDirectors
+                                                            <input id="IsThereBoard" type="checkbox" checked="checked">
+                                                            <span class="toggle"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>*@
+                                            <div @*id="DateElections"*@ class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="DateElection"> @Resources.CorporationRegistered.DateElection </label>
+                                                    <input type="text" class="form-control " id="DateElection" value="" name="DateElection" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_csnp" class="bmd-label-floating">@Resources.CorporationRegistered.NonProfitSectorType</label>
+                                                    <input type="text" class="form-control " id="ClassificationSectorName" value="hiuui" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_csnp" class="bmd-label-floating">@Resources.CorporationRegistered.GenderTypeOnTheOrganization</label>
+                                                    <input type="text" class="form-control " id="CorporateGenderType" value="hiuui" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_AuthorizationAuthority" class="bmd-label-floating">
+                                                        @Resources.General.AuthorizationAuthority
+                                                    </label>
+                                                    <input type="text" class="form-control" id="AuthorizationAuthorityName" value="Government"
+                                                           name="AuthorizationAuthority" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="TaxNumber" class="bmd-label-floating"> @Resources.CorporationRegistered.TaxNumber </label>
+                                                    <input type="text" class="form-control" id="TaxNumber" value="987458245" name="TaxNumber"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="History" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.ABriefHistoryOftheCorporationAssociation
+                                                    </label>
+                                                    <textarea class="form-control" id="History" name="about" rows="5" style="width: 113%;"
+                                                              required>
+                                                           @Resources.CorporationRegistered.ABriefHistoryOftheCorporationAssociationValue
+                                                        </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Vision" class="bmd-label-floating"> @Resources.CorporationRegistered.Vision</label>
+                                                    <textarea class="form-control" id="Vision" name="Vision" rows="5" style="width: 113%;"
+                                                              required>
+                                                           
+                                                        </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Mission" class="bmd-label-floating">@Resources.CorporationRegistered.Mission</label>
+                                                    <textarea class="form-control" id="Mission" name="Mission" rows="5" style="width: 113%;"
+                                                              required>
+                                                           
+                                                        </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Objectives" class="bmd-label-floating">@Resources.CorporationRegistered.Objectives</label>
+                                                    <textarea class="form-control" id="Objectives" name="Objectives" rows="5" style="width: 113%;"
+                                                              required>
+                                                            
+                                                        </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Contacts">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Countries" class="bmd-label-floating">@Resources.General.Region</label>
+                                                    <input type="text" class="form-control" id="RegionName" value="RegionName"
+                                                           name="RegionName" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_States" class="bmd-label-floating">@Resources.General.Governorate</label>
+                                                    <input type="text" class="form-control" id="Governorate" value="Government"
+                                                           name="AuthorizationAuthority" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Cities" class="bmd-label-floating">@Resources.General.Neighborhoods</label>
+                                                    <input type="text" class="form-control" id="CityName" value="Government"
+                                                           name="AuthorizationAuthority" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group" style="width: 100%;">
+                                                    <label for="Inp_Address" class="bmd-label-floating">@Resources.CorporationRegistered.Address </label>
+                                                    <input type="text" class="form-control" id="Address" name="Address" value="Al Olaya Street, Riyadh, saudi arabia"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="inqExtention" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.Extension
+                                                    </label>
+                                                    @*<input type="text" class="form-control" id="Inp_Address" name="Address" value="Al Olaya Street, Riyadh, saudi arabia"
+                                                        required>*@
+                                                    <input type="text" class="form-control" id="Extention" name="Extention" value="huuh" required>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="POBox" class="bmd-label-floating">@Resources.CorporationRegistered.POBox </label>
+                                                    <input type="text" class="form-control" id="POBox" value="51466" name="POBox"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="PostalCode" class="bmd-label-floating">@Resources.CorporationRegistered.PostalCode</label>
+                                                    <input type="text" class="form-control" id="PostalCode" value="11543" name="PostalCode"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="TelephoneNumber" class="bmd-label-floating">@Resources.CorporationRegistered.TelephoneNumber</label>
+                                                    <input type="text" class="form-control" id="TelephoneNumber" value="011 951 3578"
+                                                           name="TelephoneNumber" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="FaxNumber" class="bmd-label-floating">@Resources.CorporationRegistered.FaxNumber </label>
+                                                    <input type="text" class="form-control" id="FaxNumber" value="786 3578" name="FaxNumber"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="OfficialEmail" class="bmd-label-floating">@Resources.CorporationRegistered.OfficialEmail</label>
+                                                    <input type="email" class="form-control" id="OfficialEmail" value="jjj"
+                                                           name="OfficialEmail" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Website" class="bmd-label-floating">@Resources.CorporationRegistered.Website</label>
+                                                    <input class="form-control" type="text" id="Website" name="Website" value="www.nhq.com"
+                                                           url="true" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_TwitterAccount" class="bmd-label-floating">@Resources.CorporationRegistered.TwitterAccount</label>
+                                                    <input type="email" class="form-control" id="TwitterAccount" value="sss"
+                                                           name="TwitterAccount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_YouTubeAccount" class="bmd-label-floating">@Resources.CorporationRegistered.YouTubeAccount</label>
+                                                    <input type="email" class="form-control" id="YouTubeAccount" value="ddd"
+                                                           name="YouTubeAccount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_SnapchatAccount" class="bmd-label-floating">@Resources.CorporationRegistered.SnapchatAccount</label>
+                                                    <input type="email" class="form-control" id="SnapchatAccount" value="ddd"
+                                                           name="SnapchatAccount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="InstagramAccount" class="bmd-label-floating">@Resources.CorporationRegistered.InstagramAccount</label>
+                                                    <input type="email" class="form-control" id="InstagramAccount" value="dddd"
+                                                           name="InstagramAccount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Account">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_UserName">@Resources.General.Username</label>
+                                                    <input type="text" class="form-control" id="UserName" value="Nayef Al-Abdallah"
+                                                           name="UserName" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Email">@Resources.General.Email </label>
+                                                    <input type="email" class="form-control" id="Email" value="Nayef-Abdallah@NHQ.com"
+                                                           name="Email" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Password">@Resources.General.Password </label>
+                                                    <input type="password" class="form-control" id="Inp_Password" value="123456" name="Password"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="CorporateAdministratorName" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.NameOfAdministratorCorporation
+
+                                                    </label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorName" value="Nayef Abdallah"
+                                                           name="AdministratorCorporationName">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_JobTitle" class="bmd-label-floating">@Resources.CorporationRegistered.JobTitle </label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorJobTitle" value="Co-Founder" required
+                                                           name="JobTitle">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="CorporateAdministratorMobileNumber" class="bmd-label-floating">@Resources.CorporationProfile.Mobile</label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorMobileNumber" value="056 357 7378"
+                                                           required name="MobileNumber">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="CorporateAdministratorTelephoneNumber" class="bmd-label-floating">@Resources.CorporationRegistered.TelephoneNumber </label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorTelephoneNumber" value="735 8246"
+                                                           required name="TelephoneNumber">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Extension" class="bmd-label-floating">@Resources.CorporationRegistered.Extension </label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorExtension" value="055" required name="Extension">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Admon" class="bmd-label-floating">
+                                                        @*@Resources.CorporationRegistered.AdminEmail*@
+                                                        @Resources.CorporationProfile.AdminEmail
+                                                    </label>
+                                                    <input type="text" class="form-control" id="AdminEmail" value="055" required name="AdminEmail">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+                                </div>
+
+                                @*
+                                    <div class="tab-pane" id="Attachment">
+                                        <div class="row justify-content-center">
+                                            <div class="col-sm-5">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+
+                                                        <div class="col-lg-12" style="margin-top: 57px; margin-bottom: 145px;">
+                                                            <div id="Attachfiles" class="card-footer justify-content-center ">
+                                                                @foreach (var item in Model._CorporateApplicationForm.CorporateApplicationFormAttachments)
+                                                                    {
+                                                                        <a class="btn btn-link btn-default" href="@Url.Action("Download", new { id = item.AttachmentID })" target="_blank">
+                                                                            <i class="material-icons">attach_file</i>
+                                                                            @item.Name <div class="ripple-container"></div>
+                                                                        </a>
+                                                                    }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                *@
+
+                                <div class="tab-pane" id="Attachment">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-12">
+                                            <div class="material-datatables">
+                                                <table id="AttachmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>@Resources.General.AttachmentName</th>
+                                                            <th>@Resources.General.AttachmentType</th>
+                                                            <th>@Resources.General.AttachmentSize</th>
+                                                            <th class="disabled-sorting">@Resources.General.Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Attachfiles"></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- wizard container -->
+            </div>
+            <div class="modal-footer">
+                @*<button type="submit" class="btn btn-info btn-link">Confirm</button>
+                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Reject</button>*@
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modal Add Employee -->
+<!-- Modal IndIvidual -->
+<div class="modal fade" id="IndIvidual" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <!--<h4 class="modal-title">
+                <b> + </b> Add New Employee</h4> -->
+            </div>
+            <div class="modal-body">
+                <!--      Wizard container        -->
+                <div class="wizard-container">
+                    <div class="card card-wizard" data-color="rose" id="wizardProfile">
+                        <form id="BuildProfile" action="./dashboard.html" method="" target="">
+                            <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                            <div class="card-header text-center">
+                                <!-- <h3 class="card-title">
+                                Build Your Profile
+                                </h3>
+                                <h5 class="card-description">This information will let us know more about you.</h5> -->
+                            </div>
+                            <div class="wizard-navigation">
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#BasicData2" data-toggle="tab" role="tab">
+                                            Basic Data
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#Contacts2" data-toggle="tab" role="tab">
+                                            Contacts
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#Education2" data-toggle="tab" role="tab">
+                                            Education
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#Account2" data-toggle="tab" role="tab">
+                                            Account
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="BasicData2">
+                                        <h5 class="info-text"> Let's start with the basic information </h5>
+                                        <div class="row justify-content-center">
+                                            <div class="col-sm-4">
+                                                <div class="picture-container">
+
+                                                    <!-- <h6 class="description">Choose Picture</h6> -->
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <label for="Inp_FullName" class="bmd-label-floating">FUll Name </label>
+                                                        <input type="text" class="form-control" id="NameInd" name="FullName" value="Faris AlRashed Alhumaid" required>
+                                                    </div>
+                                                </div>
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <label for="Inp_BirthDate">Birth Date </label>
+                                                        <input type="text" class="form-control datepicker" id="Inp_BirthDateInd" value="07/08/1987" name="BirthDate" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group select-wizard">
+                                                        <label for="dbd_Gender" class="bmd-label-floating">Gender &nbsp&nbsp</label>
+                                                        <input type="text" class="form-control datepicker" id="GenderInd" value="07/08/1987" name="BirthDate" required>
+
+                                                    </div>
+                                                </div>
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <label for="Inp_IdentityNumber" class="bmd-label-floating"> Identity Number </label>
+                                                        <input type="text" class="form-control" id="Inp_IdentityNumberInd" value="0564821973" name="IdentityNumber" required>
+                                                    </div>
+                                                </div>
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <label for="Inp_WorkStartDate"> Work Start Date </label>
+                                                        <input type="text" class="form-control datepicker" id="Inp_WorkStartDateInd" value="12/12/2017" name="WorkStartDate" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group select-wizard">
+                                                        <label for="Inp_Nationality" class="bmd-label-floating"> Nationality</label>
+                                                        <input type="text" class="form-control" id="NatiolatyInd" value="1kpko" name="koko" required>
+
+                                                    </div>
+                                                </div>
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <label for="Inp_CompanyName" class="bmd-label-floating">Company Name </label>
+                                                        <input type="text" class="form-control" id="Inp_CompanyNameInd" value="Saudi Telecom Company" name="CompanyName" required>
+                                                    </div>
+                                                </div>
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <label for="Inp_Position" class="bmd-label-floating"> Position </label>
+                                                        <input type="text" class="form-control" id="Inp_PositionInd" value="Delivery Director" name="Position" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <label for="Inp_PositionDetail" class="bmd-label-floating">Explain the functions of the position in detail </label>
+                                                        <textarea class="form-control" id="Inp_PositionDetail" name="PositionDetail" rows="6" required style="width: 113%;">
+                                                            - To monitor the project from the initiation and take the responsibility for its successful delivery.
+                                                            - To collaborate with project manager to get insights on project execution.
+                                                            - To work closely with project managers and team members to define the client needs.
+                                                            - Should Have a client-convincing skill for fund releasing before the successful delivery of each phase.
+                                                            - To be capable of working independently and have strong decision-making skills to solve the issues.
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="Contacts2">
+                                        <div class="row justify-content-center">
+                                            <div class="col-sm-12">
+                                                <h5 class="info-text"> Help us to contact with you </h5>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group select-wizard">
+                                                        <label for="dbd_Countries" class="bmd-label-floating">Countries</label>
+                                                        <input type="text" class="form-control" id="ContryIND" value="Delivery Director" name="contryind" required>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group select-wizard">
+                                                        <label for="dbd_States" class="bmd-label-floating">Region</label>
+                                                        <input type="text" class="form-control" id="RegionInd" value="Delivery Director" name="StatInd" required>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group select-wizard">
+                                                        <label for="dbd_Cities" class="bmd-label-floating">Cities</label>
+                                                        <input type="text" class="form-control" id="CityInd" value="Delivery Director" name="CityInd" required>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group" style="width: 100%;">
+                                                        <label for="Inp_Address" class="bmd-label-floating">Address </label>
+                                                        <input type="text" class="form-control" id="Inp_AddressInd" value="Al Olaya Street, Riyadh, saudi arabia" name="Address" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <label for="Inp_PostalCode" class="bmd-label-floating">Postal Code </label>
+                                                        <input type="text" class="form-control" id="Inp_PostalCodeInd" value="12611" name="PostalCode" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <label for="Inp_MobileNumber" class="bmd-label-floating">Mobile Number </label>
+                                                        <input type="text" class="form-control" id="Inp_MobileNumberInd" value="059 977 4433" name="MobileNumber" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <label for="Inp_TelephoneNumber" class="bmd-label-floating">Telephone Number </label>
+                                                        <input type="text" class="form-control" id="Inp_TelephoneNumberInd" value="951 3578" required name="TelephoneNumber">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <label for="Inp_Extension" class="bmd-label-floating">Extension </label>
+                                                        <input type="text" class="form-control" id="Inp_ExtensionInd" value="011" required name="Extension">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="Education2">
+                                        <div class="row justify-content-center">
+                                            <!-- col-md-12 -->
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Educational Qualifications</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="material-datatables">
+                                                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Qualification</th>
+                                                                        <th>Specialization</th>
+                                                                        <th>Issued From</th>
+                                                                        <th>Date</th>
+                                                                        <th class="disabled-sorting">Actions</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Bachelor's Degree</td>
+                                                                        <td>Management Information Systems</td>
+                                                                        <td>King Saud University</td>
+                                                                        <td>01/01/2016</td>
+                                                                        <td class="text-right">
+                                                                            <button class="btn btn-link btn-info btn-just-icon like" type="button" data-toggle="modal" data-target="#AddQualifications">
+                                                                                <i class="material-icons">add</i>
+                                                                            </button>
+                                                                            <button class="btn btn-link btn-warning btn-just-icon edit" type="button" data-toggle="modal" data-target="#EditQualifications">
+                                                                                <i class="material-icons">edit</i>
+                                                                            </button>
+                                                                            <button class="btn btn-link btn-danger btn-just-icon remove" type="button" onclick="demo.showSwal('warning-message-and-cancel')">
+                                                                                <i class="material-icons">delete</i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Master's Degree</td>
+                                                                        <td>Management Information Systems</td>
+                                                                        <td>King Faisal University</td>
+                                                                        <td>01/01/2017</td>
+                                                                        <td class="text-right">
+                                                                            <button class="btn btn-link btn-info btn-just-icon like" type="button" data-toggle="modal" data-target="#AddQualifications">
+                                                                                <i class="material-icons">add</i>
+                                                                            </button>
+                                                                            <button class="btn btn-link btn-warning btn-just-icon edit" type="button" data-toggle="modal" data-target="#EditQualifications">
+                                                                                <i class="material-icons">edit</i>
+                                                                            </button>
+                                                                            <button class="btn btn-link btn-danger btn-just-icon remove" type="button" onclick="demo.showSwal('warning-message-and-cancel')">
+                                                                                <i class="material-icons">delete</i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Doctorate Degree</td>
+                                                                        <td>Management Information Systems</td>
+                                                                        <td>King Khalid University</td>
+                                                                        <td>01/01/2018</td>
+                                                                        <td class="text-right">
+                                                                            <button class="btn btn-link btn-info btn-just-icon like" type="button" data-toggle="modal" data-target="#AddQualifications">
+                                                                                <i class="material-icons">add</i>
+                                                                            </button>
+                                                                            <button class="btn btn-link btn-warning btn-just-icon edit" type="button" data-toggle="modal" data-target="#EditQualifications">
+                                                                                <i class="material-icons">edit</i>
+                                                                            </button>
+                                                                            <button class="btn btn-link btn-danger btn-just-icon remove" type="button" onclick="demo.showSwal('warning-message-and-cancel')">
+                                                                                <i class="material-icons">delete</i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end content-->
+                                                </div>
+                                                <!--  end card  -->
+                                                <!-- <hr style="border-top: 3px solid rgba(0,0,0,.1); margin-top: 3rem;"> -->
+                                            </div>
+                                            <!-- end col-md-12 -->
+                                            <!-- col-md-12 -->
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Related Training Courses</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="material-datatables">
+                                                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Training/Workshop/Seminar</th>
+                                                                        <th>Organisers</th>
+                                                                        <th>Representation</th>
+                                                                        <th>Date</th>
+                                                                        <th class="disabled-sorting">Actions</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Build Huge Systems</td>
+                                                                        <td>Microsoft</td>
+                                                                        <td>Trainee</td>
+                                                                        <td>01/01/2016</td>
+                                                                        <td class="text-right">
+                                                                            <button class="btn btn-link btn-info btn-just-icon like" type="button" data-toggle="modal" data-target="#AddRelatedCourses">
+                                                                                <i class="material-icons">add</i>
+                                                                            </button>
+                                                                            <button class="btn btn-link btn-warning btn-just-icon edit" type="button" data-toggle="modal" data-target="#EditRelatedCourses">
+                                                                                <i class="material-icons">edit</i>
+                                                                            </button>
+                                                                            <button class="btn btn-link btn-danger btn-just-icon remove" type="button" onclick="demo.showSwal('warning-message-and-cancel')">
+                                                                                <i class="material-icons">delete</i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Systems Integration</td>
+                                                                        <td>Cisco Systems</td>
+                                                                        <td>Trainee</td>
+                                                                        <td>01/01/2017</td>
+                                                                        <td class="text-right">
+                                                                            <button class="btn btn-link btn-info btn-just-icon like" type="button" data-toggle="modal" data-target="#AddRelatedCourses">
+                                                                                <i class="material-icons">add</i>
+                                                                            </button>
+                                                                            <button class="btn btn-link btn-warning btn-just-icon edit" type="button" data-toggle="modal" data-target="#EditRelatedCourses">
+                                                                                <i class="material-icons">edit</i>
+                                                                            </button>
+                                                                            <button class="btn btn-link btn-danger btn-just-icon remove" type="button" onclick="demo.showSwal('warning-message-and-cancel')">
+                                                                                <i class="material-icons">delete</i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Software Development</td>
+                                                                        <td>Google</td>
+                                                                        <td>Trainee</td>
+                                                                        <td>01/01/2018</td>
+                                                                        <td class="text-right">
+                                                                            <button class="btn btn-link btn-info btn-just-icon like" type="button" data-toggle="modal" data-target="#AddRelatedCourses">
+                                                                                <i class="material-icons">add</i>
+                                                                            </button>
+                                                                            <button class="btn btn-link btn-warning btn-just-icon edit" type="button" data-toggle="modal" data-target="#EditRelatedCourses">
+                                                                                <i class="material-icons">edit</i>
+                                                                            </button>
+                                                                            <button class="btn btn-link btn-danger btn-just-icon remove" type="button" onclick="demo.showSwal('warning-message-and-cancel')">
+                                                                                <i class="material-icons">delete</i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end content-->
+                                                </div>
+                                                <!--  end card  -->
+                                            </div>
+                                            <!-- end col-md-12 -->
+                                            <!-- col-md-12 -->
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">General Questions</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <!-- <div class="col-lg-10">
+                                                        <div class="input-group form-control-lg"> -->
+                                                        <div class="form-group">
+                                                            <label for="Inp_WYJWorkshop" class="bmd-label-floating">What causes you to participate in the workshop? </label>
+                                                            <textarea class="form-control" id="Inp_WYJWorkshop" name="WYJWorkshop" rows="5" required>
+                                                                1. Have a great time!
+                                                                2. Learn how to incorporate learning strategies into content coursework.
+                                                                3. Explore classroom issues that impede student success and learn how to deal with them.
+                                                                4. Gain access to what colleagues from across the nation are doing to ensure student success.
+                                                            </textarea>
+                                                        </div>
+                                                        <!-- </div>
+                                                        </div> -->
+                                                    </div>
+                                                    <!-- end content-->
+                                                </div>
+                                                <!--  end card  -->
+                                            </div>
+                                            <!-- end col-md-12 -->
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="Account2">
+                                        <div class="row justify-content-center">
+                                            <div class="col-sm-12">
+                                                <h5 class="info-text"> Let's start with the building your Authentication </h5>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <!-- <label for="Inp_UserName" class="bmd-label-floating">User Name </label> -->
+                                                        <label for="Inp_UserName">User Name </label>
+                                                        <input type="text" class="form-control" id="Inp_UserNameInd" value="Faris AlRashed" name="UserName" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <!-- <label for="Inp_Email" class="bmd-label-floating">Email </label> -->
+                                                        <label for="Inp_Email">Email </label>
+                                                        <input type="email" class="form-control" id="Inp_EmailInd" value="Faris-AlRashed@OutLook.Com" name="Email" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="input-group form-control-lg">
+                                                    <div class="form-group">
+                                                        <!-- <label for="Inp_Password" class="bmd-label-floating">Password </label> -->
+                                                        <label for="Inp_Password">Password </label>
+                                                        <input type="password" class="form-control" id="Inp2_Password" value="*********" name="Password" disabled>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- wizard container -->
+            </div>
+            <div class="modal-footer">
+                @*<button type="submit" class="btn btn-info btn-link">Confirm</button>
+                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Reject</button>*@
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modal Add Employee -->
+
+
+
+@section Scripts{
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('Type')) {
+            if (urlParams.get('Type') == "Incubation") {
+                window.onload = function (e) {
+                    $('#navItem_Inc_IncubationBaselineRequest').addClass('active');
+                    $('#Incubation').addClass('show');
+                };
+            }
+            else if (urlParams.get('Type') == "Acceleration") {
+                window.onload = function (e) {
+                    $('#navItem_Acc_IncubationBaselineRequest').addClass('active');
+                    $('#Acceleration').addClass('show');
+                };
+            }
+            else if (urlParams.get('Type') == "Workshop") {
+                window.onload = function (e) {
+                    $('#navItem_WS_IncubationBaselineRequest').addClass('active');
+                    $('#Workshop').addClass('show');
+                };
+            }
+        }
+    </script>
+
+    <script>
+
+
+        $(document).ready(function () {
+            // $("#DateElection ").toggle();
+            $("#IsThereBoard").click(function () {
+                $("#DateElections ").toggle();
+            });
+            $("#BasicData *").attr("disabled", "disabled").off('click');
+            $("#Contacts *").attr("disabled", "disabled").off('click');
+            $("#Education *").attr("disabled", "disabled").off('click');
+            $("#Account *").attr("disabled", "disabled").off('click');
+        });
+        $("#togglebutton").click(function () {
+
+            $("#IsActive").prop("checked", true);
+        });
+
+
+        $(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                $("#datatables").DataTable({
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                $("#datatables").DataTable();
+            }
+        });
+
+
+        function AcceptRequest(FrontEndUserId, count, projectId,Type) {
+            $.getJSON('@Url.Action("AcceptRejectRequest", "IncubationRequest")', { "UserId": FrontEndUserId, "ProjectId": projectId,"RequestType":Type }, function (Result) {
+
+                if (Result != null && !jQuery.isEmptyObject(Result)) {
+                    var row = $(count).parent().parent().index() + 1;
+                    var x = document.getElementById('datatables').rows[parseInt(row, 10)].cells;
+
+                    if (Type=="Accepted") {
+
+                        x[2].innerHTML = '<span class="badge badge-pill badge-success"> Accepted </span>';
+
+                    }
+                    else
+
+                    {
+                        x[2].innerHTML = '<span class="badge badge-pill badge-danger"> Rejected </span>';
+
+                    }
+                    x[4].innerHTML = '';
+                    x[5].innerHTML = '';
+                    alertify.notify("Action Successfully", 'custome', 4, function () { console.log('dismissed'); });
+
+                }
+            });
+
+        }
+        function GetDataInd(UserId, RoleName) {
+            if (RoleName == "IndIvidual") {
+                $.getJSON('@Url.Action("GetIndUserData", "IncubationRequest")', { "UserId": UserId }, function (Result) {
+                    if (Result != null && !jQuery.isEmptyObject(Result)) {
+                        $("#ProgramInd").val(Result[0].ProgramName);
+                        $("#NameInd").val(Result[0].Name);
+                        $("#Inp_BirthDateInd").val(Result[0].birthdate);
+                        $("#GenderInd").val(Result[0].Gender);
+                        $("#Inp_IdentityNumberInd").val(Result[0].IdentityNumber);
+                        $("#Inp_WorkStartDateInd").val(Result[0].WorkStartDate);
+                        $("#NatiolatyInd").val(Result[0].NationalityAR);
+                        $("#Inp_CompanyNameInd").val(Result[0].CompanyName);
+                        $("#Inp_PositionInd").val(Result[0].Position);
+                        $("#Inp_PositionDetail").val(Result[0].PositionDetails);
+                        $("#ContryIND").val(Result[0].NameAR);
+                        $("#RegionInd").val(Result[0].RegionNameAR);
+                        $("#CityInd").val(Result[0].CityNameAR);
+                        $("#Inp_AddressInd").val(Result[0].Address);
+                        $("#Inp_PostalCodeInd").val(Result[0].PostalCode);
+                        $("#Inp_MobileNumberInd").val(Result[0].MobileNumber);
+                        $("#Inp_TelephoneNumberInd").val(Result[0].TelephoneNumber);
+                        $("#Inp_ExtensionInd").val(Result[0].Extension);
+                        $("#Inp_UserNameInd").val(Result[0].UserName);
+                        $("#Inp_EmailInd").val(Result[0].Email);
+                        $("#Inp_ExtensionInd").val(Result[0].Extension);
+
+                    }
+                });
+            }
+            else if (RoleName == "Corporation")
+            {
+                $.getJSON('@Url.Action("GetCorporationUserData","Home")', { "UserId": UserId }, function (Result) {
+
+            if (Result != null && !jQuery.isEmptyObject(Result)) {
+
+
+
+                @*@if(ViewBag.lang == 3 )
+                {
+                <Text>
+                $("#AuthorizationAuthorityNameAR").val(Result[0].AuthorizationAuthorityNameAR);
+                $("#CityNameAR").val(Result[0].CityNameEN);
+                $("#ClassificationSectorNameAR").val(Result[0].ClassificationSectorNameAR);
+                $("#CorporateFieldOfWorkNameEN").val(Result[0].CorporateFieldOfWorkNameAR);
+                $("#CorporationsCategoryNameAR").val(Result[0].CorporationsCategoryNameAR);
+                $("#GovernorateAR").val(Result[0].GovernorateAR);
+                $("#Program").val(Result[0].ProgramNameAR);
+
+                </Text>
+                }
+                else {
+                    <Text>
+                </Text>
+                }*@
+
+                $("#PictureCor").attr("src", Result[0].Picture);
+                $("#Name").val(Result[0].Name);
+                $("#FoundedYear").val(Result[0].FoundedYear);
+                $("#Mission").val(Result[0].Mission);
+                $("#Address").val(Result[0].Address);
+                $("#AuthorizationAuthorityName").val(Result[0].AuthorizationAuthorityName);
+                $("#CityName").val(Result[0].CityName);
+                $("#ClassificationSectorName").val(Result[0].ClassificationSectorName);
+                $("#CorporateFieldOfWorkName").val(Result[0].CorporateFieldOfWorkName);
+                $("#CorporationsCategoryName").val(Result[0].CorporationsCategoryName);
+                $("#Governorate").val(Result[0].Governorate);
+                $("#Program").val(Result[0].ProgramName);
+                $("#CorporateGenderType").val(Result[0].CorporateGenderType);
+                $("#Code").val(Result[0].Code);
+                $("#CorporateAdministratorExtension").val(Result[0].CorporateAdministratorExtension);
+                $("#CorporateAdministratorJobTitle").val(Result[0].CorporateAdministratorJobTitle);
+                $("#CorporateAdministratorMobileNumber").val(Result[0].CorporateAdministratorMobileNumber);
+                $("#CorporateAdministratorName").val(Result[0].CorporateAdministratorName);
+                $("#CorporateAdministratorTelephoneNumber").val(Result[0].CorporateAdministratorTelephoneNumber);
+                $("#DateElection").val(Result[0].DateElection);
+                $("#Extention").val(Result[0].Extension);
+                $("#FaxNumber").val(Result[0].FaxNumber);
+                $("#History").val(Result[0].History);
+                $("#InstagramAccount").val(Result[0].InstagramAccount);
+                $("#InstagramAccount").val(Result[0].InstagramAccount);
+                $("#Objectives").val(Result[0].Objectives);
+               // $("#OfficialEmail").val(Result[0].OfficialEmail);
+                $("#POBox").val(Result[0].POBox);
+                $("#PostalCode").val(Result[0].PostalCode);
+                $("#RegionName").val(Result[0].RegionName);
+                $("#RegistrationNumber").val(Result[0].RegistrationNumber);
+                $("#SnapchatAccount").val(Result[0].SnapchatAccount);
+                $("#SnapchatAccount").val(Result[0].SnapchatAccount);
+                $("#TaxNumber").val(Result[0].TaxNumber);
+                $("#TelephoneNumber").val(Result[0].TelephoneNumber);
+                $("#TwitterAccount").val(Result[0].TwitterAccount);
+                $("#Vision").val(Result[0].Vision);
+                $("#Website").val(Result[0].Website);
+                $("#YouTubeAccount").val(Result[0].YouTubeAccount);
+                $("#Email").val(Result[0].Email);
+                $("#OfficialEmail").val(Result[0].OfficialEmail);
+                $("#UserName").val(Result[0].UserName);
+                $("#AdminEmail").val(Result[0].AdminEmail);
+
+                $("#Attachfiles").empty();
+                for (var i = 0; i < Result[0].lstFile.length; i++) {
+                    var actiondownload = '@Url.Action("Download")';
+                    $("#Attachfiles").append('<tr><td><a class="btn btn-link btn-default" href="' + actiondownload + '/' + Result[0].lstFile[i].id + '"><i class="material-icons">attach_file</i>' + (Result[0].lstFile[i].name.length >= 25 ? Result[0].lstFile[i].name.substring(0, 25) + '....' + (Result[0].lstFile[i].name.split('.').pop()) : Result[0].lstFile[i].name) + '</a></td><td>' + Result[0].lstFile[i].Type + '</td><td>' + Result[0].lstFile[i].Size + ' Bytes</td><td class="text-right"><a class="btn btn-link btn-rose btn-just-icon" href="' + actiondownload + '/' + Result[0].lstFile[i].id + '"><i class="material-icons">get_app</i></a></td></tr>');
+                    //$("#Attachfiles").append(' <a class="btn btn-link btn-default" href="' + actiondownload + '/' + Result[0].lstFile[i].id + '" target="_blank"><i class="material-icons">attach_file</i> ' + Result[0].lstFile[i].name + ' <div class="ripple-container"></div></a>');
+                }
+            };
+        });
+            }
+
+        }
+
+    </script>
+}

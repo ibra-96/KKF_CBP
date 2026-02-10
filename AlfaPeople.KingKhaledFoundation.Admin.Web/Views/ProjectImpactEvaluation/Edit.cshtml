@@ -1,0 +1,177 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.ProjectImpactEvaluationVM
+@{
+    ViewBag.Title = "تعديل قياس الأثر";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    var eval = Model != null ? Model.ProjectImpactEvaluation : null;
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header card-header-rose card-header-text">
+                        <div class="card-text">
+                            <h4 class="card-title">تعديل قياس الأثر</h4>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+
+                        @if (eval == null)
+                        {
+                            <div>لا توجد بيانات.</div>
+                        }
+                        else
+                        {
+                            using (Html.BeginForm("Edit", "ProjectImpactEvaluation", FormMethod.Post, new { id = "editForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                @Html.HiddenFor(m => m.ProjectImpactEvaluation.ProjectImpactEvaluationId)
+                                @Html.HiddenFor(m => m.ProjectImpactEvaluation.IncubationWorkshopID)
+
+                                <div class="row">
+
+                                 
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>الورشة</label>
+                                            <input type="text" class="form-control" value="@(eval.IncubationWorkshop != null ? eval.IncubationWorkshop.Name : "-")" readonly />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>الحالة العامة</label>
+                                            <input type="text" class="form-control" value="@(eval.IsFilled ? "تمت التعبئة" : "لم تتم التعبئة")" readonly />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>@*@Resources.ProjectImpactEvaluation.Deadline*@تاريخ انتهاء التقديم</label>
+                                            @Html.TextBoxFor(m => m.ProjectImpactEvaluation.Deadline,
+                                                "{0:yyyy-MM-dd}",
+                                                new { @class = "form-control", @id = "Deadline" })
+                                            @Html.ValidationMessageFor(m => m.ProjectImpactEvaluation.Deadline, "", new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>@*@Resources.ProjectImpactEvaluation.ReminderDate*@تاريخ التذكير</label>
+                                            @Html.TextBoxFor(m => m.ProjectImpactEvaluation.ReminderDate,
+                                                "{0:yyyy-MM-dd}",
+                                                new { @class = "form-control", @id = "ReminderDate" })
+                                            @Html.ValidationMessageFor(m => m.ProjectImpactEvaluation.ReminderDate, "", new { @class = "text-danger" })
+                                        </div>
+
+                                    </div>
+
+                                  
+
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="Notes">ملاحظات</label>
+                                            @Html.TextAreaFor(m => m.ProjectImpactEvaluation.Notes, new { @class = "form-control", rows = "2" })
+                                            @Html.ValidationMessageFor(m => m.ProjectImpactEvaluation.Notes, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="card-footer justify-content-center">
+                                            <input type="submit" value="حفظ التعديل" class="btn btn-rose" />
+                                            <a class="btn btn-default" href="@Url.Action("Index")">رجوع</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            }
+
+                            <hr />
+
+                            <!-- جدول الطلبات للجمعيات -->
+                            <h5 style="margin-top:15px;">حالات الجمعيات</h5>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>الجمعية</th>
+                                            <th>الحالة</th>
+                                            <th>تاريخ التذكير (تم الإرسال)</th>
+                                            <th>تاريخ التعبئة</th>
+                                            <th style="width:200px;">إجراء</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (eval.ProjectImpactEvaluationRequests != null && eval.ProjectImpactEvaluationRequests.Any())
+                                        {
+                                            foreach (var req in eval.ProjectImpactEvaluationRequests)
+                                            {
+                                                var corpName = (req.FrontendUser != null && req.FrontendUser.AspNetUser != null)
+                                                    ? req.FrontendUser.AspNetUser.UserName
+                                                    : req.FrontendUserId.ToString();
+
+                                                <tr>
+                                                    <td>@corpName</td>
+                                                    <td>@req.Status.ToString()</td>
+                                                    <td>@(req.ReminderSentOn.HasValue ? req.ReminderSentOn.Value.ToString("yyyy-MM-dd") : "-")</td>
+                                                    <td>@(req.FilledOn.HasValue ? req.FilledOn.Value.ToString("yyyy-MM-dd") : "-")</td>
+                                                    <td>
+                                                        <a class="btn btn-sm btn-default"
+                                                           href="@Url.Action("PostImpactDetails", "ProjectImpactEvaluation",
+                                                     new { evaluationId = Model.ProjectImpactEvaluation.ProjectImpactEvaluationId, frontendUserId = req.FrontendUserId })">
+                                                            عرض النموذج
+                                                        </a>
+                                                        @*@if (req.Status.ToString() != "Filled")
+        {
+            using (Html.BeginForm("MarkFilled", "ProjectImpactEvaluation", FormMethod.Post, new { style = "display:inline;" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="evaluationId" value="@eval.ProjectImpactEvaluationId" />
+                <input type="hidden" name="frontendUserId" value="@req.FrontendUserId" />
+                <button type="submit" class="btn btn-sm btn-rose"
+                        onclick="return confirm('تأكيد: سيتم اعتماد (تمت التعبئة) وإرسال بريد الإتمام لهذه الجمعية.');">
+                    تمت التعبئة
+                </button>
+            }
+        }
+        else
+        {
+            <span class="text-success">تمت التعبئة</span>
+        }*@
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td colspan="5">لا توجد جمعيات مرتبطة.</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#Deadline, #ReminderDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+        });
+    </script>
+}

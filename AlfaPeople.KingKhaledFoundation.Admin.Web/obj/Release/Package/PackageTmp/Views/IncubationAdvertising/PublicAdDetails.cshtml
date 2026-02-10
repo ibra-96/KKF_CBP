@@ -1,0 +1,103 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.IncubationAdvertising
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    bool isArabic = AlfaPeople.KingKhaledFoundation.Admin.Web.Helper.CultureHelper.CurrentCulture == 3;
+    ViewBag.Title = Resources.IncubationAdvertising.AdvertisingDetails;
+}
+<style>
+    html, body {
+        height: 100%;
+    }
+
+    .card.card-login {
+        /* max-width: 90%;*/
+        height: 80vh; /* ارتفاع البطاقة حسب الشاشة */
+        margin: 5vh auto;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .card-header-custom {
+        background-color: #C0A979;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        flex-shrink: 0;
+    }
+
+    .card-body {
+        padding: 25px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        flex: 1 1 auto;
+    }
+
+    .card-footer {
+        padding: 20px;
+        flex-shrink: 0;
+    }
+
+    .btn-portal {
+        background-color: #C0A979;
+        color: white;
+        font-weight: bold;
+        padding: 10px 30px;
+        margin-top: 20px;
+    }
+</style>
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card card-login card-hidden">
+                <div class="card-header  card-header-custom text-center" style="background-color: #C0A979; color: white;">
+                    <h4 class="card-title-bar">
+                        @Resources.IncubationAdvertising.AdvertisingDetails
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">@Resources.IncubationAdvertising.AdvertisingName</dt>
+                        <dd class="col-sm-8">@Model.Name</dd>
+
+                        <dt class="col-sm-4">@Resources.IncubationAdvertising.AdvertisingDetails</dt>
+                        <dd class="col-sm-8">@Model.AdvertisingDetails</dd>
+
+                        <dt class="col-sm-4">@Resources.IncubationAdvertising.StartDate</dt>
+                        <dd class="col-sm-8">@Model.StartDate.ToString("yyyy-MM-dd")</dd>
+
+                        <dt class="col-sm-4">@Resources.IncubationAdvertising.EndDate</dt>
+                        <dd class="col-sm-8">@Model.EndDate.ToString("yyyy-MM-dd")</dd>
+
+                        @*<dt class="col-sm-4">@Resources.IncubationAdvertising.AdvertisingType</dt>
+                <dd class="col-sm-8">
+                    @(Model.ISPublic ? Resources.IncubationAdvertising.Public : Resources.IncubationAdvertising.Private)
+                </dd>*@
+
+
+
+                        <dt class="col-sm-4">@Resources.IncubationAdvertising.EntryRequirements</dt>
+                        <dd class="col-sm-8">@Model.EntryRequirements</dd>
+
+                        @*<dt class="col-sm-4">@Resources.IncubationAdvertising.FundingSource</dt>
+                <dd class="col-sm-8">@((isArabic) ? Model.FundingSource?.FundingSourceNameAR : Model.FundingSource?.FundingSourceNameEN)</dd>*@
+
+
+
+                    </dl>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="https://cbp.kkf.org.sa/" class="btn btn-rose btn-lg" target="_blank">
+                        @(isArabic ? "الذهاب إلى المنصة" : "Go to Platform")
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

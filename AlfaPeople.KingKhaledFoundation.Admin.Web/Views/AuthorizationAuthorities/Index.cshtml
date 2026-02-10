@@ -1,0 +1,73 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.AuthorizationAuthority>
+@{
+
+    Layout = null;
+}
+
+<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+       width="100%" style="width:100%">
+    <thead>
+        <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.AuthorizationAuthorityNameAR)
+                </th>*@
+            <th>
+                @if (ViewBag.lang == 3)
+                {
+                    @Resources.AuthorizationAuthorities.AuthorizationAuthorityNameAR
+                }
+                else
+                {
+                    @Resources.AuthorizationAuthorities.AuthorizationAuthorityNameEN
+                }
+            </th>
+            <th>
+                @Resources.AuthorizationAuthorities.IsActive
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.AuthorizationAuthorityNameAR)
+                    </td>*@
+                <td>
+                    @if (ViewBag.lang == 3)
+                    {
+                        @Html.DisplayFor(modelItem => item.AuthorizationAuthorityNameAR)
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.AuthorizationAuthorityNameEN)
+
+                    }
+                </td>
+                <td>
+                    @if (item.IsActive == true)
+                    {
+                    <span class="badge badge-pill badge-success">
+                        @Resources.AuthorizationAuthorities.Acitve
+                    </span>
+
+                    }
+                    else
+                    {
+                    <span class="badge badge-pill badge-danger">
+                        @Resources.AuthorizationAuthorities.InAcitve
+                    </span>
+
+                    }
+
+                </td>
+                <td>
+                    <a class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditClassificationSectorNonProfit" onclick="Edit('@Url.Action("Edit", "AuthorizationAuthorities", new { id=@item.AuthorizationAuthorityID})')"><i class="material-icons">edit</i></a>
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,35 @@
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Debug\AlphaPeople.Repository.dll.config
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Debug\AlphaPeople.Repository.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Debug\AlphaPeople.Repository.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Debug\EntityFramework.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Debug\EntityFramework.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlfaPeople.KingKhalidFoundation.Repository.csproj.CoreCompileInputs.cache
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlfaPeople.KingKhalidFoundation.Repository.csproj.CopyComplete
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlphaPeople.Repository.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlphaPeople.Repository.pdb
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Repository\bin\Debug\AlphaPeople.Repository.dll.config
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Repository\bin\Debug\AlphaPeople.Repository.dll
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Repository\bin\Debug\AlphaPeople.Repository.pdb
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Repository\bin\Debug\EntityFramework.dll
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Repository\bin\Debug\EntityFramework.xml
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlfaPeople.KingKhalidFoundation.Repository.csproj.AssemblyReference.cache
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlfaPeople.KingKhalidFoundation.Repository.csproj.CoreCompileInputs.cache
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlfaPeop.AC97FB8F.Up2Date
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlphaPeople.Repository.dll
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlphaPeople.Repository.pdb
+C:\CBP_KKF\AlphaPeople.Repository\bin\Debug\AlphaPeople.Repository.dll.config
+C:\CBP_KKF\AlphaPeople.Repository\bin\Debug\AlphaPeople.Repository.dll
+C:\CBP_KKF\AlphaPeople.Repository\bin\Debug\AlphaPeople.Repository.pdb
+C:\CBP_KKF\AlphaPeople.Repository\bin\Debug\EntityFramework.dll
+C:\CBP_KKF\AlphaPeople.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\CBP_KKF\AlphaPeople.Repository\bin\Debug\EntityFramework.xml
+C:\CBP_KKF\AlphaPeople.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlfaPeople.KingKhalidFoundation.Repository.csproj.AssemblyReference.cache
+C:\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlfaPeople.KingKhalidFoundation.Repository.csproj.CoreCompileInputs.cache
+C:\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlfaPeople.KingKhalidFoundation.Repository.csproj.CopyComplete
+C:\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlphaPeople.Repository.dll
+C:\CBP_KKF\AlphaPeople.Repository\obj\Debug\AlphaPeople.Repository.pdb

@@ -1,0 +1,781 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Web.Models.IncubationBaselineVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@{
+    ViewBag.title = Resources.IncubationRequest.Baseline;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+
+<!-- Content -->
+<div class="content" style="direction:@Resources.General.dir; text-align:@Resources.General.TextAlign;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div id="cardBody" class="card-body ">
+                    @using (Html.BeginForm("BaselineApplicationForm", "Home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.HiddenFor(model => model.IncubationBL.FrontendUserID)
+                        @Html.HiddenFor(model => model.IncubationBL.IncubationBaselineID)
+                        @Html.HiddenFor(model => model.IncubationBL.IncubationBaselineStatusID)
+                        @Html.HiddenFor(model => model.IncubationBL.submissionDate)
+                        @Html.HiddenFor(model => model.IncubationBL.Feadback)
+                        @Html.HiddenFor(model => model.IncubationBL.StrategicPlan)
+                        @Html.HiddenFor(model => model.IncubationBL.OperatingPlan)
+                        @Html.HiddenFor(model => model.IncubationBL.GovernanceGuide)
+                        @Html.HiddenFor(model => model.IncubationBL.CharteredAccountantNotes)
+                        @Html.HiddenFor(model => model.IncubationBL.AttachFollowUpandEvaluationForms)
+                        @Html.HiddenFor(Model => Model.DraftFlage, new { @id = "DraftFlage", @value = "False" })
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div id="BodyContent">
+                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                    @Resources.IncubationRequest.TheStrategy
+                                </span>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_ReasonEstablishingCorporate" class="bmd-label">@Resources.IncubationRequest.OrganizationEstablishedFor </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.ReasonEstablishingCorporate, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_History" class="bmd-label"> @Resources.IncubationRequest.History </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.History, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_Vision" class="bmd-label"> @Resources.IncubationRequest.Vision </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.Vision, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_Mission" class="bmd-label"> @Resources.IncubationRequest.Mission </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.Mission, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_Objectives" class="bmd-label"> @Resources.IncubationRequest.Objectives </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.Objectives, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_HowPlanMade" class="bmd-label"> @Resources.IncubationRequest.HowTheStratgicPlanDeveloped </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.HowPlanMade, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4" id="StrategicPlan_LinkDiv">
+                                    <div>
+                                        <label for="StrategicPlan" class="bmd-label"> @Resources.IncubationRequest.PleaseAttachTheStrategicPlan </label>
+                                        <a class="text-rose" href="@Url.Action("DownloadIncubBLAttachment", new { URL = Model.IncubationBL.StrategicPlan })">
+                                            <i class="material-icons">get_app</i>
+                                        </a>
+                                        <a onclick="replaceAttachmentFile('@Model.IncubationBL.IncubationBaselineID', 'StrategicPlan', '@Model.IncubationBL.StrategicPlan')" class="text-danger remove" href="#" @*href="@Url.Action("DeleteIncubPPAttachment", new { Id = Model.IncubationBL.IncubationProjectProposalID, attach = "StrategicPlan", URL = Model.IncubationBL.StrategicPlan })"*@>
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4" id="StrategicPlan_UploadDiv">
+                                    <div>
+                                        <label for="StrategicPlan" class="bmd-label"> @Resources.IncubationRequest.PleaseAttachTheStrategicPlan </label>
+                                        @Html.TextBoxFor(model => model.StrategicPlan, "", new { @type = "file" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="OperatingPlanCheckBox">
+                                            @Html.CheckBox("OperatingPlanCheckBox")
+                                            @Resources.IncubationRequest.DoesTheOrganizationHaveAnAnnualOperatingPlan
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="OperatingPlanDiv" class="col-sm-4">
+                                    <div id="OperatingPlan_LinkDiv">
+                                        <label for="OperatingPlan" class="bmd-label"> @Resources.IncubationRequest.PleaseAttachThisYearOperatingPlan </label>
+                                        <a class="text-rose" href="@Url.Action("DownloadIncubBLAttachment", new { URL = Model.IncubationBL.OperatingPlan })">
+                                            <i class="material-icons">get_app</i>
+                                        </a>
+                                        <a onclick="replaceAttachmentFile('@Model.IncubationBL.IncubationBaselineID', 'OperatingPlan', '@Model.IncubationBL.StrategicPlan')" class="text-danger remove" href="#" @*href="@Url.Action("DeleteIncubPPAttachment", new { Id = Model.IncubationBL.IncubationProjectProposalID, attach = "OperatingPlan", URL = Model.IncubationBL.OperatingPlan })"*@>
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </div>
+                                    <div id="OperatingPlan_UploadDiv">
+                                        <label for="OperatingPlan" class="bmd-label"> @Resources.IncubationRequest.PleaseAttachThisYearOperatingPlan </label>
+                                        @Html.TextBoxFor(model => model.OperatingPlan, "", new { @type = "file" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_StrategicObjective" class="bmd-label"> @Resources.IncubationRequest.DoesTheOrganztionHaveAnStratgicObject </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.StrategicObjective, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                    @Resources.IncubationRequest.BoardOfDirectors
+                                </span>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_BoardDirectorsCount" class="bmd-label"> @Resources.IncubationRequest.HowManyBoardMembers </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.BoardDirectorsCount, new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_DateBoardApproval" class="bmd-label"> @Resources.IncubationRequest.DateOfBoardApproval </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.DateBoardApproval, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    @*<div class="form-check">*@
+                                    <div class="form-group">
+                                        <label for="GovernanceGuideCheckBox">
+                                            @Html.CheckBox("GovernanceGuideCheckBox")
+                                            @Resources.IncubationRequest.OrganizationGovernmentGuid
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="GovernanceGuideDiv" class="col-sm-6">
+                                    <div id="GovernanceGuide_LinkDiv">
+                                        <label for="GovernanceGuide" class="bmd-label"> @Resources.IncubationRequest.PleaseAttachAGovernmentGuide </label>
+                                        <a class="text-rose" href="@Url.Action("DownloadIncubBLAttachment", new { URL = Model.IncubationBL.GovernanceGuide })">
+                                            <i class="material-icons">get_app</i>
+                                        </a>
+                                        <a onclick="replaceAttachmentFile('@Model.IncubationBL.IncubationBaselineID', 'GovernanceGuide', '@Model.IncubationBL.StrategicPlan')" class="text-danger remove" href="#" @*href="@Url.Action("DeleteIncubPPAttachment", new { Id = Model.IncubationBL.IncubationProjectProposalID, attach = "GovernanceGuide", URL = Model.IncubationBL.GovernanceGuide })"*@>
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </div>
+                                    <div id="GovernanceGuide_UploadDiv">
+                                        <label for="GovernanceGuide" class="bmd-label"> @Resources.IncubationRequest.PleaseAttachAGovernmentGuide </label>
+                                        @Html.TextBoxFor(model => model.GovernanceGuide, "", new { @type = "file" })*
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_InternalRegulation">
+                                            @Html.CheckBoxFor(model => model.IncubationBL.InternalRegulation)
+                                            @Resources.IncubationRequest.BoardMemmbersRoles
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_BoardMeetingNumber" class="bmd-label"> @Resources.IncubationRequest.BoarderMemmbersMeetings  </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.BoardMeetingNumber, new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_BoardDirectorRoles" class="bmd-label"> @Resources.IncubationRequest.BoardMemmbersRolesForOrganiziation </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.BoardDirectorRoles, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                    @Resources.IncubationRequest.FinanceResource
+                                </span>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="FRDevSpecialistsCountCheckBox">
+                                            @Html.CheckBox("FRDevSpecialistsCountCheckBox")
+                                            @Resources.IncubationRequest.IsThereIsSpecializeDepartmentForFinancialResources
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="FRDevSpecialistsCountDiv" class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_FRDevSpecialistsCount" class="bmd-label"> @Resources.IncubationRequest.HowManyEmployees </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.FRDevSpecialistsCount, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_CorporateRevenuesLastYear" class="bmd-label"> @Resources.IncubationRequest.VolumeOfOrganizationRevenue </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.CorporateRevenuesLastYear, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_SupportersCountLastYear" class="bmd-label"> @Resources.IncubationRequest.NumberOfFinanceSupporter </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.SupportersCountLastYear, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                    <span style="font-size: 12px;" class="badge badge-pill badge-default">
+                                        @Resources.IncubationRequest.NumberOfDonors
+                                    </span>
+                                </div>
+                                <div class="row col-lg-12">
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label for="IncubationBL_DonorInstitutions">
+                                                @Html.CheckBoxFor(model => model.IncubationBL.DonorInstitutions) @Resources.IncubationRequest.DonorFoundations
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label for="IncubationBL_GovernmentAgencies">
+                                                @Html.CheckBoxFor(model => model.IncubationBL.GovernmentAgencies) @Resources.IncubationRequest.GovernmentAgencies
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label for="IncubationBL_PrivateSector">
+                                                @Html.CheckBoxFor(model => model.IncubationBL.PrivateSector) @Resources.IncubationRequest.PrivateSector
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label for="IncubationBL_Individuals">
+                                                @Html.CheckBoxFor(model => model.IncubationBL.Individuals) @Resources.IncubationRequest.Individuals
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label for="IncubationBL_Investments">
+                                                @Html.CheckBoxFor(model => model.IncubationBL.Investments) @Resources.IncubationRequest.Investments
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="form-group">
+                                            <label for="IncubationBL_Alms">
+                                                @Html.CheckBoxFor(model => model.IncubationBL.Alms) @Resources.IncubationRequest.Alms
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_BoardDirectorRoles" class="bmd-label"> @Resources.IncubationRequest.PleaseIndicateNumberDonors </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.IndicateNumberAndSupportAmount, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_CurrentCorporateBudget" class="bmd-label">@Resources.IncubationRequest.OrganzationBudget </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.CurrentCorporateBudget, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_CharteredAccountantNotesCount" class="bmd-label"> @Resources.IncubationRequest.CharteredAccountantNotes </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.CharteredAccountantNotesCount, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div id="CharteredAccountantNotes_LinkDiv" class="col-sm-12">
+                                    <div>
+                                        <label for="CharteredAccountantNotes" class="bmd-label">@Resources.IncubationRequest.AttachAccountantNotes </label>
+                                        <a class="text-rose" href="@Url.Action("DownloadIncubBLAttachment", new { URL = Model.IncubationBL.CharteredAccountantNotes })">
+                                            <i class="material-icons">get_app</i>
+                                        </a>
+                                        <a onclick="replaceAttachmentFile('@Model.IncubationBL.IncubationBaselineID', 'CharteredAccountantNotes', '@Model.IncubationBL.StrategicPlan')" class="text-danger remove" href="#" @*href="@Url.Action("DeleteIncubPPAttachment", new { Id = Model.IncubationBL.IncubationProjectProposalID, attach = "CharteredAccountantNotes", URL = Model.IncubationBL.CharteredAccountantNotes })"*@>
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="CharteredAccountantNotes_UploadDiv" class="col-sm-12">
+                                    <div>
+                                        <label for="CharteredAccountantNotes" class="bmd-label"> @Resources.IncubationRequest.AttachAccountantNotes </label>
+                                        @Html.TextBoxFor(model => model.CharteredAccountantNotes, "", new { @type = "file" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                    @Resources.IncubationRequest.ProgramsAndProjects
+                                </span>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="specializedPandPDepartmentCheckBox">
+                                            @Html.CheckBox("specializedPandPDepartmentCheckBox")
+                                            @Resources.IncubationRequest.SpecializedForProgramsAndProjects
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="specializedPandPDepartmentDiv" class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_specializedPandPDepartmentEmpCount" class="bmd-label"> @Resources.IncubationRequest.HowManyEmployees </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.specializedPandPDepartmentEmpCount, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_PlanAccordingStrategicObjectives">
+                                            @Html.CheckBoxFor(model => model.IncubationBL.PlanAccordingStrategicObjectives) @Resources.IncubationRequest.organizationStratgicObjectvies
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="PlanImplementationActivitiesParticipationClarifyCheckBox">
+                                            @Html.CheckBox("PlanImplementationActivitiesParticipationClarifyCheckBox")
+                                            @Resources.IncubationRequest.organizationStratgicObjectviesAndImplements
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="PlanImplementationActivitiesParticipationClarifyDiv" class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_PlanImplementationActivitiesParticipationClarify" class="bmd-label"> @Resources.IncubationRequest.PleaseClarify </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.PlanImplementationActivitiesParticipationClarify, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_IndicateDevelopmentProjectsWorkingOrganization" class="bmd-label"> @Resources.IncubationRequest.IndicateDevelopmentProjects </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.IndicateDevelopmentProjectsWorkingOrganization, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="IncubationBL_BudgetAllocatedProjects" class="bmd-label"> @Resources.IncubationRequest.ProjectAllocatedBudget </label>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(model => model.IncubationBL.BudgetAllocatedProjects, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="IncubationBL_BudgetAllocatedOperation" class="bmd-label"> @Resources.IncubationRequest.ProjectAllocatedBudgetAmount</label>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(model => model.IncubationBL.BudgetAllocatedOperation, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                    @Resources.IncubationRequest.FollowupAndEvaluation
+                                </span>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="DepartmentFollowUpEvaluationCheckBox">
+                                            @Html.CheckBox("DepartmentFollowUpEvaluationCheckBox")
+                                            @Resources.IncubationRequest.SpecializedForEvalutionAndMonitoring
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="DepartmentFollowUpEvaluationDiv" class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_DepartmentFollowUpEvaluationEmpCount" class="bmd-label"> @Resources.IncubationRequest.HowManyEmployees </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.DepartmentFollowUpEvaluationEmpCount, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_OrganizationFollowUpEvaluationPlan">
+                                            @Html.CheckBoxFor(model => model.IncubationBL.OrganizationFollowUpEvaluationPlan)
+                                            @Resources.IncubationRequest.FollowUpAndEvaluationProjectsAndPrograms
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_OrganizationFollowUpEvaluationReports">
+                                            @Html.CheckBoxFor(model => model.IncubationBL.OrganizationFollowUpEvaluationReports)
+                                            @Resources.IncubationRequest.FollowUpAndEvaluationImplentation
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="AttachFollowUpandEvaluationForms_LinkDiv" class="col-sm-6">
+                                    <div>
+                                        <label for="AttachFollowUpandEvaluationForms" class="bmd-label"> @Resources.IncubationRequest.FollowUpAndEvaluationAttachment </label>
+                                        <a class="text-rose" href="@Url.Action("DownloadIncubBLAttachment", new { URL = Model.IncubationBL.AttachFollowUpandEvaluationForms })">
+                                            <i class="material-icons">get_app</i>
+                                        </a>
+                                        <a onclick="replaceAttachmentFile('@Model.IncubationBL.IncubationBaselineID', 'AttachFollowUpandEvaluationForms', '@Model.IncubationBL.StrategicPlan')" class="text-danger remove" href="#" @*href="@Url.Action("DeleteIncubPPAttachment", new { Id = Model.IncubationBL.IncubationProjectProposalID, attach = "AttachFollowUpandEvaluationForms", URL = Model.IncubationBL.AttachFollowUpandEvaluationForms })"*@>
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="AttachFollowUpandEvaluationForms_UploadDiv" class="col-sm-6">
+                                    <div>
+                                        <label for="AttachFollowUpandEvaluationForms" class="bmd-label"> @Resources.IncubationRequest.FollowUpAndEvaluationAttachment </label>
+                                        @Html.TextBoxFor(model => model.AttachFollowUpandEvaluationForms, "", new { @type = "file" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                    @Resources.IncubationRequest.ConnectionAndPublicRelations
+                                </span>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="DepartmentCorporateCommunicationPublicRelationsCheckBox">
+                                            @Html.CheckBox("DepartmentCorporateCommunicationPublicRelationsCheckBox")
+                                            @Resources.IncubationRequest.SpecializedInRelationAndMedia
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="DepartmentCorporateCommunicationPublicRelationsDiv" class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_DepartmentCorporateCommunicationPublicRelationsEmpCount" class="bmd-label"> @Resources.IncubationRequest.HowManyEmployees</label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.DepartmentCorporateCommunicationPublicRelationsEmpCount, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_CorporateCommunicationPlan">
+                                            @Html.CheckBoxFor(model => model.IncubationBL.CorporateCommunicationPlan)
+
+                                            @Resources.IncubationRequest.CommunicationPlan
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_SeparateItemGeneralBudget">
+                                            @Html.CheckBoxFor(model => model.IncubationBL.SeparateItemGeneralBudget)
+
+                                            @Resources.IncubationRequest.SeparateBudgetOfCorprateCommunication
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_BudgetAllocatedCorporateCommunication" class="bmd-label">@Resources.IncubationRequest.BudgetOfCorprateCommunication </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.BudgetAllocatedCorporateCommunication, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                    @Resources.IncubationRequest.HumanResources
+                                </span>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="DepartmentHRCheckBox">
+                                            @Html.CheckBox("DepartmentHRCheckBox")
+                                            @Resources.IncubationRequest.HRSpecializedDepartment
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="DepartmentHRDiv" class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_DepartmentHREmpCount" class="bmd-label"> @Resources.IncubationRequest.HowManyEmployees </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.DepartmentHREmpCount, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                    <span style="font-size: 12px;" class="badge badge-pill badge-default">
+                                        @Resources.IncubationRequest.AllEmployeeNumbers
+                                    </span>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_DepartmentHREmpCount" class="bmd-label"> @Resources.IncubationRequest.FullTimeStaff </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.FullTimeStaff, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_DepartmentHREmpCount" class="bmd-label"> @Resources.IncubationRequest.PartTimeStaff </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.PartTimeStaff, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_DepartmentHREmpCount" class="bmd-label"> @Resources.IncubationRequest.VolunteerStaff </label>
+                                        @Html.TextBoxFor(model => model.IncubationBL.VolunteerStaff, "", new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_AttractEmployees" class="bmd-label"> @Resources.IncubationRequest.HowToAttractEmployees </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.AttractEmployees, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_StaffPerformanceMonitored" class="bmd-label"> @Resources.IncubationRequest.HowStaffPerformanceIsMonitored </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.StaffPerformanceMonitored, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_OrganizationalStructureUnderHRManagement" class="bmd-label"> @Resources.IncubationRequest.HROrganizationStructure </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.OrganizationalStructureUnderHRManagement, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="IncubationBL_TrainingNeedsCorporateStaffIdentified" class="bmd-label"> @Resources.IncubationRequest.IdentfiyTrainingNeeds </label>
+                                        @Html.TextAreaFor(model => model.IncubationBL.TrainingNeedsCorporateStaffIdentified, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Actions" class="row justify-content-center">
+                            <button id="saveBtn" class="btn btn-info">@Resources.General.Save</button>
+                            &nbsp;
+                            <input id="submitBtn" type="submit" onclick="Validate" class="btn btn-rose" name="Save" value="@Resources.General.Submit">
+                            &nbsp;
+                            <a class="btn btn-default" href="@Url.Action("dashboard")">@Resources.General.Back</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+@section scripts
+{
+    <script>
+    function replaceAttachmentFile(IncubPPId, Attach, Url) {
+        $.getJSON('@Url.Action("DeleteIncubBLAttachment")', { Id: IncubPPId, attach: Attach, URL: Url }, function (Result) {
+            if (Result != null && !jQuery.isEmptyObject(Result)) {
+                if (Result === "Deleted Succsesfully") {
+                    switch (Attach) {
+                        case "StrategicPlan":
+                            $("#StrategicPlan_LinkDiv").hide();
+                            $("#StrategicPlan_UploadDiv").show();
+                            break;
+                        case "OperatingPlan":
+                            $("#OperatingPlan_LinkDiv").hide();
+                            $("#OperatingPlan_UploadDiv").show();
+                            break;
+                        case "GovernanceGuide":
+                            $("#GovernanceGuide_LinkDiv").hide();
+                            $("#GovernanceGuide_UploadDiv").show();
+                            break;
+                        case "CharteredAccountantNotes":
+                            $("#CharteredAccountantNotes_LinkDiv").hide();
+                            $("#CharteredAccountantNotes_UploadDiv").show();
+                            break;
+                        case "AttachFollowUpandEvaluationForms":
+                            $("#AttachFollowUpandEvaluationForms_LinkDiv").hide();
+                            $("#AttachFollowUpandEvaluationForms_UploadDiv").show();
+                            break;
+                    }
+                }
+            }
+        });
+        return false;
+    }
+
+    $(document).ready(function () {
+        var status = '@ViewBag.IncubBLStatus';
+        if (status != '' && status != 'Draft' && status != 'Update Baseline Application Form') {
+            $(".remove").hide();
+            $("#saveBtn").hide();
+            $("#submitBtn").hide();
+            $("#BodyContent *").attr("disabled", "disabled").off('click');
+        }
+        else {
+            if (status == 'Update Baseline Application Form') { $("#saveBtn").hide(); }
+        }
+    });
+
+    $("#saveBtn").click(function () {
+        $("#DraftFlage").val(true)
+    });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+        var Msg = '@ViewBag.Msg';
+        if (Msg != '' && Msg != null) {
+            //alertify.notify(Msg, 'custome', 10, function () { console.log('dismissed'); });
+            //    colors ="white", "info", "danger", "success", "warning", "rose", "primary"
+            //    top, bottom
+            //    left, right, center
+            md.showNotification('top', '@Resources.General.MsgTextAlign', 'notification_important', 'rose', '3e3', '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;"> ' + Msg + ' </h4>')
+        }
+
+
+        if ('@Model.IncubationBL.StrategicPlan' == "" || '@Model.IncubationBL.StrategicPlan' == null) {
+            $("#StrategicPlan_UploadDiv").show();
+            $("#StrategicPlan_LinkDiv").hide();
+        } else {
+            $("#StrategicPlan_UploadDiv").hide();
+            $("#StrategicPlan_LinkDiv").show();
+        }
+
+        if ('@Model.IncubationBL.OperatingPlan' == "" || '@Model.IncubationBL.OperatingPlan' == null) {
+            $("#OperatingPlan_UploadDiv").show();
+            $("#OperatingPlan_LinkDiv").hide();
+        } else {
+            $("#OperatingPlan_UploadDiv").hide();
+            $("#OperatingPlan_LinkDiv").show();
+        }
+
+        if ('@Model.IncubationBL.GovernanceGuide' == "" || '@Model.IncubationBL.GovernanceGuide' == null) {
+            $("#GovernanceGuide_UploadDiv").show();
+            $("#GovernanceGuide_LinkDiv").hide();
+        } else {
+            $("#GovernanceGuide_UploadDiv").hide();
+            $("#GovernanceGuide_LinkDiv").show();
+        }
+
+        if ('@Model.IncubationBL.CharteredAccountantNotes' == "" || '@Model.IncubationBL.CharteredAccountantNotes' == null) {
+            $("#CharteredAccountantNotes_UploadDiv").show();
+            $("#CharteredAccountantNotes_LinkDiv").hide();
+        } else {
+            $("#CharteredAccountantNotes_UploadDiv").hide();
+            $("#CharteredAccountantNotes_LinkDiv").show();
+        }
+
+        if ('@Model.IncubationBL.AttachFollowUpandEvaluationForms' == "" || '@Model.IncubationBL.AttachFollowUpandEvaluationForms' == null) {
+            $("#AttachFollowUpandEvaluationForms_UploadDiv").show();
+            $("#AttachFollowUpandEvaluationForms_LinkDiv").hide();
+        } else {
+            $("#AttachFollowUpandEvaluationForms_UploadDiv").hide();
+            $("#AttachFollowUpandEvaluationForms_LinkDiv").show();
+        }
+    });
+    </script>
+  
+    <script>
+    $(document).ready(function () {
+
+        if ('@Model.IncubationBL.OperatingPlan' == "" || '@Model.IncubationBL.OperatingPlan' == null || '@Model.IncubationBL.OperatingPlan' == 0) {
+            $("#OperatingPlanDiv").hide();
+            $("#OperatingPlanCheckBox").click(function () { if ($(this).is(":checked")) { $("#OperatingPlanDiv").show(); } else { $("#OperatingPlanDiv").hide(); } });
+        } else {
+            $("#OperatingPlanCheckBox").prop("checked", true);
+            $("#OperatingPlanCheckBox").click(function () { if ($(this).is(":checked")) { $("#OperatingPlanDiv").show(); } else { $("#OperatingPlanDiv").hide(); } });
+        }
+
+        if ('@Model.IncubationBL.DepartmentHREmpCount' == "" || '@Model.IncubationBL.DepartmentHREmpCount' == null || '@Model.IncubationBL.DepartmentHREmpCount' == 0) {
+            $("#DepartmentHRDiv").hide();
+            $("#DepartmentHRCheckBox").click(function () { if ($(this).is(":checked")) { $("#DepartmentHRDiv").show(); } else { $("#DepartmentHRDiv").hide(); } });
+        } else {
+            $("#DepartmentHRCheckBox").prop("checked", true);
+            $("#DepartmentHRCheckBox").click(function () { if ($(this).is(":checked")) { $("#DepartmentHRDiv").show(); } else { $("#DepartmentHRDiv").hide(); } });
+        }
+
+        if ('@Model.IncubationBL.DepartmentCorporateCommunicationPublicRelationsEmpCount' == "" || '@Model.IncubationBL.DepartmentCorporateCommunicationPublicRelationsEmpCount' == null || '@Model.IncubationBL.DepartmentCorporateCommunicationPublicRelationsEmpCount' == 0) {
+            $("#DepartmentCorporateCommunicationPublicRelationsDiv").hide();
+            $("#DepartmentCorporateCommunicationPublicRelationsCheckBox").click(function () { if ($(this).is(":checked")) { $("#DepartmentCorporateCommunicationPublicRelationsDiv").show(); } else { $("#DepartmentCorporateCommunicationPublicRelationsDiv").hide(); } });
+        } else {
+            $("#DepartmentCorporateCommunicationPublicRelationsCheckBox").prop("checked", true);
+            $("#DepartmentCorporateCommunicationPublicRelationsCheckBox").click(function () { if ($(this).is(":checked")) { $("#DepartmentCorporateCommunicationPublicRelationsDiv").show(); } else { $("#DepartmentCorporateCommunicationPublicRelationsDiv").hide(); } });
+        }
+
+        if ('@Model.IncubationBL.DepartmentFollowUpEvaluationEmpCount' == "" || '@Model.IncubationBL.DepartmentFollowUpEvaluationEmpCount' == null || '@Model.IncubationBL.DepartmentFollowUpEvaluationEmpCount' == 0) {
+            $("#DepartmentFollowUpEvaluationDiv").hide();
+            $("#DepartmentFollowUpEvaluationCheckBox").click(function () { if ($(this).is(":checked")) { $("#DepartmentFollowUpEvaluationDiv").show(); } else { $("#DepartmentFollowUpEvaluationDiv").hide(); } });
+        } else {
+            $("#DepartmentFollowUpEvaluationCheckBox").prop("checked", true);
+            $("#DepartmentFollowUpEvaluationCheckBox").click(function () { if ($(this).is(":checked")) { $("#DepartmentFollowUpEvaluationDiv").show(); } else { $("#DepartmentFollowUpEvaluationDiv").hide(); } });
+        }
+
+        if ('@Model.IncubationBL.PlanImplementationActivitiesParticipationClarify' == "" || '@Model.IncubationBL.PlanImplementationActivitiesParticipationClarify' == null || '@Model.IncubationBL.PlanImplementationActivitiesParticipationClarify' == 0) {
+            $("#PlanImplementationActivitiesParticipationClarifyDiv").hide();
+            $("#PlanImplementationActivitiesParticipationClarifyCheckBox").click(function () { if ($(this).is(":checked")) { $("#PlanImplementationActivitiesParticipationClarifyDiv").show(); } else { $("#PlanImplementationActivitiesParticipationClarifyDiv").hide(); } });
+        } else {
+            $("#PlanImplementationActivitiesParticipationClarifyCheckBox").prop("checked", true);
+            $("#PlanImplementationActivitiesParticipationClarifyCheckBox").click(function () { if ($(this).is(":checked")) { $("#PlanImplementationActivitiesParticipationClarifyDiv").show(); } else { $("#PlanImplementationActivitiesParticipationClarifyDiv").hide(); } });
+        }
+
+        if ('@Model.IncubationBL.specializedPandPDepartmentEmpCount' == "" || '@Model.IncubationBL.specializedPandPDepartmentEmpCount' == null || '@Model.IncubationBL.specializedPandPDepartmentEmpCount' == 0) {
+            $("#specializedPandPDepartmentDiv").hide();
+            $("#specializedPandPDepartmentCheckBox").click(function () { if ($(this).is(":checked")) { $("#specializedPandPDepartmentDiv").show(); } else { $("#specializedPandPDepartmentDiv").hide(); } });
+        } else {
+            $("#specializedPandPDepartmentCheckBox").prop("checked", true);
+            $("#specializedPandPDepartmentCheckBox").click(function () { if ($(this).is(":checked")) { $("#specializedPandPDepartmentDiv").show(); } else { $("#specializedPandPDepartmentDiv").hide(); } });
+        }
+
+        if ('@Model.IncubationBL.FRDevSpecialistsCount' == "" || '@Model.IncubationBL.FRDevSpecialistsCount' == null || '@Model.IncubationBL.FRDevSpecialistsCount' == 0) {
+            $("#FRDevSpecialistsCountDiv").hide();
+            $("#FRDevSpecialistsCountCheckBox").click(function () { if ($(this).is(":checked")) { $("#FRDevSpecialistsCountDiv").show(); } else { $("#FRDevSpecialistsCountDiv").hide(); } });
+        } else {
+            $("#FRDevSpecialistsCountCheckBox").prop("checked", true);
+            $("#FRDevSpecialistsCountCheckBox").click(function () { if ($(this).is(":checked")) { $("#FRDevSpecialistsCountDiv").show(); } else { $("#FRDevSpecialistsCountDiv").hide(); } });
+        }
+
+        if ('@Model.IncubationBL.GovernanceGuide' == "" || '@Model.IncubationBL.GovernanceGuide' == null || '@Model.IncubationBL.GovernanceGuide' == 0) {
+            $("#GovernanceGuideDiv").hide();
+            $("#GovernanceGuideCheckBox").click(function () { if ($(this).is(":checked")) { $("#GovernanceGuideDiv").show(); } else { $("#GovernanceGuideDiv").hide(); } });
+        } else {
+            $("#GovernanceGuideCheckBox").prop("checked", true);
+            $("#GovernanceGuideCheckBox").click(function () { if ($(this).is(":checked")) { $("#GovernanceGuideDiv").show(); } else { $("#GovernanceGuideDiv").hide(); } });
+        }
+
+        $("#IncubationBL_DateBoardApproval").datepicker({ changeYear: true, dateFormat: 'yy-mm-dd', altFormat: "yy-mm-dd" });
+        var dateBoardApproval = '@ViewBag.dateBoardApproval';
+        $('#IncubationBL_DateBoardApproval').datepicker('setDate', dateBoardApproval)
+
+        if ('@Resources.General.lang' == 'ar') {
+            var table = $('#AttachmentDatatables').DataTable({
+                "paging": true,
+                "searching": true,
+                "info": true,
+                "pagingType": "full_numbers",
+                "lengthMenu": [
+                    [5, 10, 25, 50, -1],
+                    [5, 10, 25, 50, "All"]
+                ],
+                responsive: true,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                }
+            });
+        } else {
+            var table = $('#AttachmentDatatables').DataTable({
+                "paging": true,
+                "searching": true,
+                "info": true,
+                "pagingType": "full_numbers",
+                "lengthMenu": [
+                    [5, 10, 25, 50, -1],
+                    [5, 10, 25, 50, "All"]
+                ],
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search records",
+                }
+            });
+        }
+    });
+    </script>
+}

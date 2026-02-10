@@ -1,0 +1,93 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()"> @Resources.General.LogOff</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var lang = document.documentElement.lang;
+
+            // الحصول على جميع العناصر داخل body
+            var elements = document.body.querySelectorAll('*');
+
+            // قائمة بالكلاسات التي نريد استثنائها
+            var excludedClasses = [
+                'logo',
+                'simple-text',
+                'logo-mini',
+                'logo-normal',
+                'sidebar-wrapper',
+                'ps-container',
+                'ps-theme-default',
+                'user',
+                'photo',
+                'collapse',
+                'nav',
+                'nav-item',
+                'text_align-center',
+                'text_align-center',
+                'material-icons',
+                'table',
+                'sidebar',
+                'text_align-center',
+                '.btn.btn-fab .fa, .btn.btn-fab .material-icons, .btn.btn-just-icon .fa, .btn.btn-just-icon .material-icons'
+            ];
+
+            if (lang === "ar") {
+                document.body.classList.add("rtl");
+                document.body.classList.remove("ltr");
+
+                // تعيين الخصائص للعناصر داخل body ما عدا العناصر المستثناة
+                elements.forEach(function (element) {
+                    var computedStyle = window.getComputedStyle(element);
+
+                    // التحقق إذا كان العنصر يحتوي على أي من الكلاسات المستثناة
+                    var hasExcludedClass = excludedClasses.some(function (className) {
+                        return element.classList.contains(className);
+                    });
+
+                    // استبعاد العناصر التي تحتوي على الكلاسات المستثناة أو text-align: center أو justify-content: center
+                    if (!hasExcludedClass && computedStyle.textAlign !== 'center' && computedStyle.justifyContent !== 'center') {
+                        element.style.direction = 'rtl';
+                        element.style.textAlign = 'right';
+                    }
+                });
+            } else {
+                document.body.classList.add("ltr");
+                document.body.classList.remove("rtl");
+
+                // تعيين الخصائص للعناصر داخل body ما عدا العناصر المستثناة
+                elements.forEach(function (element) {
+                    var computedStyle = window.getComputedStyle(element);
+
+                    // التحقق إذا كان العنصر يحتوي على أي من الكلاسات المستثناة
+                    var hasExcludedClass = excludedClasses.some(function (className) {
+                        return element.classList.contains(className);
+                    });
+
+                    // استبعاد العناصر التي تحتوي على الكلاسات المستثناة أو text-align: center أو justify-content: center
+                    if (!hasExcludedClass && computedStyle.textAlign !== 'center' && computedStyle.justifyContent !== 'center') {
+                        element.style.direction = 'ltr';
+                        element.style.textAlign = 'left';
+                    }
+                });
+            }
+        });
+</script>

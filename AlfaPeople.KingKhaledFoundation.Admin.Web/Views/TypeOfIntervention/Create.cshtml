@@ -1,0 +1,41 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.TypeOfIntervention
+    @{
+        Layout = null;
+        //  ViewBag.Title = "Create";
+    }
+
+    @using (Html.BeginForm("Create", "TypeOfIntervention", FormMethod.Post, new { onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("Index", "TypeOfIntervention", new { id = 0 }) }))//data-resetUrl
+    {
+        @Html.AntiForgeryToken()
+        <div class="modal-body">
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label for="TypeOfInterventionNameEN" class="bmd-label-floating"> @Resources.TypeOfIntervention.TypeOfInterventionNameEN</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TypeOfInterventionNameEN, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.TypeOfInterventionNameEN, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="TypeOfInterventionNameAR" class="bmd-label-floating"> @Resources.TypeOfIntervention.TypeOfInterventionNameAR</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TypeOfInterventionNameAR, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                        @Html.ValidationMessageFor(model => model.TypeOfInterventionNameAR, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="IsActive" class="bmd-label-floating"> @Resources.TypeOfIntervention.IsActive</label>
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(model => model.IsActive, new { htmlAttributes = new { @class = "toggle" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-info btn-link">@Resources.General.Add</button>
+            <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">@Resources.General.Close</button>
+        </div>
+    }
+

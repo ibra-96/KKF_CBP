@@ -1,0 +1,239 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IncubationFollowUpEvaluationVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-text">
+                        <div class="card-text">
+                            <h4 class="card-title"> @Resources.IncubationFollowUpEvaluation.FinalReportsFollowUpEvaluation</h4>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        @using (Html.BeginForm("Create", "IncubationFollowUpEvaluation", FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                        <div class="row justify-content-center">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="col-lg-12">
+                                <button class="btn btn-link btn-info" type="button" id="addLines" name="addLines">
+                                    <i class="material-icons col-md-4" style="font-size: 200%;">group_add</i> @Resources.IncubationFollowUpEvaluation.AddFollowUp
+                                </button>
+                                <br />
+                                <div class="form-group">
+                                    <div id="new-Lines">
+                                        <div>
+                                            @foreach (var Lines in Model.LstIFELVM)
+                                            {
+                                                Html.RenderPartial(" _LstIncubationFollowUpEvaluationLines", Lines);
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @* 3-2-2026 *@
+                            <div class="col-sm-4">
+                                <div class="form-group select-wizard">
+                                    <label class="bmd-label-floating">
+                                        @Resources.IncubationFollowUpEvaluation.SelectCorporation
+                                    </label>
+
+                                    @Html.DropDownListFor(
+                                        model => model.IFEVM.FrontendUserID,
+                                        (SelectList)ViewBag.CorporationUserID,
+                                        Resources.IncubationFollowUpEvaluation.SelectCorporation,  
+                                        new
+                                        {
+                                            @class = "select-wizard form-control selectpicker",
+                                            @required = "required",
+                                            data_style = "select-with-transition",
+
+                                          
+                                            data_width = "100%",
+                                            data_container = "body",
+
+                                         
+                                            data_live_search = "true"
+                                        }
+                                    )
+
+                                    @Html.ValidationMessageFor(model => model.IFEVM.FrontendUserID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            @*<div class="col-sm-4">
+            <div class="form-group select-wizard">
+                <label class="form-group select-wizard">@Resources.IncubationFollowUpEvaluation.SelectCorporation  </label>
+                @Html.DropDownListFor(model => model.IFEVM.FrontendUserID, (SelectList)ViewBag.CorporationUserID, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "Grant", @title = Resources.IncubationFollowUpEvaluation.SelectCorporation, @data_live_search = "true" })
+                @Html.ValidationMessageFor(model => model.IFEVM.FrontendUserID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+                            <div class="col-sm-4">
+                                <div class="form-group select-wizard">
+                                    <label class="form-group select-wizard">@Resources.IncubationFollowUpEvaluation.SelectProject </label>
+                                    @*<select id="FrontendUser" name="finalReportsPS.UserID" required class="select-wizard form-control selectpicker" data-style="select-with-transition"
+                title="Select Corporate"></select>*@
+                                    @Html.DropDownListFor(model => model.IFEVM.IncubationID, (SelectList)ViewBag.IncubationID, new
+                                    {
+                                        @class = "select-wizard form-control selectpicker",
+                                        @required = "required",
+                                        data_style = "select-with-transition",@*@id = "Grant",*@@title = Resources.IncubationFollowUpEvaluation.SelectProject,
+@data_live_search = "true"
+})
+                                    @Html.ValidationMessageFor(model => model.IFEVM.IncubationID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group select-wizard">
+                                    <label class="form-group select-wizard">@Resources.IncubationFollowUpEvaluation.ProjectSuccessRate </label>
+
+                                    @Html.EnumDropDownListFor(model => model.IFEVM.ProjectSuccessRate, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "ProjectSuccessRate", @title = Resources.IncubationFollowUpEvaluation.ProjectSuccessRate, @data_live_search = "true" })
+                                    @Html.ValidationMessageFor(model => model.IFEVM.ProjectSuccessRate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="col-sm-12">
+                                <div class="form-group select-wizard">
+                                    <label for="IFEVM_Impact" class="bmd-label-floating">@Resources.IncubationFollowUpEvaluation.Impact</label>
+                                    @Html.TextAreaFor(model => model.IFEVM.Impact, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.IFEVM.Impact, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group select-wizard">
+                                    <label for="IFEVM_SuccessStories" class="bmd-label-floating">@Resources.IncubationFollowUpEvaluation.SuccessStories</label>
+                                    @Html.TextAreaFor(model => model.IFEVM.SuccessStories, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.IFEVM.SuccessStories, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group select-wizard">
+                                    <label for="IFEVM_Reasone" class="bmd-label-floating" style="display: none;" id="ResoneLabel">@Resources.IncubationFollowUpEvaluation.Reasone</label>
+                                    @Html.TextAreaFor(model => model.IFEVM.Reasone, new { @class = "form-control", @Id = "reasone", @style = "display: none;" })
+                                    @*@Html.ValidationMessageFor(model => model.IFEVM.Reasone, "", new { @class = "text-danger" })*@
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12" style="margin-top: 100px; margin-bottom: 145px;">
+                                <div id="zdrop" class="fileuploader" onclick="document.getElementById('selectedFile').click();">
+                                    <div id="upload-label" style="width: 350px;">
+                                        <i class="material-icons">cloud_upload</i>
+                                        <span class="title">@Resources.General.Attachments</span>
+                                        <span id="fileText" style="display: block;"></span>
+                                        @Html.TextBoxFor(model => model.files, "", new { @id = "selectedFile", @type = "file", @multiple = "multiple", @style = "display: none;", @onchange = "getFileName();" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <input type="submit" class="btn btn-rose" name="Save" value="@Resources.General.Save">
+                                    <a class="btn btn-default" href="@Url.Action("Index",new {Type=ViewBag.Type})">@Resources.General.Back</a>
+                                    @*<a class="btn btn-default" href="@Url.Action("Index")">Back</a>*@
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+
+@section Scripts{
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('Type')) {
+            if (urlParams.get('Type') == "Incubation") {
+                window.onload = function (e) {
+                    $('#navItem_Inc_IncubationFollowUpEvaluation').addClass('active');
+                    $('#IncubationFinalReports').addClass('show');
+                };
+            }
+            else if (urlParams.get('Type') == "Acceleration") {
+                window.onload = function (e) {
+                    $('#navItem_Acc_IncubationFollowUpEvaluation').addClass('active');
+                    $('#IncubationFinalReports').addClass('show');
+                };
+            }
+        }
+    </script>
+   
+
+    @*<script>
+        $(document).ready(function () {
+            // إضافة خاصية البحث الحي وتحديث القوائم المنسدلة
+            $('select.selectpicker').each(function () {
+             
+                if (!$(this).hasClass('bootstrap-select')) {
+                    $(this).selectpicker({
+                        liveSearch: true
+                    });
+                } else {
+                    $(this).selectpicker('refresh');
+                }
+            });
+        });
+    </script>*@
+
+
+
+
+    <script>
+        function getFileName() {
+            $('#fileText').html('');
+            $('#fileText').append($('#selectedFile')[0].files.length + ' Files Selected');
+        }
+    </script>
+
+    <script type="text/javascript">
+    var count = 0;
+        $('#addLines').on('click', function () {
+            $.ajax({
+                type: "GET",
+                async: false,
+                url: '@Url.Action("AppendLst")',
+                success: function (partialView) {
+                    $('#new-Lines').append(partialView);
+                }
+            });
+        });
+
+        $('#ProjectSuccessRate').on('change', function () {
+            debugger;
+            var ProjectSuccessRate = $('#ProjectSuccessRate').val();
+            if (ProjectSuccessRate == 4 || ProjectSuccessRate == 5) {
+                $('#ResoneLabel').css('display', 'block');
+                $('#reasone').css('display', 'block');
+            }
+            else
+            {
+                $('#ResoneLabel').css('display', 'none');
+                $('#reasone').css('display', 'none');
+                $('#reasone').val();
+            }
+        });
+
+        function RemoveRow(btnremove) {
+            var parent=  $(btnremove).parents();
+            var ff = parent[0];
+            ff.remove();
+            $("#addAttendee").show();
+            count--;
+        }
+    </script>
+}

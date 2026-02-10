@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="dir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="lang" xml:space="preserve">
+    <value>ar</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة السر</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>إسم المستخدم </value>
+  </data>
+  <data name="AccelerationRequests" xml:space="preserve">
+    <value>طلبات الاحتضان الجزئي</value>
+  </data>
+  <data name="Accelerations" xml:space="preserve">
+    <value>الاحتضان الجزئي</value>
+  </data>
+  <data name="Advertising" xml:space="preserve">
+    <value>إعلان</value>
+  </data>
+  <data name="AuthorizationAuthority" xml:space="preserve">
+    <value>جهة التسجيل</value>
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value>التقويم</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+  </data>
+  <data name="ClassificationSector" xml:space="preserve">
+    <value>تصنيف القطاع</value>
+  </data>
+  <data name="Consultants" xml:space="preserve">
+    <value>الجهة الاستشارية</value>
+  </data>
+  <data name="CorporationRegisterd" xml:space="preserve">
+    <value>تسجيل المنظمات</value>
+  </data>
+  <data name="CorporationRequests" xml:space="preserve">
+    <value>طلبات المنظمات</value>
+  </data>
+  <data name="CorporationsCategory" xml:space="preserve">
+    <value>القطاع</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>لوحه التحكم</value>
+  </data>
+  <data name="DivisionOfCountry" xml:space="preserve">
+    <value>التقسيم الإداري</value>
+  </data>
+  <data name="Employees" xml:space="preserve">
+    <value>الموظفين</value>
+  </data>
+  <data name="Events" xml:space="preserve">
+    <value>الفعاليات</value>
+  </data>
+  <data name="FieldOfWork" xml:space="preserve">
+    <value>مجال العمل</value>
+  </data>
+  <data name="FinalReports" xml:space="preserve">
+    <value>تقارير النهائيه</value>
+  </data>
+  <data name="FollowUpProjectPlan" xml:space="preserve">
+    <value>متابعه خطه المشروع</value>
+  </data>
+  <data name="FollowUpProjectPlanRequest" xml:space="preserve">
+    <value>متابعه طلبات خطه المشروع</value>
+  </data>
+  <data name="FundingSource" xml:space="preserve">
+    <value>مصدر التمويل</value>
+  </data>
+  <data name="Governorate" xml:space="preserve">
+    <value>المحافظة</value>
+  </data>
+  <data name="IncubationRequests" xml:space="preserve">
+    <value>طلبات الاحتضان</value>
+  </data>
+  <data name="Incubations" xml:space="preserve">
+    <value>احتضان كامل</value>
+  </data>
+  <data name="JoinRequests" xml:space="preserve">
+    <value>طلبات الالتحاق</value>
+  </data>
+  <data name="Models" xml:space="preserve">
+    <value>مجالات</value>
+  </data>
+  <data name="Neighborhoods" xml:space="preserve">
+    <value>الحي</value>
+  </data>
+  <data name="Positions" xml:space="preserve">
+    <value>المسمي الوظيفي</value>
+  </data>
+  <data name="Projects" xml:space="preserve">
+    <value>المشاريع</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>المنطقة</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="TargetSegmentType" xml:space="preserve">
+    <value>نوع الفئة المستهدفة</value>
+  </data>
+  <data name="TypeofIntervention" xml:space="preserve">
+    <value>نوع التدخل</value>
+  </data>
+  <data name="WorkshopEvaluation" xml:space="preserve">
+    <value>تقييم ورشة العمل</value>
+  </data>
+  <data name="WorkshopRequests" xml:space="preserve">
+    <value>طلبات ورش العمل</value>
+  </data>
+  <data name="Workshops" xml:space="preserve">
+    <value>ورش العمل</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>إجراءات</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>مقبول</value>
+  </data>
+  <data name="AttachmentName" xml:space="preserve">
+    <value>اسم المرفق</value>
+  </data>
+  <data name="AttachmentSize" xml:space="preserve">
+    <value>حجم المرفق</value>
+  </data>
+  <data name="AttachmentType" xml:space="preserve">
+    <value>نوع المرفق</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>قيد الانتظار</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>مرفوض</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>عرض</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>نموذج</value>
+  </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>المرفقات</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>إرسال</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>إجراء</value>
+  </data>
+  <data name="Grants" xml:space="preserve">
+    <value>المنح</value>
+  </data>
+  <data name="PrincessSeetaGrant" xml:space="preserve">
+    <value>منح تنموية</value>
+  </data>
+  <data name="ProjectIdeaRequests" xml:space="preserve">
+    <value>طلبات فكرة المشروع</value>
+  </data>
+  <data name="ProjectProposalRequests" xml:space="preserve">
+    <value>طلبات مقترح المشروع</value>
+  </data>
+  <data name="SocialEntrepreneurshipGrant" xml:space="preserve">
+    <value>منح الريادة الاجتماعية</value>
+  </data>
+  <data name="Join" xml:space="preserve">
+    <value>إلتحاق</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+  </data>
+  <data name="ForgetMyPass" xml:space="preserve">
+    <value>هل نسيت كلمة المرور؟</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="btnLogIn" xml:space="preserve">
+    <value>الدخول</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="AccelerationModel" xml:space="preserve">
+    <value>مجالات الاحتضان الجزئي</value>
+  </data>
+  <data name="AccelerationProjects" xml:space="preserve">
+    <value>مشاريع الإحتضان الجزئي</value>
+  </data>
+  <data name="Grant" xml:space="preserve">
+    <value>المنحه</value>
+  </data>
+  <data name="IncubationModel" xml:space="preserve">
+    <value>مجالات الاحتضان الكامل</value>
+  </data>
+  <data name="IncubationProjects" xml:space="preserve">
+    <value>مشاريع الإحتضان الكامل</value>
+  </data>
+  <data name="NewAccelerationProject" xml:space="preserve">
+    <value>مشروع إحتضان جديد</value>
+  </data>
+  <data name="NewIncubationProject" xml:space="preserve">
+    <value>مشروع إحتضان كلي جديد</value>
+  </data>
+  <data name="BaselineRequest" xml:space="preserve">
+    <value>طلبات أستبيان وضع المنظمة الحالي</value>
+  </data>
+  <data name="CreateWorkshop" xml:space="preserve">
+    <value>إضافه ورشه عمل</value>
+  </data>
+  <data name="CreateNewFollowUpProjectPlan" xml:space="preserve">
+    <value>إنشاء خطة متابعة مشروع</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>إنشاء</value>
+  </data>
+  <data name="FollowUpEvaluation" xml:space="preserve">
+    <value>التقيم و المتابعه</value>
+  </data>
+  <data name="FollowUpProjectPlanRequests" xml:space="preserve">
+    <value>متابعة طلبات خطة المشروع</value>
+  </data>
+  <data name="IncubationWorkshopRating" xml:space="preserve">
+    <value>تقييم ورش عمل </value>
+  </data>
+  <data name="PrincessSeetaFinalReports" xml:space="preserve">
+    <value>تقارير المنح التنموية</value>
+  </data>
+  <data name="CreateSocialEntrepreneurshipFinalReports" xml:space="preserve">
+    <value>إنشاء تقارير نهائية لريادة الأعمال الاجتماعية</value>
+  </data>
+  <data name="SocialEntrepreneurshipFinalReports" xml:space="preserve">
+    <value>إنشاء التقارير النهائي لمنح الريادة الاجتماعية</value>
+  </data>
+  <data name="GrantProjectProposal" xml:space="preserve">
+    <value>مقترح المشروع</value>
+  </data>
+  <data name="GrantProjectIdea" xml:space="preserve">
+    <value>فكرة المشروع</value>
+  </data>
+  <data name="SelectAction" xml:space="preserve">
+    <value>إختار إجراء</value>
+  </data>
+  <data name="PendingRequest" xml:space="preserve">
+    <value>طلبات في حاله الانتظار</value>
+  </data>
+  <data name="AccelerationReport" xml:space="preserve">
+    <value>تقارير الإحتضان الجزئي</value>
+  </data>
+  <data name="CorporationReport" xml:space="preserve">
+    <value>تقارير المؤسسات</value>
+  </data>
+  <data name="IncubationReport" xml:space="preserve">
+    <value>تقارير الإحتضان الكامل</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>التقارير</value>
+  </data>
+  <data name="CorporationContactReport" xml:space="preserve">
+    <value>تقرير حول بيانات تواصل الجهات</value>
+  </data>
+  <data name="CBReports" xml:space="preserve">
+    <value>إحصائيات بناء القدرات</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>استخراج</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>طباعة</value>
+  </data>
+  <data name="SIReports" xml:space="preserve">
+    <value>تقارير الاستثمار الاجتماعي</value>
+  </data>
+  <data name="MsgApply" xml:space="preserve">
+    <value>تم استلام طلبك ، يرجى الانتظار حتى تتم مراجعة الطلب والإجابة عليه.</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>عن المؤسسة</value>
+  </data>
+  <data name="AllRightsReserved" xml:space="preserve">
+    <value>جميع الحقوق محفوظة لمؤسسة الملك خالد</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>أعمالنا</value>
+  </data>
+  <data name="Licenses" xml:space="preserve">
+    <value>أخبارنا</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>معلومات الحساب</value>
+  </data>
+  <data name="ForgetMyPassDesc" xml:space="preserve">
+    <value>هذه المعلومات سوف تتيح لنا التحقق منك</value>
+  </data>
+  <data name="MsgTextAlign" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="TextAlign" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="SaveAndSubmit" xml:space="preserve">
+    <value>حفظ و إرسال</value>
+  </data>
+  <data name="Models1" xml:space="preserve">
+    <value>عناوين ورش العمل</value>
+  </data>
+  <data name="BaselineForm" xml:space="preserve">
+    <value>نموذج أستبيان وضع المنظمة الحالي</value>
+  </data>
+  <data name="AddNewQuestion" xml:space="preserve">
+    <value>إضافة سؤال جديد</value>
+  </data>
+  <data name="AnswerType" xml:space="preserve">
+    <value>نوع الإجابة</value>
+  </data>
+  <data name="IsRequired" xml:space="preserve">
+    <value>مطلوب</value>
+  </data>
+  <data name="IsVisible" xml:space="preserve">
+    <value>مرئي</value>
+  </data>
+  <data name="QuestionArabic" xml:space="preserve">
+    <value>السؤال باللغة العربية</value>
+  </data>
+  <data name="QuestionEnglish" xml:space="preserve">
+    <value>السؤال باللغة الانجليزية</value>
+  </data>
+  <data name="QuestionOrder" xml:space="preserve">
+    <value>الترتيب</value>
+  </data>
+  <data name="QuestionType" xml:space="preserve">
+    <value>نوع السؤال</value>
+  </data>
+  <data name="Addchoice" xml:space="preserve">
+    <value>إضافة خيار</value>
+  </data>
+  <data name="choiceAr" xml:space="preserve">
+    <value>الاسم بالعربية</value>
+  </data>
+  <data name="choiceEn" xml:space="preserve">
+    <value>الاسم بالانجليزية</value>
+  </data>
+  <data name="choices" xml:space="preserve">
+    <value>الاختيارات المتعددة</value>
+  </data>
+  <data name="Confirmattendance" xml:space="preserve">
+    <value>تأكيد الحضور وإضافة المشاركين</value>
+  </data>
+  <data name="CanceledInvitationsToIncubation" xml:space="preserve">
+    <value>الدعوات الملغاة للاحتضان</value>
+  </data>
+  <data name="CanceledInvitationsToWorkshop" xml:space="preserve">
+    <value>الدعواة الملغاة لورش العمل</value>
+  </data>
+  <data name="WorkshopBaselineReport" xml:space="preserve">
+    <value>تقرير طلبات نموذج الاستبيان </value>
+  </data>
+  <data name="ShareLink" xml:space="preserve">
+    <value>رابط المشاركة</value>
+  </data>
+  <data name="BaselineRequestReport" xml:space="preserve">
+    <value>تقرير طلبات الاستبيان</value>
+  </data>
+</root>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.CorporationsCategory>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>Categories</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CorporationsCategoryNameAR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CorporationsCategoryNameEN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorporationsCategoryNameAR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorporationsCategoryNameEN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CorporationsCategoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CorporationsCategoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CorporationsCategoryID })
+        </td>
+    </tr>
+}
+
+</table>

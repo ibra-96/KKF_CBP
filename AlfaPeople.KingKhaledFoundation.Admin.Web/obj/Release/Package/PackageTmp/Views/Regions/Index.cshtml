@@ -1,0 +1,57 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.Region>
+
+@{
+    Layout = null;
+    ViewBag.Title = "Regions";
+}
+
+<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+       width="100%" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Resources.Regions.Region
+            </th>
+            <th>
+                @Resources.Regions.IsActive
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (ViewBag.lang == 3)
+                    {
+                        @Html.DisplayFor(modelItem => item.RegionNameAR)
+
+                    }
+                    else
+                    {
+
+                        @Html.DisplayFor(modelItem => item.RegionNameEN)
+                    }
+                </td>
+                <td>
+                    @if (item.IsActive == true)
+                    {
+                        <span class="badge badge-pill badge-success">
+                            @Resources.Regions.Active
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-pill badge-danger">
+                            @Resources.Regions.IsActive
+                        </span>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditClassificationSectorNonProfit" onclick="Edit('@Url.Action("Edit", "Regions", new { id=@item.RegionID})')"><i class="material-icons">edit</i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

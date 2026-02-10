@@ -1,0 +1,690 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.IncubationWorkshopBLTransactionsValue>
+@{
+    ViewBag.title = Resources.General.BaselineRequest;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- <div class="col-md-10 ml-auto mr-auto"> -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="toolbar">
+                        </div>
+                        <div class="material-datatables">
+
+                            @if (!Model.Any())
+                            {
+                                <div class="alert alert-info">
+                                    @ViewBag.Message
+                                </div> }
+                            else
+                            {
+                                <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                                       width="100%" style="width:100%">
+                                    <thead>
+                                        <tr>
+
+                                            <td>@Resources.General.Workshops</td>
+                                            <th>@Resources.IncubationRequest.RequesterName</th>
+                                            <th>@Resources.IncubationRequest.Status</th>
+                                            <th>@Resources.General.View</th>
+                                            <th>@Resources.General.Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.IncubationWorkshopBLTrans.IncubationWorkshop.Name</td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.FrontendUser.CorporateApplicationForms.FirstOrDefault().Name)
+                                                </td>
+                                                <td>
+                                                    @if (item.IncubationWorkshopBLTransValStatus.NameEN == "Accepted")
+                                                    {
+                                                        <span class="badge badge-pill badge-success">
+                                                            @Resources.IncubationRequest.Accepted
+                                                        </span>
+                                                    }
+                                                    else if (item.IncubationWorkshopBLTransValStatus.NameEN == "Rejected")
+                                                    {
+                                                        <span class="badge badge-pill badge-danger">
+                                                            @Resources.IncubationRequest.Rejected
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="badge btn-warning">
+                                                            @if (ViewBag.lang == 3)
+                                                            {
+                                                                @(item.IncubationWorkshopBLTransValStatus.NameAR)
+                                                            }
+                                                            else
+                                                            {
+                                                                @(item.IncubationWorkshopBLTransValStatus.NameEN)
+                                                            }
+                                                        </span>
+                                                    }
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-default btn-link" data-toggle="modal" onclick="GetDataInd('@item.FrontendUserID','@item.FrontendUser.AspNetUser.AspNetRoles.First().Name')" data-target='#@item.FrontendUser.AspNetUser.AspNetRoles.First().Name'>
+                                                        <i class="material-icons">art_track</i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    @if (item.IncubationWorkshopBLTransValStatus.NameEN == "Pending" || item.IncubationWorkshopBLTransValStatus.NameEN == "Baseline Application Form Updated")
+                                                    {
+                                                        <a href="@Url.Action("Details", new
+            {
+                FUserID = item.FrontendUserID,
+                StatusID = item.IncubationWorkshopBLTransValStatusID,
+                SubmissionDate = item.SubmissionDate,
+                IncubationWorkshopID = item.IncubationWorkshopBLTrans.IncubationWorkshop.IncubationWorkshopID,
+                WorkshopName = item.IncubationWorkshopBLTrans.IncubationWorkshop.Name
+            })">
+                                                            <i class="material-icons">details</i>
+                                                        </a>
+                                                    }
+                                                    @*<a href="@Url.Action("Details", new { FUserID = item.FrontendUserID, StatusID = item.IncubationWorkshopBLTransValStatusID, SubmissionDate = item.SubmissionDate, item.IncubationWorkshopBLTrans.IncubationWorkshopID, item.IncubationWorkshopBLTrans.IncubationWorkshop.Name })">
+                                                            <i class="material-icons">details</i>
+                                                        </a>*@
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<!-- End Content -->
+<!-- Modal Add Employee -->
+<div class="modal fade" id="Corporation" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    <!-- <b> + </b> Add New Employee -->
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--      Wizard container        -->
+                <div class="wizard-container">
+                    <div class="card card-wizard active" data-color="rose" id="AddEmployee" style="box-shadow: none;">
+
+                        <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                        <div class="card-header text-center">
+
+                        </div>
+                        <div class="wizard-navigation">
+                            <ul class="nav nav-pills">
+
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#BasicData" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.BasicData
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Contacts" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.Contacts
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Account" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.Account
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Attachment" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.Attachment
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="BasicData">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-4">
+                                            <div class="picture-container">
+                                                <div class="picture">
+                                                    <img src="" class="picture-src" id="PictureCor" />
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Name" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.CorporationName
+                                                    </label>
+                                                    <input type="text" class="form-control" id="Name" value="National Housing" name="Name"
+                                                           required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Date">@Resources.CorporationRegistered.FoundedYear </label>
+                                                    <input type="text" class="form-control " value="09/07/1975" id="FoundedYear"
+                                                           name="Date" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Join" class="bmd-label-floating">@Resources.CorporationRegistered.Sector</label>
+                                                    <input type="text" class="form-control " id="CorporationsCategoryName" value="uuu" />
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Join" class="bmd-label-floating">@Resources.CorporationRegistered.FieldOfWork</label>
+                                                    <input type="text" class="form-control " id="CorporateFieldOfWorkName" value="uuu" />
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_RegistrationNumber" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.CorporationRegitrationNumber
+
+                                                    </label>
+                                                    <input type="text" class="form-control" id="RegistrationNumber" value="95135782645"
+                                                           name="RegistrationNumber" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="DateElection"> @Resources.CorporationRegistered.DateElection </label>
+                                                    <input type="text" class="form-control " id="DateElection" value="" name="DateElection" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_csnp" class="bmd-label-floating">@Resources.CorporationRegistered.NonProfitSectorType</label>
+                                                    <input type="text" class="form-control " id="ClassificationSectorName" value="hiuui" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_csnp" class="bmd-label-floating">@Resources.CorporationRegistered.GenderTypeOnTheOrganization</label>
+                                                    <input type="text" class="form-control " id="CorporateGenderType" value="hiuui" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_AuthorizationAuthority" class="bmd-label-floating">
+                                                        @Resources.General.AuthorizationAuthority
+                                                    </label>
+                                                    <input type="text" class="form-control" id="AuthorizationAuthorityName" value="Government"
+                                                           name="AuthorizationAuthority" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="TaxNumber" class="bmd-label-floating"> @Resources.CorporationRegistered.TaxNumber </label>
+                                                    <input type="text" class="form-control" id="TaxNumber" value="987458245" name="TaxNumber"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="History" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.ABriefHistoryOftheCorporationAssociation
+                                                    </label>
+                                                    <textarea class="form-control" id="History" name="about" rows="5" style="width: 113%;"
+                                                              required>
+                                                           @Resources.CorporationRegistered.ABriefHistoryOftheCorporationAssociationValue
+                                                        </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Vision" class="bmd-label-floating"> @Resources.CorporationRegistered.Vision</label>
+                                                    <textarea class="form-control" id="Vision" name="Vision" rows="5" style="width: 113%;"
+                                                              required>
+                                                           
+                                                        </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Mission" class="bmd-label-floating">@Resources.CorporationRegistered.Mission</label>
+                                                    <textarea class="form-control" id="Mission" name="Mission" rows="5" style="width: 113%;"
+                                                              required>
+                                                           
+                                                        </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Objectives" class="bmd-label-floating">@Resources.CorporationRegistered.Objectives</label>
+                                                    <textarea class="form-control" id="Objectives" name="Objectives" rows="5" style="width: 113%;"
+                                                              required>
+                                                            
+                                                        </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Contacts">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Countries" class="bmd-label-floating">@Resources.General.Region</label>
+                                                    <input type="text" class="form-control" id="RegionName" value="RegionName"
+                                                           name="RegionName" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_States" class="bmd-label-floating">@Resources.General.Governorate</label>
+                                                    <input type="text" class="form-control" id="Governorate" value="Government"
+                                                           name="AuthorizationAuthority" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Cities" class="bmd-label-floating">@Resources.General.Neighborhoods</label>
+                                                    <input type="text" class="form-control" id="CityName" value="Government"
+                                                           name="AuthorizationAuthority" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group" style="width: 100%;">
+                                                    <label for="Inp_Address" class="bmd-label-floating">@Resources.CorporationRegistered.Address </label>
+                                                    <input type="text" class="form-control" id="Address" name="Address" value="Al Olaya Street, Riyadh, saudi arabia"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="inqExtention" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.Extension
+                                                    </label>
+                                                    <input type="text" class="form-control" id="Extention" name="Extention" value="huuh" required>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="POBox" class="bmd-label-floating">@Resources.CorporationRegistered.POBox </label>
+                                                    <input type="text" class="form-control" id="POBox" value="51466" name="POBox"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="PostalCode" class="bmd-label-floating">@Resources.CorporationRegistered.PostalCode</label>
+                                                    <input type="text" class="form-control" id="PostalCode" value="11543" name="PostalCode"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="TelephoneNumber" class="bmd-label-floating">@Resources.CorporationRegistered.TelephoneNumber</label>
+                                                    <input type="text" class="form-control" id="TelephoneNumber" value="011 951 3578"
+                                                           name="TelephoneNumber" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="FaxNumber" class="bmd-label-floating">@Resources.CorporationRegistered.FaxNumber </label>
+                                                    <input type="text" class="form-control" id="FaxNumber" value="786 3578" name="FaxNumber"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="OfficialEmail" class="bmd-label-floating">@Resources.CorporationRegistered.OfficialEmail</label>
+                                                    <input type="email" class="form-control" id="OfficialEmail" value="jjj"
+                                                           name="OfficialEmail" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Website" class="bmd-label-floating">@Resources.CorporationRegistered.Website</label>
+                                                    <input class="form-control" type="text" id="Website" name="Website" value="www.nhq.com"
+                                                           url="true" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_TwitterAccount" class="bmd-label-floating">@Resources.CorporationRegistered.TwitterAccount</label>
+                                                    <input type="email" class="form-control" id="TwitterAccount" value="sss"
+                                                           name="TwitterAccount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_YouTubeAccount" class="bmd-label-floating">@Resources.CorporationRegistered.YouTubeAccount</label>
+                                                    <input type="email" class="form-control" id="YouTubeAccount" value="ddd"
+                                                           name="YouTubeAccount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_SnapchatAccount" class="bmd-label-floating">@Resources.CorporationRegistered.SnapchatAccount</label>
+                                                    <input type="email" class="form-control" id="SnapchatAccount" value="ddd"
+                                                           name="SnapchatAccount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="InstagramAccount" class="bmd-label-floating">@Resources.CorporationRegistered.InstagramAccount</label>
+                                                    <input type="email" class="form-control" id="InstagramAccount" value="dddd"
+                                                           name="InstagramAccount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Account">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_UserName">@Resources.General.Username</label>
+                                                    <input type="text" class="form-control" id="UserName" value="Nayef Al-Abdallah"
+                                                           name="UserName" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Email">@Resources.General.Email </label>
+                                                    <input type="email" class="form-control" id="Email" value="Nayef-Abdallah@NHQ.com"
+                                                           name="Email" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Password">@Resources.General.Password </label>
+                                                    <input type="password" class="form-control" id="Inp_Password" value="123456" name="Password"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="CorporateAdministratorName" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.NameOfAdministratorCorporation
+
+                                                    </label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorName" value="Nayef Abdallah"
+                                                           name="AdministratorCorporationName">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_JobTitle" class="bmd-label-floating">@Resources.CorporationRegistered.JobTitle </label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorJobTitle" value="Co-Founder" required
+                                                           name="JobTitle">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="CorporateAdministratorMobileNumber" class="bmd-label-floating">@Resources.CorporationProfile.Mobile</label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorMobileNumber" value="056 357 7378"
+                                                           required name="MobileNumber">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="CorporateAdministratorTelephoneNumber" class="bmd-label-floating">@Resources.CorporationRegistered.TelephoneNumber </label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorTelephoneNumber" value="735 8246"
+                                                           required name="TelephoneNumber">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Extension" class="bmd-label-floating">@Resources.CorporationRegistered.Extension </label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorExtension" value="055" required name="Extension">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Admon" class="bmd-label-floating">
+                                                        @Resources.CorporationProfile.AdminEmail
+                                                    </label>
+                                                    <input type="text" class="form-control" id="AdminEmail" value="055" required name="AdminEmail">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="Attachment">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-12">
+                                            <div class="material-datatables">
+                                                <table id="AttachmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>@Resources.General.AttachmentName</th>
+                                                            <th>@Resources.General.AttachmentType</th>
+                                                            <th>@Resources.General.AttachmentSize</th>
+                                                            <th class="disabled-sorting">@Resources.General.Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Attachfiles"></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- wizard container -->
+            </div>
+            <div class="modal-footer">
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modal Add Employee -->
+
+@section Scripts{
+    <script>
+        window.onload = function (e) {
+            $('#navItem_IncubationWorkshopBaselineRequest').addClass('active');
+            $('#Workshop').addClass('show');
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#IsThereBoard").click(function () {
+                $("#DateElections ").toggle();
+            });
+            $("#BasicData *").attr("disabled", "disabled").off('click');
+            $("#Contacts *").attr("disabled", "disabled").off('click');
+            $("#Education *").attr("disabled", "disabled").off('click');
+            $("#Account *").attr("disabled", "disabled").off('click');
+        });
+        $("#togglebutton").click(function () {
+
+            $("#IsActive").prop("checked", true);
+        });
+
+        $(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                $("#datatables").DataTable({
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                $("#datatables").DataTable();
+            }
+        });
+
+        function AcceptRequest(FrontEndUserId, count, projectId,Type) {
+            $.getJSON('@Url.Action("AcceptRejectRequest", "IncubationRequest")', { "UserId": FrontEndUserId, "ProjectId": projectId,"RequestType":Type }, function (Result) {
+
+                if (Result != null && !jQuery.isEmptyObject(Result))
+                {
+                    var row = $(count).parent().parent().index() + 1;
+                    var x = document.getElementById('datatables').rows[parseInt(row, 10)].cells;
+
+                    if (Type == "Accepted")
+                    {
+                        x[2].innerHTML = '<span class="badge badge-pill badge-success"> Accepted </span>';
+                    }
+                    else
+                    {
+                        x[2].innerHTML = '<span class="badge badge-pill badge-danger"> Rejected </span>';
+                    }
+
+                    x[4].innerHTML = '';
+                    x[5].innerHTML = '';
+                    alertify.notify("Action Successfully", 'custome', 4, function () { console.log('dismissed'); });
+                }
+            });
+
+        }
+
+        function GetDataInd(UserId, RoleName) {
+            if (RoleName == "Corporation")
+            {
+                $.getJSON('@Url.Action("GetCorporationUserData","Home")', { "UserId": UserId }, function (Result) {
+                    if (Result != null && !jQuery.isEmptyObject(Result))
+                    {
+                        $("#PictureCor").attr("src", Result[0].Picture);
+                        $("#Name").val(Result[0].Name);
+                        $("#FoundedYear").val(Result[0].FoundedYear);
+                        $("#Mission").val(Result[0].Mission);
+                        $("#Address").val(Result[0].Address);
+                        $("#AuthorizationAuthorityName").val(Result[0].AuthorizationAuthorityName);
+                        $("#CityName").val(Result[0].CityName);
+                        $("#ClassificationSectorName").val(Result[0].ClassificationSectorName);
+                        $("#CorporateFieldOfWorkName").val(Result[0].CorporateFieldOfWorkName);
+                        $("#CorporationsCategoryName").val(Result[0].CorporationsCategoryName);
+                        $("#Governorate").val(Result[0].Governorate);
+                        $("#Program").val(Result[0].ProgramName);
+                        $("#CorporateGenderType").val(Result[0].CorporateGenderType);
+                        $("#Code").val(Result[0].Code);
+                        $("#CorporateAdministratorExtension").val(Result[0].CorporateAdministratorExtension);
+                        $("#CorporateAdministratorJobTitle").val(Result[0].CorporateAdministratorJobTitle);
+                        $("#CorporateAdministratorMobileNumber").val(Result[0].CorporateAdministratorMobileNumber);
+                        $("#CorporateAdministratorName").val(Result[0].CorporateAdministratorName);
+                        $("#CorporateAdministratorTelephoneNumber").val(Result[0].CorporateAdministratorTelephoneNumber);
+                        $("#DateElection").val(Result[0].DateElection);
+                        $("#Extention").val(Result[0].Extension);
+                        $("#FaxNumber").val(Result[0].FaxNumber);
+                        $("#History").val(Result[0].History);
+                        $("#InstagramAccount").val(Result[0].InstagramAccount);
+                        $("#InstagramAccount").val(Result[0].InstagramAccount);
+                        $("#Objectives").val(Result[0].Objectives);
+                        $("#POBox").val(Result[0].POBox);
+                        $("#PostalCode").val(Result[0].PostalCode);
+                        $("#RegionName").val(Result[0].RegionName);
+                        $("#RegistrationNumber").val(Result[0].RegistrationNumber);
+                        $("#SnapchatAccount").val(Result[0].SnapchatAccount);
+                        $("#SnapchatAccount").val(Result[0].SnapchatAccount);
+                        $("#TaxNumber").val(Result[0].TaxNumber);
+                        $("#TelephoneNumber").val(Result[0].TelephoneNumber);
+                        $("#TwitterAccount").val(Result[0].TwitterAccount);
+                        $("#Vision").val(Result[0].Vision);
+                        $("#Website").val(Result[0].Website);
+                        $("#YouTubeAccount").val(Result[0].YouTubeAccount);
+                        $("#Email").val(Result[0].Email);
+                        $("#OfficialEmail").val(Result[0].OfficialEmail);
+                        $("#UserName").val(Result[0].UserName);
+                        $("#AdminEmail").val(Result[0].AdminEmail);
+                        $("#Attachfiles").empty();
+                        for (var i = 0; i < Result[0].lstFile.length; i++) {
+                            var actiondownload = '@Url.Action("Download")';
+                            $("#Attachfiles").append('<tr><td><a class="btn btn-link btn-default" href="' + actiondownload + '/' + Result[0].lstFile[i].id + '"><i class="material-icons">attach_file</i>' + (Result[0].lstFile[i].name.length >= 25 ? Result[0].lstFile[i].name.substring(0, 25) + '....' + (Result[0].lstFile[i].name.split('.').pop()) : Result[0].lstFile[i].name) + '</a></td><td>' + Result[0].lstFile[i].Type + '</td><td>' + Result[0].lstFile[i].Size + ' Bytes</td><td class="text-right"><a class="btn btn-link btn-rose btn-just-icon" href="' + actiondownload + '/' + Result[0].lstFile[i].id + '"><i class="material-icons">get_app</i></a></td></tr>');
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+}

@@ -1,0 +1,336 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Web.Models.IncubationWorkshopRatingVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+
+@{
+    ViewBag.title = Resources.IncubationWorkshopRating.WorkshopRating;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" @if (Model.IncubationWorkshop.FundingSource.UseCustomThemes) { <text> style="background-image: url('@Model.IncubationWorkshop.FundingSource.GrantBackgroundPic'); background-size: cover; background-repeat: round; background-position: center;" </text> }>
+                    <div class="card-header card-header-rose card-header-icon">
+                        @if (Model.IncubationWorkshop.FundingSource.UseCustomThemes)
+                        {
+                            <div class="card-icon" style="padding:0px; background: rgba(0, 0, 0, 0); background-color: rgba(0, 0, 0, 0); box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px 0px rgba(0, 0, 0, 0);">
+                                <img src="@Model.IncubationWorkshop.FundingSource.GrantHeaderPic" style="width:101%; border-radius: 3px;" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="card-icon">
+                                <i class="material-icons">all_inclusive</i>
+                            </div>
+                        }
+                    </div>
+                    <div class="card-body ">
+                        @using (Html.BeginForm("CreatWorkshopRating", "Home", FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="row justify-content-center">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.IncubationWorkshopID)
+                                @Html.HiddenFor(model => model.EvaluationDate, new { @value = DateTime.Now })
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="TrainingWorkshop" class="bmd-label-floating"> @Resources.IncubationWorkshopRating.HowDoYouEvaluateTheWorkshop </label>
+                                        @Html.EnumDropDownListFor(model => model.TrainingWorkshop, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "HowDoYouEvaluateTheWorkshop" })
+                                        @Html.ValidationMessageFor(model => model.TrainingWorkshop, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" id="ReasonHowDoYouEvaluateTheWorkshop">
+                                    <div class="form-group select-wizard">
+                                        <label for="ReasonForTrainingWorkshop" class="bmd-label-floating"> @Resources.IncubationWorkshopRating.ReasonForBadAnswer </label>
+                                        @Html.TextAreaFor(model => model.ReasonForTrainingWorkshop, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @id = "ReasonForTrainingWorkshop" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="AchievingGoal" class="bmd-label-floating"> @Resources.IncubationWorkshopRating.WorkshopAchieveObjectives </label>
+                                        @Html.EnumDropDownListFor(model => model.AchievingGoal, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "AchievingGoal" })
+                                        @Html.ValidationMessageFor(model => model.AchievingGoal, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" id="ReasonWorkshopAchieveObjectives">
+                                    <div class="form-group select-wizard">
+                                        <label for="ReasonForAchievingGoals" class="bmd-label-floating"> @Resources.IncubationWorkshopRating.ReasoneAchieveGoals</label>
+                                        @Html.TextAreaFor(model => model.ReasonForAchievingGoals, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @id = "ReasonForAchievingGoals" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="MeetTheWorkRequirement" class="bmd-label-floating">@Resources.IncubationWorkshopRating.IsWorkshopUseful </label>
+                                        @Html.EnumDropDownListFor(model => model.MeetTheWorkRequirement, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "MeetTheWorkRequirement" })
+                                        @Html.ValidationMessageFor(model => model.MeetTheWorkRequirement, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" id="ReasonMeetTheWorkRequirement">
+                                    <div class="form-group select-wizard">
+                                        <label for="ReasonForMeetTheWorkRequirement" class="bmd-label-floating">@Resources.IncubationWorkshopRating.ReasonForUnuseful</label>
+                                        @Html.TextAreaFor(model => model.ReasonForMeetTheWorkRequirement, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @id = "ReasonForMeetTheWorkRequirement" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="TrainingMaterial" class="bmd-label-floating"> @Resources.IncubationWorkshopRating.TrainingMaterial </label>
+                                        @Html.EnumDropDownListFor(model => model.TrainingMaterial, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "TrainingMaterial" })
+                                        @Html.ValidationMessageFor(model => model.TrainingMaterial, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" id="ReasonTrainingMaterial">
+                                    <div class="form-group select-wizard">
+                                        <label for="ReasonForTrainingMaterial" class="bmd-label-floating">@Resources.IncubationWorkshopRating.ReasonForBadAnswer</label>
+                                        @Html.TextAreaFor(model => model.ReasonForTrainingMaterial, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @id = "MeetTheWorkRequirement" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="PartcipationReaction" class="bmd-label-floating">@Resources.IncubationWorkshopRating.HowDoYouEvaluateParticpation  </label>
+                                        @Html.EnumDropDownListFor(model => model.PartcipationReaction, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "HowDoYouEvaluateParticpation" })
+                                        @Html.ValidationMessageFor(model => model.PartcipationReaction, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" id="ReasonHowDoYouEvaluateParticpation">
+                                    <div class="form-group select-wizard">
+                                        <label for="ReasonForPartcipationReaction" class="bmd-label-floating">@Resources.IncubationWorkshopRating.ReasonForBadAnswer</label>
+                                        @Html.TextAreaFor(model => model.ReasonForPartcipationReaction, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @id = "ReasonForPartcipationReaction" })
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                    <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                        @Resources.IncubationWorkshopRating.StrenghtAndWeaknessPoints
+                                    </span>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="Power" class="bmd-label-floating">@Resources.IncubationWorkshopRating.StrengthPoint</label>
+                                        @Html.TextAreaFor(model => model.Power, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="Power" class="bmd-label-floating">@Resources.IncubationWorkshopRating.WeaknessPoint</label>
+                                        @Html.TextAreaFor(model => model.Weakness, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition" })
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                    <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                        @Resources.IncubationWorkshopRating.EvaluateTheTrainer
+                                    </span>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="TheAbilityToDeliverInformation" class="bmd-label-floating"> @Resources.IncubationWorkshopRating.TheAbilityToDeliverTheInformation </label>
+                                        @Html.EnumDropDownListFor(model => model.TheAbilityToDeliverInformation, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @title = Resources.IncubationWorkshopRating.SelectAction })
+                                        @Html.ValidationMessageFor(model => model.TheAbilityToDeliverInformation, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="BodyLanguage" class="bmd-label-floating"> @Resources.IncubationWorkshopRating.BodyLanguage</label>
+                                        @Html.EnumDropDownListFor(model => model.BodyLanguage, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @title = Resources.IncubationWorkshopRating.SelectAction })
+                                        @Html.ValidationMessageFor(model => model.BodyLanguage, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="ClarityOfVoiceAndTone" class="bmd-label-floating"> @Resources.IncubationWorkshopRating.ClarityOfVoiceAndTone </label>
+                                        @Html.EnumDropDownListFor(model => model.ClarityOfVoiceAndTone, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @title = Resources.IncubationWorkshopRating.SelectAction })
+                                        @Html.ValidationMessageFor(model => model.ClarityOfVoiceAndTone, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="MasteryOfTrainingMaterial" class="bmd-label-floating"> @Resources.IncubationWorkshopRating.MasteryOfTrainingMaterial </label>
+                                        @Html.EnumDropDownListFor(model => model.MasteryOfTrainingMaterial, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @title = Resources.IncubationWorkshopRating.SelectAction })
+                                        @Html.ValidationMessageFor(model => model.MasteryOfTrainingMaterial, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="AbilityToManageDiscussionAndHandleQuestions" class="bmd-label-floating">@Resources.IncubationWorkshopRating.AbilityToManageDiscussionAndHandleQuestions</label>
+                                        @Html.EnumDropDownListFor(model => model.AbilityToManageDiscussionAndHandleQuestions, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @title = Resources.IncubationWorkshopRating.SelectAction })
+                                        @Html.ValidationMessageFor(model => model.AbilityToManageDiscussionAndHandleQuestions, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="LinkingTheTrainingMaterialToReality" class="bmd-label-floating">@Resources.IncubationWorkshopRating.LinkingTheTrainingMaterialToReality</label>
+                                        @Html.EnumDropDownListFor(model => model.LinkingTheTrainingMaterialToReality, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @title = Resources.IncubationWorkshopRating.SelectAction })
+                                        @Html.ValidationMessageFor(model => model.LinkingTheTrainingMaterialToReality, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="AbilityToAchieveAGoal" class="bmd-label-floating">@Resources.IncubationWorkshopRating.AbilityToAchieveAGoal</label>
+                                        @Html.EnumDropDownListFor(model => model.AbilityToAchieveAGoal, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @title = Resources.IncubationWorkshopRating.SelectAction })
+                                        @Html.ValidationMessageFor(model => model.AbilityToAchieveAGoal, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="CommentsOnTrainer" class="bmd-label-floating">@Resources.IncubationWorkshopRating.CommentsAboutTheTrainer </label>
+                                        @Html.TextAreaFor(model => model.CommentsOnTrainer, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.CommentsOnTrainer, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="WorkshopClass" class="bmd-label-floating">@Resources.IncubationWorkshopRating.WorkshopClass</label>
+                                        @Html.EnumDropDownListFor(model => model.WorkshopClass, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "WorkshopClass", @title = Resources.IncubationWorkshopRating.SelectAction })
+                                        @Html.ValidationMessageFor(model => model.WorkshopClass, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" id="ReasonWorkshopClass">
+                                    <div class="form-group select-wizard">
+                                        <label for="ReasonForWorkshopClass" class="bmd-label-floating">@Resources.IncubationWorkshopRating.ReasonForBadAnswer</label>
+                                        @Html.TextAreaFor(model => model.ReasonForWorkshopClass, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @id = "ReasonForPartcipationReaction" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="Hosting" class="bmd-label-floating">@Resources.IncubationWorkshopRating.Hosting</label>
+                                        @Html.EnumDropDownListFor(model => model.Hosting, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "Hosting", @title = Resources.IncubationWorkshopRating.SelectAction })
+                                        @Html.ValidationMessageFor(model => model.Hosting, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" id="ReasonHosting">
+                                    <div class="form-group select-wizard">
+                                        <label for="ReasonForWorkshopClass" class="bmd-label-floating">@Resources.IncubationWorkshopRating.ReasonForBadAnswer</label>
+                                        @Html.TextAreaFor(model => model.ReasonForHosting, new { @class = "select-wizard form-control selectpicker", data_style = "select-with-transition", @id = "ReasonHosting" })
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <input type="submit" class="btn btn-rose" name="Save" value="@Resources.General.Submit">
+                                        <a class="btn btn-default" href="@Url.Action("dashboard",new {Type=ViewBag.Type})">@Resources.General.Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#ReasonHowDoYouEvaluateTheWorkshop').hide();
+            $('#ReasonWorkshopAchieveObjectives').hide();
+            $('#ReasonMeetTheWorkRequirement').hide();
+            $('#ReasonTrainingMaterial').hide();
+            $('#ReasonHowDoYouEvaluateParticpation').hide();
+            $('#ReasonWorkshopClass').hide();
+            $('#ReasonHosting').hide();
+        });
+
+        $('#HowDoYouEvaluateTheWorkshop').on('change', function () {
+            if ($('#HowDoYouEvaluateTheWorkshop').val() == 2) {
+                $('#ReasonHowDoYouEvaluateTheWorkshop').show();
+            }
+            else {
+                $('#ReasonHowDoYouEvaluateTheWorkshop').hide();
+            }
+        });
+
+        $('#AchievingGoal').on('change', function () {
+            if ($('#AchievingGoal').val() == 2) {
+                $('#ReasonWorkshopAchieveObjectives').show();
+            }
+            else {
+                $('#ReasonWorkshopAchieveObjectives').hide();
+            }
+        });
+
+        $('#MeetTheWorkRequirement').on('change', function () {
+            if ($('#MeetTheWorkRequirement').val() == 2) {
+                $('#ReasonMeetTheWorkRequirement').show();
+            }
+            else {
+                $('#ReasonMeetTheWorkRequirement').hide();
+            }
+        });
+
+        $('#TrainingMaterial').on('change', function () {
+            if ($('#TrainingMaterial').val() == 2) {
+                $('#ReasonTrainingMaterial').show();
+            }
+            else {
+                $('#ReasonTrainingMaterial').hide();
+            }
+        });
+
+        $('#HowDoYouEvaluateParticpation').on('change', function () {
+            if ($('#HowDoYouEvaluateParticpation').val() == 2) {
+                $('#ReasonHowDoYouEvaluateParticpation').show();
+            }
+            else {
+                $('#ReasonHowDoYouEvaluateParticpation').hide();
+            }
+        });
+
+        $('#WorkshopClass').on('change', function () {
+            if ($('#WorkshopClass').val() == 1) {
+                $('#ReasonWorkshopClass').show();
+            }
+            else {
+                $('#ReasonWorkshopClass').hide();
+            }
+        });
+
+        $('#Hosting').on('change', function () {
+            if ($('#Hosting').val() == 1) {
+                $('#ReasonHosting').show();
+            }
+            else {
+                $('#ReasonHosting').hide();
+            }
+        });
+    </script>
+}

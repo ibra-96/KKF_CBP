@@ -1,0 +1,1271 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.CorporateApplicationForm>
+@{
+    ViewBag.title = Resources.CorporationRegistered.CorporationRegisterdPage;
+    ViewBag.Name = User.Identity.Name;
+}
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+
+        @{
+            ViewBag.Title = "Registered Corporations";
+        }
+
+        @*<h2>Registered Corporations</h2>*@
+
+
+        <a href="@Url.Action("ExportToExcel1", "CorporationRegistered")"
+           class="btn btn-primary"
+           onclick="showLoader()">
+            <i class="fa fa-file-excel"></i> @Resources.CorporationRegistered.ExporttoExcel
+        </a>
+
+        <script>
+            function showLoader() {
+                alert('Please wait while the file is being prepared...');
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+        <div class="row">
+            <!-- <div class="col-md-10 ml-auto mr-auto"> -->
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="toolbar">
+                            <!--        Here you can write extra buttons/actions for the toolbar        -->
+                        </div>
+
+                        <div class="material-datatables">
+                            <table id="datatablesRegister" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>@Resources.CorporationRegistered.CorporationName</th>
+                                        <th>@Resources.General.Region</th>
+                                        <th>@Resources.CorporationRegistered.WhoTakeAction</th>
+                                        <th>@Resources.CorporationRegistered.Status</th>
+                                        <th>@Resources.CorporationRegistered.Reason</th>
+                                        <th>@Resources.CorporationRegistered.ActionDate</th>
+                                        <th>@Resources.General.View</th>
+                                        <th>@Resources.General.Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td>
+                                                @if (ViewBag.lang == 3)
+                                                {
+                                                    @Html.DisplayFor(modelItem => item.Region.RegionNameAR)
+                                                }
+                                                else
+                                                {
+                                                    @Html.DisplayFor(modelItem => item.Region.RegionNameEN)
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CorporateApplicationStatu.BackEndUser.AspNetUser.UserName)
+                                            </td>
+                                            <td>
+                                                @if (item.CorporateApplicationStatu.ApplicantStatu.ApplicantStatusName == "Accepted")
+                                                {
+                                                    <span class="badge badge-pill badge-success">
+                                                        @Resources.General.Accepted
+                                                    </span>
+                                                }
+                                                else if (item.CorporateApplicationStatu.ApplicantStatu.ApplicantStatusName == "Rejected")
+                                                {
+                                                    <span class="badge badge-pill badge-danger">
+                                                        @Resources.General.Rejected
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge btn-warning">
+                                                        @Resources.General.Pending
+                                                    </span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CorporateApplicationStatu.FeadBack)
+                                            </td>
+                                            <td>
+                                                @(item.CorporateApplicationStatu.DateTimeMakeAction.HasValue ? item.CorporateApplicationStatu.DateTimeMakeAction.Value.ToString("yyyy/MM/dd") : "N/A")
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-default btn-link" data-toggle="modal" onclick="GetData('@item.FrontendUserID')" data-target='#@item.FrontendUser.AspNetUser.AspNetRoles.First().Name'>
+                                                    <i class="material-icons">art_track</i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-link btn-warning btn-just-icon" onclick="bindUserId(this)" title="Update" data-userid="@item.FrontendUserID" data-toggle="modal" data-target="#Rejectmodal">
+                                                    <i class="material-icons">update</i>
+                                                </button>
+
+
+                                                <button type="button"
+                                                        class="btn btn-info btn-just-icon"
+                                                        title="تحديث بيانات المستخدم"
+                                                        data-frontenduserid="@item.FrontendUserID"
+                                                        data-aspuserid="@item.FrontendUser.FK_AspUser"
+                                                        data-username="@item.FrontendUser.AspNetUser.UserName"
+                                                        data-email="@item.FrontendUser.AspNetUser.Email"
+                                                        onclick="openUpdateAccountModal(this)">
+                                                    <i class="material-icons">edit</i>
+
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<!-- End Content -->
+<!-- Modal Add Employee -->
+<div class="modal fade" id="Corporation" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    <!-- <b> + </b> Add New Employee -->
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--      Wizard container        -->
+                <div class="wizard-container">
+                    <div class="card card-wizard active" data-color="rose" id="AddEmployee" style="box-shadow: none;">
+
+                        <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                        <div class="card-header text-center">
+                        </div>
+                        <div class="wizard-navigation">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#BasicData" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.BasicData
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Contacts" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.Contacts
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Account" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.Account
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Attachment" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.Attachment
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="BasicData">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-4">
+                                            <div class="picture-container">
+                                                <div class="picture">
+                                                    <img src="" class="picture-src" id="PictureCor" />
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Name" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.CorporationName
+                                                    </label>
+                                                    <input type="text" class="form-control" id="Name" value="يتم تحميل البيانات" name="Name"
+                                                           required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Date">@Resources.CorporationRegistered.FoundedYear </label>
+                                                    <input type="text" class="form-control " value="يتم تحميل البيانات" id="FoundedYear"
+                                                           name="Date" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Join" class="bmd-label-floating">@Resources.CorporationRegistered.Sector</label>
+                                                    <input type="text" class="form-control " id="CorporationsCategoryName" value="يتم تحميل البيانات" />
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Join" class="bmd-label-floating">@Resources.CorporationRegistered.FieldOfWork</label>
+                                                    <input type="text" class="form-control " id="CorporateFieldOfWorkName" value="يتم تحميل البيانات" />
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_RegistrationNumber" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.CorporationRegitrationNumber
+
+                                                    </label>
+                                                    <input type="text" class="form-control" id="RegistrationNumber" value="يتم تحميل البيانات"
+                                                           name="RegistrationNumber" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="DateElection"> @Resources.CorporationRegistered.DateElection </label>
+                                                    <input type="text" class="form-control " id="DateElection" value="" name="DateElection" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_csnp" class="bmd-label-floating">@Resources.CorporationRegistered.NonProfitSectorType</label>
+                                                    <input type="text" class="form-control " id="ClassificationSectorName" value="يتم تحميل البيانات" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_csnp" class="bmd-label-floating">@Resources.CorporationRegistered.GenderTypeOnTheOrganization</label>
+                                                    <input type="text" class="form-control " id="CorporateGenderType" value="يتم تحميل البيانات" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_AuthorizationAuthority" class="bmd-label-floating">
+                                                        @Resources.General.AuthorizationAuthority
+                                                    </label>
+                                                    <input type="text" class="form-control" id="AuthorizationAuthorityName" value="يتم تحميل البيانات"
+                                                           name="AuthorizationAuthority" required>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="TaxNumber" class="bmd-label-floating"> @Resources.CorporationRegistered.TaxNumber </label>
+                                                    <input type="text" class="form-control" id="TaxNumber" value="يتم تحميل البيانات" name="TaxNumber"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="History" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.ABriefHistoryOftheCorporationAssociation
+                                                    </label>
+                                                    <textarea class="form-control" id="History" name="about" rows="5" style="width: 113%;"
+                                                              required>
+                                                           @Resources.CorporationRegistered.ABriefHistoryOftheCorporationAssociationValue
+                                                        </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Vision" class="bmd-label-floating"> @Resources.CorporationRegistered.Vision</label>
+                                                    <textarea class="form-control" id="Vision" name="Vision" rows="5" style="width: 113%;"
+                                                              required>
+                                                           
+                                                        </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Mission" class="bmd-label-floating">@Resources.CorporationRegistered.Mission</label>
+                                                    <textarea class="form-control" id="Mission" name="Mission" rows="5" style="width: 113%;"
+                                                              required>
+                                                           
+                                                        </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Objectives" class="bmd-label-floating">@Resources.CorporationRegistered.Objectives</label>
+                                                    <textarea class="form-control" id="Objectives" name="Objectives" rows="5" style="width: 113%;"
+                                                              required>
+                                                            
+                                                        </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Contacts">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Countries" class="bmd-label-floating">@Resources.General.Region</label>
+                                                    <input type="text" class="form-control" id="RegionName" value="يتم تحميل البيانات"
+                                                           name="RegionName" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_States" class="bmd-label-floating">@Resources.General.Governorate</label>
+                                                    <input type="text" class="form-control" id="Governorate" value="يتم تحميل البيانات"
+                                                           name="AuthorizationAuthority" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label for="dbd_Cities" class="bmd-label-floating">@Resources.General.Neighborhoods</label>
+                                                    <input type="text" class="form-control" id="CityName" value="يتم تحميل البيانات"
+                                                           name="AuthorizationAuthority" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group" style="width: 100%;">
+                                                    <label for="Inp_Address" class="bmd-label-floating">@Resources.CorporationRegistered.Address </label>
+                                                    <input type="text" class="form-control" id="Address" name="Address" value="يتم تحميل البيانات"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="inqExtention" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.Extension
+                                                    </label>
+                                                    <input type="text" class="form-control" id="Extention" name="Extention" value="يتم تحميل البيانات" required>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="POBox" class="bmd-label-floating">@Resources.CorporationRegistered.POBox </label>
+                                                    <input type="text" class="form-control" id="POBox" value="يتم تحميل البيانات" name="POBox"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="PostalCode" class="bmd-label-floating">@Resources.CorporationRegistered.PostalCode</label>
+                                                    <input type="text" class="form-control" id="PostalCode" value="يتم تحميل البيانات" name="PostalCode"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="TelephoneNumber" class="bmd-label-floating">@Resources.CorporationRegistered.TelephoneNumber</label>
+                                                    <input type="text" class="form-control" id="TelephoneNumber" value="يتم تحميل البيانات"
+                                                           name="TelephoneNumber" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="FaxNumber" class="bmd-label-floating">@Resources.CorporationRegistered.FaxNumber </label>
+                                                    <input type="text" class="form-control" id="FaxNumber" value="يتم تحميل البيانات" name="FaxNumber"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="OfficialEmail" class="bmd-label-floating">@Resources.CorporationRegistered.OfficialEmail</label>
+                                                    <input type="email" class="form-control" id="OfficialEmail" value="يتم تحميل البيانات"
+                                                           name="OfficialEmail" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Website" class="bmd-label-floating">@Resources.CorporationRegistered.Website</label>
+                                                    <input class="form-control" type="text" id="Website" name="Website" value="يتم تحميل البيانات"
+                                                           url="true" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_TwitterAccount" class="bmd-label-floating">@Resources.CorporationRegistered.TwitterAccount</label>
+                                                    <input type="email" class="form-control" id="TwitterAccount" value="يتم تحميل البيانات"
+                                                           name="TwitterAccount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_YouTubeAccount" class="bmd-label-floating">@Resources.CorporationRegistered.YouTubeAccount</label>
+                                                    <input type="email" class="form-control" id="YouTubeAccount" value="يتم تحميل البيانات"
+                                                           name="YouTubeAccount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_SnapchatAccount" class="bmd-label-floating">@Resources.CorporationRegistered.SnapchatAccount</label>
+                                                    <input type="email" class="form-control" id="SnapchatAccount" value="يتم تحميل البيانات"
+                                                           name="SnapchatAccount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="InstagramAccount" class="bmd-label-floating">@Resources.CorporationRegistered.InstagramAccount</label>
+                                                    <input type="email" class="form-control" id="InstagramAccount" value="يتم تحميل البيانات"
+                                                           name="InstagramAccount" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Account">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_UserName">@Resources.General.Username</label>
+                                                    <input type="text" class="form-control" id="UserName" value="يتم تحميل البيانات"
+                                                           name="UserName" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Email">@Resources.General.Email </label>
+                                                    <input type="email" class="form-control" id="Email" value="يتم تحميل البيانات"
+                                                           name="Email" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Password">@Resources.General.Password </label>
+                                                    <input type="password" class="form-control" id="Inp_Password" value="يتم تحميل البيانات" name="Password"
+                                                           required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="CorporateAdministratorName" class="bmd-label-floating">
+                                                        @Resources.CorporationRegistered.NameOfAdministratorCorporation
+
+                                                    </label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorName" value="يتم تحميل البيانات"
+                                                           name="AdministratorCorporationName">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_JobTitle" class="bmd-label-floating">@Resources.CorporationRegistered.JobTitle </label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorJobTitle" value="يتم تحميل البيانات" required
+                                                           name="JobTitle">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="CorporateAdministratorMobileNumber" class="bmd-label-floating">@Resources.CorporationProfile.Mobile</label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorMobileNumber" value="يتم تحميل البيانات"
+                                                           required name="MobileNumber">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="CorporateAdministratorTelephoneNumber" class="bmd-label-floating">@Resources.CorporationRegistered.TelephoneNumber </label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorTelephoneNumber" value="يتم تحميل البيانات"
+                                                           required name="TelephoneNumber">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Extension" class="bmd-label-floating">@Resources.CorporationRegistered.Extension </label>
+                                                    <input type="text" class="form-control" id="CorporateAdministratorExtension" value="يتم تحميل البيانات" required name="Extension">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Admon" class="bmd-label-floating">
+                                                        @Resources.CorporationProfile.AdminEmail
+                                                    </label>
+                                                    <input type="text" class="form-control" id="AdminEmail" value="يتم تحميل البيانات" required name="AdminEmail">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Attachment">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-12">
+                                            <div class="material-datatables">
+                                                <table id="AttachmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>@Resources.General.AttachmentName</th>
+                                                            <th>@Resources.General.AttachmentType</th>
+                                                            <th>@Resources.General.AttachmentSize</th>
+                                                            <th class="disabled-sorting">@Resources.General.Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Attachfiles"></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- wizard container -->
+            </div>
+            <div class="modal-footer">
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modal Add Employee -->
+
+<div class="modal fade" id="Rejectmodal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    @Resources.CorporationProfile.AskForUpdate
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!-- Wizard container -->
+                <div class="wizard-container">
+                    <div class="card" data-color="rose" id="Rejectmodal" style="box-shadow: none;">
+                        <input type="hidden" id="UserIdHidden" />
+                        <input type="hidden" id="UserIndexHidden" />
+                        <textarea required="required" rows="6" class="form-group" id="txtReson"></textarea>
+                    </div>
+                </div>
+                <!-- wizard container -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-link" data-dismiss="modal" onclick="Reject()">@Resources.General.Submit</button>
+                <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">@Resources.General.Back</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="UpdateAccountModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">تحديث بيانات الحساب</h4>
+            </div>
+
+            <div class="modal-body">
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" id="Upd_AspUserId" />
+                <input type="hidden" id="Upd_FrontendUserId" />
+
+                <div class="form-group">
+                    <label>اسم المستخدم</label>
+                    <input type="text" class="form-control" id="Upd_UserName" />
+                </div>
+
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" class="form-control" id="Upd_Email" />
+                </div>
+
+                <hr />
+
+                <div class="form-group">
+                    <label>كلمة المرور الجديدة (اختياري)</label>
+                    <input type="password" class="form-control" id="Upd_NewPassword" placeholder="اتركه فارغًا إذا لا تريد التغيير" />
+                </div>
+
+                <div class="form-group">
+                    <label>تأكيد كلمة المرور</label>
+                    <input type="password" class="form-control" id="Upd_ConfirmPassword" />
+                </div>
+
+                <div id="Upd_Error" class="text-danger" style="display:none;"></div>
+                <div id="Upd_Success" class="text-success" style="display:none;"></div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="saveUpdateAccount()">حفظ</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">إغلاق</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_CorporationRegistered').addClass('active');
+            $('#management').addClass('show');
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $().ready(function () {
+                $sidebar = $('.sidebar');
+
+                $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+                $full_page = $('.full-page');
+
+                $sidebar_responsive = $('body > .navbar-collapse');
+
+                window_width = $(window).width();
+                console.log(fixed_plugin_open);
+                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+                console.log(fixed_plugin_open);
+                if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+                    if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+                        $('.fixed-plugin .dropdown').addClass('open');
+                    }
+                }
+
+                $('.fixed-plugin a').click(function (event) {
+                    // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+                    if ($(this).hasClass('switch-trigger')) {
+                        if (event.stopPropagation) {
+                            event.stopPropagation();
+                        } else if (window.event) {
+                            window.event.cancelBubble = true;
+                        }
+                    }
+                });
+
+                $('.fixed-plugin .active-color span').click(function () {
+                    $full_page_background = $('.full-page-background');
+                    console.log($full_page_background.html());
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+                    var new_color = $(this).data('color');
+
+                    if ($sidebar.length != 0) {
+                        $sidebar.attr('data-color', new_color);
+                    }
+
+                    if ($full_page.length != 0) {
+                        $full_page.attr('filter-color', new_color);
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.attr('data-color', new_color);
+                    }
+                });
+
+                $('.fixed-plugin .background-color .badge').click(function () {
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+                    var new_color = $(this).data('background-color');
+
+                    if ($sidebar.length != 0) {
+                        $sidebar.attr('data-background-color', new_color);
+                    }
+                });
+
+                $('.fixed-plugin .img-holder').click(function () {
+                    $full_page_background = $('.full-page-background');
+
+                    $(this).parent('li').siblings().removeClass('active');
+                    $(this).parent('li').addClass('active');
+
+
+                    var new_image = $(this).find("img").attr('src');
+
+                    if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                        $sidebar_img_container.fadeOut('fast', function () {
+                            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                            $sidebar_img_container.fadeIn('fast');
+                        });
+                    }
+
+                    if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                        $full_page_background.fadeOut('fast', function () {
+                            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                            $full_page_background.fadeIn('fast');
+                        });
+                    }
+
+                    if ($('.switch-sidebar-image input:checked').length == 0) {
+                        var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                        $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                        $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+                    }
+                });
+
+                $('.switch-sidebar-image input').change(function () {
+                    $full_page_background = $('.full-page-background');
+
+                    $input = $(this);
+
+                    if ($input.is(':checked')) {
+                        if ($sidebar_img_container.length != 0) {
+                            $sidebar_img_container.fadeIn('fast');
+                            $sidebar.attr('data-image', '#');
+                        }
+
+                        if ($full_page_background.length != 0) {
+                            $full_page_background.fadeIn('fast');
+                            $full_page.attr('data-image', '#');
+                        }
+
+                        background_image = true;
+                    } else {
+                        if ($sidebar_img_container.length != 0) {
+                            $sidebar.removeAttr('data-image');
+                            $sidebar_img_container.fadeOut('fast');
+                        }
+
+                        if ($full_page_background.length != 0) {
+                            $full_page.removeAttr('data-image', '#');
+                            $full_page_background.fadeOut('fast');
+                        }
+
+                        background_image = false;
+                    }
+                });
+
+                $('.switch-sidebar-mini input').change(function () {
+                    $body = $('body');
+
+                    $input = $(this);
+
+                    if (md.misc.sidebar_mini_active == true) {
+                        $('body').removeClass('sidebar-mini');
+                        md.misc.sidebar_mini_active = false;
+
+                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+                    } else {
+
+                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+                        setTimeout(function () {
+                            $('body').addClass('sidebar-mini');
+
+                            md.misc.sidebar_mini_active = true;
+                        }, 300);
+                    }
+
+                    // we simulate the window Resize so the charts will get updated in realtime.
+                    var simulateWindowResize = setInterval(function () {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 180);
+
+                    // we stop the simulation of Window Resize after the animations are completed
+                    setTimeout(function () {
+                        clearInterval(simulateWindowResize);
+                    }, 1000);
+
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#IsThereBoard").click(function () {
+                $("#DateElections ").toggle();
+            });
+
+            $("#BasicData *").attr("disabled", "disabled").off('click');
+            $("#Contacts *").attr("disabled", "disabled").off('click');
+            $("#Education *").attr("disabled", "disabled").off('click');
+            $("#Account *").attr("disabled", "disabled").off('click');
+        });
+
+        $("#togglebutton").click(function () {
+            $("#IsActive").prop("checked", true);
+        });
+
+        @*$(function () {
+
+
+
+            if ('@Resources.General.lang' == 'ar') {
+                $("#datatables").DataTable({
+                    "columnDefs": [
+                        {
+                            //"targets": 5, // Index of the ActionDate column
+                            //"type": "date", // Define the type as 'date'
+                            //"orderable": false, "targets": [5]
+                        } // Disable sorting for View and Actions columns
+                    ],
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+
+
+                $("#datatables").DataTable();
+            }
+        });
+        $(document).ready(function () {
+            $('#datatables').DataTable({
+                "columnDefs": [
+                    {
+                        "targets": 5, // Index of the ActionDate column
+                        "type": "date", // Define the type as 'date'
+                        "orderable": false, "targets": [5]
+                    } // Disable sorting for View and Actions columns
+                ]
+            });
+        });*@
+
+
+        function AcceptRequest(FrontEndUserId, count, projectId, Type) {
+            var msgConfirm = confirm("Are you sure about taken this action, This action will send an email to the corporates?");
+            if (msgConfirm == true) {
+                $.getJSON('@Url.Action("AcceptRejectRequest", "WorkshopRequest")', { "UserId": FrontEndUserId, "ProjectId": projectId,"RequestType":Type }, function (Result) {
+                    if (Result != null && !jQuery.isEmptyObject(Result)) {
+                        var row = $(count).parent().parent().index()+1;
+                        var x = document.getElementById('datatablesRegister').rows[parseInt(row, 10)].cells;
+                        debugger;
+                        if (Type == "Accepted") {
+                            x[2].innerHTML = '<span class="badge badge-pill badge-success"> Accepted </span>';
+                        }
+                        else
+                        {
+                            x[2].innerHTML = '<span class="badge badge-pill badge-danger"> Rejected </span>';
+                        }
+                        x[4].innerHTML = '';
+                        x[5].innerHTML = '';
+                        alertify.notify("Action Successfully", 'custome', 4, function () { console.log('dismissed'); });
+                    }
+                });
+            } else {
+                //event.preventDefault();
+            }
+        }
+
+        @*function GetData(UserId) {
+            $.getJSON('@Url.Action("GetCorporationUserData","Home")', { "UserId": UserId }, function (Result) {
+                if (Result != null && !jQuery.isEmptyObject(Result)) {
+                    $("#PictureCor").attr("src", Result[0].Picture);
+                    $("#Name").val(Result[0].Name);
+                    $("#FoundedYear").val(Result[0].FoundedYear);
+                    $("#Mission").val(Result[0].Mission);
+                    $("#Address").val(Result[0].Address);
+                    $("#AuthorizationAuthorityName").val(Result[0].AuthorizationAuthorityName);
+                    $("#CityName").val(Result[0].CityName);
+                    $("#ClassificationSectorName").val(Result[0].ClassificationSectorName);
+                    $("#CorporateFieldOfWorkName").val(Result[0].CorporateFieldOfWorkName);
+                    $("#CorporationsCategoryName").val(Result[0].CorporationsCategoryName);
+                    $("#Governorate").val(Result[0].Governorate);
+                    $("#Program").val(Result[0].ProgramName);
+                    $("#CorporateGenderType").val(Result[0].CorporateGenderType);
+                    $("#Code").val(Result[0].Code);
+                    $("#CorporateAdministratorExtension").val(Result[0].CorporateAdministratorExtension);
+                    $("#CorporateAdministratorJobTitle").val(Result[0].CorporateAdministratorJobTitle);
+                    $("#CorporateAdministratorMobileNumber").val(Result[0].CorporateAdministratorMobileNumber);
+                    $("#CorporateAdministratorName").val(Result[0].CorporateAdministratorName);
+                    $("#CorporateAdministratorTelephoneNumber").val(Result[0].CorporateAdministratorTelephoneNumber);
+                    $("#DateElection").val(Result[0].DateElection);
+                    $("#Extention").val(Result[0].Extension);
+                    $("#FaxNumber").val(Result[0].FaxNumber);
+                    $("#History").val(Result[0].History);
+                    $("#InstagramAccount").val(Result[0].InstagramAccount);
+                    $("#InstagramAccount").val(Result[0].InstagramAccount);
+                    $("#Objectives").val(Result[0].Objectives);
+                    $("#POBox").val(Result[0].POBox);
+                    $("#PostalCode").val(Result[0].PostalCode);
+                    $("#RegionName").val(Result[0].RegionName);
+                    $("#RegistrationNumber").val(Result[0].RegistrationNumber);
+                    $("#SnapchatAccount").val(Result[0].SnapchatAccount);
+                    $("#SnapchatAccount").val(Result[0].SnapchatAccount);
+                    $("#TaxNumber").val(Result[0].TaxNumber);
+                    $("#TelephoneNumber").val(Result[0].TelephoneNumber);
+                    $("#TwitterAccount").val(Result[0].TwitterAccount);
+                    $("#Vision").val(Result[0].Vision);
+                    $("#Website").val(Result[0].Website);
+                    $("#YouTubeAccount").val(Result[0].YouTubeAccount);
+                    $("#Email").val(Result[0].Email);
+                    $("#OfficialEmail").val(Result[0].OfficialEmail);
+                    $("#UserName").val(Result[0].UserName);
+                    $("#AdminEmail").val(Result[0].AdminEmail);
+                    $("#Attachfiles").empty();
+
+                    for (var i = 0; i < Result[0].lstFile.length; i++) {
+                        var actiondownload = '@Url.Action("Download")';
+                        $("#Attachfiles").append('<tr><td><a class="btn btn-link btn-default" href="' + actiondownload + '/' + Result[0].lstFile[i].id + '"><i class="material-icons">attach_file</i>' + (Result[0].lstFile[i].name.length >= 25 ? Result[0].lstFile[i].name.substring(0, 25) + '....' + (Result[0].lstFile[i].name.split('.').pop()) : Result[0].lstFile[i].name) + '</a></td><td>' + Result[0].lstFile[i].Type + '</td><td>' + Result[0].lstFile[i].Size + ' Bytes</td><td class="text-right"><a class="btn btn-link btn-rose btn-just-icon" href="' + actiondownload + '/' + Result[0].lstFile[i].id + '"><i class="material-icons">get_app</i></a></td></tr>');
+                    }
+                };
+            });
+        }*@
+
+        // إعادة ضبط التاب الأول وتفعيل BasicData عند فتح أو إغلاق المودال
+        $('#Corporation').on('shown.bs.modal hidden.bs.modal', function () {
+            ActivateBasicDataTab();
+        });
+
+        // الدالة التي تفعل التاب BasicData
+        function ActivateBasicDataTab() {
+            // إزالة التحديد عن جميع التابات
+            $('#Corporation .nav-link').removeClass('active');
+            $('#Corporation .tab-pane').removeClass('active show');
+
+            // تفعيل التاب BasicData
+            $('#Corporation a[href="#BasicData"]').addClass('active');
+            $('#BasicData').addClass('active show');
+        }
+
+        // إعادة ضبط الحقول عند إغلاق المودال
+        //$('#Corporation').on('hidden.bs.modal', function () {
+        //    ResetModalFields(); // إعادة ضبط الحقول عند إغلاق المودال
+        //});
+        $('#Corporation').on('hidden.bs.modal', function () {
+            $(this).find('form').trigger('reset'); // إعادة تعيين الحقول النصية
+            $(this).find('input, textarea').val(''); // تصفية الحقول النصية
+            $(this).find('select').prop('selectedIndex', 0); // إعادة تعيين القوائم المنسدلة
+            $(this).find('img').attr('src', ''); // إعادة تعيين الصور
+        });
+
+        function ResetModalTab() {
+
+
+            // إعادة تعيين الحقول النصية
+            $('#Corporation').find('input, textarea').val('');
+
+            // إعادة تعيين القوائم المنسدلة
+            $('#Corporation').find('select').prop('selectedIndex', 0);
+
+            // إعادة تعيين الصور
+            $('#PictureCor').attr('src', '');
+
+            // إعادة تعيين الملفات
+            $("#Attachfiles").empty();
+        }
+
+
+
+
+
+// تحسين الجافاسكربت في الواجهة الأمامية مع معالجة خطأ maxJsonLength وإجراءات الملفات
+
+        function GetData(UserId) {
+            $("#UserIdHidden").val(UserId);
+    $.ajax({
+        url: '@Url.Action("GetCorporationUserDataForDashboardAndRegistration", "Home")',
+        type: 'GET',
+        data: { "UserId": UserId },
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (Result) {
+            if (Result) {
+                $("#PictureCor").attr("src", Result.Picture);
+                $("#Name").val(Result.Name);
+                $("#FoundedYear").val(Result.FoundedYear);
+                $("#Mission").val(Result.Mission);
+                $("#Address").val(Result.Address);
+                $("#AuthorizationAuthorityName").val(Result.AuthorizationAuthorityName);
+                $("#CityName").val(Result.CityName);
+                $("#ClassificationSectorName").val(Result.ClassificationSectorName);
+                $("#CorporateFieldOfWorkName").val(Result.CorporateFieldOfWorkName);
+                $("#CorporationsCategoryName").val(Result.CorporationsCategoryName);
+                $("#Governorate").val(Result.Governorate);
+                $("#Program").val(Result.ProgramName);
+                $("#CorporateGenderType").val(Result.CorporateGenderType);
+                $("#Code").val(Result.Code);
+                $("#CorporateAdministratorExtension").val(Result.CorporateAdministratorExtension);
+                $("#CorporateAdministratorJobTitle").val(Result.CorporateAdministratorJobTitle);
+                $("#CorporateAdministratorMobileNumber").val(Result.CorporateAdministratorMobileNumber);
+                $("#CorporateAdministratorName").val(Result.CorporateAdministratorName);
+                $("#CorporateAdministratorTelephoneNumber").val(Result.CorporateAdministratorTelephoneNumber);
+                $("#DateElection").val(Result.DateElection);
+                $("#Extention").val(Result.Extension);
+                $("#FaxNumber").val(Result.FaxNumber);
+                $("#History").val(Result.History);
+                $("#InstagramAccount").val(Result.InstagramAccount);
+                $("#Objectives").val(Result.Objectives);
+                $("#POBox").val(Result.POBox);
+                $("#PostalCode").val(Result.PostalCode);
+                $("#RegionName").val(Result.RegionName);
+                $("#RegistrationNumber").val(Result.RegistrationNumber);
+                $("#SnapchatAccount").val(Result.SnapchatAccount);
+                $("#TaxNumber").val(Result.TaxNumber);
+                $("#TelephoneNumber").val(Result.TelephoneNumber);
+                $("#TwitterAccount").val(Result.TwitterAccount);
+                $("#Vision").val(Result.Vision);
+                $("#Website").val(Result.Website);
+                $("#YouTubeAccount").val(Result.YouTubeAccount);
+                $("#Email").val(Result.Email);
+                $("#OfficialEmail").val(Result.OfficialEmail);
+                $("#UserName").val(Result.UserName);
+                $("#AdminEmail").val(Result.AdminEmail);
+                LoadFiles(UserId);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error('Error:', error);
+        }
+    });
+        }
+
+        //let filesLoaded = false;
+
+        //$('a[href="#Attachment"]').on('shown.bs.tab', function () {
+        //    var userId = $("#UserIdHidden").val();
+        //    if (userId && !filesLoaded) {
+        //        LoadFiles(userId);
+        //        filesLoaded = true;
+        //    }
+        //});
+
+        //// تحميل الملفات عند فتح المودال
+        //$('#Corporation').on('shown.bs.modal', function () {
+        //    var userId = $("#UserIdHidden").val();
+        //    if (userId) {
+        //        LoadFiles(userId);
+        //    }
+        //});
+        /*$(document).ready(function () {*/
+
+    //// تحميل الملفات عند فتح التبويب "Attachment"
+    //$('a[href="#Attachment"]').on('shown.bs.tab', function (e) {
+    //    var userId = $("#UserIdHidden").val();
+    //    if (userId) {
+    //        LoadFiles(userId); // استدعاء تحميل الملفات
+    //    }
+    //});
+//});
+
+
+
+function LoadFiles(UserId) {
+    $.ajax({
+        url: '@Url.Action("GetCorporationFiles", "Home")',
+        type: 'GET',
+        data: { "UserId": UserId },
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (data) {
+            if (data && data.length) {
+                $("#Attachfiles").empty();
+                for (var i = 0; i < data.length; i++) {
+                    var file = data[i];
+                    var actionDownload = '@Url.Action("Download")';
+                          var actionPreview = '@Url.Action("PreviewFile", "Home")';
+                    $("#Attachfiles").append(`
+                        <tr>
+                            <td>
+                                <a class="btn btn-link btn-default" href="${actionDownload}/${file.AttachmentID}">
+                                    <i class="material-icons">attach_file</i>
+                                    ${file.Name.length >= 25 ? file.Name.substring(0, 25) + '....' + file.Name.split('.').pop() : file.Name}
+                                </a>
+                            </td>
+                            <td>${file.Type}</td>
+                            <td>${file.Size} Bytes</td>
+                            <td class="text-right">
+
+                                 <!-- زر الاستعراض -->
+                                <a class="btn btn-info btn-link" href="${actionPreview}/${file.AttachmentID}" target="_blank" title="Preview">
+                                    <i class="material-icons">visibility</i>
+                                </a>
+                                <a class="btn btn-link btn-rose btn-just-icon" href="${actionDownload}/${file.AttachmentID}">
+                                    <i class="material-icons">get_app</i>
+                                </a>
+                            </td>
+                        </tr>
+                    `);
+                }
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error('Error:', error);
+        }
+    });
+}
+        function Reject() {
+            var radioValue = "Missing Data";
+            var feadback = $("#txtReson").val();
+            var row = $("#UserIndexHidden").val();
+            var FronUserID = $("#UserIdHidden").val();
+            if (feadback != null && !jQuery.isEmptyObject(feadback)) {
+                var msgConfirm = confirm("Are you sure about taken this action, This action will send an email to the corporates?");
+                if (msgConfirm == true) {
+                    $.getJSON('@Url.Action("RejectCorUser", "Home")', { "FronUserID": FronUserID, "Feadback": feadback, "ReasonType": radioValue }, function (Result) {
+                        if (Result != "Error") {
+                            $("#datatablesRegister").DataTable().row(':eq(' + row + ')').remove().draw();
+                            md.showNotification('top', '@Resources.General.MsgTextAlign', 'notification_important', 'rose', '3e3', '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;"> ' + Result + ' </h4>')
+                        }
+                        else
+                        {
+                            md.showNotification('top', '@Resources.General.MsgTextAlign', 'bug_report', 'danger', '3e3', '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;"> Something Went Wrong Please Try Again Later. </h4>')
+                        }
+                    });
+                } else {
+                    //event.preventDefault();
+                }
+            }
+            else
+            {
+                md.showNotification('top', '@Resources.General.MsgTextAlign', 'bug_report', 'danger', '3e3', '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;"> Feadback Required !! </h4>')
+            }
+        }
+
+        function bindUserId(element) {
+            var index = $(element).parent().parent().index();
+            var id = $(element).data("userid");
+            $("#UserIndexHidden").val(index);
+            $("#UserIdHidden").val(id);
+        }
+
+        function openUpdateAccountModal(btn) {
+            var $btn = $(btn);
+
+            $("#Upd_FrontendUserId").val($btn.data("frontenduserid"));
+            $("#Upd_AspUserId").val($btn.data("aspuserid"));
+
+            $("#Upd_UserName").val($btn.data("username"));
+            $("#Upd_Email").val($btn.data("email"));
+
+            $("#Upd_NewPassword").val('');
+            $("#Upd_ConfirmPassword").val('');
+
+            $("#Upd_Error").hide().text('');
+            $("#Upd_Success").hide().text('');
+
+            $("#UpdateAccountModal").modal("show");
+        }
+        function saveUpdateAccount() {
+
+    var aspUserId = $("#Upd_AspUserId").val();
+    var userName  = $("#Upd_UserName").val();
+    var email     = $("#Upd_Email").val();
+    var newPass   = $("#Upd_NewPassword").val();
+    var confirm   = $("#Upd_ConfirmPassword").val();
+
+    $("#Upd_Error").hide().text('');
+    $("#Upd_Success").hide().text('');
+
+    if (!aspUserId) {
+        $("#Upd_Error").show().text("معرّف المستخدم غير موجود.");
+        return;
+    }
+
+    if (newPass && newPass !== confirm) {
+        $("#Upd_Error").show().text("كلمة المرور وتأكيدها غير متطابقين.");
+        return;
+    }
+
+   $.ajax({
+    url: '@Url.Action("AdminUpdateBackendUserAccount", "CorporationRegistered")',
+    type: 'POST',
+    data: {
+        __RequestVerificationToken: $('#UpdateAccountModal input[name="__RequestVerificationToken"]').val(),
+        AspUserId: aspUserId,
+        UserName: userName,
+        Email: email,
+        NewPassword: newPass
+    },
+    success: function (res) {
+        if (res && res.Success) {
+            $("#Upd_Success").show().text(res.Message || "تم الحفظ بنجاح.");
+        } else {
+            $("#Upd_Error").show().text((res && res.Message) ? res.Message : "فشل الحفظ.");
+        }
+    },
+    error: function (xhr) {
+        $("#Upd_Error").show().text("حدث خطأ أثناء الحفظ: " + xhr.status);
+    }
+});
+
+}
+    </script>
+}

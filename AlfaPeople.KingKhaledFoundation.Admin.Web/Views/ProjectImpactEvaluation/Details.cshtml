@@ -1,0 +1,100 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.ProjectImpactEvaluation
+@{
+    ViewBag.Title = "تفاصيل قياس الأثر";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="content">
+    @if (TempData["PopupError"] != null)
+    {
+        <div class="modal fade" id="msgModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">تنبيه</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        @TempData["PopupError"]
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">موافق</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(function () { $('#msgModal').modal('show'); });
+        </script>
+    }
+
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-rose card-header-text">
+                <div class="card-text">
+                    <h4 class="card-title">تفاصيل قياس الأثر</h4>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div style="margin-bottom:15px;">
+                    <b>الورشة:</b> @(Model.IncubationWorkshop != null ? Model.IncubationWorkshop.Name : "-") <br />
+                    <b>آخر موعد للتعبئة:</b> @Model.Deadline.ToString("yyyy-MM-dd") <br />
+                    <b>تاريخ التذكير:</b> @(Model.ReminderDate.HasValue ? Model.ReminderDate.Value.ToString("yyyy-MM-dd") : "-") <br />
+                </div>
+
+                <hr />
+
+                <h5>الجمعيات</h5>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>اسم الجمعية</th>
+                                <th>الحالة</th>
+                                <th>تاريخ التعبئة</th>
+                                <th style="width:200px;">إجراء</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.ProjectImpactEvaluationRequests != null && Model.ProjectImpactEvaluationRequests.Any())
+                            {
+                                foreach (var r in Model.ProjectImpactEvaluationRequests)
+                                {
+                                    var corpName =
+                                        (r.FrontendUser?.CorporateApplicationForms != null && r.FrontendUser.CorporateApplicationForms.Any())
+                                        ? r.FrontendUser.CorporateApplicationForms.FirstOrDefault().Name
+                                        : r.FrontendUser?.AspNetUser?.UserName;
+
+                                    <tr>
+                                        <td>@(string.IsNullOrWhiteSpace(corpName) ? "-" : corpName)</td>
+                                        <td>@(r.Status == AlfaPeople.KingKhalidFoundation.Data.Model.ProjectImpactEvaluationStatus.Filled ? "تمت التعبئة" : "قيد الانتظار")</td>
+                                        <td>@(r.FilledOn.HasValue ? r.FilledOn.Value.ToString("yyyy-MM-dd") : "-")</td>
+                                        <td>
+                                            @* زر عرض النموذج (قراءة فقط) *@
+                                            <a class="btn btn-sm btn-default"
+                                               href="@Url.Action("PostImpactDetails", "ProjectImpactEvaluation",
+                                                     new { evaluationId = Model.ProjectImpactEvaluationId, frontendUserId = r.FrontendUserId })">
+                                                عرض النموذج
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr><td colspan="4">لا توجد جمعيات مرتبطة.</td></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <a class="btn btn-default" href="@Url.Action("Index")">رجوع</a>
+            </div>
+        </div>
+    </div>
+</div>
+

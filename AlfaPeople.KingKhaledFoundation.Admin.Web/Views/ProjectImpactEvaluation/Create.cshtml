@@ -1,0 +1,165 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.ProjectImpactEvaluationVM
+@{
+    ViewBag.Title = "إضافة قياس أثر";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header card-header-rose card-header-text">
+                        <div class="card-text">
+                            <h4 class="card-title">إضافة قياس أثر</h4>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        @using (Html.BeginForm("Create", "ProjectImpactEvaluation", FormMethod.Post, new { id = "myForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="row justify-content-center">
+
+                            <!-- الورشة -->
+                            <div class="col-sm-6">
+                                <div class="form-group select-wizard">
+                                    @Html.DropDownListFor(
+                                        m => m.ProjectImpactEvaluation.IncubationWorkshopID,
+                                        (SelectList)ViewBag.WorkShop,
+                                        htmlAttributes: new
+                                        {
+                                            @class = "select-wizard form-control selectpicker",
+                                            @data_style = "select-with-transition",
+                                            @title = "اختر الورشة"
+                                        })
+                                    @Html.ValidationMessageFor(m => m.ProjectImpactEvaluation.IncubationWorkshopID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <!-- الجمعيات -->
+                            <div class="col-sm-6">
+                                <div class="form-group select-wizard">
+                                    <select id="FrontEndUsers"
+                                            name="FrontEndUsers"
+                                            required
+                                            class="select-wizard form-control selectpicker"
+                                            data-style="select-with-transition"
+                                            multiple="multiple"
+                                            title="اختر الجمعيات">
+                                    </select>
+                                    @Html.ValidationMessageFor(m => m.FrontEndUsers, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <!-- Deadline -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="Deadline">آخر موعد للتعبئة</label>
+                                    @Html.TextBoxFor(m => m.ProjectImpactEvaluation.Deadline,
+                                        "{0:yyyy-MM-dd}",
+                                        new { @class = "form-control", @id = "Deadline", type = "date" })
+                                    @Html.ValidationMessageFor(m => m.ProjectImpactEvaluation.Deadline, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <!-- ReminderDate -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="ReminderDate">تاريخ التذكير</label>
+                                    @Html.TextBoxFor(m => m.ProjectImpactEvaluation.ReminderDate,
+                                        "{0:yyyy-MM-dd}",
+                                        new { @class = "form-control", @id = "ReminderDate", type = "date" })
+                                    @Html.ValidationMessageFor(m => m.ProjectImpactEvaluation.ReminderDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <!-- Deadline -->
+                            @*<div class="col-sm-6">
+            <div class="form-group">
+                <label for="Deadline">آخر موعد للتعبئة</label>
+                @Html.TextBoxFor(m => m.ProjectImpactEvaluation.Deadline, new { @class = "form-control", @id = "Deadline" })
+                @Html.ValidationMessageFor(m => m.ProjectImpactEvaluation.Deadline, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                            <!-- ReminderDate -->
+                            @*<div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="ReminderDate">تاريخ التذكير</label>
+                                    @Html.TextBoxFor(m => m.ProjectImpactEvaluation.ReminderDate, new { @class = "form-control", @id = "ReminderDate" })
+                                    @Html.ValidationMessageFor(m => m.ProjectImpactEvaluation.ReminderDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
+
+                            <!-- Notes -->
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Notes" class="bmd-label-floating">ملاحظات</label>
+                                    @Html.TextAreaFor(m => m.ProjectImpactEvaluation.Notes, new { @class = "form-control", rows = "2" })
+                                    @Html.ValidationMessageFor(m => m.ProjectImpactEvaluation.Notes, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="card-footer justify-content-center">
+                                    <input type="submit" value="حفظ" class="btn btn-rose" />
+                                    <a class="btn btn-default" href="@Url.Action("Index")">رجوع</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+            // Datepicker
+            $("#Deadline, #ReminderDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            // تحميل الجمعيات حسب الورشة
+            $("#ProjectImpactEvaluation_IncubationWorkshopID").on('change', function () {
+                var selectedId = $(this).val();
+
+                if (!selectedId) {
+                    $("#FrontEndUsers").empty().selectpicker('refresh');
+                    return;
+                }
+
+                $.getJSON('@Url.Action("GetUsers", "ProjectImpactEvaluation")', { Id: selectedId }, function (result) {
+                    var option = '';
+                    if (result && result.length > 0) {
+                        $.each(result, function (index, data) {
+                            option += '<option value="' + data.Value + '">' + data.Text + '</option>';
+                        });
+                        $("#FrontEndUsers").html(option).selectpicker('refresh');
+                    } else {
+                        $("#FrontEndUsers").empty().selectpicker('refresh');
+                    }
+                });
+            });
+
+            // تأكيد قبل الإرسال
+            $("#myForm").submit(function (event) {
+                var msgConfirm = confirm("هل أنت متأكد؟ سيتم إرسال بريد للجمعيات المختارة.");
+                if (!msgConfirm) event.preventDefault();
+            });
+
+        });
+    </script>
+}

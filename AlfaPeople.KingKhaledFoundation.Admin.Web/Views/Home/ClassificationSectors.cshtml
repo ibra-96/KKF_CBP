@@ -1,0 +1,496 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.ClassificationSector>
+
+@{
+    ViewBag.Title = "Classification Sectors";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+   <!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- <div class="col-md-10 ml-auto mr-auto"> -->
+            <div class="col-md-12">
+                <div class="card">
+                   
+                    <div class="card-body">
+                        <div class="toolbar">
+                            <!--        Here you can write extra buttons/actions for the toolbar      
+                                        -->
+                            <button style="float: right;" class="btn btn-link btn-info btn-just-icon like" data-toggle="modal" data-target="#AddClassificationSectorNonProfit">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </div>
+                        <div class="material-datatables">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                                   width="100%" style="width:100%">
+                                <thead>
+                                    <tr>
+                              
+                                        <th style="text-align:center" >
+                                         Category Name AR
+                                        </th>
+                                        <th style="text-align:center" >
+                                            @Html.DisplayNameFor(model => model.ClassificationSectorNameAR)
+                                        </th>
+                                        <th style="text-align:center" >
+                                            @Html.DisplayNameFor(model => model.ClassificationSectorNameEN)
+                                        </th>
+                                        <th style="text-align:center" >
+                                            @Html.DisplayNameFor(model => model.IsActive)
+                                        </th>
+                                        <th style="text-align:center"></th>
+                                     
+                                    <th></th>
+                                    </tr>
+                                </thead>
+                       
+                                <tbody>
+@{
+    int Counter = 1;
+}
+                                    
+@foreach (var item in Model)
+{
+
+    <tr>
+        <td style="text-align:center" >
+            @Html.DisplayFor(modelItem => item.CorporationsCategory.CorporationsCategoryNameAR)
+        </td>
+        <td style="text-align:center" >
+            @Html.DisplayFor(modelItem => item.ClassificationSectorNameAR)
+        </td>
+        <td style="text-align:center" >
+            @Html.DisplayFor(modelItem => item.ClassificationSectorNameEN)
+        </td>
+        <td style="text-align:center" >
+            @if (item.IsActive==true)
+            {
+                <span class="badge badge-pill badge-success">
+                    Acitve
+                </span>
+
+            }
+            else
+            {
+                <span class="badge badge-pill badge-danger">
+                    InAcitve
+                </span>
+
+            }
+          
+
+        </td>
+        
+
+        <td style="text-align:center"  class="text-right">
+
+            <button date-id="@item.ClassificationSectorID" onclick="GetSectorObjectToUpdate('@item.ClassificationSectorID','@Counter')" class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditClassificationSectorNonProfit">
+                <i class="material-icons">edit</i>
+            </button>
+           
+        </td>
+        <td>
+            <button onclick="ActiveDeactiveSector('@item.ClassificationSectorID','@Counter')" class="btn btn-link btn-danger  remove">
+                @*<i class="material-icons">delete</i>*@
+
+                @if (item.IsActive == false)
+                {
+                    <span class="badge badge-pill badge-success">
+                        Activeate
+                    </span>
+
+                }
+                else
+                {
+                    <span class="badge badge-pill badge-danger">
+                        Deactivate
+                    </span>
+
+                }
+
+
+            </button>
+
+        </td>
+    </tr>
+    Counter++;
+}
+                            
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<!-- End Content -->
+
+<!-- Modals -->
+<!-- Modal Add ClassificationSectorNonProfit -->
+<div class="modal fade" id="AddClassificationSectorNonProfit" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="RegisterValidation" action="" method="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <b> + </b> Add New Classification Sector Non-Profit
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Inp_EN" class="bmd-label-floating">Sector Name EN *</label>
+                        <input class="form-control" type="text" id="SectorNameEN" name="EN" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Inp_AR" class="bmd-label-floating">Sector Name AR *</label>
+                        <input class="form-control" type="text" id="SectorNameAR" name="AR" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Inp_Order" class="bmd-label-floating"> Category Name *</label>
+                    
+                        @Html.DropDownList("CorporationsCategoryID", (SelectList)ViewBag.CorporationsCategoryID, new { @class = "selectpicker form-control", @required = "required", data_style = "select-with-transition", @title = "Select Category", @id = "ddlCategory" })
+   
+                     </div>
+             
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="AddNewSector()" class="btn btn-info btn-link" data-dismiss="modal">Add</button>
+                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal Add ClassificationSectorNonProfit -->
+<!-- Modal Edit ClassificationSectorNonProfit -->
+<div class="modal fade" id="EditClassificationSectorNonProfit" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="RegisterValidation" action="" method="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <i class="material-icons">edit</i> Edit Classification Sector Non-Profit
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="Inp_EN" class="bmd-label-floating"> Sector Name EN *</label>
+                        <input class="form-control" type="text" id="SectorNameENEdit" name="EN" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="Inp_AR" class="bmd-label-floating">Sector Name AR *</label>
+                        <input class="form-control" type="text" id="SectorNameAREdit" name="AR" required />
+                        <input type="hidden" id="ClassificationSectorID" />
+                        <input type="hidden" id="index" />
+
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="Inp_Order" class="bmd-label-floating"> Order *</label>
+                        @Html.DropDownList("CorporationsCategoryID", (SelectList)ViewBag.CorporationsCategoryID, new { @class = "selectpicker form-control", @required = "required", data_style = "select-with-transition", @title = "Select Category", @id = "ddlCategoryEdited" })
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="UpdateSector()" data-dismiss="modal" class="btn btn-info btn-link">Edit</button>
+                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal Edit ClassificationSectorNonProfit -->
+<!-- End Modals -->
+@section Scripts
+{
+    <script>
+
+        function GetSectorObjectToUpdate(SectorId, index) {
+          
+            $.getJSON('@Url.Action("GetSectorObjectToUpdate", "Home")', { "SectorId": SectorId }, function (Result) {
+
+                $("#index").val(index);
+                $("#SectorNameENEdit").val(Result.ClassificationSectorNameEN);
+                $("#SectorNameAREdit").val(Result.ClassificationSectorNameAR);
+                $("#ddlCategoryEdited").val(Result.CorporationsCategoryID);
+                $("#ClassificationSectorID").val(Result.ClassificationSectorID);
+                $('#ddlCategoryEdited').selectpicker('refresh')
+            });
+        }
+
+        function UpdateSector(){
+
+            var SectorNameENEdit=  $("#SectorNameENEdit").val();
+            var SectorNameAREdit= $("#SectorNameAREdit").val();
+            var ddlCategoryEdited=  $("#ddlCategoryEdited").val();
+            var sectorId= $("#ClassificationSectorID").val();
+            var Index=$("#index").val()
+            $.getJSON('@Url.Action("UpdateSector", "Home")', { "SectorId": sectorId ,"SectorNameENEdit":SectorNameENEdit,"SectorNameAREdit":SectorNameAREdit,"ddlCategoryEdited":ddlCategoryEdited}, function (Result) {
+                document.getElementById("datatables").rows[Index].cells[0].innerHTML = '<td style="text-align:center">' + $("#ddlCategoryEdited option:selected").text() + '</td>';
+                document.getElementById("datatables").rows[Index].cells[1].innerHTML = '<td style="text-align:center">'+SectorNameAREdit+'</td>';
+                document.getElementById("datatables").rows[Index].cells[2].innerHTML = '<td style="text-align:center">'+SectorNameENEdit+'</td>';
+                               
+                alertify.success("Sector Updated");
+                            
+            });
+
+        }
+
+        function ActiveDeactiveSector(sectorId,Index) {
+           $.getJSON('@Url.Action("ActiveDeactiveSector", "Home")', { "SectorId": sectorId }, function (Result) {
+
+              
+               if (Result) {
+
+                        document.getElementById("datatables").rows[Index].cells[3].innerHTML = '<td><span class="badge badge-pill badge-success"> Acitve</span></td>';
+                        document.getElementById("datatables").rows[Index].cells[5].innerHTML = ' <td> <button onclick="ActiveDeactiveSector(' + "'" + sectorId + "'" + ',' + "'" + Index + "'"+')" class="btn btn-link btn-danger  remove"> <span class="badge badge-pill badge-danger"> DeActivate</span> </td>'
+                               
+                        alertify.success("Sector Activated");
+                    }
+               else  {
+                   
+                        document.getElementById("datatables").rows[Index].cells[3].innerHTML = '<td><span class="badge badge-pill badge-danger"> InAcitve</span></td>';
+                        document.getElementById("datatables").rows[Index].cells[5].innerHTML = ' <td> <button onclick="ActiveDeactiveSector(' +"'"+ sectorId + "'"+',' +"'"+ Index + "'"+')" class="btn btn-link btn-danger  remove"> <span class="badge badge-pill badge-success"> Activate</span> </td>'
+
+
+                       alertify.success("Sector DeActivated");
+                    }
+
+                
+            });
+          
+        }
+
+        function AddNewSector() {
+
+            $.getJSON('@Url.Action("AddNewSector", "Home")', { "SectorNameEN": $("#SectorNameEN").val(), "SectorNameAR": $("#SectorNameAR").val(), "CategoryID": $("#ddlCategory").val() }, function (Result)
+            {
+                var rows = document.getElementById("datatables").getElementsByTagName("tbody")[0].getElementsByTagName("tr").length;
+                var newRow = parseInt(rows) + 1;
+                $("#datatables").append('<tr><td style="text-align:center">' + $("#ddlCategory option:selected").text() + '</td><td  style="text-align:center">' + $("#SectorNameAR").val() + '</td><td style="text-align:center">' + $("#SectorNameEN").val() + '</td><td style="text-align:center">     <span class="badge badge-pill badge-success">  Acitve  </span></td><td style="text-align:center" class="text-right">   <button date-id="Result" onclick="GetSectorObjectToUpdate(' + "'" + Result + "'" + ',' + "'" + newRow + "'" + ')" class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditClassificationSectorNonProfit"><i class="material-icons">edit</i> </button>  </td><td >   <button onclick="ActiveDeactiveSector(' + "'" + Result + "'" + ',' + "'" + newRow + "'" + ')" class="btn btn-link btn-danger  remove"> <span class="badge badge-pill badge-success">Activeate </span></button> </td></tr>');
+            });
+
+          
+        }
+    </script>   
+    
+    
+    
+    
+    @*<script>
+    $(document).ready(function () {
+      $().ready(function () {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+            $('.fixed-plugin .dropdown').addClass('open');
+          }
+
+        }
+
+        $('.fixed-plugin a').click(function (event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function () {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function () {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function () {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function () {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function () {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function () {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function () {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function () {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function () {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function () {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+</script>
+
+<script>
+    function setFormValidation(id) {
+      $(id).validate({
+        highlight: function (element) {
+          $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+          $(element).closest('.form-check').removeClass('has-success').addClass('has-danger');
+        },
+        success: function (element) {
+          $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
+          $(element).closest('.form-check').removeClass('has-danger').addClass('has-success');
+        },
+        errorPlacement: function (error, element) {
+          $(element).append(error);
+        },
+      });
+    }
+
+    $(document).ready(function () {
+      setFormValidation('#RegisterValidation');
+      setFormValidation('#TypeValidation');
+      setFormValidation('#LoginValidation');
+      setFormValidation('#RangeValidation');
+    });
+</script>*@
+     
+    }

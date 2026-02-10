@@ -1,0 +1,331 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Web.Models.IndIvidualRegistrationFormVM
+@{
+
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="col-md-8 col-12 mr-auto ml-auto">
+            <!--      Wizard container        -->
+            <div class="wizard-container">
+                <div class="card card-wizard" data-color="rose" id="wizardProfile">
+                    @using (Html.BeginForm("IndIvidualProfile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(f => f._RegisterVM._RegisterViewModel.UserRoles)
+                        @Html.HiddenFor(f => f._RegisterVM._RegisterViewModel.ConfirmPassword)
+                        <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                        <div class="card-header text-center">
+                        </div>
+                        <div class="wizard-navigation">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#BasicData" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.BasicData
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Contacts" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.Contacts
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#Account" data-toggle="tab" role="tab">
+                                        @Resources.CorporationRegistered.Account
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="BasicData">
+                                    <h5 class="info-text"> Let's start with the basic information </h5>
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-4">
+                                            <div class="picture-container">
+                                                <div class="picture">
+                                                    @{
+                                                        var base64 = Convert.ToBase64String(@Model._IndividualApplicationForm.Picture);
+                                                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                                    }
+                                                    <img src="@imgSrc" name="_CorporateApplicationForm.picture" class="picture-src" id="wizardPicturePreview" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">@Resources.CorporationRegistered.FullName </label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.Name, new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label>@Resources.CorporationRegistered.BirthDate </label>
+                                                    <input type="text" class="form-control" id="Inp_BirthDate" value="@Model._IndividualApplicationForm.BirthDate.ToString("yyyy/MM/dd")" name="Gender" disabled="disabled">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label class="bmd-label-floating">@Resources.CorporationProfile.GenderTypeOnTheOrganization &nbsp&nbsp</label>
+                                                    @if (Model._IndividualApplicationForm.Gender)
+                                                    {
+                                                        <input type="text" class="form-control" id="Inp_Gender" value="Female" name="Gender" disabled="disabled">
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="text" class="form-control" id="Inp_Gender" value="Male" name="Gender" disabled="disabled">
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating"> @Resources.CorporationRegistered.IdentityNumber</label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.IdentityNumber, new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label> Work Start Date </label>
+                                                    <input type="text" class="form-control" id="Inp_WorkStartDate" value="@Model._IndividualApplicationForm.WorkStartDate.ToString("yyyy/MM/dd")" name="Gender" disabled="disabled">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label class="bmd-label-floating"> @Resources.CorporationRegistered.Nationality</label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.CountriesAndNationality.NationalityEN, new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">@Resources.CorporationRegistered.CompanyName</label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.CompanyName, new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating"> @Resources.General.Positions </label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.Position, new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">@Resources.CorporationRegistered.ExplainFunctionsOfPosition</label>
+                                                    @Html.TextAreaFor(f => f._IndividualApplicationForm.PositionDetails, new { @class = "form-control", @rows = "5", @style = "width: 113%", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Contacts">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-12">
+                                            <h5 class="info-text"> Help us to contact with you </h5>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label class="bmd-label-floating">@Resources.General.Region</label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.Region.RegionNameEN, new { @class = "form-control ", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label class="bmd-label-floating">@Resources.General.Governorate</label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.Governorate.GovernorateEN, new { @class = "form-control ", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group select-wizard">
+                                                    <label class="bmd-label-floating" style="margin-right:100%">@Resources.General.Neighborhoods</label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.City.CityNameEN, new { @class = "form-control ", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group" style="width: 100%;">
+                                                    <label class="bmd-label-floating">@Resources.CorporationProfile.Address </label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.Address, new { @class = "form-control ", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">@Resources.CorporationProfile.POBox </label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.POBox, new { @class = "form-control ", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">@Resources.CorporationProfile.PostalCode </label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.PostalCode, new { @class = "form-control ", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">@Resources.CorporationProfile.Mobile </label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.MobileNumber, new { @class = "form-control ", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">@Resources.CorporationProfile.TelephoneNumber</label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.TelephoneNumber, new { @class = "form-control ", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">@Resources.CorporationProfile.Extension </label>
+                                                    @Html.TextBoxFor(f => f._IndividualApplicationForm.Extension, new { @class = "form-control ", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Account">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-12">
+                                            <h5 class="info-text"> Let's start with the building your Authentication </h5>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_UserName">@Resources.General.Username</label>
+                                                    @Html.TextBoxFor(f => f._RegisterVM.Username, new { @class = "form-control ", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Email">@Resources.General.Email </label>
+                                                    @Html.TextBoxFor(f => f._RegisterVM._RegisterViewModel.Email, new { @class = "form-control ", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="input-group form-control-lg">
+                                                <div class="form-group">
+                                                    <label for="Inp_Password">@Resources.General.Password </label>
+                                                    <input type="password" class="form-control" id="Inp_Password" value=".........." name="Passwordhashed" disabled="disabled">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="mr-auto">
+                                </div>
+                                <div class="ml-auto">
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- wizard container -->
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            // Initialise the wizard
+            demo.initMaterialWizard();
+            setTimeout(function () {
+                $('.card.card-wizard').addClass('active');
+            }, 600);
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            // initialise Datetimepicker and Sliders
+            md.initFormExtendedDatetimepickers();
+            if ($('.slider').length != 0) {
+                md.initSliders();
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#BasicData *").attr("disabled", "disabled").off('click');
+            $("#Contacts *").attr("disabled", "disabled").off('click');
+            $("#Education *").attr("disabled", "disabled").off('click');
+            $("#Account *").attr("disabled", "disabled").off('click');
+        });
+    </script>
+    <script>
+        $("#Region").on('change', function () {
+            var selectedRegion = $("#Region").val();
+            var options = [];
+            var option = '';
+            if (selectedRegion != null && selectedRegion != '') {
+                $.getJSON('@Url.Action("GetGovernorates")', { Region: selectedRegion }, function (Governorates) {
+                    if (Governorates != null && !jQuery.isEmptyObject(Governorates)) {
+
+                        $.each(Governorates, function (index, Governorate) {
+                            option = option + '<option value="' + Governorate.Value + '">' + Governorate.Text + "</option>"
+                        });
+
+                        $("#Governorate")
+         .html(option)
+         .selectpicker('refresh');
+                    };
+                });
+            }
+        });
+
+
+
+        $("#Governorate").on('change', function () {
+            var selectedGovernorate = $("#Governorate").val();
+            var options = [];
+            var option = '';
+            if (selectedGovernorate != null && selectedGovernorate != '') {
+                $.getJSON('@Url.Action("GetCities")', { Governorate: selectedGovernorate }, function (Cities) {
+                    if (Cities != null && !jQuery.isEmptyObject(Cities)) {
+
+                        $.each(Cities, function (index, City) {
+                            option = option + '<option value="' + City.Value + '">' + City.Text + "</option>"
+                        });
+
+                        $("#City")
+         .html(option)
+         .selectpicker('refresh');
+                    };
+                });
+            }
+
+
+        });
+
+
+    </script>
+
+}

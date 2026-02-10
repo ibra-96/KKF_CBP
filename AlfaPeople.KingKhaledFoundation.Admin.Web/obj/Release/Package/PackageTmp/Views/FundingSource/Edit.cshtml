@@ -1,0 +1,263 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.FundingSourceVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+
+    string GrantLogoPic, GrantHeaderPic, GrantBackgroundPic, RegistrationBackgroundPic;
+
+    if (Model.FundingSource.UseCustomThemes && !string.IsNullOrWhiteSpace(Model.FundingSource.GrantLogoPic))
+    {
+        GrantLogoPic = Model.FundingSource.GrantLogoPic;
+    }
+    else
+    {
+        GrantLogoPic = "/assets/img/PicBG.png";
+    }
+
+    if (Model.FundingSource.UseCustomThemes && !string.IsNullOrWhiteSpace(Model.FundingSource.GrantHeaderPic))
+    {
+        GrantHeaderPic = Model.FundingSource.GrantHeaderPic;
+    }
+    else
+    {
+        GrantHeaderPic = "/assets/img/PicBG.png";
+    }
+
+    if (Model.FundingSource.UseCustomThemes && !string.IsNullOrWhiteSpace(Model.FundingSource.GrantBackgroundPic))
+    {
+        GrantBackgroundPic = Model.FundingSource.GrantBackgroundPic;
+    }
+    else
+    {
+        GrantBackgroundPic = "/assets/img/PicBG.png";
+    }
+
+    if (Model.FundingSource.UseCustomThemes && !string.IsNullOrWhiteSpace(Model.FundingSource.RegistrationBackgroundPic))
+    {
+        RegistrationBackgroundPic = Model.FundingSource.RegistrationBackgroundPic;
+    }
+    else
+    {
+        RegistrationBackgroundPic = "/assets/img/PicBG.png";
+    }
+}
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-text">
+                        <div class="card-text">
+                            <h4 class="card-title"> @Resources.General.FundingSource</h4>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        @using (Html.BeginForm("Edit", "FundingSource", FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.FundingSource.FundingSourceID)
+                            @Html.HiddenFor(model => model.FundingSource.GrantLogoPic)
+                            @Html.HiddenFor(model => model.FundingSource.GrantHeaderPic)
+                            @Html.HiddenFor(model => model.FundingSource.GrantBackgroundPic)
+                            @Html.HiddenFor(model => model.FundingSource.RegistrationBackgroundPic)
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="FundingSource_Nickname" class="bmd-label-floating">@Resources.FundingSource.Nickname</label>
+                                        @Html.EditorFor(model => model.FundingSource.Nickname, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                        @Html.ValidationMessageFor(model => model.FundingSource.Nickname, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="FundingSource_FundingSourceNameEN" class="bmd-label-floating">@Resources.FundingSource.FundingSourceNameEN</label>
+                                        @Html.EditorFor(model => model.FundingSource.FundingSourceNameEN, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                        @Html.ValidationMessageFor(model => model.FundingSource.FundingSourceNameEN, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="FundingSource_FundingSourceNameAR" class="bmd-label-floating">@Resources.FundingSource.FundingSourceNameAR</label>
+                                        @Html.EditorFor(model => model.FundingSource.FundingSourceNameAR, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                        @Html.ValidationMessageFor(model => model.FundingSource.FundingSourceNameAR, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="FundingSource_IsActive">
+                                            @Resources.FundingSource.IsActive
+                                            @Html.CheckBoxFor(model => model.FundingSource.IsActive, htmlAttributes: new { @class = "toggle" })
+                                            @Html.ValidationMessageFor(model => model.FundingSource.IsActive, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="model.FundingSource_UseCustomThemes">
+                                            @Resources.FundingSource.UseCustomThemes
+                                            @Html.CheckBoxFor(model => model.FundingSource.UseCustomThemes, htmlAttributes: new { @class = "toggle" })
+                                            @Html.ValidationMessageFor(model => model.FundingSource.UseCustomThemes, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="CustomThemesGroupPlus" class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="model.FundingSource_HideKKFLogo">
+                                            @Resources.FundingSource.HideKKFLogo
+                                            @Html.CheckBoxFor(model => model.FundingSource.HideKKFLogo, htmlAttributes: new { @class = "toggle" })
+                                            @Html.ValidationMessageFor(model => model.FundingSource.HideKKFLogo, "", new { @class = "text-danger" })
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="CustomThemesGroup" class="row">
+                                <div class="col-lg-3">
+                                    <h4 class="title">@Resources.FundingSource.GrantLogoPic</h4>
+                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="max-width:200px;">
+                                            <img src="@GrantLogoPic" />
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                        <div>
+                                            <span class="btn btn-rose btn-link btn-lg btn-file">
+                                                <span class="fileinput-new"><i class="material-icons">cloud_upload</i> @Resources.FundingSource.SelectImage</span>
+                                                <span class="fileinput-exists"><i class="material-icons">autorenew</i> @Resources.FundingSource.Change</span>
+                                                @Html.TextBoxFor(model => model.LogoPic, "", new { @type = "file" })
+                                                @Html.ValidationMessageFor(model => model.LogoPic, "", new { @class = "text-danger" })
+                                            </span>
+                                            <button type="button" class="btn btn-link btn-danger fileinput-exists" data-dismiss="fileinput">
+                                                <i class="material-icons">delete</i> @Resources.FundingSource.Remove
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <h4 class="title">@Resources.FundingSource.GrantHeaderPic</h4>
+                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="max-width:200px;">
+                                            <img src="@GrantHeaderPic" />
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                        <div>
+                                            <span class="btn btn-rose btn-link btn-lg btn-file">
+                                                <span class="fileinput-new"><i class="material-icons">cloud_upload</i> @Resources.FundingSource.SelectImage</span>
+                                                <span class="fileinput-exists"><i class="material-icons">autorenew</i> @Resources.FundingSource.Change</span>
+                                                @Html.TextBoxFor(model => model.HeaderPic, "", new { @type = "file" })
+                                                @Html.ValidationMessageFor(model => model.HeaderPic, "", new { @class = "text-danger" })
+                                            </span>
+                                            <button type="button" class="btn btn-link btn-danger fileinput-exists" data-dismiss="fileinput">
+                                                <i class="material-icons">delete</i> @Resources.FundingSource.Remove
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <h4 class="title">@Resources.FundingSource.GrantBackgroundPic</h4>
+                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="max-width:200px;">
+                                            <img src="@GrantBackgroundPic" />
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                        <div>
+                                            <span class="btn btn-rose btn-link btn-lg btn-file">
+                                                <span class="fileinput-new"><i class="material-icons">cloud_upload</i> @Resources.FundingSource.SelectImage</span>
+                                                <span class="fileinput-exists"><i class="material-icons">autorenew</i> @Resources.FundingSource.Change</span>
+                                                @Html.TextBoxFor(model => model.GBackgroundPic, "", new { @type = "file" })
+                                                @Html.ValidationMessageFor(model => model.GBackgroundPic, "", new { @class = "text-danger" })
+                                            </span>
+                                            <button type="button" class="btn btn-link btn-danger fileinput-exists" data-dismiss="fileinput">
+                                                <i class="material-icons">delete</i> @Resources.FundingSource.Remove
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <h4 class="title">@Resources.FundingSource.RegistrationBackgroundPic</h4>
+                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="max-width:200px;">
+                                            <img src="@RegistrationBackgroundPic" />
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                        <div>
+                                            <span class="btn btn-rose btn-link btn-lg btn-file">
+                                                <span class="fileinput-new"><i class="material-icons">cloud_upload</i> @Resources.FundingSource.SelectImage</span>
+                                                <span class="fileinput-exists"><i class="material-icons">autorenew</i> @Resources.FundingSource.Change</span>
+                                                @Html.TextBoxFor(model => model.RBackgroundPic, "", new { @type = "file" })
+                                                @Html.ValidationMessageFor(model => model.RBackgroundPic, "", new { @class = "text-danger" })
+                                            </span>
+                                            <button type="button" class="btn btn-link btn-danger fileinput-exists" data-dismiss="fileinput">
+                                                <i class="material-icons">delete</i> @Resources.FundingSource.Remove
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <input type="submit" class="btn btn-rose" name="Save" value="@Resources.General.Save">
+                                        <a class="btn btn-default" href="@Url.Action("Index")">@Resources.General.Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            if ($("#FundingSource_UseCustomThemes").is(":checked")) {
+                $("#CustomThemesGroup").show();
+                $("#CustomThemesGroupPlus").show();
+            } else {
+                $("#CustomThemesGroup").hide();
+                $("#CustomThemesGroupPlus").hide();
+            }
+        });
+        $("#FundingSource_UseCustomThemes").click(function () {
+            if ($(this).is(":checked")) {
+                $("#CustomThemesGroup input[type='file']").each(function () { $(this).val(''); })
+                $("#CustomThemesGroup img").each(function () { $(this).attr("src", "/assets/img/PicBG.png"); })
+                $("#CustomThemesGroup").show();
+                $("#CustomThemesGroupPlus").show();
+
+            } else {
+                $("#CustomThemesGroup input[type='file']").each(function () { $(this).val(''); })
+                $("#CustomThemesGroup img").each(function () { $(this).attr("src", "/assets/img/PicBG.png"); })
+                $("#CustomThemesGroup").hide();
+                $("#CustomThemesGroupPlus").hide();
+            }
+        });
+    </script>
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_FundingSource').addClass('active');
+            $('#Lookups').addClass('show');
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            let exMessage = '@ViewBag.Message';
+            if (exMessage != '' && exMessage != null && exMessage != undefined) {
+                md.showNotification('top', '@Resources.General.MsgTextAlign', 'notification_important', 'danger', '3e3', '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;"> ' + exMessage + ' </h4>')
+            }
+        });
+    </script>
+}

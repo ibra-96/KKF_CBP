@@ -1,0 +1,306 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.WorkshopPrivateInvitation>
+@{
+    ViewBag.Title = Resources.AttendeesList.WorkshopAttendance;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    //int count = 1;
+}
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- <div class="col-md-10 ml-auto mr-auto"> -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="toolbar">
+                            <a class="btn btn-block btn-rose btn-just-icon" href="@Url.Action("Index")"><i class="material-icons">replay</i></a>
+                        </div>
+                        <div class="material-datatables">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                                   width="100%" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Resources.AttendeesList.WorkshopName
+                                        </th>
+                                        <th>
+                                            @Resources.AttendeesList.AttenderName
+                                        </th>
+                                        <th>
+                                            @Resources.AttendeesList.AttendStatus
+                                        </th>
+                                        <th>@Resources.AttendeesList.View</th>
+                                        <th>@Resources.AttendeesList.Accept</th>
+                                        <th>@Resources.AttendeesList.Reject</th>
+                                        <th>@Resources.AttendeesList.Reverse</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IncubationWorkshop.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FrontendUser.CorporateApplicationForms.FirstOrDefault().Name) -
+                                                @Html.DisplayFor(modelItem => item.FrontendUser.CorporateApplicationForms.FirstOrDefault().Governorate.GovernorateEN)
+                                            </td>
+                                            <td>
+                                                @if (item.InvitationStatus == AlfaPeople.KingKhalidFoundation.Data.Model.InvitationStatus.attend)
+                                                {
+                                                    <span class="badge badge-pill badge-success"> @Resources.AttendeesList.Attend </span>
+                                                }
+                                                else if (item.InvitationStatus == AlfaPeople.KingKhalidFoundation.Data.Model.InvitationStatus.absent)
+                                                {
+                                                    <span class="badge badge-pill badge-danger"> @Resources.AttendeesList.Absent</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge btn-warning"> @Resources.AttendeesList.Pending </span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-default btn-link" data-toggle="modal" onclick="GetDataEmp('@item.IncubationWorkshopID','@item.FrontendUserID')" data-target="#LstEmp">
+                                                    <i class="material-icons">assignment</i>
+                                                </button>
+                                            </td>
+                                            <td>
+                                                @if (item.InvitationStatus == AlfaPeople.KingKhalidFoundation.Data.Model.InvitationStatus.pending)
+                                                {
+                                                    <button type="button" onclick="AcceptRequest('@item.WorkshopPrivateInvitationId',this,'Accepted')" class="btn btn-success btn-link">
+                                                        <i class="material-icons">check</i>
+                                                    </button>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.InvitationStatus == AlfaPeople.KingKhalidFoundation.Data.Model.InvitationStatus.pending)
+                                                {
+                                                    <button type="button" onclick="AcceptRequest('@item.WorkshopPrivateInvitationId',this,'Rejected')" class="btn btn-danger btn-link">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.InvitationStatus != AlfaPeople.KingKhalidFoundation.Data.Model.InvitationStatus.pending)
+                                                {
+                                                    <button type="button" onclick="ReverseRequest('@item.WorkshopPrivateInvitationId',this)" class="btn btn-rose btn-link">
+                                                        <i class="material-icons">cached</i>
+                                                    </button>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<!-- End Content -->
+
+<div class="modal fade" id="LstEmp" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    @Resources.AttendeesList.WorkshopAttendance
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-lg-12">
+                    <div class="material-datatables">
+                        <table id="TblLstEmpDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>@Resources.Workshop.AttendeeName</th>
+                                    <th>@Resources.Workshop.AttendeePosition</th>
+                                    <th>@Resources.Workshop.AttendeeEmail</th>
+                                    <th>@Resources.Workshop.AttendeeMobile</th>
+                                </tr>
+                            </thead>
+                            <tbody id="TblLstEmp"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-12" style="margin-top: 57px; margin-bottom: 145px;">
+                    <div class="material-datatables">
+                        <h4 class="modal-title row justify-content-center">
+                            @Resources.General.Attachments
+                        </h4>
+                        <table id="AttachmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>@Resources.General.AttachmentName</th>
+                                    <th>@Resources.General.AttachmentType</th>
+                                    <th>@Resources.General.AttachmentSize</th>
+                                    <th class="disabled-sorting">@Resources.General.Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Attachfiles"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_IncubationWorkshops').addClass('active');
+            $('#Workshop').addClass('show');
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                $("#datatables").DataTable({
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+                $("#TblLstEmpDatatables").DataTable({
+                    "paging": false,
+                    "searching": false,
+                    "info": false,
+                    "pagingType": false,
+                    "lengthMenu": false,
+                    "ordering": false,
+                    responsive: true,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+                $("#AttachmentDatatables").DataTable({
+                    "paging": false,
+                    "searching": false,
+                    "info": false,
+                    "pagingType": false,
+                    "lengthMenu": false,
+                    "ordering": false,
+                    responsive: true,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                $("#datatables").DataTable();
+                $("#TblLstEmpDatatables").DataTable({
+                    "paging": false,
+                    "searching": false,
+                    "info": false,
+                    "pagingType": false,
+                    "lengthMenu": false,
+                    "ordering": false,
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search records",
+                    }
+                });
+                $("#AttachmentDatatables").DataTable({
+                    "paging": false,
+                    "searching": false,
+                    "info": false,
+                    "pagingType": false,
+                    "lengthMenu": false,
+                    "ordering": false,
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search records",
+                    }
+                });
+            }
+        });
+
+        function AcceptRequest(workshopinv, count, Type) {
+            var msgConfirm = confirm("Are you sure about taken this action, This action will send an email to the corporates?");
+            if (msgConfirm == true) {
+                $.getJSON('@Url.Action("AcceptRejectAttend")', { "Id": workshopinv, "RequestType": Type }, function (Result) {
+                    if (Result != null && !jQuery.isEmptyObject(Result)) {
+                        var row = $(count).parent().parent().index() + 1;
+                        var x = document.getElementById('datatables').rows[parseInt(row, 10)].cells;
+                        if (Type == "Accepted") {
+                            x[3].innerHTML = '<span class="badge badge-pill badge-success"> Attend </span>';
+                        }
+                        else {
+                            x[3].innerHTML = '<span class="badge badge-pill badge-danger"> Absent </span>';
+                        }
+                        x[5].innerHTML = '';
+                        x[6].innerHTML = '';
+                        alertify.notify("Action Successfully", 'custome', 4, function () { console.log('dismissed'); });
+                        window.location.reload();
+                    }
+                });
+            } else {
+                //event.preventDefault();
+            }
+        }
+
+        function GetDataEmp(workshoopId, FrontId) {
+            $("#Attachfiles").empty();
+            var actiondownload = '@Url.Action("DownloadAttend")';
+
+            $.getJSON('@Url.Action("GetDataEmp")', { "workshoopId": workshoopId, "FrontId": FrontId }, function (Result) {
+                $("#TblLstEmp").empty();
+                for (var i = 0; i < Result.length; i++) {
+                    $("#TblLstEmp").append('<tr><td>' + Result[i].Name + '</td><td>' + Result[i].Position + '</td><td>' + Result[i].Email + '</td><td>' + Result[i].Mobile + '</td></tr>')
+                }
+                for (var y = 0; y < Result[0].lstAttachment.length; y++) {
+                    $("#Attachfiles").append('<tr><td><a class="btn btn-link btn-default" href="' + actiondownload + '/' + Result[0].lstAttachment[y].AttachmentID + '"><i class="material-icons">attach_file</i>' + Result[0].lstAttachment[y].Name + '</a></td><td>' + Result[0].lstAttachment[y].Type + '</td><td>' + Result[0].lstAttachment[y].Size + ' Bytes</td><td class="text-right"><a class="btn btn-link btn-rose btn-just-icon" href="' + actiondownload + '/' + Result[0].lstAttachment[y].AttachmentID + '"><i class="material-icons">get_app</i></a></td></tr>');
+                }
+            });
+        }
+
+        function ReverseRequest(workshopinv, count) {
+            //var msgConfirm = confirm("Are you sure about taken this action, This action will send an email to the corporates?");
+            //if (msgConfirm == true) {
+                $.getJSON('@Url.Action("ReverseAttend")', { "Id": workshopinv }, function (Result) {
+                    var row = $(count).parent().parent().index() + 1;
+                    var x = document.getElementById('datatables').rows[parseInt(row, 10)].cells;
+                    x[3].innerHTML = '<span class="badge btn-warning"> Pending </span>';
+                    x[5].innerHTML = '   <button type="button" onclick="AcceptRequest("' + workshopinv + '", this,"Accepted")" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom"> <i class="material-icons">check</i> </button>';
+                    x[6].innerHTML = '   <button type="button" onclick="AcceptRequest("' + workshopinv + '", this ,"Rejected")" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom"> <i class="material-icons">close</i> </button>';
+                    alertify.notify("Action Successfully", 'custome', 4, function () { console.log('dismissed'); });
+                    window.location.reload();
+                });
+            //} else {
+            //    //event.preventDefault();
+            //}
+        }
+    </script>
+}

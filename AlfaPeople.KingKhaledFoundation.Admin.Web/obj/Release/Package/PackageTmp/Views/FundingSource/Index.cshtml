@@ -1,0 +1,100 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.FundingSource>
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="toolbar">
+                            <a href="@Url.Action("Create")" class="btn btn-link btn-info btn-just-icon like">
+                                <i class="material-icons">add</i>
+                            </a>
+                        </div>
+                        <div class="material-datatables">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                                   width="100%" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Resources.FundingSource.Nickname
+                                        </th>
+                                        <th>
+                                            @Resources.FundingSource.FundingSourceNameEN
+                                        </th>
+                                        <th>
+                                            @Resources.FundingSource.FundingSourceNameAR
+                                        </th>
+                                        <th>
+                                            @Resources.FundingSource.IsActive
+                                        </th>
+                                        <th>
+                                            @Resources.General.Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Nickname)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FundingSourceNameEN)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FundingSourceNameAR)
+                                            </td>
+                                            <td>
+                                                @if (item.IsActive == true)
+                                                {
+                                                    <span class="badge badge-pill badge-success">@Resources.FundingSource.Active</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge badge-pill badge-danger">@Resources.FundingSource.InActive</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-link btn-warning btn-just-icon edit" href="@Url.Action("Edit", new { id = item.FundingSourceID })"><i class="material-icons">edit</i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end content-->
+
+@section Scripts{
+    <script>
+        window.onload = function (e) {
+            $('#navItem_FundingSource').addClass('active');
+            $('#Lookups').addClass('show');
+        };
+    </script>
+
+    <script>
+        $(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                $("#datatables").DataTable({
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                $("#datatables").DataTable();
+            }
+        });
+    </script>
+}

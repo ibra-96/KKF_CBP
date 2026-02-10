@@ -1,0 +1,321 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IncubationWorkshopFollowUpEvaluationVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@{
+    ViewBag.Title = Resources.IncubationFollowUpEvaluation.FinalReportsFollowUpEvaluation;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header card-header-rose card-header-text">
+                        <div class="card-text">
+                            <h4 class="card-title">
+                                @Resources.IncubationFollowUpEvaluation.FinalReportsFollowUpEvaluation
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        @using (Html.BeginForm("Edit", "IncubationWorkshopFollowUpEvaluation", FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="row justify-content-center">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.IFEVM.IncubationWorkShopFollowUpEvaluationID)
+
+                                <div class="col-lg-12">
+                                    <button class="btn btn-link btn-info" type="button" id="addLines" name="addLines">
+                                        <i class="material-icons col-md-4" style="font-size: 200%;">group_add</i> @Resources.IncubationFollowUpEvaluation.AddFollowUp
+                                    </button>
+                                    <br />
+                                    <div class="form-group">
+                                        <div id="new-Lines">
+                                            @foreach (var Lines in Model.LstIFELVM)
+                                            {
+                                                Html.RenderPartial("_LstIncubationWorkShopFollowUpEvaluationLines", Lines);
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group select-wizard">
+                                        @Html.DropDownListFor(model => model.IFEVM.FrontendUserID, (SelectList)ViewBag.CorporationUserID, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "Grant", @title = Resources.IncubationWorkshopFollowUpEvaluation.SelectCorporation })
+                                        @Html.ValidationMessageFor(model => model.IFEVM.FrontendUserID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                @*<div class="col-sm-4">
+                                        <div class="form-group select-wizard">
+                                            <select id="FrontendUser" name="finalReportsPS.UserID" required class="select-wizard form-control selectpicker" data-style="select-with-transition"
+                                                title="Select Corporate"></select>
+                                            @Html.DropDownListFor(model => model.IFEVM.IncubationID, (SelectList)ViewBag.IncubationID, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @title = Resources.IncubationWorkshopFollowUpEvaluation.SelectProject
+                                        })
+                                            @Html.ValidationMessageFor(model => model.IFEVM.IncubationID, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>*@
+                                <div class="col-sm-4">
+                                    <div class="form-group select-wizard">
+                                        @Html.DropDownListFor(model => model.IFEVM.IncubationWorkshopID, (SelectList)ViewBag.workShop, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "Grant", @title = Resources.IncubationWorkshopFollowUpEvaluation.SelectWorkshop })
+                                        @Html.ValidationMessageFor(model => model.IFEVM.FrontendUserID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group select-wizard">
+                                        @Html.EnumDropDownListFor(model => model.IFEVM.ProjectSuccessRate, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @id = "ProjectSuccessRate" })
+                                        @Html.ValidationMessageFor(model => model.IFEVM.ProjectSuccessRate, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="IFEVM_Impact" class="bmd-label-floating">@Resources.IncubationWorkshopFollowUpEvaluation.Impact</label>
+                                        @Html.TextAreaFor(model => model.IFEVM.Impact, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.IFEVM.Impact, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="IFEVM_SuccessStories" class="bmd-label-floating">@Resources.IncubationWorkshopFollowUpEvaluation.SuccessStories</label>
+                                        @Html.TextAreaFor(model => model.IFEVM.SuccessStories, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.IFEVM.SuccessStories, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group select-wizard">
+                                        <label for="IFEVM_Reasone" class="bmd-label-floating" id="ResoneLabel" style="display:none">@Resources.IncubationWorkshopFollowUpEvaluation.Reason</label>
+                                        @Html.TextAreaFor(model => model.IFEVM.Reasone, new { @class = "form-control", @id = "reasone", @style = "display:none" })
+                                        @*@Html.ValidationMessageFor(model => model.IFEVM.Reasone, "", new { @class = "text-danger" })*@
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" style="margin-top: 87px; margin-bottom: 135px;">
+                                    <!-- Uploader Dropzone -->
+                                    <div id="zdrop" class="fileuploader" onclick="document.getElementById('selectedFile').click();">
+                                        <div id="upload-label" style="width: 350px;">
+                                            <i class="material-icons">cloud_upload</i>
+                                            <span class="title">@Resources.General.Attachments</span>
+                                            @*<span class="title">Commitment Contracts Of Organizations & Technical Report & Final Report</span>*@
+                                            <span id="fileText" style="display: block;"></span>
+                                            @Html.TextBoxFor(model => model.files, "", new { @id = "selectedFile", @type = "file", @multiple = "multiple", @style = "display: none;", @onchange = "getFileName();" })
+                                            @*@Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="material-datatables">
+                                        <table id="AttachmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>@Resources.General.AttachmentName</th>
+                                                    <th>@Resources.General.AttachmentType</th>
+                                                    <th>@Resources.General.AttachmentSize</th>
+                                                    <th class="disabled-sorting">@Resources.General.Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.IFEVM.IncubationWorkShopFollowUpEvaluationAttchments)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            <a class="btn btn-link btn-default" href="@Url.Action("Download", new { id = item.AttachmentID })">
+                                                                <i class="material-icons">attach_file</i>
+                                                                @item.Name
+                                                            </a>
+                                                        </td>
+                                                        <td>@item.Type</td>
+                                                        <td>@item.Size Bytes</td>
+                                                        <td class="text-right">
+                                                            <a class="btn btn-link btn-rose btn-just-icon" href="@Url.Action("Download", new { id = item.AttachmentID })">
+                                                                <i class="material-icons">get_app</i>
+                                                            </a>
+                                                            <button class="btn btn-link btn-danger btn-just-icon remove" type="button" onclick="Delete('@item.AttachmentID')">
+                                                                <i class="material-icons">delete</i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <input type="submit" class="btn btn-rose" name="Save" value="@Resources.General.Save">
+                                        <a class="btn btn-default" href="@Url.Action("Index",new {Type=ViewBag.Type})">@Resources.General.Back</a>
+                                        @*<a class="btn btn-default" href="@Url.Action("Index")">Back</a>*@
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+
+@section Scripts{
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_IncubationWorkshopFollowUpEvaluation').addClass('active');
+            $('#IncubationFinalReports').addClass('show');
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var ProjectRate = $('#ProjectSuccessRate').val();
+            if (ProjectRate == 4 || ProjectRate == 5) {
+                $('#ResoneLabel').css('display', 'block');
+                $('#reasone').css('display', 'block');
+            }
+            else {
+                $('#ResoneLabel').css('display', 'none');
+                $('#reasone').css('display', 'none');
+                $('#reasone').val();
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                var table = $('#AttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                var table = $('#AttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search records",
+                    }
+                });
+            }
+            // Delete a record
+            table.on('click', '.remove', function (e) {
+                $tr = $(this).closest('tr');
+                table.row($tr).remove().draw();
+                e.preventDefault();
+                console.log(table.rows().data().length);
+            });
+        });
+
+        function Delete(Id) {
+                swal({
+                    title: 'Are you sure?',
+                    text: 'You will not be able to recover this file!',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, keep it',
+                    confirmButtonClass: "btn btn-success",
+                    cancelButtonClass: "btn btn-danger",
+                    buttonsStyling: false
+                }).then(function () {
+
+                    $.getJSON('@Url.Action("DeleteAttachment")', { Id: Id }, function (Result) {
+                        if (Result != null && !jQuery.isEmptyObject(Result)) {
+                            if (Result === "Deleted Succsesfully") {
+                                swal({
+                                    title: 'Deleted!',
+                                    text: 'Your imaginary file has been deleted.',
+                                    type: 'success',
+                                    confirmButtonClass: "btn btn-success",
+                                    buttonsStyling: false
+                                }).catch(swal.noop)
+                            } else {
+                                swal({
+                                    title: 'Failed',
+                                    text: 'failed to delete your imaginary file :)',
+                                    type: 'error',
+                                    confirmButtonClass: "btn btn-danger",
+                                    buttonsStyling: false
+                                }).catch(swal.noop)
+                            }
+                        }
+                    });
+
+                }, function (dismiss) {
+                    // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+                    if (dismiss === 'cancel') {
+                        swal({
+                            title: 'Cancelled',
+                            text: 'Your imaginary file is safe :)',
+                            type: 'error',
+                            confirmButtonClass: "btn btn-info",
+                            buttonsStyling: false
+                        }).catch(swal.noop)
+                    }
+                })
+        }
+    </script>
+
+    <script>
+        function getFileName() {
+            $('#fileText').html('');
+            $('#fileText').append($('#selectedFile')[0].files.length + ' Files Selected');
+        }
+    </script>
+
+    <script type="text/javascript">
+    var count = 0;
+        $('#addLines').on('click', function () {
+            $.ajax({
+                type: "GET",
+                async: false,
+                url: '@Url.Action("AppendLst")',
+                success: function (partialView) {
+                    $('#new-Lines').append(partialView);
+                }
+            });
+        });
+
+
+        $('#ProjectSuccessRate').on('change', function () {
+            debugger;
+            var ProjectSuccessRate = $('#ProjectSuccessRate').val();
+            if (ProjectSuccessRate == 4 || ProjectSuccessRate == 5) {
+                $('#ResoneLabel').css('display', 'block');
+                $('#reasone').css('display', 'block');
+            }
+            else {
+                $('#ResoneLabel').css('display', 'none');
+                $('#reasone').css('display', 'none');
+                $('#reasone').val();
+            }
+        });
+
+        function RemoveRow(btnremove) {
+            var parent=  $(btnremove).parents();
+            var ff = parent[0];
+            ff.remove();
+            $("#addAttendee").show();
+            count--;
+        }
+    </script>
+}

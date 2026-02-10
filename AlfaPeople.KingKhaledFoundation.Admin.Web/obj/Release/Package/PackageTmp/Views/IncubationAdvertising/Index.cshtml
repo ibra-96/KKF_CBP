@@ -1,0 +1,195 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.IncubationAdvertising>
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+}
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="toolbar">
+                            <a href="@Url.Action( "Create", new { Type = ViewBag.Type })" class="btn btn-link btn-info btn-just-icon like">
+                                <i class="material-icons">add</i>
+                            </a>
+                        </div>
+                        <div class="material-datatables">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Resources.IncubationAdvertising.AdvertisingName
+                                        </th>
+                                        <th>
+                                            @Resources.IncubationAdvertising.AdvertisingType
+
+                                        </th>
+                                        <th>
+                                            @Resources.IncubationAdvertising.StartDate
+                                        </th>
+                                        <th>
+                                            @Resources.IncubationAdvertising.EndDate
+                                        </th>
+                                        <th>
+                                            @Resources.General.Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </td>
+                                            <td>
+                                                @if (item.ISPublic == true)
+                                                {
+                                                    <span class="badge badge-pill badge-info">
+                                                        @Resources.IncubationAdvertising.Public
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge badge-pill badge-warning">
+                                                        @Resources.IncubationAdvertising.Private
+                                                    </span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.StartDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.EndDate)
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-link btn-warning btn-just-icon edit" href="@Url.Action("Edit", new { id = item.IncubationAdID,Type = ViewBag.Type })"><i class="material-icons">edit</i></a>
+                                                <!-- زر الحذف -->
+                                                @* 2-25-2025 *@
+                                                <button type="button" class="btn btn-link btn-danger btn-just-icon remove" onclick="deleteAdvertising('@item.IncubationAdID')">
+                                                    <i class="material-icons">delete</i>
+                                                </button>
+                                                <a href="javascript:void(0)" onclick="copyToClipboard('@Url.Action("PublicAdDetails", "IncubationAdvertising", new { id = item.IncubationAdID }, Request.Url.Scheme)')" ,class="btn btn-link btn-info btn-just-icon" ,title="@Resources.General.ShareLink">
+                                                    <i class="material-icons">share</i>
+                                                </a>
+
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end content-->
+
+@section Scripts{
+
+    <script>
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(function () {
+                    alert("تم نسخ الرابط بنجاح");
+                }, function (err) {
+                    alert("فشل النسخ: " + err);
+                });
+            } else {
+                // fallback
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                // لتجنب ظهور النص للمستخدم
+                textArea.style.position = "fixed";
+                textArea.style.top = "-9999px";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+
+                try {
+                    document.execCommand('copy');
+                    alert("تم نسخ الرابط بنجاح");
+                } catch (err) {
+                    alert("فشل النسخ");
+                }
+
+                document.body.removeChild(textArea);
+            }
+        }
+
+    </script>
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('Type')) {
+            if (urlParams.get('Type') == "Incubation") {
+                window.onload = function (e) {
+                    $('#navItem_Inc_IncubationAdvertising').addClass('active');
+                    $('#Incubation').addClass('show');
+                };
+            }
+            else if (urlParams.get('Type') == "Acceleration") {
+                window.onload = function (e) {
+                    $('#navItem_Acc_IncubationAdvertising').addClass('active');
+                    $('#Acceleration').addClass('show');
+                };
+            }
+        }
+    </script>
+
+    <script>
+        $(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                $("#datatables").DataTable({
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                $("#datatables").DataTable();
+            }
+        });
+    </script>
+
+
+    <script>
+function deleteAdvertising(id) {
+    if (confirm('هل أنت متأكد من حذف الإعلان؟ .')) {
+        $.ajax({
+            url: '@Url.Action("DeleteAdvertising", "IncubationAdvertising")',
+            type: 'POST',
+            data: { id: id },
+            success: function (response) {
+                if (response.success) {
+                    md.showNotification(
+                        'top', '@Resources.General.MsgTextAlign',
+                        'check_circle', 'success', '3e3',
+                        '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">' + response.message + '</h4>');
+                    location.reload();
+                } else {
+                    md.showNotification('top', '@Resources.General.MsgTextAlign',
+                        'error', 'danger', '3e3',
+                        '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">' + response.message + '</h4>');
+                }
+            },
+            error: function () {
+                md.showNotification('top', '@Resources.General.MsgTextAlign',
+                    'error', 'danger', '3e3',
+                    '<h4 class="info-text" style="text-align:@Resources.General.TextAlign;">حدث خطأ أثناء حذف الإعلان.</h4>');
+            }
+        });
+    }
+}
+    </script>
+
+
+
+
+
+}

@@ -1,0 +1,303 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IncuationsVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@*<link href="~/Scripts/dropzone/basic.min.css" rel="stylesheet" />
+<link href="~/Scripts/dropzone/dropzone.min.css" rel="stylesheet" />*@
+@{
+    ViewBag.Title = "New Accelerations Project";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+
+
+<!-- Content -->
+
+<div id="dd" class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+            <div class="card ">
+                <div class="card-header card-header-rose card-header-text">
+                    <div class="card-text">
+                        <h4 class="card-title">Project Details</h4>
+                    </div>
+                </div>
+                @using (Html.BeginForm("Create", "Accelerations", FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    //str
+
+                    <div class="card-body ">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="row justify-content-center">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="Inp_ProjectName" class="bmd-label-floating">
+                                        Project Name
+                                    </label>
+                                    @Html.TextBoxFor(model => model.inc.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.inc.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="Inp_ProjectDurationInDays" class="bmd-label-floating">
+                                        Duration Of The Project In
+                                        Days
+                                    </label>
+                                    @Html.TextBoxFor(model => model.inc.ProjectDurationInDays, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.inc.ProjectDurationInDays, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group select-wizard">
+                                    @Html.DropDownList("IncubationModelID", null, htmlAttributes: new { @class = "selectpicker", @data_style = "select-with-transition", @title = "Select Project Model" })
+                                    @Html.ValidationMessageFor(model => model.inc.IncubationModelID, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="Inp_StartDate"> Start Date </label>
+                                    @Html.TextBoxFor(model => model.inc.StartDate, new { @class = "form-control ", @id = "StartDate" })
+                                    @Html.ValidationMessageFor(model => model.inc.StartDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group select-wizard">
+                                    @Html.DropDownList("ConsultantID", null, htmlAttributes: new { @class = "selectpicker", @data_style = "select-with-transition", @title = "Select Consultant" })
+                                    @Html.ValidationMessageFor(model => model.inc.ConsultantID, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="Inp_EndDate"> End Date </label>
+                                    @Html.TextBoxFor(model => model.inc.EndDate, htmlAttributes: new { @class = "form-control", @id = "EndDate" })
+                                    @Html.ValidationMessageFor(model => model.inc.EndDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+
+                                <div class="row">
+                                    <div class="col-lg-1">
+                                        <div class="form-group">
+                                            <label for="Inp_Problem" class="bmd-label-floating">is public</label>
+                                            @Html.CheckBoxFor(model => model.inc.ISPublic, htmlAttributes: new { @checked = true })
+                                            @Html.ValidationMessageFor(model => model.inc.ISPublic, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-10">
+                                        <div style="display:none" id="autGroup" class="form-group">
+                                            <label class="bmd-label-floating">Email</label>
+                                            <input name="LstOfEmails" id="myAutocomplete" type="text" class="form-control">
+                                            @Html.ValidationMessage("invalidEmails", "", new { @class = "text-danger" })
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-4"></div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Inp_ProjectDetails" class="bmd-label-floating">Project Details</label>
+                                    @Html.TextAreaFor(model => model.inc.ProjectDetails, new { @class = "form-control", rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.inc.ProjectDetails, "", new { @class = "text-danger" })
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="Inp_Targeted" class="bmd-label-floating">Targeted</label>
+                                    @Html.TextAreaFor(model => model.inc.Targeted, new { @class = "form-control", rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.inc.Targeted, "", new { @class = "text-danger" })
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="Inp_EntryEequirements" class="bmd-label-floating">Entry Eequirements</label>
+                                    @Html.TextAreaFor(model => model.inc.EntryRequirements, new { @class = "form-control", rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.inc.EntryRequirements, "", new { @class = "text-danger" })
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="Inp_Notes" class="bmd-label-floating">Notes</label>
+                                    @Html.TextAreaFor(model => model.inc.Notes, new { @class = "form-control", rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.inc.Notes, "", new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+                            <div class="col-lg-12" style="margin-top: 57px; margin-bottom: 145px;">
+                                <!-- Uploader Dropzone -->
+                                <div id="zdrop" class="fileuploader" onclick="document.getElementById('selectedFile').click();">
+                                    <div id="upload-label" style="width: 350px;">
+                                        <i class="material-icons">cloud_upload</i>
+                                        <span class="title">@Resources.General.Attachments</span>
+                                        <span id="fileText" style="display: block;"></span>
+                                        @Html.TextBoxFor(model => model.files, "", new { @id = "selectedFile", @type = "file", @multiple = "multiple", @style = "display: none;", @onchange = "getFileName();" })
+                                        @Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <input type="submit" class="btn btn-rose" name="Save" value="Save">
+                                    <a href="@Url.Action("dashboard","Home")" class="btn">
+                                        Cancel
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+
+
+@section Scripts {
+    <!-- CSS Just for File Uploader Style include it in your project -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js'></script>
+    <script src="~/Scripts/dropzone/dropzone.min.js"></script>
+
+    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="~/assets/js/plugins/jasny-bootstrap.min.js"></script>
+    <!-- Library for adding dinamically elements -->
+    <script src="~/assets/js/plugins/arrive.min.js"></script>
+
+    <script>
+
+        function ValidateEmail(inputText) {
+            var mailformat = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+            var res = inputText.split(",");
+            for (var i = 0; i < res.length; i++) {
+                str = res[i].replace(/\s/g, '');
+                if (str.match(mailformat)) {
+
+                    return true;
+                }
+                else {
+                    alert("You have entered an invalid email address!");
+
+                    return false;
+                }
+            }
+
+        }
+
+        $("form").submit(function (event) {
+            if ($("#inc_ISPublic").is(":checked")) {
+
+                return true;
+            }
+            else {
+                var istrue = ValidateEmail($("#myAutocomplete").val());
+                if (istrue == true) {
+                    return true;
+                }
+                else {
+                    alert("Not Valid Email");
+                    event.preventDefault();
+                }
+            }
+
+        });
+        $("#inc_ISPublic").click(function () {
+            if ($(this).is(":checked")) {
+                $("#myAutocomplete").val('');
+                $("#autGroup").hide();
+
+            } else {
+                $("#myAutocomplete").val('');
+                $("#autGroup").show();
+            }
+        });
+
+
+        $(document).ready(function () {
+
+            $("#StartDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+            $("#EndDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#StartDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function () {
+                var minValue = $(this).val();
+                minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+                minValue.setDate(minValue.getDate() );
+                $("#EndDate").datepicker("option", "minDate", minValue);
+            })
+
+        });
+
+        /////
+
+        $(function () {
+
+            function split(val) {
+                return val.split(/,\s*/);
+            }
+            function extractLast(term) {
+                return split(term).pop();
+            }
+
+            $("#myAutocomplete")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+              if (event.keyCode === $.ui.keyCode.TAB &&
+                  $(this).autocomplete("instance").menu.active) {
+                  event.preventDefault();
+              }
+          })
+            .autocomplete({
+                minLength: 0,
+                source: function (request, response) {
+                    $.getJSON('@Url.Action("Search", "Workshops")', {
+                        term: extractLast(request.term)
+                    }, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+                    var terms = split(this.value);
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push(ui.item.value);
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push("");
+                    this.value = terms.join(", ");
+                    return false;
+                }
+            });
+        })
+
+    </script>
+
+    <script>
+        function getFileName() {
+            $('#fileText').html('');
+            $('#fileText').append($('#selectedFile')[0].files.length + ' Files Selected');
+        }
+    </script>
+
+}
+
+
+
+
+
+
+
+
+

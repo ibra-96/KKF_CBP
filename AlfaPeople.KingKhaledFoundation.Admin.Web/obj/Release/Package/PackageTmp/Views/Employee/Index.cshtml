@@ -1,0 +1,73 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.BackendUser>
+
+@{
+    Layout = null;
+    ViewBag.title = Resources.General.Employees;
+}
+
+<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+       width="100%" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                User Positions
+            </th>
+            <th>
+                Role
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Password)*@
+                    *********
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BackendUserPositions.NameEN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUser.AspNetRoles.FirstOrDefault().Name)
+                </td>
+                <td>
+                    @if (item.IsActive == true)
+                    {
+                        <span class="badge badge-pill badge-success">
+                            Acitve
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-pill badge-danger">
+                            InAcitve
+                        </span>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditClassificationSectorNonProfit" onclick="Edit('@Url.Action("Edit", "Employee", new { id=@item.BackendUserID})')"><i class="material-icons">edit</i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

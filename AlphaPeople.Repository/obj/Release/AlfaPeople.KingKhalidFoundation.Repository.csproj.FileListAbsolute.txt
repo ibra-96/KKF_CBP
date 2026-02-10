@@ -1,0 +1,24 @@
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Release\AlphaPeople.Repository.dll.config
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Release\AlphaPeople.Repository.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Release\AlphaPeople.Repository.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Release\EntityFramework.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Release\EntityFramework.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\obj\Release\AlfaPeople.KingKhalidFoundation.Repository.csproj.AssemblyReference.cache
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\obj\Release\AlfaPeople.KingKhalidFoundation.Repository.csproj.CoreCompileInputs.cache
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\obj\Release\AlfaPeople.KingKhalidFoundation.Repository.csproj.CopyComplete
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\obj\Release\AlphaPeople.Repository.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Repository\obj\Release\AlphaPeople.Repository.pdb
+C:\CBP_KKF\AlphaPeople.Repository\bin\Release\AlphaPeople.Repository.dll.config
+C:\CBP_KKF\AlphaPeople.Repository\bin\Release\AlphaPeople.Repository.dll
+C:\CBP_KKF\AlphaPeople.Repository\bin\Release\AlphaPeople.Repository.pdb
+C:\CBP_KKF\AlphaPeople.Repository\bin\Release\EntityFramework.dll
+C:\CBP_KKF\AlphaPeople.Repository\bin\Release\EntityFramework.SqlServer.dll
+C:\CBP_KKF\AlphaPeople.Repository\bin\Release\EntityFramework.xml
+C:\CBP_KKF\AlphaPeople.Repository\bin\Release\EntityFramework.SqlServer.xml
+C:\CBP_KKF\AlphaPeople.Repository\obj\Release\AlfaPeople.KingKhalidFoundation.Repository.csproj.CoreCompileInputs.cache
+C:\CBP_KKF\AlphaPeople.Repository\obj\Release\AlfaPeople.KingKhalidFoundation.Repository.csproj.CopyComplete
+C:\CBP_KKF\AlphaPeople.Repository\obj\Release\AlphaPeople.Repository.dll
+C:\CBP_KKF\AlphaPeople.Repository\obj\Release\AlphaPeople.Repository.pdb
+C:\CBP_KKF\AlphaPeople.Repository\obj\Release\AlfaPeople.KingKhalidFoundation.Repository.csproj.AssemblyReference.cache

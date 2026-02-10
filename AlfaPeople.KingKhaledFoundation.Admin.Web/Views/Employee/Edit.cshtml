@@ -1,0 +1,71 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.EmployeeVM
+
+@{
+    Layout = null;
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Edit", "Employee", FormMethod.Post, new { onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("Index", "Employee", new { id = 0 }) }))//data-resetUrl
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-body">
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model._BackEndUser.BackendUserID)
+            @Html.HiddenFor(model => model._BackEndUser.CreateDate)
+            @Html.HiddenFor(model => model._BackEndUser.FK_AspUser)
+            @Html.HiddenFor(model => model._BackEndUser.AspNetUser.UserName)
+            <div class="form-group">
+                @Html.LabelFor(model => model._BackEndUser.UserName, htmlAttributes: new { @class = "bmd-label-floating" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model._BackEndUser.UserName, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model._BackEndUser.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model._BackEndUser.AspNetUser.Email, htmlAttributes: new { @class = "bmd-label-floating" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model._BackEndUser.AspNetUser.Email, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model._BackEndUser.AspNetUser.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model._BackEndUser.Password, htmlAttributes: new { @class = "bmd-label-floating" })
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model._BackEndUser.Password, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                </div>
+                @Html.ValidationMessageFor(model => model._BackEndUser.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.Label("d", "Role", htmlAttributes: new { @class = "bmd-label-floating" })
+                <div class="col-md-10">
+                    @Html.DropDownList("RoleId", (SelectList)ViewBag.Role, new { @class = "form-control ", @required = "required" })
+                    @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="form-group">
+                @Html.Label("d2", "Position", htmlAttributes: new { @class = "bmd-label-floating" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.PositionId, (SelectList)ViewBag.Position, new { @class = "form-control " })
+                    @Html.ValidationMessageFor(model => model.PositionId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <br />
+                @Html.LabelFor(model => model._BackEndUser.IsActive, htmlAttributes: new { @class = "bmd-label-floating" })
+                <div class="col-md-10">
+                    @Html.CheckBoxFor(model => model._BackEndUser.IsActive, new { htmlAttributes = new { @required = "required" } })
+                    @Html.ValidationMessageFor(model => model._BackEndUser.IsActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-info btn-link">Edit</button>
+        <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+    </div>
+}

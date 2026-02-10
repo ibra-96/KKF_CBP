@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="absent" xml:space="preserve">
+    <value>Apologise</value>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="AdminEmail" xml:space="preserve">
+    <value>Executive Director's Email</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>Attachment</value>
+  </data>
+  <data name="AttendeeEmail" xml:space="preserve">
+    <value>Participant's Email</value>
+  </data>
+  <data name="AttendeeMobile" xml:space="preserve">
+    <value>Participant's mobile Number</value>
+  </data>
+  <data name="AttendeeName" xml:space="preserve">
+    <value>Participant's Name</value>
+  </data>
+  <data name="AttendeePosition" xml:space="preserve">
+    <value>Participant's Position</value>
+  </data>
+  <data name="BasicData" xml:space="preserve">
+    <value>Basic Data</value>
+  </data>
+  <data name="BoardOfDirectors" xml:space="preserve">
+    <value>When was the board elected?</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Sector</value>
+  </data>
+  <data name="ClassificationSectorNonProfit" xml:space="preserve">
+    <value>Sector Classification</value>
+  </data>
+  <data name="Consultant" xml:space="preserve">
+    <value>Consulting Firm</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="CorperationHistory" xml:space="preserve">
+    <value>Brief Introduction about the organization</value>
+  </data>
+  <data name="CorporateName" xml:space="preserve">
+    <value>Organization's Name</value>
+  </data>
+  <data name="CorporateProfile" xml:space="preserve">
+    <value>Organization's Profile</value>
+  </data>
+  <data name="CorporationRegistrationNumber" xml:space="preserve">
+    <value>Organization's Registration Number</value>
+  </data>
+  <data name="DateElection" xml:space="preserve">
+    <value>Date of Board Election</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DurationOfTheProjectInDays" xml:space="preserve">
+    <value>Project Duration</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="Extension" xml:space="preserve">
+    <value>Extension</value>
+  </data>
+  <data name="FaxNumber" xml:space="preserve">
+    <value>Fax Number</value>
+  </data>
+  <data name="FoundedYear" xml:space="preserve">
+    <value>Year of Establishment</value>
+  </data>
+  <data name="InstagramAccount" xml:space="preserve">
+    <value>Instagram Account</value>
+  </data>
+  <data name="IsPublic" xml:space="preserve">
+    <value>Is Public</value>
+  </data>
+  <data name="LastTimeToApply" xml:space="preserve">
+    <value>Deadline</value>
+  </data>
+  <data name="Mission" xml:space="preserve">
+    <value>Mission</value>
+  </data>
+  <data name="NameOfAdministratorCorporation" xml:space="preserve">
+    <value>Name of the Organization's CEO</value>
+  </data>
+  <data name="Objectives" xml:space="preserve">
+    <value>Objectives</value>
+  </data>
+  <data name="OficialEmail" xml:space="preserve">
+    <value>Official Email</value>
+  </data>
+  <data name="POBox" xml:space="preserve">
+    <value>POBox</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>Postal Code</value>
+  </data>
+  <data name="PrivateMessage" xml:space="preserve">
+    <value>This is a private advertisement for specific targeted NPOs</value>
+  </data>
+  <data name="ProgramType" xml:space="preserve">
+    <value>Program Type</value>
+  </data>
+  <data name="PublicMessage" xml:space="preserve">
+    <value>This is open advertisement for all NPOs</value>
+  </data>
+  <data name="RegistrationData" xml:space="preserve">
+    <value>Registration Date</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="SelectConsultant" xml:space="preserve">
+    <value>Select Consulting Firm</value>
+  </data>
+  <data name="SelectGovernorate" xml:space="preserve">
+    <value>Select Governorate</value>
+  </data>
+  <data name="SelectModel" xml:space="preserve">
+    <value>Select Workshop Topic</value>
+  </data>
+  <data name="SelectNeighborhoods" xml:space="preserve">
+    <value>Select Neighborhoods</value>
+  </data>
+  <data name="SelectRegion" xml:space="preserve">
+    <value>Select Region</value>
+  </data>
+  <data name="SnapchatAccount" xml:space="preserve">
+    <value>Snapchat Account</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Starting Date</value>
+  </data>
+  <data name="TaxNumber" xml:space="preserve">
+    <value>Tax Number if any</value>
+  </data>
+  <data name="TelephoneNumber" xml:space="preserve">
+    <value>Telephone Number</value>
+  </data>
+  <data name="TrainingHeadquarters" xml:space="preserve">
+    <value>Training Venue</value>
+  </data>
+  <data name="TwitterAccount" xml:space="preserve">
+    <value>Twitter Account</value>
+  </data>
+  <data name="Vision" xml:space="preserve">
+    <value>Vision</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="WhyWouldYouLikeToJoinUs" xml:space="preserve">
+    <value>Why would you like to join us?</value>
+  </data>
+  <data name="WorkshopDetails" xml:space="preserve">
+    <value>Workshop Details</value>
+  </data>
+  <data name="WorkshopModel" xml:space="preserve">
+    <value>Workshop Topic</value>
+  </data>
+  <data name="WorkshopName" xml:space="preserve">
+    <value>Workshop Name</value>
+  </data>
+  <data name="WorkshopStatus" xml:space="preserve">
+    <value>Workshop Status</value>
+  </data>
+  <data name="YouTubeAccount" xml:space="preserve">
+    <value>YouTube Account</value>
+  </data>
+  <data name="EducationalQualificationAndSpecialization" xml:space="preserve">
+    <value>Educational Qualification and Specialization</value>
+  </data>
+  <data name="PositionTasks" xml:space="preserve">
+    <value>Position Tasks</value>
+  </data>
+  <data name="Attend" xml:space="preserve">
+    <value>Presence</value>
+  </data>
+  <data name="WorkshopInvitations" xml:space="preserve">
+    <value>Workshop Invitations</value>
+  </data>
+  <data name="WorkshopRatingReport" xml:space="preserve">
+    <value>Workshop Evaluation Report</value>
+  </data>
+</root>

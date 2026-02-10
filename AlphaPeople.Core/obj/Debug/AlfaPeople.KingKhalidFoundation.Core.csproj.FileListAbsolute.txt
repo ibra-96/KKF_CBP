@@ -1,0 +1,19 @@
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Core\bin\Debug\AlphaPeople.Core.dll.config
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Core\bin\Debug\AlphaPeople.Core.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Core\bin\Debug\AlphaPeople.Core.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Core\obj\Debug\AlfaPeople.KingKhalidFoundation.Core.csproj.CoreCompileInputs.cache
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Core\obj\Debug\AlphaPeople.Core.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlphaPeople.Core\obj\Debug\AlphaPeople.Core.pdb
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Core\bin\Debug\AlphaPeople.Core.dll.config
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Core\bin\Debug\AlphaPeople.Core.dll
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Core\bin\Debug\AlphaPeople.Core.pdb
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Core\obj\Debug\AlfaPeople.KingKhalidFoundation.Core.csproj.AssemblyReference.cache
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Core\obj\Debug\AlfaPeople.KingKhalidFoundation.Core.csproj.CoreCompileInputs.cache
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Core\obj\Debug\AlphaPeople.Core.dll
+C:\Users\clear vision\Downloads\CBP_KKF13-2-2015\CBP_KKF\AlphaPeople.Core\obj\Debug\AlphaPeople.Core.pdb
+C:\CBP_KKF\AlphaPeople.Core\bin\Debug\AlphaPeople.Core.dll.config
+C:\CBP_KKF\AlphaPeople.Core\bin\Debug\AlphaPeople.Core.dll
+C:\CBP_KKF\AlphaPeople.Core\bin\Debug\AlphaPeople.Core.pdb
+C:\CBP_KKF\AlphaPeople.Core\obj\Debug\AlfaPeople.KingKhalidFoundation.Core.csproj.CoreCompileInputs.cache
+C:\CBP_KKF\AlphaPeople.Core\obj\Debug\AlphaPeople.Core.dll
+C:\CBP_KKF\AlphaPeople.Core\obj\Debug\AlphaPeople.Core.pdb

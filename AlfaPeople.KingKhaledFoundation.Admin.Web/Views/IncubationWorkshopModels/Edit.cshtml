@@ -1,0 +1,59 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.IncubationWorkshopModel
+
+@{
+    Layout = null;
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Edit", "IncubationWorkshopModels", FormMethod.Post, new { onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("Index", "IncubationWorkshopModels", new { id = 0 }) }))//data-resetUrl
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="modal-body">
+
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.IncubationWorkshopModeID)
+            @Html.HiddenFor(model => model.FK_AspUserCreateModel)
+
+
+            <div class="form-group">
+                <label for="NameAR" class="bmd-label-floating"> @Resources.IncubationWorkshopModels.NameAR </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NameAR, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.NameAR, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="NameEN" class="bmd-label-floating"> @Resources.IncubationWorkshopModels.NameEN </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NameEN, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                    @Html.ValidationMessageFor(model => model.NameEN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="IsActive" class="bmd-label-floating"> @Resources.IncubationWorkshopModels.IsActive </label>
+                <div class="col-md-10">
+
+
+                    @Html.CheckBoxFor(model => model.IsActive, new { htmlAttributes = new { @class = "toggle" } })
+                </div>
+
+                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-info btn-link">@Resources.General.Edit</button>
+        <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">@Resources.General.Close</button>
+    </div>
+}
+

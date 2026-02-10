@@ -1,0 +1,184 @@
+﻿@{
+
+    ViewBag.title = Resources.General.Neighborhoods;
+}
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- <div class="col-md-10 ml-auto mr-auto"> -->
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="toolbar">
+                            <!--        Here you can write extra buttons/actions for the toolbar
+                                        -->
+                            <button class="btn btn-link btn-info btn-just-icon like" data-toggle="modal" data-target="#AddClassificationSectorNonProfit">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </div>
+                        <div class="material-datatables">
+
+
+                            <div id="firstTab">@Html.Action("index")</div>
+
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<!-- End Content -->
+<!-- Modal Edit ClassificationSectorNonProfit -->
+<div class="modal fade" id="EditClassificationSectorNonProfit" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    <i class="material-icons">edit</i> @Resources.General.Edit
+                </h4>
+            </div>
+            <div id="thirdTab">@Html.Action("Edit")</div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal Add ClassificationSectorNonProfit -->
+<div class="modal fade" id="AddClassificationSectorNonProfit" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    <i class="material-icons">edit</i> @Resources.General.Add
+                </h4>
+            </div>
+
+            <div id="secondTab">@Html.Action("Create")</div>
+
+
+
+        </div>
+    </div>
+</div>
+<!-- End Modal Add ClassificationSectorNonProfit -->
+
+
+@section Scripts{
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_Cities').addClass('active');
+            $('#Lookups').addClass('show');
+            $('#DivisionOfCountry').addClass('show');
+        };
+    </script>
+
+    <script>
+
+        function resetAllValues() {
+            $('#AddClassificationSectorNonProfit').find('input:text').val('');
+        }
+        $("#togglebutton").click(function () {
+
+            $("#IsActive").prop("checked", true);
+        });
+        $(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                $("#datatables").DataTable({
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                $("#datatables").DataTable();
+            }
+        });
+        function jQueryAjaxPost(form) {
+            $.validator.unobtrusive.parse(form);
+            debugger;
+            if ($(form).valid()) {
+                var ajaxConfig = {
+                    type: 'POST',
+                    url: form.action,
+                    data: new FormData(form),
+                    success: function (response) {
+                        if (response.success) {
+                            $("#firstTab").html(response.html);
+                            // refreshAddNewTab($(form).attr('data-restUrl'), true);
+                            $('.modal').modal('hide');
+
+                            if ('@Resources.General.lang' == 'ar') { $("#datatables").DataTable({ "language": { "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json" } }); } else { $("#datatables").DataTable(); }
+                            resetAllValues();
+                            alertify.notify(response.message, response.style, 4, function () { console.log('dismissed'); });
+
+                            // $.notify(response.message, "success");
+                            //    if (typeof activatejQueryTable !== 'undefined' && $.isFunction(activatejQueryTable))
+                            //        activatejQueryTable();
+                        }
+                        else {
+                            alertify.notify('Error', 'custome2', 4, function () { console.log('dismissed'); });
+
+
+                        }
+                    }
+                }
+                //if ($(form).attr('enctype') == "multipart/form-data") {
+                ajaxConfig["contentType"] = false;
+                ajaxConfig["processData"] = false;
+                //}
+                $.ajax(ajaxConfig);
+
+            }
+            return false;
+        }
+
+
+
+
+        function Edit(url) {
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (response) {
+                    $("#thirdTab").html(response);
+                    //$('#ddlCategoryEdited').selectpicker('refresh')
+                    //$('ul.nav.nav-tabs a:eq(1)').html('Edit');
+                    //$('ul.nav.nav-tabs a:eq(1)').tab('show');
+                }
+
+            });
+        }
+    </script>
+}

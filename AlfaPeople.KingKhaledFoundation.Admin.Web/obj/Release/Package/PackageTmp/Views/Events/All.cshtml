@@ -1,0 +1,236 @@
+﻿@{
+    ViewBag.title = Resources.Events.EventsPage;
+}
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- <div class="col-md-10 ml-auto mr-auto"> -->
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="toolbar">
+                            <!--        Here you can write extra buttons/actions for the toolbar
+                                        -->
+                            <button class="btn btn-link btn-info btn-just-icon like" data-toggle="modal" data-target="#AddClassificationSectorNonProfit">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </div>
+                        <div class="material-datatables">
+
+                            <div id="firstTab">@Html.Action("index")</div>
+
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<!-- End Content -->
+<!-- Modal Edit ClassificationSectorNonProfit -->
+<div class="modal fade" id="EditClassificationSectorNonProfit" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    <i class="material-icons">edit</i> Edit Event
+                </h4>
+            </div>
+
+            <div id="thirdTab">@Html.Action("Edit")</div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal Add ClassificationSectorNonProfit -->
+<div class="modal fade" id="AddClassificationSectorNonProfit" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    <i class="material-icons">edit</i> Add Events
+                </h4>
+            </div>
+            <div id="secondTab">@Html.Action("Create")</div>
+        </div>
+    </div>
+</div>
+<!-- End Modal Add ClassificationSectorNonProfit -->
+
+
+@section Scripts{
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_Events').addClass('active');
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#EventStartDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#EventEndDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#EventStartDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function () {
+                var minValue = $(this).val();
+                minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+                minValue.setDate(minValue.getDate());
+                $("#EventEndDate").datepicker("option", "minDate", minValue);
+            });
+
+        });
+    </script>
+
+    <script>
+
+        function resetAllValues() {
+            $('#AddClassificationSectorNonProfit').find('input:text').val('');
+        }
+
+        $(document).ready(function () {
+            // initialise Datetimepicker and Sliders
+            md.initFormExtendedDatetimepickers();
+            if ($('.slider').length != 0) {
+                md.initSliders();
+            }
+        });
+
+        $("#togglebutton").click(function () {
+            $("#IsActive").prop("checked", true);
+        });
+
+        $(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                $("#datatables").DataTable({
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                $("#datatables").DataTable();
+            }
+        });
+
+        function jQueryAjaxPost(form) {
+            $.validator.unobtrusive.parse(form);
+            debugger;
+            if ($(form).valid()) {
+                var ajaxConfig = {
+                    type: 'POST',
+                    url: form.action,
+                    data: new FormData(form),
+                    success: function (response) {
+                        if (response.success) {
+                            $("#firstTab").html(response.html);
+                            // refreshAddNewTab($(form).attr('data-restUrl'), true);
+                            if ('@Resources.General.lang' == 'ar') { $("#datatables").DataTable({ "language": { "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json" } }); } else { $("#datatables").DataTable(); }
+                            $('.modal').modal('hide');
+                            alertify.notify(response.message, response.style, 4, function () { console.log('dismissed'); });
+                            resetAllValues();
+                            // $.notify(response.message, "success");
+                            //    if (typeof activatejQueryTable !== 'undefined' && $.isFunction(activatejQueryTable))
+                            //        activatejQueryTable();
+                        }
+                        else {
+                            alertify.notify('Error', 'custome2', 4, function () { console.log('dismissed'); });
+                        }
+                    }
+                }
+                //if ($(form).attr('enctype') == "multipart/form-data") {
+                ajaxConfig["contentType"] = false;
+                ajaxConfig["processData"] = false;
+                //}
+                $.ajax(ajaxConfig);
+            }
+            return false;
+        }
+
+        function Edit(url) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (response) {
+                    $("#thirdTab").html(response);
+
+                    $("#EventEStartDate").datepicker({
+                        changeYear: true,
+                        dateFormat: 'yy-mm-dd',
+                        altFormat: "yy-mm-dd"
+                    });
+
+                    $("#EventEEndDate").datepicker({
+                        changeYear: true,
+                        dateFormat: 'yy-mm-dd',
+                        altFormat: "yy-mm-dd"
+                    });
+
+                    $("#EventEStartDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function () {
+                        var minValue = $(this).val();
+                        minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+                        minValue.setDate(minValue.getDate());
+                        $("#EventEEndDate").datepicker("option", "minDate", minValue);
+                    });
+
+
+                    var eStartDate = (($("#EventEStartDate").val()).split(" ")[0]).split("/");
+                    var eventStartDate = (eStartDate[2] + '-' + eStartDate[1] + '-' + eStartDate[0]);
+                    console.log(eventStartDate);
+                    $('#EventEStartDate').datepicker('setDate', eventStartDate);
+
+                    var eEndDate = (($("#EventEEndDate").val()).split(" ")[0]).split("/");
+                    var eventEndDate = (eEndDate[2] + '-' + eEndDate[1] + '-' + eEndDate[0]);
+                    console.log(eventEndDate);
+                    $('#EventEEndDate').datepicker('setDate', eventEndDate);
+
+                    /*
+                    md.initFormExtendedDatetimepickers();
+                    if ($('.slider').length != 0) {
+                        md.initSliders();
+                    }
+                    $('ul.nav.nav-tabs a:eq(1)').html('Edit');
+                    $('ul.nav.nav-tabs a:eq(1)').tab('show');
+                    */
+                }
+            });
+        }
+
+    </script>
+}

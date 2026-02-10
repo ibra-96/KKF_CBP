@@ -1,0 +1,302 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.FollowUpProjectPlanVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@{
+    ViewBag.Title = Resources.General.FollowUpProjectPlan;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!-- Content -->
+<div id="dd" class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+            <div class="card ">
+                <div class="card-header card-header-rose card-header-text">
+                    <div class="card-text">
+                        <h4 class="card-title">@Resources.FollowUpProjectPlan.ProjectDetails</h4>
+                    </div>
+                </div>
+                @using (Html.BeginForm("Edit", "FollowUpProjectPlan", FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.FollowUpProjectPlan.FollowUpProjectPlanId)
+                    <div class="card-body ">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row justify-content-center">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="Inp_ProjectName" class="bmd-label-floating"> @Resources.FollowUpProjectPlan.Name </label>
+                                    @Html.TextBoxFor(model => model.FollowUpProjectPlan.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FollowUpProjectPlan.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group select-wizard">
+                                    @Html.DropDownListFor(model => model.FollowUpProjectPlan.IncubationWorkshopID, (SelectList)ViewBag.WorkShop, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @data_style = "select-with-transition", @title = @Resources.FollowUpProjectPlan.SelectWorkshop })
+                                    @Html.ValidationMessageFor(model => model.FollowUpProjectPlan.IncubationWorkshopID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            @*<div class="col-sm-6">
+                                    <div class="form-group select-wizard">
+                                        @Html.DropDownListFor(model => model.FrontEndUsers, (MultiSelectList)ViewBag.Corprates, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @multiple = "multiple", @title = "Select Advertising Models" })
+                                        <select id="FrontEndUsers" name="FrontEndUsers" required class="select-wizard form-control selectpicker" data-style="select-with-transition" multiple="multiple" title="Select corpration"></select>
+                                        @Html.ValidationMessageFor(model => model.FrontEndUsers, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>*@
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="Deadline"> @Resources.FollowUpProjectPlan.Deadline </label>
+                                    @Html.TextBoxFor(model => model.FollowUpProjectPlan.Deadline, new { @class = "form-control ", @id = "Deadline" })
+                                    @Html.ValidationMessageFor(model => model.FollowUpProjectPlan.Deadline, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Notes" class="bmd-label-floating">@Resources.FollowUpProjectPlan.Notes</label>
+                                    @Html.TextAreaFor(model => model.FollowUpProjectPlan.Notes, new { @class = "form-control", rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.FollowUpProjectPlan.Notes, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="col-md-12">
+                                <div class="col-sm-12" style="margin-bottom: 14px;margin-top: 14px;">
+                                    <span style="font-size: 14px;" class="badge badge-pill badge-rose">
+                                        @Resources.FollowUpProjectPlan.listOfTheOrganization
+                                    </span>
+                                </div>
+                                <div class="col-sm-4"></div>
+                                <div class="material-datatables">
+                                    <table id="TargetSegmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>@Resources.FollowUpProjectPlan.CorporateName</th>
+                                                @*<th>Invitation Status</th>*@
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.FollowUpProjectPlan.FollowUpProjectPlanRequests)
+                                            {
+                                                <tr>
+                                                    <td>@item.FrontendUser.CorporateApplicationForms.FirstOrDefault().Name</td>
+                                                    @*<td>@item.FollowUpProjectPlanStatus</td>*@
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-lg-12" style="margin-top: 77px; margin-bottom: 135px;">
+                                <!-- Uploader Dropzone -->
+                                <div id="zdrop" class="fileuploader" onclick="document.getElementById('selectedFile').click();">
+                                    <div id="upload-label" style="width: 350px;">
+                                        <i class="material-icons">cloud_upload</i>
+                                        <span class="title">@Resources.General.Attachments</span>
+                                        <span id="fileText" style="display: block;"></span>
+                                        @Html.TextBoxFor(model => model.files, "", new { @id = "selectedFile", @type = "file", @multiple = "multiple", @style = "display: none;", @onchange = "getFileName();" })
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="col-md-12">
+                                <div class="material-datatables">
+                                    <table id="AttachmentDatatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>@Resources.General.AttachmentName</th>
+                                                <th>@Resources.General.AttachmentType</th>
+                                                <th>@Resources.General.AttachmentSize</th>
+                                                <th class="disabled-sorting">@Resources.General.Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.FollowUpProjectPlan.FollowUpProjectPlanAttachments)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <a class="btn btn-link btn-default" href="@Url.Action("Download", new { id = item.AttachmentID })">
+                                                            <i class="material-icons">attach_file</i>
+                                                            @item.Name
+                                                        </a>
+                                                    </td>
+                                                    <td>@item.Type</td>
+                                                    <td>@item.Size Bytes</td>
+                                                    <td class="text-right">
+                                                        <a class="btn btn-link btn-rose btn-just-icon" href="@Url.Action("Download", new { id = item.AttachmentID })">
+                                                            <i class="material-icons">get_app</i>
+                                                        </a>
+                                                        <button class="btn btn-link btn-danger btn-just-icon remove" type="button" onclick="Delete('@item.AttachmentID')">
+                                                            <i class="material-icons">delete</i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="row" style="display: contents;">
+                                    <div class="card-footer justify-content-center ">
+                                        <input type="submit" value="@Resources.General.Save" class="btn btn-rose" />
+                                        <a class="btn btn-default" href="@Url.Action("Index")">@Resources.General.Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+
+
+@section Scripts {
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_FollowUpProjectPlan').addClass('active');
+            $('#Workshop').addClass('show');
+        };
+    </script>
+
+    <!-- CSS Just for File Uploader Style include it in your project -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js'></script>
+    <script src="~/Scripts/dropzone/dropzone.min.js"></script>
+    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="~/assets/js/plugins/jasny-bootstrap.min.js"></script>
+    <!-- Library for adding dinamically elements -->
+    <script src="~/assets/js/plugins/arrive.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#Deadline").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+            var deadline = '@ViewBag.Deadline';
+            $('#Deadline').datepicker('setDate', deadline)
+
+            if ('@Resources.General.lang' == 'ar') {
+                var table = $('#AttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                var table = $('#AttachmentDatatables').DataTable({
+                    "paging": true,
+                    "searching": true,
+                    "info": true,
+                    "pagingType": "full_numbers",
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    responsive: true,
+                    language: {
+                        search: "_INPUT_",
+                        searchPlaceholder: "Search records",
+                    }
+                });
+            }
+            table.on('click', '.remove', function (e) {
+                $tr = $(this).closest('tr');
+                table.row($tr).remove().draw();
+                e.preventDefault();
+                console.log(table.rows().data().length);
+            });
+
+        });
+
+        function getFileName() {
+            $('#fileText').html('');
+            $('#fileText').append($('#selectedFile')[0].files.length + ' Files Selected');
+        }
+
+                function Delete(Id) {
+                swal({
+                    title: 'Are you sure?',
+                    text: 'You will not be able to recover this file!',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, keep it',
+                    confirmButtonClass: "btn btn-success",
+                    cancelButtonClass: "btn btn-danger",
+                    buttonsStyling: false
+                }).then(function () {
+
+                    $.getJSON('@Url.Action("DeleteAttachment")', { Id: Id }, function (Result) {
+                        if (Result != null && !jQuery.isEmptyObject(Result)) {
+                            //alertify.notify(Result, 'custome', 3, function () { console.log('dismissed'); });
+                            if (Result === "Deleted Succsesfully") {
+                                swal({
+                                    title: 'Deleted!',
+                                    text: 'Your imaginary file has been deleted.',
+                                    type: 'success',
+                                    confirmButtonClass: "btn btn-success",
+                                    buttonsStyling: false
+                                }).catch(swal.noop)
+                            } else {
+                                swal({
+                                    title: 'Failed',
+                                    text: 'failed to delete your imaginary file :)',
+                                    type: 'error',
+                                    confirmButtonClass: "btn btn-danger",
+                                    buttonsStyling: false
+                                }).catch(swal.noop)
+                            }
+                        }
+                    });
+
+                }, function (dismiss) {
+                    // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+                    if (dismiss === 'cancel') {
+                        swal({
+                            title: 'Cancelled',
+                            text: 'Your imaginary file is safe :)',
+                            type: 'error',
+                            confirmButtonClass: "btn btn-info",
+                            buttonsStyling: false
+                        }).catch(swal.noop)
+                    }
+                })
+        }
+
+        $("#IncubationWorkshopID").on('change', function () {
+            var selectedIncubationAdID = $("#IncubationWorkshopID").val();
+            var option = '';
+            if (selectedIncubationAdID != null && selectedIncubationAdID != '') {
+                $.getJSON('@Url.Action("GetUsers")', { Id: selectedIncubationAdID }, function (result) {
+                    if (result != null && !jQuery.isEmptyObject(result)) {
+
+                        $.each(result, function (index, data) {
+                            option = option + '<option value="' + data.Value + '">' + data.Text + "</option>"
+                        });
+                        $("#FrontEndUsers").html(option).selectpicker('refresh');
+                    }
+                    else {
+                        $('#FrontEndUsers').find('option').remove();
+                    };
+                });
+            }
+        });
+
+    </script>
+}

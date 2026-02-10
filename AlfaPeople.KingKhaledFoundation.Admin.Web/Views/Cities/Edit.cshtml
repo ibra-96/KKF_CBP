@@ -1,0 +1,66 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.City
+@{
+
+    Layout = null;
+}
+@using (Html.BeginForm("Edit", "Cities", FormMethod.Post, new { onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("Index", "Cities", new { id = 0 }) }))//data-resetUrl
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-body">
+        <div class="form-horizontal">
+         
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.CityID)
+
+    
+        
+
+       
+            <div class="form-group">
+                <label for="CityNameAR" class="bmd-label-floating">@Resources.Cities.CityNameAR</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CityNameAR, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CityNameAR, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="CityNameEN" class="bmd-label-floating">@Resources.Cities.CityNameEN</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CityNameEN, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CityNameEN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="GovernorateID" class="bmd-label-floating">@Resources.Cities.Governorate</label>
+
+                <div class="col-md-10">
+                    @* @Html.DropDownList("GovernorateID", null, htmlAttributes: new { @class = "form-control" })*@
+                    @Html.DropDownListFor(f => f.GovernorateID, (SelectList)ViewBag.GovernorateID, new { @class = "form-control", @required = "required" })
+
+
+                    @Html.ValidationMessageFor(model => model.GovernorateID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <br />
+            <br />
+            <div class="form-group">
+                <label for="IsActive" class="bmd-label-floating">@Resources.Cities.IsActive</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.IsActive)
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-info btn-link">@Resources.General.Edit</button>
+            <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">@Resources.General.Close</button>
+        </div>
+}

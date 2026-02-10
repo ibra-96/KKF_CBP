@@ -1,0 +1,86 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.ClassificationSector>
+
+@{
+    Layout = null;
+    ViewBag.Title = "Sectors";
+}
+<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+       width="100%" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Resources.ClassificationSectors.Category
+
+            </th>
+
+            <th>
+
+
+                @if (ViewBag.lang == 3)
+                {
+                    @Resources.ClassificationSectors.ClassificationSectorNameAR
+                }
+                else
+                {
+                    @Resources.ClassificationSectors.ClassificationSectorNameEN
+                }
+
+            </th>
+            <th>
+                @Resources.ClassificationSectors.IsActive
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+
+                    @if (ViewBag.lang == 3)
+                    {
+                        @Html.DisplayFor(modelItem => item.CorporationsCategory.CorporationsCategoryNameAR)
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.CorporationsCategory.CorporationsCategoryNameEN)
+                    }
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.ClassificationSectorNameAR)
+                    </td>*@
+                <td>
+                    @if (ViewBag.lang == 3)
+                    {
+                        @Html.DisplayFor(modelItem => item.ClassificationSectorNameAR)
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.ClassificationSectorNameAR)
+
+                    }
+                </td>
+                <td>
+                    @if (item.IsActive == true)
+                    {
+                    <span class="badge badge-pill badge-success">
+                        @Resources.ClassificationSectors.Active
+                    </span>
+
+                    }
+                    else
+                    {
+                    <span class="badge badge-pill badge-danger">
+                        @Resources.ClassificationSectors.InActive
+                    </span>
+
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditClassificationSectorNonProfit" onclick="Edit('@Url.Action("Edit", "ClassificationSectors", new { id=@item.ClassificationSectorID})')"><i class="material-icons">edit</i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

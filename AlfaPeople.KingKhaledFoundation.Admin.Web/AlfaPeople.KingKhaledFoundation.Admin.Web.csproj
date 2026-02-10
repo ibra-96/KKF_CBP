@@ -1,0 +1,1980 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.4.2.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.4.2.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0FF68382-1AA0-4A3C-B16E-C4F3F0A3E496}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AlfaPeople.KingKhaledFoundation.Admin.Web</RootNamespace>
+    <AssemblyName>AlfaPeople.KingKhaledFoundation.Admin.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44370</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="BeginCollectionItem, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BeginCollectionItem.1.2.1.0\lib\net35\BeginCollectionItem.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.102.1.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.102.1\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.20.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.20.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.5.0\lib\net461\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="Irony, Version=1.1.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Irony.NetCore.1.1.11\lib\netstandard2.0\Irony.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.21.0\lib\net452\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.21.0\lib\net452\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.21.0\lib\net452\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.21.0\lib\net452\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.21.0\lib\net452\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.21.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.4\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.4\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.4\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.8\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.2.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.2.2\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.2.2\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.2.2\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.2.2\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.2.2\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.2.2\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.7.0.0\lib\net462\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Thread" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="XLParser, Version=1.7.0.0, Culture=neutral, PublicKeyToken=63397e1e46bb91b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\XLParser.1.7.0\lib\net462\XLParser.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\AchievingGoal.ar-EG.Designer.cs">
+      <DependentUpon>AchievingGoal.ar-EG.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\AchievingGoal.Designer.cs">
+      <DependentUpon>AchievingGoal.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MeetTheWorkRequirement.ar-EG.Designer.cs">
+      <DependentUpon>MeetTheWorkRequirement.ar-EG.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MeetTheWorkRequirement.Designer.cs">
+      <DependentUpon>MeetTheWorkRequirement.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\ProjectResult.designer.cs">
+      <DependentUpon>ProjectResult.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\ProjectResult.ar-EG.designer.cs">
+      <DependentUpon>ProjectResult.ar-EG.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\OutPut.designer.cs">
+      <DependentUpon>OutPut.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\OutPut.ar-EG.designer.cs">
+      <DependentUpon>OutPut.ar-EG.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\AccelerationReport.ar-EG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccelerationReport.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\AccelerationReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccelerationReport.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\AttendeesList.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AttendeesList.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\AttendeesList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AttendeesList.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\AuthorizationAuthorities.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuthorizationAuthorities.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\AuthorizationAuthorities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuthorizationAuthorities.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Cities.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cities.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Cities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cities.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\ClassificationSectors.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassificationSectors.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\ClassificationSectors.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassificationSectors.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Consultants.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Consultants.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Consultants.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Consultants.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Consultants.en-GB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Consultants.en-GB.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporateFieldOfWork.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CorporateFieldOfWork.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporateFieldOfWork.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CorporateFieldOfWork.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporationContactReport.ar-EG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CorporationContactReport.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporationContactReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CorporationContactReport.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporationProfile.ar-EG.designer.cs">
+      <DependentUpon>CorporationProfile.ar-EG.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporationProfile.Designer.cs">
+      <DependentUpon>CorporationProfile.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporationRegistered.en-GB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CorporationRegistered.en-GB.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporationRegistered.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CorporationRegistered.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporationRegistered.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CorporationRegistered.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporationsCategory.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CorporationsCategory.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporationsCategory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CorporationsCategory.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\ReportOnBeneficiaries.designer.cs">
+      <DependentUpon>ReportOnBeneficiaries.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\ReportOnBeneficiaries.ar-EG.designer.cs">
+      <DependentUpon>ReportOnBeneficiaries.ar-EG.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\GrantReport.designer.cs">
+      <DependentUpon>GrantReport.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\GrantReport.ar-EG.designer.cs">
+      <DependentUpon>GrantReport.ar-EG.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporationsReport.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CorporationsReport.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\CorporationsReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CorporationsReport.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Events.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Events.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Events.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Events.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Events.en-GB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Events.en-GB.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\FinalReportsPS.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinalReportsPS.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\FinalReportsPS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinalReportsPS.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\FinalReportsSE.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinalReportsSE.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\FinalReportsSE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinalReportsSE.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\FollowUpProjectPlan.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FollowUpProjectPlan.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\FollowUpProjectPlan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FollowUpProjectPlan.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\FundingSource.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FundingSource.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\FundingSource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FundingSource.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\General.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>General.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\General.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>General.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\General.en-GB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>General.en-GB.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Governorates.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Governorates.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Governorates.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Governorates.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Grant.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grant.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Grant.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grant.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\GrantModel.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GrantModel.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\GrantModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GrantModel.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\GrantProjectIdeaRequest.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GrantProjectIdeaRequest.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\GrantProjectIdeaRequest.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GrantProjectIdeaRequest.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\GrantsRequest.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GrantsRequest.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\GrantsRequest.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GrantsRequest.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\GrantWorkshops.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GrantWorkshops.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\GrantWorkshops.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GrantWorkshops.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Incubation.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Incubation.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Incubation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Incubation.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Incubation.en-GB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Incubation.en-GB.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationAdvertising.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationAdvertising.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationAdvertising.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationAdvertising.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationAdvertising.en-GB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationAdvertising.en-GB.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationFollowUpEvaluation.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationFollowUpEvaluation.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationFollowUpEvaluation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationFollowUpEvaluation.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationFollowUpEvaluationLines.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationFollowUpEvaluationLines.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationFollowUpEvaluationLines.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationFollowUpEvaluationLines.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationRequest.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationRequest.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationRequest.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationRequest.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationRequest.en-GB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationRequest.en-GB.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationWorkshopFollowUpEvaluation.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationWorkshopFollowUpEvaluation.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationWorkshopFollowUpEvaluation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationWorkshopFollowUpEvaluation.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationWorkShopFollowUpEvaluationLines.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationWorkShopFollowUpEvaluationLines.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationWorkShopFollowUpEvaluationLines.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationWorkShopFollowUpEvaluationLines.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationWorkshopModels.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationWorkshopModels.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationWorkshopModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationWorkshopModels.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationWorkshopRating.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationWorkshopRating.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationWorkshopRating.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationWorkshopRating.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationWorkshops.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationWorkshops.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationWorkshops.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationWorkshops.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\IncubationWorkshops.en-GB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncubationWorkshops.en-GB.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Popsations.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Popsations.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Popsations.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Popsations.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Regions.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Regions.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Regions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Regions.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\TargetSegmentType.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TargetSegmentType.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\TargetSegmentType.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TargetSegmentType.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\TrainerRating.ar-EG.Designer.cs">
+      <DependentUpon>TrainerRating.ar-EG.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\TrainerRating.Designer.cs">
+      <DependentUpon>TrainerRating.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\TrainingWorkshop.ar-EG.Designer.cs">
+      <DependentUpon>TrainingWorkshop.ar-EG.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\TrainingWorkshop.Designer.cs">
+      <DependentUpon>TrainingWorkshop.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\TypeOfIntervention.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TypeOfIntervention.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\TypeOfIntervention.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TypeOfIntervention.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Workshop.ar-EG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Workshop.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\Workshop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Workshop.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\WorkshopClass.ar-EG.Designer.cs">
+      <DependentUpon>WorkshopClass.ar-EG.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\WorkshopClass.Designer.cs">
+      <DependentUpon>WorkshopClass.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\WorkshopReport.ar-EG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkshopReport.ar-EG.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\WorkshopReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkshopReport.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthorizationAuthoritiesController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CalenderController.cs" />
+    <Compile Include="Controllers\IncubationWorkshopPostImpactTransactionsController.cs" />
+    <Compile Include="Controllers\ProjectImpactEvaluationControlle.cs" />
+    <Compile Include="Controllers\FollowUpProjectPlanController.cs" />
+    <Compile Include="Controllers\FollowUpProjectPlanRequestController.cs" />
+    <Compile Include="Controllers\IncubationWorkshopBaselineController.cs" />
+    <Compile Include="Controllers\IncubationBaselineRequestController.cs" />
+    <Compile Include="Controllers\IncubationWorkshopBLTransactionsController.cs" />
+    <Compile Include="Models\BaselineSurveyReportVM.cs" />
+    <Compile Include="Models\CanceledIncubationInvitationsReportVM.cs" />
+    <Compile Include="Models\CanceledWorkshopInvitationsReportVM.cs" />
+    <Compile Include="Models\CorporationContactResultDto.cs" />
+    <Compile Include="Models\CorporationContactSearchDto.cs" />
+    <Compile Include="Models\IncubationWSPostImpactReadOnlyVM.cs" />
+    <Compile Include="Models\ProjectImpactEvaluationVM.cs" />
+    <Compile Include="Models\FundingSourceVM.cs" />
+    <Compile Include="Models\IncubationWorkshopControlOptionVM.cs" />
+    <Compile Include="Models\IncubationWSBaselineVM.cs" />
+    <Compile Include="Models\IncubationResultDto.cs" />
+    <Compile Include="Controllers\IncubationWorkshopModelsController.cs" />
+    <Compile Include="Controllers\CitiesController.cs" />
+    <Compile Include="Controllers\ClassificationSectorsController.cs" />
+    <Compile Include="Controllers\ConsultantsController.cs" />
+    <Compile Include="Controllers\IncubationWorkshopsController.cs" />
+    <Compile Include="Controllers\IncubationAdvertisingController.cs" />
+    <Compile Include="Controllers\IncubationWorkshopFollowUpEvaluationController.cs" />
+    <Compile Include="Controllers\IncubationFollowUpEvaluationController.cs" />
+    <Compile Include="Controllers\IncubationWorkshopRatingController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\TypeOfInterventionController.cs" />
+    <Compile Include="Controllers\FundingSourceController.cs" />
+    <Compile Include="Controllers\CorporationRegisteredController.cs" />
+    <Compile Include="Controllers\CorporationRequestsController.cs" />
+    <Compile Include="Controllers\CorporateFieldOfWorkController.cs" />
+    <Compile Include="Controllers\CorporationsCategoryController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\GovernoratesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncubationModelsController.cs" />
+    <Compile Include="Controllers\IncubationRequestController.cs" />
+    <Compile Include="Controllers\IncubationsController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PositionController.cs" />
+    <Compile Include="Controllers\RegionsController.cs" />
+    <Compile Include="Controllers\WorkshopRequestController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalClass.cs" />
+    <Compile Include="Helper\CurrentHelper.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CorporationRequestsVM.cs" />
+    <Compile Include="Models\CorporationSearchDto.cs" />
+    <Compile Include="Models\CorporationsResult.cs" />
+    <Compile Include="Models\dshboardVM.cs" />
+    <Compile Include="Models\FollowUpProjectPlanJoinVM.cs" />
+    <Compile Include="Models\FollowUpProjectPlanVM.cs" />
+    <Compile Include="Models\IncubationSearchDto.cs" />
+    <Compile Include="Models\IncubationWorkshopEvaluationReportVM.cs" />
+    <Compile Include="Models\IWSBLTransactionsVM.cs" />
+    <Compile Include="Models\IWSBLTransactionsTypeVM.cs" />
+    <Compile Include="Models\WorkshopInvitationsVM.cs" />
+    <Compile Include="Models\EmployeeVM.cs" />
+    <Compile Include="Models\IncubationWorkshopFollowUpEvaluationVM .cs" />
+    <Compile Include="Models\IncubationFollowUpEvaluationVM.cs" />
+    <Compile Include="Models\IncubationAdvertisingVM.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IncuationsVM.cs" />
+    <Compile Include="Models\IncubationProjectProposalVM.cs" />
+    <Compile Include="Models\IndividualRequestVM.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\IncubationWorkshopVM.cs" />
+    <Compile Include="Models\WorkshopResultDto.cs" />
+    <Compile Include="Models\WorkshopSearchDto.cs" />
+    <Compile Include="Models\WorkshopSurveyReportVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\alertifyjs\alertify.js" />
+    <Content Include="assets\alertifyjs\alertify.min.js" />
+    <Content Include="assets\alertifyjs\css\alertify.css" />
+    <Content Include="assets\alertifyjs\css\alertify.min.css" />
+    <Content Include="assets\alertifyjs\css\alertify.rtl.css" />
+    <Content Include="assets\alertifyjs\css\alertify.rtl.min.css" />
+    <Content Include="assets\alertifyjs\css\themes\bootstrap.css" />
+    <Content Include="assets\alertifyjs\css\themes\bootstrap.min.css" />
+    <Content Include="assets\alertifyjs\css\themes\bootstrap.rtl.css" />
+    <Content Include="assets\alertifyjs\css\themes\bootstrap.rtl.min.css" />
+    <Content Include="assets\alertifyjs\css\themes\default.css" />
+    <Content Include="assets\alertifyjs\css\themes\default.min.css" />
+    <Content Include="assets\alertifyjs\css\themes\default.rtl.css" />
+    <Content Include="assets\alertifyjs\css\themes\default.rtl.min.css" />
+    <Content Include="assets\alertifyjs\css\themes\semantic.css" />
+    <Content Include="assets\alertifyjs\css\themes\semantic.min.css" />
+    <Content Include="assets\alertifyjs\css\themes\semantic.rtl.css" />
+    <Content Include="assets\alertifyjs\css\themes\semantic.rtl.min.css" />
+    <Content Include="assets\css\css.css" />
+    <Content Include="assets\css\FileUploaderStyle.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\material-dashboard.min.css" />
+    <Content Include="assets\css\materialize.min.css" />
+    <Content Include="assets\demo\demo.css" />
+    <Content Include="assets\demo\demo.js" />
+    <Content Include="assets\demo\jquery.sharrre.js" />
+    <Content Include="assets\images\7.JPG" />
+    <Content Include="assets\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="assets\images\ui-icons_444444_256x240.png" />
+    <Content Include="assets\images\ui-icons_555555_256x240.png" />
+    <Content Include="assets\images\ui-icons_777620_256x240.png" />
+    <Content Include="assets\images\ui-icons_777777_256x240.png" />
+    <Content Include="assets\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="assets\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="assets\img\17 KKF Master Brand wordmark.png" />
+    <Content Include="assets\img\background.jpg" />
+    <Content Include="assets\img\default-avatar.png" />
+    <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\logo1.png" />
+    <Content Include="assets\img\PicBG.png" />
+    <Content Include="assets\img\piclogo.ico" />
+    <Content Include="assets\img\piclogo.png" />
+    <Content Include="assets\img\textlogo.png" />
+    <Content Include="assets\jquery-ui.css" />
+    <Content Include="assets\jquery-ui.js" />
+    <Content Include="assets\js\buttons.js" />
+    <Content Include="assets\js\cloudflare-static\email-decode.min.js" />
+    <Content Include="assets\js\core.js" />
+    <Content Include="assets\js\core\bootstrap-material-design.min.js" />
+    <Content Include="assets\js\core\jquery.min.js" />
+    <Content Include="assets\js\core\popper.min.js" />
+    <Content Include="assets\js\FileUploaderIndex.js" />
+    <Content Include="assets\js\js.js" />
+    <Content Include="assets\js\material-dashboard.min.js" />
+    <Content Include="assets\js\plugins\arrive.min.js" />
+    <Content Include="assets\js\plugins\bootstrap-datetimepicker.min.js" />
+    <Content Include="assets\js\plugins\bootstrap-notify.js" />
+    <Content Include="assets\js\plugins\bootstrap-selectpicker.js" />
+    <Content Include="assets\js\plugins\bootstrap-tagsinput.js" />
+    <Content Include="assets\js\plugins\chartist.min.js" />
+    <Content Include="assets\js\plugins\fullcalendar.min.js" />
+    <Content Include="assets\js\plugins\jasny-bootstrap.min.js" />
+    <Content Include="assets\js\plugins\jquery-jvectormap.js" />
+    <Content Include="assets\js\plugins\jquery.bootstrap-wizard.js" />
+    <Content Include="assets\js\plugins\jquery.dataTables.min.js" />
+    <Content Include="assets\js\plugins\jquery.validate.min.js" />
+    <Content Include="assets\js\plugins\moment.min.js" />
+    <Content Include="assets\js\plugins\nouislider.min.js" />
+    <Content Include="assets\js\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="assets\js\plugins\sweetalert2.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen-sprite.png" />
+    <Content Include="Content\chosen.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\BngMUXZYTXPIvIBgJJSb6ufA5qW54A.woff2" />
+    <Content Include="fonts\BngMUXZYTXPIvIBgJJSb6ufB5qW54A.woff2" />
+    <Content Include="fonts\BngMUXZYTXPIvIBgJJSb6ufC5qW54A.woff2" />
+    <Content Include="fonts\BngMUXZYTXPIvIBgJJSb6ufD5qW54A.woff2" />
+    <Content Include="fonts\BngMUXZYTXPIvIBgJJSb6ufJ5qW54A.woff2" />
+    <Content Include="fonts\BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2" />
+    <Content Include="fonts\BngMUXZYTXPIvIBgJJSb6ufO5qW54A.woff2" />
+    <Content Include="fonts\BngRUXZYTXPIvIBgJJSb6u92w7CCwR26eg.woff2" />
+    <Content Include="fonts\BngRUXZYTXPIvIBgJJSb6u92w7CFwR26eg.woff2" />
+    <Content Include="fonts\BngRUXZYTXPIvIBgJJSb6u92w7CGwR0.woff2" />
+    <Content Include="fonts\BngRUXZYTXPIvIBgJJSb6u92w7CIwR26eg.woff2" />
+    <Content Include="fonts\BngRUXZYTXPIvIBgJJSb6u92w7CJwR26eg.woff2" />
+    <Content Include="fonts\BngRUXZYTXPIvIBgJJSb6u92w7CKwR26eg.woff2" />
+    <Content Include="fonts\BngRUXZYTXPIvIBgJJSb6u92w7CLwR26eg.woff2" />
+    <Content Include="fonts\flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmEU9fABc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmEU9fBBc4.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmEU9fBxc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmEU9fCBc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmEU9fChc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmEU9fCRc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmEU9fCxc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmSU5fABc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmSU5fBBc4.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmSU5fBxc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmSU5fCBc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmSU5fChc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmSU5fCRc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmSU5fCxc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmWUlfABc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmWUlfBBc4.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmWUlfBxc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmWUlfCBc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmWUlfCRc4EsA.woff2" />
+    <Content Include="fonts\KFOlCnqEu92Fr1MmWUlfCxc4EsA.woff2" />
+    <Content Include="fonts\KFOmCnqEu92Fr1Mu4mxK.woff2" />
+    <Content Include="fonts\KFOmCnqEu92Fr1Mu4WxKOzY.woff2" />
+    <Content Include="fonts\KFOmCnqEu92Fr1Mu5mxKOzY.woff2" />
+    <Content Include="fonts\KFOmCnqEu92Fr1Mu72xKOzY.woff2" />
+    <Content Include="fonts\KFOmCnqEu92Fr1Mu7GxKOzY.woff2" />
+    <Content Include="fonts\KFOmCnqEu92Fr1Mu7mxKOzY.woff2" />
+    <Content Include="fonts\KFOmCnqEu92Fr1Mu7WxKOzY.woff2" />
+    <Content Include="fonts\SuisseIntl-Thin.otf" />
+    <Content Include="fonts\mabry-black-pro.woff2" />
+    <Content Include="fonts\MabryPro-Bold.otf" />
+    <Content Include="fonts\MabryPro-Light.otf" />
+    <Content Include="fonts\MabryPro-Medium.otf" />
+    <Content Include="fonts\SuisseIntl-Black.otf" />
+    <Content Include="fonts\SuisseIntl-Bold.otf" />
+    <Content Include="fonts\SuisseIntl-Light.otf" />
+    <Content Include="fonts\SuisseIntl-Medium.otf" />
+    <Content Include="fonts\SuisseIntl-Regular.otf" />
+    <Content Include="fonts\SuisseIntl-SemiBold.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
+    <Content Include="Scripts\dropzone\basic.css" />
+    <Content Include="Scripts\dropzone\basic.min.css" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.js" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.min.js" />
+    <Content Include="Scripts\dropzone\dropzone.css" />
+    <Content Include="Scripts\dropzone\dropzone.js" />
+    <Content Include="Scripts\dropzone\dropzone.min.css" />
+    <Content Include="Scripts\dropzone\dropzone.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.1.js" />
+    <Content Include="Scripts\jquery-3.7.1.min.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Views\Home\dashboard.cshtml" />
+    <Content Include="Views\Home\ClassificationSectors.cshtml" />
+    <Content Include="Views\Home\Categories.cshtml" />
+    <Content Include="Views\Home\AuthorizationAuthority.cshtml" />
+    <Content Include="Views\Regions\Create.cshtml" />
+    <Content Include="Views\Regions\Delete.cshtml" />
+    <Content Include="Views\Regions\Details.cshtml" />
+    <Content Include="Views\Regions\Edit.cshtml" />
+    <Content Include="Views\Regions\Index.cshtml" />
+    <Content Include="Views\Regions\All.cshtml" />
+    <Content Include="Views\Governorates\All.cshtml" />
+    <Content Include="Views\Governorates\Index.cshtml" />
+    <Content Include="Views\Governorates\Create.cshtml" />
+    <Content Include="Views\Governorates\Edit.cshtml" />
+    <Content Include="Views\Cities\All.cshtml" />
+    <Content Include="Views\Cities\Create.cshtml" />
+    <Content Include="Views\Cities\Edit.cshtml" />
+    <Content Include="Views\Cities\Index.cshtml" />
+    <Content Include="Views\AuthorizationAuthorities\All.cshtml" />
+    <Content Include="Views\AuthorizationAuthorities\Index.cshtml" />
+    <Content Include="Views\AuthorizationAuthorities\Create.cshtml" />
+    <Content Include="Views\AuthorizationAuthorities\Edit.cshtml" />
+    <Content Include="Views\ClassificationSectors\All.cshtml" />
+    <Content Include="Views\ClassificationSectors\Index.cshtml" />
+    <Content Include="Views\ClassificationSectors\Create.cshtml" />
+    <Content Include="Views\ClassificationSectors\Edit.cshtml" />
+    <Content Include="Views\CorporationRequests\Index.cshtml" />
+    <Content Include="Views\CorporationRequests\Details.cshtml" />
+    <Content Include="Views\CorporationRequests\All.cshtml" />
+    <Content Include="Views\IncubationModels\All.cshtml" />
+    <Content Include="Views\IncubationModels\Index.cshtml" />
+    <Content Include="Views\IncubationModels\Create.cshtml" />
+    <Content Include="Views\IncubationModels\Edit.cshtml" />
+    <Content Include="Views\Consultants\All.cshtml" />
+    <Content Include="Views\Consultants\Index.cshtml" />
+    <Content Include="Views\Consultants\Create.cshtml" />
+    <Content Include="Views\Consultants\Edit.cshtml" />
+    <Content Include="Views\Incubations\Create.cshtml" />
+    <Content Include="Views\Incubations\IncubationRequests.cshtml" />
+    <Content Include="Views\Accelerations\Create.cshtml" />
+    <Content Include="Views\Incubations\Index.cshtml" />
+    <Content Include="Views\Accelerations\Index.cshtml" />
+    <Content Include="Views\Incubations\Edit.cshtml" />
+    <Content Include="Views\Accelerations\Edit.cshtml" />
+    <Content Include="Views\IncubationRequest\Index.cshtml" />
+    <Content Include="Views\Calender\Index.cshtml" />
+    <Content Include="Views\Events\All.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\CorporationsCategory\All.cshtml" />
+    <Content Include="Views\CorporationsCategory\Index.cshtml" />
+    <Content Include="Views\CorporationsCategory\Create.cshtml" />
+    <Content Include="Views\CorporationsCategory\Edit.cshtml" />
+    <Content Include="Views\Employee\All.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\CorporationRegistered\Index.cshtml" />
+    <Content Include="Views\Position\All.cshtml" />
+    <Content Include="Views\Position\Index.cshtml" />
+    <Content Include="Views\Position\Create.cshtml" />
+    <Content Include="Views\Position\Edit.cshtml" />
+    <Content Include="Views\CorporateFieldOfWork\All.cshtml" />
+    <Content Include="Views\CorporateFieldOfWork\Create.cshtml" />
+    <Content Include="Views\CorporateFieldOfWork\Edit.cshtml" />
+    <Content Include="Views\CorporateFieldOfWork\Index.cshtml" />
+    <Content Include="Views\TypeOfIntervention\All.cshtml" />
+    <Content Include="Views\TypeOfIntervention\Create.cshtml" />
+    <Content Include="Views\TypeOfIntervention\Edit.cshtml" />
+    <Content Include="Views\TypeOfIntervention\Index.cshtml" />
+    <Content Include="Views\IncubationAdvertising\Create.cshtml" />
+    <Content Include="Views\IncubationAdvertising\Edit.cshtml" />
+    <Content Include="Views\IncubationAdvertising\Index.cshtml" />
+    <Content Include="Views\FundingSource\Create.cshtml" />
+    <Content Include="Views\FundingSource\Edit.cshtml" />
+    <Content Include="Views\FundingSource\Index.cshtml" />
+    <Content Include="Views\Shared\_LstIncubationFollowUpEvaluationLines.cshtml" />
+    <Content Include="Views\IncubationRequest\IncubationProjectProposalRequest.cshtml" />
+    <Content Include="Views\IncubationWorkshopRating\Index.cshtml" />
+    <Content Include="Views\IncubationWorkshopRating\Detial.cshtml" />
+    <Content Include="Views\IncubationWorkshopModels\All.cshtml" />
+    <Content Include="Views\IncubationWorkshopModels\Create.cshtml" />
+    <Content Include="Views\IncubationWorkshopModels\Edit.cshtml" />
+    <Content Include="Views\IncubationWorkshopModels\Index.cshtml" />
+    <Content Include="Views\WorkshopRequest\Index.cshtml" />
+    <Content Include="Views\IncubationWorkshops\Create.cshtml" />
+    <Content Include="Views\IncubationWorkshops\Edit.cshtml" />
+    <Content Include="Views\IncubationWorkshops\Index.cshtml" />
+    <Content Include="Views\IncubationWorkshopFollowUpEvaluation\Create.cshtml" />
+    <Content Include="Views\IncubationWorkshopFollowUpEvaluation\Edit.cshtml" />
+    <Content Include="Views\IncubationWorkshopFollowUpEvaluation\Index.cshtml" />
+    <Content Include="Views\IncubationWorkshops\WorkshopInvitations.cshtml" />
+    <Content Include="Views\Shared\_LstIncubationWorkshopFollowUpEvaluationLines.cshtml" />
+    <Content Include="Views\FollowUpProjectPlan\Create.cshtml" />
+    <Content Include="Views\FollowUpProjectPlan\Index.cshtml" />
+    <Content Include="Views\FollowUpProjectPlan\Edit.cshtml" />
+    <Content Include="Views\FollowUpProjectPlanRequest\Index.cshtml" />
+    <Content Include="Views\WorkshopRequest\WorkshopRequests.cshtml" />
+    <Content Include="Views\IncubationWorkshops\AttendeesList.cshtml" />
+    <Content Include="Views\FollowUpProjectPlanRequest\Details.cshtml" />
+    <Content Include="Views\IncubationBaselineRequest\Details.cshtml" />
+    <Content Include="Views\IncubationBaselineRequest\Index.cshtml" />
+    <Content Include="Views\IncubationBaselineRequest\CorporateProfile.cshtml" />
+    <Content Include="Views\Reports\Corporations.cshtml" />
+    <Content Include="Views\Reports\CorporatesResult.cshtml" />
+    <Content Include="Views\CorporationRequests\CorporateIndex.cshtml" />
+    <Content Include="Views\Reports\Incubation.cshtml" />
+    <Content Include="Views\Reports\IncubationResult.cshtml" />
+    <Content Include="Views\Reports\Acceleration.cshtml" />
+    <Content Include="Views\Reports\AccelerationResult.cshtml" />
+    <Content Include="Views\Reports\WorkShops.cshtml" />
+    <Content Include="Views\Reports\WorkShopsResult.cshtml" />
+    <Content Include="Views\Reports\ChartArrayBasic.cshtml" />
+    <Content Include="Views\Account\NotFound.cshtml" />
+    <Content Include="Views\IncubationFollowUpEvaluation\Create.cshtml" />
+    <Content Include="Views\IncubationFollowUpEvaluation\Edit.cshtml" />
+    <Content Include="Views\IncubationFollowUpEvaluation\Index.cshtml" />
+    <Content Include="Views\IncubationWorkshops\IncubationWorkshopEvaluationReport.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.1.min.map" />
+    <Content Include="Views\IncubationWorkshopBLTransactions\Manage.cshtml" />
+    <Content Include="Views\Shared\_LstTransaction.cshtml" />
+    <Content Include="Views\IncubationWorkshopBaseline\Index.cshtml" />
+    <Content Include="Views\IncubationWorkshopBaseline\Details.cshtml" />
+    <Content Include="Views\Shared\_LstTransactionList.cshtml" />
+    <Content Include="Views\IncubationAdvertising\CanceledInvitationsView.cshtml" />
+    <Content Include="Views\IncubationWorkshops\CanceledWorkshopInvitationsReport.cshtml" />
+    <Content Include="Views\IncubationWorkshopBLTransactions\WorkshopDynamicReport.cshtml" />
+    <Content Include="Views\IncubationWorkshops\PublicWorkshopDetails.cshtml" />
+    <Content Include="Views\IncubationAdvertising\PublicAdDetails.cshtml" />
+    <Content Include="Views\IncubationBaselineRequest\BaselineSurveyReport.cshtml" />
+    <Content Include="Views\CorporationRegistered\RejectedIndex.cshtml" />
+    <Content Include="Views\ProjectImpactEvaluation\Index.cshtml" />
+    <Content Include="Views\ProjectImpactEvaluation\Create.cshtml" />
+    <Content Include="Views\ProjectImpactEvaluation\Edit.cshtml" />
+    <Content Include="Views\IncubationWorkshopPostImpactTransactions\ManagePostImpact.cshtml" />
+    <Content Include="Views\ProjectImpactEvaluation\Details.cshtml" />
+    <Content Include="Views\ProjectImpactEvaluation\PostImpactDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlfaPeople.KingKhalidFoundation.Data\AlfaPeople.KingKhalidFoundation.Data.csproj">
+      <Project>{3fb22de2-e4a9-421c-b201-41be69d28aed}</Project>
+      <Name>AlfaPeople.KingKhalidFoundation.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaPeople.Core\AlfaPeople.KingKhalidFoundation.Core.csproj">
+      <Project>{2b342c92-57ab-4615-8cec-b69cb9fa5e1d}</Project>
+      <Name>AlfaPeople.KingKhalidFoundation.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlphaPeople.Repository\AlfaPeople.KingKhalidFoundation.Repository.csproj">
+      <Project>{22ca654b-36b2-4ecb-83e9-7adcdc4ab9cb}</Project>
+      <Name>AlfaPeople.KingKhalidFoundation.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\AchievingGoal.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AchievingGoal.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\AchievingGoal.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AchievingGoal.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\MeetTheWorkRequirement.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MeetTheWorkRequirement.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\MeetTheWorkRequirement.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MeetTheWorkRequirement.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\ProjectResult.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProjectResult.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\ProjectResult.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProjectResult.ar-EG.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\OutPut.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OutPut.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\OutPut.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OutPut.ar-EG.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\AccelerationReport.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccelerationReport.ar-EG.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\AccelerationReport.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccelerationReport.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\AuthorizationAuthorities.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AuthorizationAuthorities.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\AuthorizationAuthorities.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AuthorizationAuthorities.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Cities.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Cities.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Cities.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Cities.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\ClassificationSectors.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ClassificationSectors.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\ClassificationSectors.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ClassificationSectors.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Consultants.en-GB.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Consultants.en-GB.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Consultants.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Consultants.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Consultants.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Consultants.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporateFieldOfWork.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporateFieldOfWork.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporateFieldOfWork.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporateFieldOfWork.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporationContactReport.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporationContactReport.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporationContactReport.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporationContactReport.ar-EG.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporationRegistered.en-GB.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporationRegistered.en-GB.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporationRegistered.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporationRegistered.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporationRegistered.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporationRegistered.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporationsCategory.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporationsCategory.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporationsCategory.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporationsCategory.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\ReportOnBeneficiaries.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReportOnBeneficiaries.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\ReportOnBeneficiaries.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReportOnBeneficiaries.ar-EG.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\GrantReport.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GrantReport.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\GrantReport.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GrantReport.ar-EG.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Events.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Events.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Events.en-GB.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Events.en-GB.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Events.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Events.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\FinalReportsSE.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FinalReportsSE.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\FinalReportsSE.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FinalReportsSE.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\FollowUpProjectPlan.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FollowUpProjectPlan.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\FollowUpProjectPlan.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FollowUpProjectPlan.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\FundingSource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FundingSource.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\FundingSource.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FundingSource.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Grant.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Grant.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Grant.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Grant.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationWorkShopFollowUpEvaluationLines.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationWorkShopFollowUpEvaluationLines.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationWorkShopFollowUpEvaluationLines.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationWorkShopFollowUpEvaluationLines.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationFollowUpEvaluationLines.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationFollowUpEvaluationLines.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationFollowUpEvaluationLines.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationFollowUpEvaluationLines.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\TrainerRating.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TrainerRating.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\TrainerRating.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TrainerRating.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\TrainingWorkshop.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TrainingWorkshop.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\TrainingWorkshop.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TrainingWorkshop.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Workshop.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Workshop.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Workshop.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Workshop.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Popsations.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Popsations.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Popsations.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Popsations.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationWorkshopModels.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationWorkshopModels.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationWorkshopModels.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationWorkshopModels.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\GrantModel.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GrantModel.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\GrantModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GrantModel.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\General.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>General.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Governorates.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Governorates.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Governorates.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Governorates.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\GrantProjectIdeaRequest.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GrantProjectIdeaRequest.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\GrantProjectIdeaRequest.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GrantProjectIdeaRequest.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\FinalReportsPS.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FinalReportsPS.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\FinalReportsPS.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FinalReportsPS.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Incubation.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Incubation.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Incubation.en-GB.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Incubation.en-GB.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Incubation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Incubation.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationAdvertising.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationAdvertising.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationAdvertising.en-GB.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationAdvertising.en-GB.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationAdvertising.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationAdvertising.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationFollowUpEvaluation.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationFollowUpEvaluation.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationFollowUpEvaluation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationFollowUpEvaluation.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationRequest.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationRequest.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationRequest.en-GB.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationRequest.en-GB.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationRequest.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationRequest.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationWorkshopFollowUpEvaluation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationWorkshopFollowUpEvaluation.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationWorkshopFollowUpEvaluation.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationWorkshopFollowUpEvaluation.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationWorkshopRating.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationWorkshopRating.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationWorkshopRating.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationWorkshopRating.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\GrantWorkshops.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GrantWorkshops.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationWorkshops.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationWorkshops.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\GrantWorkshops.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GrantWorkshops.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationWorkshops.en-GB.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationWorkshops.en-GB.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\IncubationWorkshops.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncubationWorkshops.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Regions.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Regions.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Regions.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Regions.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\TargetSegmentType.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TargetSegmentType.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\TargetSegmentType.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TargetSegmentType.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\GrantsRequest.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GrantsRequest.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\GrantsRequest.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GrantsRequest.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\TypeOfIntervention.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TypeOfIntervention.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\TypeOfIntervention.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TypeOfIntervention.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\WorkshopClass.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WorkshopClass.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\WorkshopClass.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WorkshopClass.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\WorkshopReport.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WorkshopReport.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\WorkshopReport.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WorkshopReport.ar-EG.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\General.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>General.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\General.en-GB.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>General.en-GB.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\AttendeesList.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AttendeesList.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\AttendeesList.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AttendeesList.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporationProfile.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporationProfile.ar-EG.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporationProfile.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporationProfile.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporationsReport.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporationsReport.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\CorporationsReport.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CorporationsReport.ar-EG.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>23213</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44370/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.4.2.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.4.2.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.21.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.21.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.21.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.21.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Web.2.21.0\build\Microsoft.ApplicationInsights.Web.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Web.2.21.0\build\Microsoft.ApplicationInsights.Web.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.21.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.21.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.21.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.21.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Web.2.21.0\build\Microsoft.ApplicationInsights.Web.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Web.2.21.0\build\Microsoft.ApplicationInsights.Web.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="absent" xml:space="preserve">
+    <value>اعتذار</value>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>مقبول</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>الحساب</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="AdminEmail" xml:space="preserve">
+    <value>بريد المدير</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>المرفقات</value>
+  </data>
+  <data name="AttendeeEmail" xml:space="preserve">
+    <value>البريد الإلكتروني للمشارك</value>
+  </data>
+  <data name="AttendeeMobile" xml:space="preserve">
+    <value>رقم الجوال</value>
+  </data>
+  <data name="AttendeeName" xml:space="preserve">
+    <value>اسم المشارك</value>
+  </data>
+  <data name="AttendeePosition" xml:space="preserve">
+    <value>المنصب الوظيفي للمشارك</value>
+  </data>
+  <data name="BasicData" xml:space="preserve">
+    <value>البيانات الأساسية</value>
+  </data>
+  <data name="BoardOfDirectors" xml:space="preserve">
+    <value>متى تم انتخاب مجلس الإدارة؟</value>
+  </data>
+  <data name="ClassificationSectorNonProfit" xml:space="preserve">
+    <value>تصنيف القطاع</value>
+  </data>
+  <data name="Consultant" xml:space="preserve">
+    <value>الجهة الاستشارية</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>جهات الإتصال</value>
+  </data>
+  <data name="CorperationHistory" xml:space="preserve">
+    <value>نبذة محتصرة عن المنظمة</value>
+  </data>
+  <data name="CorporateName" xml:space="preserve">
+    <value>اسم المنظمة</value>
+  </data>
+  <data name="CorporateProfile" xml:space="preserve">
+    <value>لمحة عن المنظمة</value>
+  </data>
+  <data name="CorporationRegistrationNumber" xml:space="preserve">
+    <value>رقم تسجيل المنظمة</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>وصف</value>
+  </data>
+  <data name="DurationOfTheProjectInDays" xml:space="preserve">
+    <value>مدة المشروع</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>تاريخ الانتهاء</value>
+  </data>
+  <data name="Extension" xml:space="preserve">
+    <value>التحويلة</value>
+  </data>
+  <data name="FaxNumber" xml:space="preserve">
+    <value>رقم الفاكس</value>
+  </data>
+  <data name="FoundedYear" xml:space="preserve">
+    <value>سنه التأسيس</value>
+  </data>
+  <data name="InstagramAccount" xml:space="preserve">
+    <value>حساب إنستجرام</value>
+  </data>
+  <data name="IsPublic" xml:space="preserve">
+    <value>عام(للجميع)</value>
+  </data>
+  <data name="LastTimeToApply" xml:space="preserve">
+    <value>آخر موعد للتقديم</value>
+  </data>
+  <data name="Mission" xml:space="preserve">
+    <value>الرسالة</value>
+  </data>
+  <data name="NameOfAdministratorCorporation" xml:space="preserve">
+    <value>اسم الرئيس التنفيذي للمنظمة</value>
+  </data>
+  <data name="Objectives" xml:space="preserve">
+    <value>الأهداف</value>
+  </data>
+  <data name="OficialEmail" xml:space="preserve">
+    <value>البريد الإلكتروني الرسمي للمنظمة</value>
+  </data>
+  <data name="POBox" xml:space="preserve">
+    <value>صندوق البريد</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>الرمز البريدي</value>
+  </data>
+  <data name="PrivateMessage" xml:space="preserve">
+    <value>هذا الإعلان خاص للمنظمات المختارة</value>
+  </data>
+  <data name="ProgramType" xml:space="preserve">
+    <value>نوع البرنامج</value>
+  </data>
+  <data name="PublicMessage" xml:space="preserve">
+    <value>هذا الإعلان عام لجميع المنظمات</value>
+  </data>
+  <data name="RegistrationData" xml:space="preserve">
+    <value>تاريخ التسجيل</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>مرفوض</value>
+  </data>
+  <data name="SelectConsultant" xml:space="preserve">
+    <value>اختر الجهة الاستشارية</value>
+  </data>
+  <data name="SelectGovernorate" xml:space="preserve">
+    <value>اختر المحافظة</value>
+  </data>
+  <data name="SelectModel" xml:space="preserve">
+    <value>اختر موضوع ورشة العمل</value>
+  </data>
+  <data name="SelectNeighborhoods" xml:space="preserve">
+    <value>اختر الحي</value>
+  </data>
+  <data name="SelectRegion" xml:space="preserve">
+    <value>اختر المنطقة</value>
+  </data>
+  <data name="SnapchatAccount" xml:space="preserve">
+    <value>حساب سناب تشات</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>تاريخ البدء</value>
+  </data>
+  <data name="TaxNumber" xml:space="preserve">
+    <value>رقم السجل الضريبي إن وجد</value>
+  </data>
+  <data name="TelephoneNumber" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="TrainingHeadquarters" xml:space="preserve">
+    <value>مقر التدريب</value>
+  </data>
+  <data name="TwitterAccount" xml:space="preserve">
+    <value>حساب تويتر</value>
+  </data>
+  <data name="Vision" xml:space="preserve">
+    <value>الرؤية</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>الموقع الإلكتروني</value>
+  </data>
+  <data name="WhyWouldYouLikeToJoinUs" xml:space="preserve">
+    <value>لماذا تريد الإنضمام لورشة العمل؟</value>
+  </data>
+  <data name="WorkshopDetails" xml:space="preserve">
+    <value>وصف ورشه العمل</value>
+  </data>
+  <data name="WorkshopModel" xml:space="preserve">
+    <value>موضوع ورشة العمل</value>
+  </data>
+  <data name="WorkshopName" xml:space="preserve">
+    <value>عنوان ورشة العمل</value>
+  </data>
+  <data name="WorkshopStatus" xml:space="preserve">
+    <value>حالة ورشة العمل</value>
+  </data>
+  <data name="YouTubeAccount" xml:space="preserve">
+    <value>حساب قناه اليوتيوب</value>
+  </data>
+  <data name="EducationalQualificationAndSpecialization" xml:space="preserve">
+    <value>المؤهل العلمي والتخصص</value>
+  </data>
+  <data name="PositionTasks" xml:space="preserve">
+    <value>مهام المنصب الوظيفي</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>القطاع</value>
+  </data>
+  <data name="DateElection" xml:space="preserve">
+    <value>تاريخ انتخاب مجلس الإدارة</value>
+  </data>
+  <data name="Attend" xml:space="preserve">
+    <value>حضور</value>
+  </data>
+  <data name="WorkshopInvitations" xml:space="preserve">
+    <value>دعوات ورشة العمل</value>
+  </data>
+  <data name="WorkshopRatingReport" xml:space="preserve">
+    <value>تقرير تقييم ورشة العمل</value>
+  </data>
+</root>

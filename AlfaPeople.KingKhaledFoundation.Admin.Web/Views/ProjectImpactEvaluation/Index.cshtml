@@ -1,0 +1,120 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.ProjectImpactEvaluation>
+@{
+    ViewBag.Title = "قياس الأثر";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header card-header-rose card-header-text">
+                        <div class="card-text">
+                            <h4 class="card-title">قائمة قياس الأثر</h4>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div style="margin-bottom:15px;">
+                            <a class="btn btn-rose" href="@Url.Action("Create")">إضافة قياس أثر</a>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>الورشة</th>
+                                        @*<th>اسم الجمعية</th>*@
+
+                                        <th>آخر موعد للتعبئة</th>
+                                        <th>تاريخ التذكير</th>
+                                        <th>تمت التعبئة؟</th>
+                                        <th>تاريخ التعبئة</th>
+
+                                        <th style="width:180px;">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null && Model.Any())
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                    <tr>
+                                        <td>@(item.IncubationWorkshop != null ? item.IncubationWorkshop.Name : "-")</td>
+                                        @*<td>
+                                            @{
+                                                var corpNames = item.ProjectImpactEvaluationRequests?
+                                                    .Select(r =>
+                                                        (r.FrontendUser?.CorporateApplicationForms != null && r.FrontendUser.CorporateApplicationForms.Any())
+                                                            ? r.FrontendUser.CorporateApplicationForms.FirstOrDefault().Name
+                                                            : r.FrontendUser?.AspNetUser?.UserName
+                                                    )
+                                                    .Where(n => !string.IsNullOrWhiteSpace(n))
+                                                    .Distinct()
+                                                    .ToList();
+                                            }
+
+                                            @if (corpNames != null && corpNames.Any())
+                                            {
+                                                string.Join(" , ", corpNames);
+                                            }
+                                            else
+                                            {
+                                                @("-")
+                                            }
+                                        </td>*@
+
+                                        <td>@item.Deadline.ToString("yyyy-MM-dd")</td>
+                                        <td>@(item.ReminderDate.HasValue ? item.ReminderDate.Value.ToString("yyyy-MM-dd") : "-")</td>
+                                        <td>@(item.IsFilled ? "نعم" : "لا")</td>
+                                        <td>
+                                            @{
+                                                var lastFilledOn = item.ProjectImpactEvaluationRequests?
+                                                    .Where(r => r.Status == AlfaPeople.KingKhalidFoundation.Data.Model.ProjectImpactEvaluationStatus.Filled
+                                                                && r.FilledOn.HasValue)
+                                                    .Select(r => r.FilledOn.Value)
+                                                    .OrderByDescending(d => d)
+                                                    .FirstOrDefault();
+                                            }
+
+                                            @(lastFilledOn != default(DateTime) ? lastFilledOn.Value.ToString("yyyy-MM-dd") : "-")
+                                        </td>
+
+                                        <td>
+                                            <a class="btn btn-sm btn-default" href="@Url.Action("Edit", new { id = item.ProjectImpactEvaluationId })">تعديل</a>
+                                            <a class="btn btn-sm btn-default"
+                                               href="@Url.Action("Details", new { id = item.ProjectImpactEvaluationId })">
+                                                تفاصيل
+                                            </a>
+                                        </td>
+                                    </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td colspan="6">لا توجد بيانات.</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        window.onload = function () {
+          
+            // $('#navItem_ProjectImpactEvaluation').addClass('active');
+        };
+    </script>
+}

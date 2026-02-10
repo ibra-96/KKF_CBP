@@ -1,0 +1,64 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.ClassificationSector
+@{
+    Layout = null;
+    //  ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("Create", "ClassificationSectors", FormMethod.Post, new { onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("Index", "ClassificationSectors", new { id = 0 }) }))//data-resetUrl
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+               @* @Html.LabelFor(model => model.CorporationsCategoryID, "CorporationsCategoryID", htmlAttributes: new { @class = "bmd-label-floating" })*@
+              <label class = "bmd-label-floating" >Corporations Category </label>
+                  <div class="col-md-10">
+                    @Html.DropDownList("CorporationsCategoryID", null, htmlAttributes: new { @class = "form-control selectpicker", @required = "required", data_style = "select-with-transition", @title = Resources.ClassificationSectors.SelectCategory })
+                    @Html.ValidationMessageFor(model => model.CorporationsCategoryID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+              @*  @Html.LabelFor(model => model.ClassificationSectorNameAR, htmlAttributes: new { @class = "bmd-label-floating" })*@
+                <label class="bmd-label-floating">  @Resources.ClassificationSectors.ClassificationSectorNameAR </label>
+                
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ClassificationSectorNameAR, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ClassificationSectorNameAR, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+         
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.ClassificationSectorNameEN, htmlAttributes: new { @class = "bmd-label-floating" })*@
+                <label class="bmd-label-floating">  @Resources.ClassificationSectors.ClassificationSectorNameEN </label>
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ClassificationSectorNameEN, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ClassificationSectorNameEN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="bmd-label-floating">  @Resources.ClassificationSectors.IsActive </label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.IsActive)
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-info btn-link">@Resources.General.Add</button>
+        <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">@Resources.General.Close</button>
+    </div>
+}
+

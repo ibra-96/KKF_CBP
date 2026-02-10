@@ -1,0 +1,139 @@
+﻿@model List<AlfaPeople.KingKhaledFoundation.Admin.Web.Models.WorkshopInvitationsVM>
+@{
+    ViewBag.Title = Resources.Workshop.WorkshopInvitations;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<style>
+    .ajs-message.ajs-custome {
+        color: white;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+
+    .ajs-message.ajs-custome2 {
+        color: indianred;
+        background-color: dimgrey;
+        border-color: #31708f;
+        text-align: center;
+        font-size: medium;
+    }
+</style>
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- <div class="col-md-10 ml-auto mr-auto"> -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="toolbar">
+                            <a class="btn btn-block btn-rose btn-just-icon" href="@Url.Action("Index")"><i class="material-icons">replay</i></a>
+                        </div>
+                        @{
+                            int count = 1;
+                        }
+                        <div class="material-datatables">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0"
+                                   width="100%" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Resources.AttendeesList.WorkshopName
+                                        </th>
+                                        <th>
+                                            @Resources.Workshop.WorkshopModel
+                                        </th>
+                                        <th>
+                                            @Resources.Workshop.CorporateName
+                                        </th>
+                                        <th>
+                                            @Resources.AttendeesList.AttendStatus
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.WorkshopName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.WorkshopModel)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CorporateName)
+                                            </td>
+                                            <td>
+                                                @if (item.InvitationStatus == "Attend")
+                                                {
+                                                    <span class="badge badge-pill badge-success">@Resources.AttendeesList.Attend</span>
+                                                }
+                                                else if (item.InvitationStatus == "Absent")
+                                                {
+                                                    <span class="badge badge-pill badge-danger">@Resources.AttendeesList.Absent</span>
+                                                }
+                                                else if (item.InvitationStatus == "Cancel")
+                                                {
+                                                    <span class="badge badge-pill badge-danger">@Resources.Workshop.absent</span>
+                                                }
+                                                else if (item.InvitationStatus == "Rejected")
+                                                {
+                                                    <span class="badge badge-pill badge-danger">@Resources.AttendeesList.Rejected</span>
+                                                }
+                                                else if (item.InvitationStatus == "WaitingList")
+                                                {
+                                                    <span class="badge badge-pill badge-info">@Resources.AttendeesList.WaitingList</span>
+                                                }
+                                                else if (item.InvitationStatus == "Pending")
+                                                {
+                                                    <span class="badge badge-pill badge-warning">@Resources.AttendeesList.Pending</span>
+                                                }
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<!-- End Content -->
+@section Scripts{
+
+    <script>
+        window.onload = function (e) {
+            $('#navItem_IncubationWorkshops').addClass('active');
+            $('#Workshop').addClass('show');
+        };
+    </script>
+
+    <script>
+        $(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                $("#datatables").DataTable({
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                $("#datatables").DataTable();
+            }
+        });
+    </script>
+
+}

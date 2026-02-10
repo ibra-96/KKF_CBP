@@ -1,0 +1,159 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.IncubationWorkShopFollowUpEvaluationLines
+
+@using (Html.BeginCollectionItem("LstIFELVM"))
+{
+    <div id="employeeRow" class="row justify-content-center employeeRow">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="@Model.Date">@Resources.IncubationWorkShopFollowUpEvaluationLines.EvaluationDate</label>
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @type = "date", @required = "required" } })
+                @*@Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control ", @type = "date", @min = "2018-01-01", @max = "2018-12-31", @required = "required", @onClick = "datepicker(this)" } })*@
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label for="@Model.BackendUserID">Responsible Person</label>*@
+                @Html.DropDownListFor(model => model.BackendUserID, (SelectList)ViewBag.adminUserID, new { @class = "select-wizard form-control", @required = "required", data_style = "select-with-transition", @id = "Grant", @title = Resources.IncubationWorkShopFollowUpEvaluationLines.SelectAdmin })
+                @Html.ValidationMessageFor(model => model.BackendUserID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                @*<label for="@Model.FollowUpMethod">Follow-up Method</label>*@
+                @Html.EnumDropDownListFor(model => model.FollowUpMethod, new { @class = "select-wizard form-control", @required = "required", data_style = "select-with-transition", @title = Resources.IncubationWorkShopFollowUpEvaluationLines.SelectFollowUpMethod })
+                @Html.ValidationMessageFor(model => model.FollowUpMethod, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label for="@Model.PhaseOutput">@Resources.IncubationWorkShopFollowUpEvaluationLines.PhaseOutput</label>
+                @Html.EditorFor(model => model.PhaseOutput, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.PhaseOutput, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="@Model.Notes">@Resources.IncubationWorkShopFollowUpEvaluationLines.Notes</label>
+                @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="@Model.NextStep">@Resources.IncubationWorkShopFollowUpEvaluationLines.NextStep</label>
+                @Html.EditorFor(model => model.NextStep, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.NextStep, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="col-sm-1">
+            <div class="form-group">*@
+        <button class="btn btn-link btn-danger btn-just-icon remove" type="button" onclick="RemoveRow(this)">
+            <i class="material-icons">delete</i>
+        </button>
+        @*</div>
+            </div>*@
+        <hr style="width: 100%; border: 1px double #e1b228; border-radius: 100%;" />
+    </div>
+}
+
+@*
+    <div id="employeeRow" class="employeeRow">
+    <label for="Date" class="bmd-label-floating">Evaluation Date</label>
+    @Html.EditorFor(model => model.Date, new { @required = "required", @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+
+    <label for="Date" class="bmd-label-floating">Responsible Person</label>
+    @Html.DropDownListFor(model => model.BackendUserID, (SelectList)ViewBag.adminUserID, new { @class = "select-wizard ", @required = "required", data_style = "select-with-transition", @id = "Grant", @title = "Select Admin" })
+    @Html.ValidationMessageFor(model => model.BackendUserID, "", new { @class = "text-danger" })
+
+    @Html.LabelFor(m => m.FollowUpMethod)
+    @Html.EnumDropDownListFor(model => model.FollowUpMethod, new { @class = "select-wizard", @required = "required", data_style = "select-with-transition" })
+    @Html.ValidationMessageFor(model => model.FollowUpMethod, "", new { @class = "text-danger" })
+
+    @Html.LabelFor(model => model.PhaseOutput)
+    @Html.EditorFor(model => model.PhaseOutput, new { @required = "required", @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.PhaseOutput, "", new { @class = "text-danger" })
+
+    @Html.LabelFor(model => model.Notes)
+    @Html.EditorFor(model => model.Notes, new { @required = "required", @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+
+    @Html.LabelFor(model => model.NextStep)
+    @Html.EditorFor(model => model.NextStep, new { @required = "required", @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.NextStep, "", new { @class = "text-danger" })
+
+    <input type="button" value="remove" onclick="RemoveRow(this)" />
+    </div>
+*@
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var lang = document.documentElement.lang;
+
+        // الحصول على جميع العناصر داخل body
+        var elements = document.body.querySelectorAll('*');
+
+        // قائمة بالكلاسات التي نريد استثنائها
+        var excludedClasses = [
+            'logo',
+            'simple-text',
+            'logo-mini',
+            'logo-normal',
+            'sidebar-wrapper',
+            'ps-container',
+            'ps-theme-default',
+            'user',
+            'photo',
+            'collapse',
+            'nav',
+            'nav-item',
+            'text_align-center',
+            'text_align-center',
+            'material-icons',
+            'table',
+            'sidebar',
+            'text_align-center',
+            '.btn.btn-fab .fa, .btn.btn-fab .material-icons, .btn.btn-just-icon .fa, .btn.btn-just-icon .material-icons'
+        ];
+
+        if (lang === "ar") {
+            document.body.classList.add("rtl");
+            document.body.classList.remove("ltr");
+
+            // تعيين الخصائص للعناصر داخل body ما عدا العناصر المستثناة
+            elements.forEach(function (element) {
+                var computedStyle = window.getComputedStyle(element);
+
+                // التحقق إذا كان العنصر يحتوي على أي من الكلاسات المستثناة
+                var hasExcludedClass = excludedClasses.some(function (className) {
+                    return element.classList.contains(className);
+                });
+
+                // استبعاد العناصر التي تحتوي على الكلاسات المستثناة أو text-align: center أو justify-content: center
+                if (!hasExcludedClass && computedStyle.textAlign !== 'center' && computedStyle.justifyContent !== 'center') {
+                    element.style.direction = 'rtl';
+                    element.style.textAlign = 'right';
+                }
+            });
+        } else {
+            document.body.classList.add("ltr");
+            document.body.classList.remove("rtl");
+
+            // تعيين الخصائص للعناصر داخل body ما عدا العناصر المستثناة
+            elements.forEach(function (element) {
+                var computedStyle = window.getComputedStyle(element);
+
+                // التحقق إذا كان العنصر يحتوي على أي من الكلاسات المستثناة
+                var hasExcludedClass = excludedClasses.some(function (className) {
+                    return element.classList.contains(className);
+                });
+
+                // استبعاد العناصر التي تحتوي على الكلاسات المستثناة أو text-align: center أو justify-content: center
+                if (!hasExcludedClass && computedStyle.textAlign !== 'center' && computedStyle.justifyContent !== 'center') {
+                    element.style.direction = 'ltr';
+                    element.style.textAlign = 'left';
+                }
+            });
+        }
+    });
+</script>

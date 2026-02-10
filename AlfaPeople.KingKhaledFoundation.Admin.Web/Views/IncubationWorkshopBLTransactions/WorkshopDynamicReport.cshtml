@@ -1,0 +1,174 @@
+﻿@model List<AlfaPeople.KingKhaledFoundation.Admin.Web.Models.WorkshopSurveyReportVM>
+@*"تقرير طلبات استبيان وضع المنظمة الحالي"*@
+@{
+    ViewBag.Title = Resources.General.BaselineRequest;
+    var dynamicHeaders = (Model != null && Model.Any())
+        ? Model.FirstOrDefault()?.DynamicAnswers.Keys.ToList()
+        : new List<string>();
+}
+
+<link href="~/Content/chosen.min.css" rel="stylesheet" />
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-rose card-header-text">
+                        <div class="card-text">
+                            <h4 class="card-title">@Resources.General.BaselineRequest</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("WorkshopDynamicReport", "IncubationWorkshopBLTransactions", FormMethod.Post))
+                        {
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label> @Resources.WorkshopReport.Workshop:</label>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.DropDownList("workshopId", (IEnumerable<SelectListItem>)ViewBag.Workshops, "اختر ورشة", new { @class = "form-control selectpicker", @data_live_search = "true", required = "required" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 text-left">
+                                    <div class="form-group mt-4">
+                                        <button type="submit" class="btn btn-rose"> <th>@Resources.IncubationWorkshops.ViewReport</th></button>
+                                        @if (ViewBag.SelectedWorkshopId != null)
+                                        {
+                                            <a href="@Url.Action("ExportWorkshopSurveyToExcel", "IncubationWorkshopBLTransactions", new { workshopId = ViewBag.SelectedWorkshopId })"
+                                               class="btn btn-success ml-2" target="_blank">
+                                                @Resources.CorporationsReport.Export
+                                            </a>
+                                        }
+
+
+
+                                        @*<button type="submit" name="exportExcel" value="yes" class="btn btn-success ml-2">تصدير إلى Excel</button>*@
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                        </div>
+                </div>
+
+                @if (Model != null && Model.Any())
+                {
+                    <div class="card mt-3">
+                        <div class="card-body">
+
+                            <div class="material-datatables" style="overflow-x:auto;">
+                                <table id="reportTable" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <!--<th>اسم الجمعية</th>
+                                            <th>اسم المشروع</th>-->
+                                            @*<th>وصف المشروع</th>*@
+                                            <!--<th>تاريخ البداية</th>
+                                            <th>تاريخ النهاية</th>
+                                            <th>الاستشاري</th>
+                                            <th>المنطقة</th>
+                                            <th>المحافظة</th>
+                                            <th>الحي</th>
+                                            <th>مصدر التمويل</th>
+                                            <th>نموذج الورشة</th>
+                                            <th>حالة النموذج</th>
+                                            <th>تاريخ التقديم</th>
+                                            <th>ملاحظات النموذج</th>-->
+
+
+
+                                            <th> @Resources.IncubationWorkshops.OrganizationName</th>
+                                            <th> @Resources.CorporationsReport.Project</th>
+                                            @*<th>وصف المشروع</th>*@
+                                            <th>@Resources.IncubationWorkshops.StartDate </th>
+                                            <th>@Resources.IncubationWorkshops.EndDate </th>
+                                            <th>@Resources.Workshop.Consultant </th>
+                                            <th>@Resources.General.Region </th>
+                                            <th>@Resources.General.Governorate </th>
+                                            <th>@Resources.Cities.City </th>
+
+                                            <th>@Resources.IncubationWorkshops.funding </th>
+                                            <th>@Resources.IncubationWorkshops.WorkshopModel</th>
+                                            <th>@Resources.IncubationWorkshops.Status</th>
+                                            <th>@Resources.IncubationWorkshops.SubmissionDate</th>
+
+                                            <th>@Resources.IncubationWorkshops.Note</th>
+
+                                            @foreach (var header in dynamicHeaders)
+                                            {
+                                                <th>@header</th>
+                                            }
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.CorporationName</td>
+                                                <td>@item.ProjectName</td>
+                                                @*<td>@item.ProjectDescription</td>*@
+                                                <td>@item.StartDate</td>
+                                                <td>@item.EndDate</td>
+                                                <td>@item.ConsultantName</td>
+                                                <td>@item.Region</td>
+                                                <td>@item.Governorate</td>
+                                                <td>@item.City</td>
+                                                <td>@item.FundingSource</td>
+                                                <td>@item.WorkshopModel</td>
+                                                <td>@item.FormStatus</td>
+                                                <td>@item.FormSubmittedDate</td>
+                                                <td>@item.Feadback</td>
+
+                                                @foreach (var header in dynamicHeaders)
+                                                {
+                                                    <td>@(item.DynamicAnswers.ContainsKey(header) ? item.DynamicAnswers[header] : "")</td>
+                                                }
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else if (IsPost)
+                {
+                    <div class="alert alert-info mt-4">لا توجد بيانات متاحة للعرض.</div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#reportTable').DataTable({
+                "ordering": true,
+                "searching": true,
+                "paging": true,
+                "info": true,
+                "language": {
+                    "search": "بحث:",
+                    "lengthMenu": "عرض _MENU_ سجلات لكل صفحة",
+                    "info": "عرض _START_ إلى _END_ من أصل _TOTAL_ سجلات",
+                    "paginate": {
+                        "next": "التالي",
+                        "previous": "السابق"
+                    }
+                }
+            });
+
+            $('.selectpicker').selectpicker();
+        });
+
+    </script>
+    <script>
+
+    </script>
+}

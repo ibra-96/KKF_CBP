@@ -1,0 +1,117 @@
+﻿@model AlfaPeople.KingKhalidFoundation.Data.Model.Consultant
+
+@{
+    Layout = null;
+}
+
+
+
+@using (Html.BeginForm("Edit", "Consultants", FormMethod.Post, new { onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("Index", "Regions", new { id = 0 }) }))//data-resetUrl
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="modal-body">
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ConsultantID)
+
+            <div class="form-group">
+                <label for="Name">@Resources.Consultants.Name</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Address">@Resources.Consultants.Address</label>
+
+                @*    @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="POBox">@Resources.Consultants.POBox</label>
+
+               @* @Html.LabelFor(model => model.POBox, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.POBox, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.POBox, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="PostalCode">@Resources.Consultants.PostalCode</label>
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PostalCode, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="OfficialMail">@Resources.Consultants.OfficialMail</label>
+
+                @*@Html.LabelFor(model => model.OfficialMail, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.OfficialMail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.OfficialMail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="MobileNumber">@Resources.Consultants.MobileNumber</label>
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+       
+            <div class="form-group">
+                <label for="TelephoneNumber">@Resources.Consultants.TelephoneNumber</label>
+
+               @* @Html.LabelFor(model => model.TelephoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TelephoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TelephoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Extension">@Resources.Consultants.Extension</label>
+
+                @*@Html.LabelFor(model => model.Extension, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Extension, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Extension, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="Extension">@Resources.Consultants.IsActive</label>
+
+                @*@Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(model => model.IsActive)
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-info btn-link">@Resources.General.Edit</button>
+        <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">@Resources.General.Close</button>
+    </div>
+}

@@ -1,0 +1,1104 @@
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ApplicationInsights.config
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationPerformance.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationPerformance.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\AchievingGoal.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\AchievingGoal.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationProfile.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationProfile.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationRegistered.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationRegistered.en-GB.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationRegistered.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GrantProjectIdeaRequest.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GrantProjectIdeaRequest.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopPPInvitationStatus.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopPPInvitationStatus.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainerRating.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainerRating.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\MeetTheWorkRequirement.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\MeetTheWorkRequirement.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpProjectPlanStatus.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpProjectPlanStatus.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\InvitationStatus.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\InvitationStatus.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GenderPerson.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GenderPerson.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopClass.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopClass.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainingWorkshop.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainingWorkshop.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpMethod.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpMethod.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\ProjectSuccessRate.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\ProjectSuccessRate.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\EvaluationGrants.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\EvaluationGrants.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\DonorTypes.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\DonorTypes.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\Genders.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\Genders.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FieldOfEmployment.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FieldOfEmployment.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationPerformance.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationPerformance.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\AchievingGoal.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\AchievingGoal.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationProfile.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationProfile.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationRegistered.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationRegistered.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationRegistered.en-GB.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GrantProjectIdeaRequest.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GrantProjectIdeaRequest.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopPPInvitationStatus.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopPPInvitationStatus.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainerRating.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainerRating.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\MeetTheWorkRequirement.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\MeetTheWorkRequirement.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpProjectPlanStatus.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpProjectPlanStatus.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\InvitationStatus.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\InvitationStatus.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GenderPerson.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GenderPerson.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopClass.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopClass.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainingWorkshop.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainingWorkshop.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpMethod.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpMethod.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\ProjectSuccessRate.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\ProjectSuccessRate.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\EvaluationGrants.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\EvaluationGrants.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\DonorTypes.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\DonorTypes.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FieldOfEmployment.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FieldOfEmployment.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\Genders.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\Genders.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AchievingGoal.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\MeetTheWorkRequirement.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ProjectResult.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\OutPut.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AccelerationReport.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AuthorizationAuthorities.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Cities.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ClassificationSectors.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Consultants.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporateFieldOfWork.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationContactReport.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationRegistered.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsCategory.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ReportOnBeneficiaries.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantReport.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Events.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsSE.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FollowUpProjectPlan.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FundingSource.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Grant.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkShopFollowUpEvaluationLines.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluationLines.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainerRating.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainingWorkshop.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Workshop.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Popsations.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopModels.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantModel.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\General.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Governorates.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantProjectIdeaRequest.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsPS.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Incubation.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationAdvertising.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluation.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationRequest.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopFollowUpEvaluation.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopRating.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantWorkshops.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshops.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Regions.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TargetSegmentType.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantsRequest.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TypeOfIntervention.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopClass.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopReport.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AttendeesList.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationProfile.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsReport.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AchievingGoal.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\MeetTheWorkRequirement.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ProjectResult.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\OutPut.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AccelerationReport.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AuthorizationAuthorities.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Cities.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ClassificationSectors.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Consultants.en-GB.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Consultants.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporateFieldOfWork.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationContactReport.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationRegistered.en-GB.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationRegistered.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsCategory.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ReportOnBeneficiaries.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantReport.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Events.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Events.en-GB.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsSE.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FollowUpProjectPlan.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FundingSource.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Grant.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkShopFollowUpEvaluationLines.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluationLines.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainerRating.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainingWorkshop.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Workshop.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Popsations.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopModels.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantModel.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Governorates.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantProjectIdeaRequest.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsPS.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Incubation.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Incubation.en-GB.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationAdvertising.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationAdvertising.en-GB.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluation.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationRequest.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationRequest.en-GB.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopFollowUpEvaluation.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopRating.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantWorkshops.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshops.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshops.en-GB.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Regions.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TargetSegmentType.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantsRequest.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TypeOfIntervention.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopClass.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopReport.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\General.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\General.en-GB.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AttendeesList.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationProfile.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsReport.ar-EG.resx
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AchievingGoal.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AchievingGoal.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\MeetTheWorkRequirement.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\MeetTheWorkRequirement.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ProjectResult.designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ProjectResult.ar-EG.designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\OutPut.designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\OutPut.ar-EG.designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AccelerationReport.ar-EG.designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AccelerationReport.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AttendeesList.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AttendeesList.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AuthorizationAuthorities.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AuthorizationAuthorities.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Cities.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Cities.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ClassificationSectors.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ClassificationSectors.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Consultants.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Consultants.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Consultants.en-GB.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporateFieldOfWork.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporateFieldOfWork.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationContactReport.ar-EG.designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationContactReport.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationProfile.ar-EG.designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationProfile.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationRegistered.en-GB.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationRegistered.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationRegistered.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsCategory.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsCategory.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ReportOnBeneficiaries.designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ReportOnBeneficiaries.ar-EG.designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantReport.designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantReport.ar-EG.designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsReport.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsReport.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Events.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Events.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Events.en-GB.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsPS.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsPS.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsSE.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsSE.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FollowUpProjectPlan.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FollowUpProjectPlan.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FundingSource.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FundingSource.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\General.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\General.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\General.en-GB.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Governorates.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Governorates.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Grant.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Grant.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantModel.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantModel.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantProjectIdeaRequest.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantProjectIdeaRequest.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantsRequest.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantsRequest.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantWorkshops.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantWorkshops.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Incubation.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Incubation.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Incubation.en-GB.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationAdvertising.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationAdvertising.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationAdvertising.en-GB.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluation.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluation.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluationLines.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluationLines.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationRequest.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationRequest.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationRequest.en-GB.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopFollowUpEvaluation.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopFollowUpEvaluation.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkShopFollowUpEvaluationLines.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkShopFollowUpEvaluationLines.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopModels.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopModels.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopRating.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopRating.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshops.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshops.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshops.en-GB.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Popsations.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Popsations.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Regions.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Regions.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TargetSegmentType.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TargetSegmentType.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainerRating.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainerRating.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainingWorkshop.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainingWorkshop.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TypeOfIntervention.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TypeOfIntervention.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Workshop.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Workshop.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopClass.ar-EG.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopClass.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopReport.ar-EG.designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopReport.Designer.cs
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlfaPeople.KingKhaledFoundation.Admin.Web.dll.config
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlfaPeople.KingKhaledFoundation.Admin.Web.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlfaPeople.KingKhaledFoundation.Admin.Web.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ar-EG\AlfaPeople.KingKhaledFoundation.Admin.Web.resources.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\en-GB\AlfaPeople.KingKhaledFoundation.Admin.Web.resources.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\csc.exe
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\csc.exe.config
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\csc.rsp
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\csi.exe
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\csi.exe.config
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\csi.rsp
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Buffers.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Memory.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\vbc.exe
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\vbc.exe.config
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\vbc.rsp
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\VBCSCompiler.exe
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlfaPeople.KingKhalidFoundation.Data.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlphaPeople.Core.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlphaPeople.Repository.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Antlr3.Runtime.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AutoMapper.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\BeginCollectionItem.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ClosedXML.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\DocumentFormat.OpenXml.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\EntityFramework.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ExcelNumberFormat.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\FastMember.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Irony.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.Web.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.ApplicationInsights.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Newtonsoft.Json.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Owin.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\SixLabors.Fonts.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Buffers.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.IO.Packaging.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Memory.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Numerics.Vectors.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.ValueTuple.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Helpers.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Mvc.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Optimization.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Razor.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.WebPages.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\WebGrease.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\XLParser.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlfaPeople.KingKhalidFoundation.Data.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlfaPeople.KingKhalidFoundation.Data.dll.config
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlphaPeople.Core.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlphaPeople.Core.dll.config
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlphaPeople.Repository.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlphaPeople.Repository.dll.config
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Antlr3.Runtime.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AutoMapper.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ClosedXML.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\DocumentFormat.OpenXml.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\EntityFramework.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\EntityFramework.SqlServer.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ExcelNumberFormat.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.DependencyCollector.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.PerfCounterCollector.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.ServerTelemetryChannel.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.Web.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.Web.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.WindowsServer.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.ApplicationInsights.pdb
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.ApplicationInsights.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Newtonsoft.Json.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\SixLabors.Fonts.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Buffers.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.IO.Packaging.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Memory.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Numerics.Vectors.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.ValueTuple.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Helpers.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Mvc.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Optimization.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Razor.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.WebPages.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ar-EG\AlfaPeople.KingKhalidFoundation.Data.resources.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\en-GB\AlfaPeople.KingKhalidFoundation.Data.resources.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.csproj.AssemblyReference.cache
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AchievingGoal.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.MeetTheWorkRequirement.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.ProjectResult.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.OutPut.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AccelerationReport.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AuthorizationAuthorities.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Cities.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.ClassificationSectors.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Consultants.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporateFieldOfWork.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationContactReport.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationRegistered.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationsCategory.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.ReportOnBeneficiaries.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantReport.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Events.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FinalReportsSE.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FollowUpProjectPlan.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FundingSource.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Grant.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkShopFollowUpEvaluationLines.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationFollowUpEvaluationLines.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TrainerRating.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TrainingWorkshop.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Workshop.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Popsations.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshopModels.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantModel.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.General.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Governorates.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantProjectIdeaRequest.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FinalReportsPS.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Incubation.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationAdvertising.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationFollowUpEvaluation.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationRequest.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshopFollowUpEvaluation.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshopRating.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantWorkshops.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshops.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Regions.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TargetSegmentType.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantsRequest.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TypeOfIntervention.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.WorkshopClass.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.WorkshopReport.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AttendeesList.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationProfile.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationsReport.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AchievingGoal.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.MeetTheWorkRequirement.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.ProjectResult.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.OutPut.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AccelerationReport.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AuthorizationAuthorities.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Cities.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.ClassificationSectors.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Consultants.en-GB.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Consultants.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporateFieldOfWork.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationContactReport.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationRegistered.en-GB.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationRegistered.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationsCategory.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.ReportOnBeneficiaries.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantReport.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Events.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Events.en-GB.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FinalReportsSE.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FollowUpProjectPlan.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FundingSource.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Grant.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkShopFollowUpEvaluationLines.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationFollowUpEvaluationLines.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TrainerRating.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TrainingWorkshop.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Workshop.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Popsations.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshopModels.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantModel.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Governorates.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantProjectIdeaRequest.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FinalReportsPS.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Incubation.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Incubation.en-GB.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationAdvertising.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationAdvertising.en-GB.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationFollowUpEvaluation.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationRequest.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationRequest.en-GB.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshopFollowUpEvaluation.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshopRating.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantWorkshops.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshops.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshops.en-GB.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Regions.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TargetSegmentType.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantsRequest.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TypeOfIntervention.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.WorkshopClass.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.WorkshopReport.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.General.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.General.en-GB.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AttendeesList.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationProfile.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationsReport.ar-EG.resources
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.csproj.GenerateResource.cache
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.csproj.CoreCompileInputs.cache
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\ar-EG\AlfaPeople.KingKhaledFoundation.Admin.Web.resources.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\en-GB\AlfaPeople.KingKhaledFoundation.Admin.Web.resources.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.csproj.CopyComplete
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.dll
+C:\Users\clear vision\Source\Workspaces\Workspace\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.pdb
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ApplicationInsights.config
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationPerformance.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\AchievingGoal.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationProfile.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationRegistered.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GrantProjectIdeaRequest.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopPPInvitationStatus.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainerRating.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\MeetTheWorkRequirement.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpProjectPlanStatus.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\InvitationStatus.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GenderPerson.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopClass.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainingWorkshop.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpMethod.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\ProjectSuccessRate.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\EvaluationGrants.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\DonorTypes.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\Genders.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FieldOfEmployment.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationPerformance.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\AchievingGoal.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationProfile.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationRegistered.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationRegistered.en-GB.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GrantProjectIdeaRequest.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopPPInvitationStatus.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainerRating.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\MeetTheWorkRequirement.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpProjectPlanStatus.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\InvitationStatus.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GenderPerson.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopClass.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainingWorkshop.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpMethod.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\ProjectSuccessRate.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\EvaluationGrants.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\DonorTypes.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\Genders.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FieldOfEmployment.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationPerformance.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationPerformance.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\AchievingGoal.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\AchievingGoal.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationProfile.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationProfile.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationRegistered.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationRegistered.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\CorporationRegistered.en-GB.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GrantProjectIdeaRequest.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GrantProjectIdeaRequest.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopPPInvitationStatus.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopPPInvitationStatus.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainerRating.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainerRating.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\MeetTheWorkRequirement.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\MeetTheWorkRequirement.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpProjectPlanStatus.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpProjectPlanStatus.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\InvitationStatus.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\InvitationStatus.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GenderPerson.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\GenderPerson.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopClass.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\WorkshopClass.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainingWorkshop.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\TrainingWorkshop.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpMethod.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FollowUpMethod.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\ProjectSuccessRate.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\ProjectSuccessRate.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\EvaluationGrants.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\EvaluationGrants.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\DonorTypes.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\DonorTypes.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FieldOfEmployment.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\FieldOfEmployment.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\Genders.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Resources\Genders.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AchievingGoal.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\MeetTheWorkRequirement.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ProjectResult.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\OutPut.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AccelerationReport.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AuthorizationAuthorities.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Cities.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ClassificationSectors.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Consultants.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporateFieldOfWork.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationContactReport.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationRegistered.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsCategory.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ReportOnBeneficiaries.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantReport.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Events.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsSE.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FollowUpProjectPlan.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FundingSource.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Grant.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkShopFollowUpEvaluationLines.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluationLines.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainerRating.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainingWorkshop.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Workshop.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Popsations.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopModels.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantModel.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\General.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Governorates.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantProjectIdeaRequest.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsPS.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Incubation.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationAdvertising.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluation.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationRequest.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopFollowUpEvaluation.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopRating.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantWorkshops.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshops.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Regions.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TargetSegmentType.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantsRequest.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TypeOfIntervention.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopClass.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopReport.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AttendeesList.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationProfile.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsReport.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AchievingGoal.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\MeetTheWorkRequirement.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ProjectResult.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\OutPut.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AccelerationReport.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AuthorizationAuthorities.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Cities.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ClassificationSectors.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Consultants.en-GB.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Consultants.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporateFieldOfWork.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationContactReport.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationRegistered.en-GB.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationRegistered.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsCategory.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ReportOnBeneficiaries.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantReport.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Events.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Events.en-GB.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsSE.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FollowUpProjectPlan.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FundingSource.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Grant.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkShopFollowUpEvaluationLines.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluationLines.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainerRating.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainingWorkshop.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Workshop.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Popsations.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopModels.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantModel.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Governorates.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantProjectIdeaRequest.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsPS.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Incubation.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Incubation.en-GB.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationAdvertising.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationAdvertising.en-GB.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluation.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationRequest.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationRequest.en-GB.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopFollowUpEvaluation.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopRating.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantWorkshops.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshops.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshops.en-GB.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Regions.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TargetSegmentType.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantsRequest.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TypeOfIntervention.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopClass.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopReport.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\General.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\General.en-GB.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AttendeesList.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationProfile.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsReport.ar-EG.resx
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AchievingGoal.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AchievingGoal.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\MeetTheWorkRequirement.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\MeetTheWorkRequirement.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ProjectResult.designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ProjectResult.ar-EG.designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\OutPut.designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\OutPut.ar-EG.designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AccelerationReport.ar-EG.designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AccelerationReport.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AttendeesList.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AttendeesList.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AuthorizationAuthorities.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\AuthorizationAuthorities.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Cities.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Cities.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ClassificationSectors.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ClassificationSectors.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Consultants.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Consultants.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Consultants.en-GB.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporateFieldOfWork.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporateFieldOfWork.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationContactReport.ar-EG.designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationContactReport.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationProfile.ar-EG.designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationProfile.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationRegistered.en-GB.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationRegistered.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationRegistered.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsCategory.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsCategory.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ReportOnBeneficiaries.designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\ReportOnBeneficiaries.ar-EG.designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantReport.designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantReport.ar-EG.designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsReport.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\CorporationsReport.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Events.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Events.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Events.en-GB.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsPS.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsPS.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsSE.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FinalReportsSE.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FollowUpProjectPlan.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FollowUpProjectPlan.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FundingSource.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\FundingSource.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\General.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\General.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\General.en-GB.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Governorates.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Governorates.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Grant.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Grant.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantModel.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantModel.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantProjectIdeaRequest.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantProjectIdeaRequest.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantsRequest.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantsRequest.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantWorkshops.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\GrantWorkshops.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Incubation.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Incubation.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Incubation.en-GB.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationAdvertising.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationAdvertising.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationAdvertising.en-GB.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluation.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluation.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluationLines.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationFollowUpEvaluationLines.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationRequest.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationRequest.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationRequest.en-GB.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopFollowUpEvaluation.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopFollowUpEvaluation.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkShopFollowUpEvaluationLines.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkShopFollowUpEvaluationLines.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopModels.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopModels.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopRating.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshopRating.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshops.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshops.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\IncubationWorkshops.en-GB.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Popsations.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Popsations.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Regions.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Regions.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TargetSegmentType.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TargetSegmentType.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainerRating.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainerRating.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainingWorkshop.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TrainingWorkshop.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TypeOfIntervention.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\TypeOfIntervention.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Workshop.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\Workshop.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopClass.ar-EG.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopClass.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopReport.ar-EG.designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\App_GlobalResources\WorkshopReport.Designer.cs
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlfaPeople.KingKhaledFoundation.Admin.Web.dll.config
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlfaPeople.KingKhaledFoundation.Admin.Web.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlfaPeople.KingKhaledFoundation.Admin.Web.pdb
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ar-EG\AlfaPeople.KingKhaledFoundation.Admin.Web.resources.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\en-GB\AlfaPeople.KingKhaledFoundation.Admin.Web.resources.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\csc.exe
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\csc.exe.config
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\csc.rsp
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\csi.exe
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\csi.exe.config
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\csi.rsp
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.Managed.Core.targets
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Buffers.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Collections.Immutable.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Memory.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Numerics.Vectors.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\vbc.exe
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\vbc.exe.config
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\vbc.rsp
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\VBCSCompiler.exe
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlfaPeople.KingKhalidFoundation.Data.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlphaPeople.Core.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlphaPeople.Repository.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Antlr3.Runtime.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AutoMapper.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\BeginCollectionItem.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ClosedXML.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\DocumentFormat.OpenXml.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\EntityFramework.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\EntityFramework.SqlServer.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ExcelNumberFormat.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\FastMember.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Irony.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.Agent.Intercept.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.DependencyCollector.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.Web.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.WindowsServer.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.ApplicationInsights.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Cookies.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Facebook.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Google.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.OAuth.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Twitter.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Newtonsoft.Json.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Owin.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\SixLabors.Fonts.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Buffers.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Diagnostics.DiagnosticSource.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.IO.Packaging.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Memory.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Numerics.Vectors.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.ValueTuple.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Helpers.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Mvc.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Optimization.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Razor.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.WebPages.Deployment.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.WebPages.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.WebPages.Razor.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\WebGrease.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\XLParser.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlfaPeople.KingKhalidFoundation.Data.pdb
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlfaPeople.KingKhalidFoundation.Data.dll.config
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlphaPeople.Core.pdb
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlphaPeople.Core.dll.config
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlphaPeople.Repository.pdb
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AlphaPeople.Repository.dll.config
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Antlr3.Runtime.pdb
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\AutoMapper.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ClosedXML.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\DocumentFormat.OpenXml.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\EntityFramework.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\EntityFramework.SqlServer.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ExcelNumberFormat.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.DependencyCollector.pdb
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.DependencyCollector.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.PerfCounterCollector.pdb
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.ServerTelemetryChannel.pdb
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.Web.pdb
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.Web.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.WindowsServer.pdb
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AI.WindowsServer.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.ApplicationInsights.pdb
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.ApplicationInsights.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Cookies.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Facebook.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Google.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.OAuth.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Microsoft.Owin.Security.Twitter.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\Newtonsoft.Json.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\SixLabors.Fonts.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Buffers.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Diagnostics.DiagnosticSource.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.IO.Packaging.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Memory.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Numerics.Vectors.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.ValueTuple.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Helpers.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Mvc.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Optimization.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.Razor.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.WebPages.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.WebPages.Deployment.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\System.Web.WebPages.Razor.xml
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\ar-EG\AlfaPeople.KingKhalidFoundation.Data.resources.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\bin\en-GB\AlfaPeople.KingKhalidFoundation.Data.resources.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.csproj.AssemblyReference.cache
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AchievingGoal.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.MeetTheWorkRequirement.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.ProjectResult.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.OutPut.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AccelerationReport.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AuthorizationAuthorities.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Cities.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.ClassificationSectors.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Consultants.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporateFieldOfWork.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationContactReport.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationRegistered.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationsCategory.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.ReportOnBeneficiaries.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantReport.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Events.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FinalReportsSE.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FollowUpProjectPlan.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FundingSource.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Grant.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkShopFollowUpEvaluationLines.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationFollowUpEvaluationLines.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TrainerRating.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TrainingWorkshop.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Workshop.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Popsations.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshopModels.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantModel.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.General.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Governorates.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantProjectIdeaRequest.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FinalReportsPS.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Incubation.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationAdvertising.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationFollowUpEvaluation.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationRequest.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshopFollowUpEvaluation.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshopRating.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantWorkshops.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshops.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Regions.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TargetSegmentType.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantsRequest.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TypeOfIntervention.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.WorkshopClass.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.WorkshopReport.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AttendeesList.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationProfile.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationsReport.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AchievingGoal.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.MeetTheWorkRequirement.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.ProjectResult.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.OutPut.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AccelerationReport.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AuthorizationAuthorities.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Cities.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.ClassificationSectors.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Consultants.en-GB.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Consultants.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporateFieldOfWork.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationContactReport.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationRegistered.en-GB.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationRegistered.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationsCategory.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.ReportOnBeneficiaries.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantReport.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Events.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Events.en-GB.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FinalReportsSE.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FollowUpProjectPlan.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FundingSource.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Grant.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkShopFollowUpEvaluationLines.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationFollowUpEvaluationLines.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TrainerRating.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TrainingWorkshop.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Workshop.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Popsations.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshopModels.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantModel.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Governorates.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantProjectIdeaRequest.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.FinalReportsPS.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Incubation.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Incubation.en-GB.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationAdvertising.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationAdvertising.en-GB.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationFollowUpEvaluation.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationRequest.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationRequest.en-GB.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshopFollowUpEvaluation.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshopRating.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantWorkshops.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshops.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.IncubationWorkshops.en-GB.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.Regions.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TargetSegmentType.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.GrantsRequest.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.TypeOfIntervention.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.WorkshopClass.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.WorkshopReport.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.General.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.General.en-GB.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.AttendeesList.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationProfile.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.App_GlobalResources.CorporationsReport.ar-EG.resources
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.csproj.GenerateResource.cache
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.csproj.CoreCompileInputs.cache
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\ar-EG\AlfaPeople.KingKhaledFoundation.Admin.Web.resources.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\en-GB\AlfaPeople.KingKhaledFoundation.Admin.Web.resources.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.csproj.CopyComplete
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.dll
+C:\CBP_KKF\AlfaPeople.KingKhaledFoundation.Admin.Web\obj\Release\AlfaPeople.KingKhaledFoundation.Admin.Web.pdb

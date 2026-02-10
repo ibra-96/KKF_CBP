@@ -1,0 +1,164 @@
+﻿@{
+
+    ViewBag.title = "Corporation Requests";
+    ViewBag.Name = User.Identity.Name;
+}
+
+
+
+<!-- Content -->
+<div class="content">
+    <div class="content">
+        <div class="container-fluid">
+            <h3>Corporation Requests</h3>
+            <br>
+            <div class="row">
+
+
+                <div id="FirstTab">@Html.Action("Index")</div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+<!-- Modals -->
+<!-- Modal Add Employee -->
+<div class="modal fade" id="AddEmployee" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    <!-- <b> + </b> Add New Employee</h4> -->
+            </div>
+            <div class="modal-body">
+
+
+                <div id="thirdTab">@Html.Action("Details")</div>
+
+
+            </div>
+            <div class="modal-footer">
+                @*<button type="submit" class="btn btn-info btn-link">Confirm</button>
+                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Reject</button>*@
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modal Add Employee -->
+<!--modal reject-->
+
+<div class="modal fade" id="Rejectmodal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    Reason to reject
+            </div>
+            <div class="modal-body">
+                <!--      Wizard container        -->
+                <div class="wizard-container">
+                    <div class="card active" data-color="rose" id="Rejectmodal">
+                        <input type="hidden" id="UserIdHidden" />
+                        <textarea required="required" rows="6" class="form-group" id="txtReson"></textarea>
+
+                    </div>
+                </div>
+                <!-- wizard container -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-link" data-dismiss="modal" onclick="Reject()">Submit</button>
+                <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modals -->
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            // $("#DateElection ").toggle();
+            $("#IsThereBoard").click(function () {
+                $("#DateElections ").toggle();
+            });
+            $("#BasicData *").attr("disabled", "disabled").off('click');
+            $("#Contacts *").attr("disabled", "disabled").off('click');
+            $("#Education *").attr("disabled", "disabled").off('click');
+            $("#Account *").attr("disabled", "disabled").off('click');
+        });
+        function bindUserId(element) {
+            var id = $(element).data("userid");
+            $("#UserIdHidden").val(id);
+            //   alert(  $("#UserIdHidden").val());
+        }
+        $(function () {
+            if ('@Resources.General.lang' == 'ar') {
+                $("#datatables").DataTable({
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                    }
+                });
+            } else {
+                $("#datatables").DataTable();
+            }
+        });
+        function jQueryAjaxPost(form) {
+            $.validator.unobtrusive.parse(form);
+            debugger;
+            if ($(form).valid()) {
+                var ajaxConfig = {
+                    type: 'POST',
+                    url: form.action,
+                    data: new FormData(form),
+                    success: function (response) {
+                        if (response.success) {
+                            $("#firstTab").html(response.html);
+                            // refreshAddNewTab($(form).attr('data-restUrl'), true);
+                            if ('@Resources.General.lang' == 'ar') { $("#datatables").DataTable({ "language": { "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json" } }); } else { $("#datatables").DataTable(); }
+                            alertify.success("done");
+                            // $.notify(response.message, "success");
+                            //    if (typeof activatejQueryTable !== 'undefined' && $.isFunction(activatejQueryTable))
+                            //        activatejQueryTable();
+                        }
+                        else {
+                            alertify.success("Error");
+
+                        }
+                    }
+                }
+                //if ($(form).attr('enctype') == "multipart/form-data") {
+                ajaxConfig["contentType"] = false;
+                ajaxConfig["processData"] = false;
+                //}
+                $.ajax(ajaxConfig);
+
+            }
+            return false;
+        }
+
+
+
+
+        function Edit(url) {
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (response) {
+                    $("#thirdTab").html(response);
+                    //$('#ddlCategoryEdited').selectpicker('refresh')
+                    //$('ul.nav.nav-tabs a:eq(1)').html('Edit');
+                    //$('ul.nav.nav-tabs a:eq(1)').tab('show');
+                }
+
+            });
+        }
+    </script>
+}

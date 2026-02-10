@@ -1,0 +1,346 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IncubationAdvertisingVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@*<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />*@
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!-- Content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            @if (ViewBag.err != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.err
+                </div>
+            }
+            <div class="col-md-12">
+                <div class="card ">
+                    @*<div class="card-header card-header-rose card-header-text">
+                            <div class="card-text">
+                                <h4 class="card-title">Grant Details</h4>
+                            </div>
+                        </div>*@
+                    <div class="card-body ">
+                        @using (Html.BeginForm("Create", "IncubationAdvertising", new { Type = Request.QueryString["Type"] }, FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="row justify-content-center">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="incubationAdvertising_Name" class="bmd-label-floating">
+                                            @Resources.IncubationAdvertising.AdvertisingName
+                                        </label>
+                                        @Html.EditorFor(model => model.incubationAdvertising.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.incubationAdvertising.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group select-wizard">
+                                        @*@Html.DropDownListFor(f => f.IncubationAdvertisingModels, (MultiSelectList)ViewBag.IncubationModels, new { @class = "select-wizard form-control js-example-basic-single", @required = "required", data_style = "select-with-transition", @multiple = "multiple", @title = "Select Advertising Models" })*@
+                                        @Html.DropDownListFor(f => f.IncubationAdvertisingModels, (MultiSelectList)ViewBag.IncubationModels, new { @class = "select-wizard form-control selectpicker", @required = "required", data_style = "select-with-transition", @multiple = "multiple", @title = Resources.IncubationAdvertising.SelectAdvertisingModels })
+                                        @Html.ValidationMessageFor(model => model.IncubationAdvertisingModels, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group select-wizard">
+                                        @Html.DropDownListFor(model => model.incubationAdvertising.FundingSourceID, (SelectList)ViewBag.FundingSource, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @data_style = "select-with-transition", @title = Resources.Incubation.SelectFundingSource })
+                                        @Html.ValidationMessageFor(model => model.incubationAdvertising.FundingSourceID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="StartDate" class="bmd-label-floating"> @Resources.IncubationAdvertising.StartDate </label>
+                                        @Html.EditorFor(model => model.incubationAdvertising.StartDate, new { htmlAttributes = new { @class = "form-control", @id = "StartDate" } })
+                                        @Html.ValidationMessageFor(model => model.incubationAdvertising.StartDate, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="EndDate" class="bmd-label-floating"> @Resources.IncubationAdvertising.EndDate </label>
+                                        @Html.EditorFor(model => model.incubationAdvertising.EndDate, new { htmlAttributes = new { @class = "form-control", @id = "EndDate" } })
+                                        @Html.ValidationMessageFor(model => model.incubationAdvertising.EndDate, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="GuidelinesForGrant" class="bmd-label-floating">@Resources.IncubationAdvertising.AdvertisingDetails</label>
+                                        @Html.TextAreaFor(model => model.incubationAdvertising.AdvertisingDetails, new { @class = "form-control", rows = "3" })
+                                        @Html.ValidationMessageFor(model => model.incubationAdvertising.AdvertisingDetails, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="GuidelinesForGrant" class="bmd-label-floating">@Resources.IncubationAdvertising.EntryRequirements</label>
+                                        @Html.TextAreaFor(model => model.incubationAdvertising.EntryRequirements, new { @class = "form-control", rows = "3" })
+                                        @Html.ValidationMessageFor(model => model.incubationAdvertising.EntryRequirements, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-1">
+                                            <div class="form-group">
+                                                <label for="Inp_Problem" class="bmd-label-floating">@Resources.IncubationAdvertising.Public</label>
+                                                @Html.CheckBoxFor(model => model.incubationAdvertising.ISPublic@*,new { @checked = false }*@)
+                                                @Html.ValidationMessageFor(model => model.incubationAdvertising.ISPublic, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-11">
+                                            <div style="display:block" id="autGroup" class="form-group">
+                                                <label class="bmd-label-floating" for="myAutocomplete">@Resources.IncubationAdvertising.Email</label>
+                                                <input name="LstOfEmails" id="myAutocomplete" type="text" class="form-control">
+                                                @Html.ValidationMessage("invalidEmails", "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+
+
+
+                                        @* shadia6-2-2025 *@
+                                        <div class="col-lg-12">
+                                            <div style="display:block" id="FieldofWorkGroup" class="form-group">
+                                                <label class="bmd-label" for="CorporateFieldOfWork">
+                                                    @Resources.IncubationWorkshops.SelectFieldofWork
+                                                    @*Select Field of Work*@
+                                                </label>
+                                                @Html.ListBox("SelectedFieldsOfWork",
+                                                              new MultiSelectList(ViewBag.FieldsOfWork, "CorporateFieldOfWorkID", "CorporateFieldOfWorkNameAR"),
+                                                              new { @class = "select-wizard form-control selectpicker", @multiple = "multiple", data_style = "select-with-transition", data_live_search = "true", @id = "CorporateFieldOfWork", @title = Resources.IncubationWorkshops.SelectFieldofWork })
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-12">
+                                            <div style="display:block" id="RegionGroup" class="form-group">
+                                                <label class="bmd-label" for="SelectedRegions">
+                                                    @Resources.IncubationWorkshops.SelectRegion
+                                                </label>
+                                                @Html.ListBox("SelectedRegions",
+                                                              new MultiSelectList(ViewBag.Regions, "RegionID", "RegionNameAR"),
+                                                              new { @class = "select-wizard form-control selectpicker", @multiple = "multiple", data_style = "select-with-transition", data_live_search = "true", @id = "RegionList", @title = Resources.IncubationWorkshops.SelectRegion })
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" style="margin-top: 57px; margin-bottom: 145px;">
+                                    <!-- Uploader Dropzone -->
+                                    <div id="zdrop" class="fileuploader" onclick="document.getElementById('selectedFile').click();">
+                                        <div id="upload-label" style="width: 350px;">
+                                            <i class="material-icons">cloud_upload</i>
+                                            <span class="title">@Resources.General.Attachments</span>
+                                            <span id="fileText" style="display: block;"></span>
+                                            @Html.TextBoxFor(model => model.files, "", new { @id = "selectedFile", @type = "file", @multiple = "multiple", @style = "display: none;", @onchange = "getFileName();" })
+                                            @*@Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <input type="submit" class="btn btn-rose" name="Save" value="@Resources.General.Save">
+                                        <a class="btn btn-default" href="@Url.Action("Index", new { Type = ViewBag.Type })">@Resources.General.Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+
+
+
+
+@section Scripts{
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('Type')) {
+            if (urlParams.get('Type') == "Incubation") {
+                window.onload = function (e) {
+                    $('#navItem_Inc_IncubationAdvertising').addClass('active');
+                    $('#Incubation').addClass('show');
+                };
+            }
+            else if (urlParams.get('Type') == "Acceleration") {
+                window.onload = function (e) {
+                    $('#navItem_Acc_IncubationAdvertising').addClass('active');
+                    $('#Acceleration').addClass('show');
+                };
+            }
+        }
+    </script>
+
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>*@
+
+    <script>
+        function ValidateEmail(inputText) {
+            var mailformat = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+            var res = inputText.split(",");
+            for (var i = 0; i < res.length; i++) {
+                str = res[i].replace(/\s/g, '');
+                if (str.match(mailformat)) {
+                    return true;
+                }
+                else {
+                    alert("You have entered an invalid email address!");
+                    return false;
+                }
+            }
+        }
+
+        $("form").submit(function (event) {
+            if ($("#incubationAdvertising_ISPublic").is(":checked")) {
+                var msgConfirm = confirm("Are you sure about taken this action, This action will send an email to the corporates?");
+                if (msgConfirm == true) {
+                    return true;
+                } else {
+                    event.preventDefault();
+                }
+            }
+            else {
+                //shadia2-6-2025
+
+                var hasEmails = $("#myAutocomplete").val().trim() !== ""; // التحقق إذا تم إدخال إيميلات
+
+                var hasFieldsOfWork = $("#CorporateFieldOfWork").val() !== null && $("#CorporateFieldOfWork").val().length > 0; // التحقق إذا تم اختيار تصنيفات
+                var hasRegions = $("#RegionList").val() !== null && $("#RegionList").val().length > 0;
+                if (hasEmails || hasFieldsOfWork || hasRegions) {
+                    if (hasEmails) { var istrue = ValidateEmail($("#myAutocomplete").val()); }
+
+                    var msgConfirm = confirm("Are you sure about taken this action, This action will send an email to the corporates?");
+                    if (msgConfirm == true) {
+                        return true;
+                    } else {
+                        event.preventDefault();
+                    }
+                }
+                else {
+                    alert("Please select either emails, fields of work, or choose 'Public'.");
+                    event.preventDefault();
+                }
+                //var istrue = ValidateEmail($("#myAutocomplete").val());
+                //if (istrue == true) {
+                //    var msgConfirm = confirm("Are you sure about taken this action, This action will send an email to the corporates?");
+                //    if (msgConfirm == true) {
+                //        return true;
+                //    } else {
+                //        event.preventDefault();
+                //    }
+                //}
+                //else {
+                //    //  $( "span" ).text( "Not valid!" ).show().fadeOut( 1000 );
+                //    alert("Not Valid Email");
+                //    event.preventDefault();
+                //}
+            }
+
+        });
+
+        $("#incubationAdvertising_ISPublic").click(function () {
+            if ($(this).is(":checked")) {
+                $("#myAutocomplete").val('');
+                $("#autGroup").hide();
+                $("#RegionGroup").hide();
+                //2-6-2025
+                $("#FieldofWorkGroup").hide();
+                
+            } else {
+                $("#myAutocomplete").val('');
+                $("#autGroup").show();
+                $("#FieldofWorkGroup").show();
+                $("#RegionGroup").show();
+            }
+        });
+
+
+        $(document).ready(function () {
+
+            $("#StartDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#EndDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#StartDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function () {
+                var minValue = $(this).val();
+                minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+                minValue.setDate(minValue.getDate());
+                $("#EndDate").datepicker("option", "minDate", minValue);
+            })
+
+        });
+
+        $(function () {
+
+            function split(val) {
+                return val.split(/,\s*/);
+            }
+            function extractLast(term) {
+                return split(term).pop();
+            }
+
+            $("#myAutocomplete")
+          // don't navigate away from the field on tab when selecting an item
+          .on("keydown", function (event) {
+              if (event.keyCode === $.ui.keyCode.TAB &&
+                  $(this).autocomplete("instance").menu.active) {
+                  event.preventDefault();
+              }
+          })
+            .autocomplete({
+                minLength: 0,
+                source: function (request, response) {
+                    $.getJSON('@Url.Action("Search", "IncubationAdvertising")', {
+                        term: extractLast(request.term)
+                    }, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+                    var terms = split(this.value);
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push(ui.item.value);
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push("");
+                    this.value = terms.join(", ");
+                    return false;
+                }
+            });
+        })
+
+    </script>
+
+    <script>
+        //In your Javascript(external.js resource or < script > tag)
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+        });
+
+        function getFileName() {
+            $('#fileText').html('');
+            $('#fileText').append($('#selectedFile')[0].files.length + ' Files Selected');
+        }
+    </script>
+}

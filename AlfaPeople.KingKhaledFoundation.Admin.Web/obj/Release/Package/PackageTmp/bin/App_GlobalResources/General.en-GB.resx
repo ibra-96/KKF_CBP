@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="lang" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="AccelerationRequests" xml:space="preserve">
+    <value>Acceleration Requests</value>
+  </data>
+  <data name="Accelerations" xml:space="preserve">
+    <value>Acceleration</value>
+  </data>
+  <data name="Advertising" xml:space="preserve">
+    <value>Advertising</value>
+  </data>
+  <data name="AuthorizationAuthority" xml:space="preserve">
+    <value>Authorization Body</value>
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value>Calendar</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="ClassificationSector" xml:space="preserve">
+    <value>Sector Classification</value>
+  </data>
+  <data name="Consultants" xml:space="preserve">
+    <value>Consulting Firm</value>
+  </data>
+  <data name="CorporationRegisterd" xml:space="preserve">
+    <value>Organization Registration</value>
+  </data>
+  <data name="CorporationRequests" xml:space="preserve">
+    <value>Organization Requests</value>
+  </data>
+  <data name="CorporationsCategory" xml:space="preserve">
+    <value>Sector</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="DivisionOfCountry" xml:space="preserve">
+    <value>Region Divisions</value>
+  </data>
+  <data name="Employees" xml:space="preserve">
+    <value>Employees</value>
+  </data>
+  <data name="Events" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="FieldOfWork" xml:space="preserve">
+    <value>Field Of Work</value>
+  </data>
+  <data name="FinalReports" xml:space="preserve">
+    <value>Final Reports</value>
+  </data>
+  <data name="FollowUpProjectPlan" xml:space="preserve">
+    <value>Follow-Up Project Plan</value>
+  </data>
+  <data name="FollowUpProjectPlanRequest" xml:space="preserve">
+    <value>Follow-Up Project Plan Request</value>
+  </data>
+  <data name="FundingSource" xml:space="preserve">
+    <value>Funding Source</value>
+  </data>
+  <data name="Governorate" xml:space="preserve">
+    <value>Governorate</value>
+  </data>
+  <data name="IncubationRequests" xml:space="preserve">
+    <value>Incubation Requests</value>
+  </data>
+  <data name="Incubations" xml:space="preserve">
+    <value>Incubation</value>
+  </data>
+  <data name="JoinRequests" xml:space="preserve">
+    <value>Joining Requests</value>
+  </data>
+  <data name="Models" xml:space="preserve">
+    <value>Models</value>
+  </data>
+  <data name="Neighborhoods" xml:space="preserve">
+    <value>Neighborhoods</value>
+  </data>
+  <data name="Positions" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Projects" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="TargetSegmentType" xml:space="preserve">
+    <value>Target Segment Type</value>
+  </data>
+  <data name="TypeofIntervention" xml:space="preserve">
+    <value>Type of Intervention</value>
+  </data>
+  <data name="WorkshopEvaluation" xml:space="preserve">
+    <value>Workshop Evaluation</value>
+  </data>
+  <data name="WorkshopRequests" xml:space="preserve">
+    <value>Workshop Requests</value>
+  </data>
+  <data name="Workshops" xml:space="preserve">
+    <value>Workshops</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="AttachmentName" xml:space="preserve">
+    <value>Attachment Name</value>
+  </data>
+  <data name="AttachmentSize" xml:space="preserve">
+    <value>Attachment Size</value>
+  </data>
+  <data name="AttachmentType" xml:space="preserve">
+    <value>Attachment Type</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>Attachments</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Grants" xml:space="preserve">
+    <value>Grants</value>
+  </data>
+  <data name="ProjectIdeaRequests" xml:space="preserve">
+    <value>Project Idea Requests</value>
+  </data>
+  <data name="ProjectProposalRequests" xml:space="preserve">
+    <value>Project Proposal Requests</value>
+  </data>
+  <data name="SocialEntrepreneurshipGrant" xml:space="preserve">
+    <value>Social Entrepreneurship</value>
+  </data>
+  <data name="PrincessSeetaGrant" xml:space="preserve">
+    <value>Development Grant</value>
+  </data>
+  <data name="Join" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Log Off</value>
+  </data>
+  <data name="ForgetMyPass" xml:space="preserve">
+    <value>Forgot your Password</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>login</value>
+  </data>
+  <data name="btnLogIn" xml:space="preserve">
+    <value>login</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="AccelerationModel" xml:space="preserve">
+    <value>Acceleration Model</value>
+  </data>
+  <data name="AccelerationProjects" xml:space="preserve">
+    <value>Acceleration Projects</value>
+  </data>
+  <data name="Grant" xml:space="preserve">
+    <value>Grant</value>
+  </data>
+  <data name="IncubationModel" xml:space="preserve">
+    <value>Incubation Model</value>
+  </data>
+  <data name="IncubationProjects" xml:space="preserve">
+    <value>Incubation Projects</value>
+  </data>
+  <data name="NewAccelerationProject" xml:space="preserve">
+    <value>New Acceleration Project</value>
+  </data>
+  <data name="NewIncubationProject" xml:space="preserve">
+    <value>New Incubation Project</value>
+  </data>
+  <data name="BaselineRequest" xml:space="preserve">
+    <value>Baseline Request</value>
+  </data>
+  <data name="CreateWorkshop" xml:space="preserve">
+    <value>Create Workshop</value>
+  </data>
+  <data name="CreateNewFollowUpProjectPlan" xml:space="preserve">
+    <value>Create New Follow-up Project Plan</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="FollowUpEvaluation" xml:space="preserve">
+    <value>Follow-Up Evaluation</value>
+  </data>
+  <data name="FollowUpProjectPlanRequests" xml:space="preserve">
+    <value>Follow-up Project Plan Requests</value>
+  </data>
+  <data name="IncubationWorkshopRating" xml:space="preserve">
+    <value>Workshop Rating</value>
+  </data>
+  <data name="PrincessSeetaFinalReports" xml:space="preserve">
+    <value>Development Final Reports</value>
+  </data>
+  <data name="CreateSocialEntrepreneurshipFinalReports" xml:space="preserve">
+    <value>Create Social Entrepreneurship Final Reports</value>
+  </data>
+  <data name="SocialEntrepreneurshipFinalReports" xml:space="preserve">
+    <value>Social Entrepreneurship Final Reports</value>
+  </data>
+  <data name="GrantProjectProposal" xml:space="preserve">
+    <value>Grant Project Proposal</value>
+  </data>
+  <data name="GrantProjectIdea" xml:space="preserve">
+    <value>Grant Project Idea</value>
+  </data>
+  <data name="SelectAction" xml:space="preserve">
+    <value>Select Action</value>
+  </data>
+  <data name="PendingRequest" xml:space="preserve">
+    <value>Pending Request</value>
+  </data>
+  <data name="AccelerationReport" xml:space="preserve">
+    <value>Acceleration Report</value>
+  </data>
+  <data name="CorporationReport" xml:space="preserve">
+    <value>Corporation Report</value>
+  </data>
+  <data name="IncubationReport" xml:space="preserve">
+    <value>Incubation Report</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="CorporationContactReport" xml:space="preserve">
+    <value>Corporation Contact Report</value>
+  </data>
+  <data name="CBReports" xml:space="preserve">
+    <value>CB Reports</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="SIReports" xml:space="preserve">
+    <value>SI Reports</value>
+  </data>
+  <data name="MsgApply" xml:space="preserve">
+    <value>Your request has been received, Please wait while the request is reviewed and answered.</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="AllRightsReserved" xml:space="preserve">
+    <value>King Khalid Foundation. All rights reserved.</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>Our work</value>
+  </data>
+  <data name="Licenses" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Account Information</value>
+  </data>
+  <data name="ForgetMyPassDesc" xml:space="preserve">
+    <value>This information will let us verify you</value>
+  </data>
+  <data name="MsgTextAlign" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="TextAlign" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="SaveAndSubmit" xml:space="preserve">
+    <value>Save And Submit</value>
+  </data>
+  <data name="Models1" xml:space="preserve">
+    <value>Models</value>
+  </data>
+  <data name="BaselineForm" xml:space="preserve">
+    <value>Baseline Form</value>
+  </data>
+  <data name="AddNewQuestion" xml:space="preserve">
+    <value>Add New Question</value>
+  </data>
+  <data name="AnswerType" xml:space="preserve">
+    <value>Answer Type</value>
+  </data>
+  <data name="IsRequired" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="IsVisible" xml:space="preserve">
+    <value>Visible</value>
+  </data>
+  <data name="QuestionArabic" xml:space="preserve">
+    <value>Question in Arabic</value>
+  </data>
+  <data name="QuestionEnglish" xml:space="preserve">
+    <value>Question in English</value>
+  </data>
+  <data name="QuestionOrder" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="QuestionType" xml:space="preserve">
+    <value>Question Type</value>
+  </data>
+  <data name="Addchoice" xml:space="preserve">
+    <value>Add Choice</value>
+  </data>
+  <data name="choiceAr" xml:space="preserve">
+    <value>Choice In Arabic</value>
+  </data>
+  <data name="choiceEn" xml:space="preserve">
+    <value>Choice In English</value>
+  </data>
+  <data name="choices" xml:space="preserve">
+    <value>Choices</value>
+  </data>
+  <data name="Confirmattendance" xml:space="preserve">
+    <value>Confirm attendance and add participants</value>
+  </data>
+  <data name="CanceledInvitationsToIncubation" xml:space="preserve">
+    <value>Canceled Invitations To Incubation</value>
+  </data>
+  <data name="CanceledInvitationsToWorkshop" xml:space="preserve">
+    <value>Canceled Invitations To Workshop</value>
+  </data>
+  <data name="WorkshopBaselineReport" xml:space="preserve">
+    <value>Workshop Baseline Report</value>
+  </data>
+  <data name="ShareLink" xml:space="preserve">
+    <value>Share Link</value>
+  </data>
+  <data name="BaselineRequestReport" xml:space="preserve">
+    <value>Baseline Request Report</value>
+  </data>
+</root>

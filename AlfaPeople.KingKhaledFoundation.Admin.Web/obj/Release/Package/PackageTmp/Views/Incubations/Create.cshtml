@@ -1,0 +1,284 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IncuationsVM
+<link href="~/assets/css/FileUploaderStyle.css" rel="stylesheet" />
+@{
+    //ViewBag.Title = "You will have an issue, please go to the home page and try this transaction later";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!-- Content -->
+<div id="dd" class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+            <div class="card ">
+                @*<div class="card-header card-header-rose card-header-text">
+                        <div class="card-text">
+                            <h4 class="card-title">Project Details</h4>
+                        </div>
+                    </div>*@
+                @using (Html.BeginForm("Create", "Incubations", FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="card-body ">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row justify-content-center">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="Inp_ProjectName" class="bmd-label-floating"> @Resources.Incubation.ProjectName </label>
+                                    @Html.TextBoxFor(model => model.incubation.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.incubation.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group select-wizard">
+                                    @Html.DropDownListFor(f => f.incubation.IncubationAdID, (SelectList)ViewBag.IncubationAdID, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @data_style = "select-with-transition", @title = Resources.Incubation.SelectAdvertising })
+                                    @Html.ValidationMessageFor(model => model.incubation.IncubationAdID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group select-wizard">
+                                    <select id="incubation_IncubationProjectProposalID" name="incubation.IncubationProjectProposalID" required class="select-wizard form-control selectpicker" data-style="select-with-transition" title="@Resources.Incubation.SelectCorporation"></select>
+                                    @Html.ValidationMessageFor(model => model.incubation.IncubationProjectProposalID, "", new { @class = "text-danger" })
+                                    @*@Html.DropDownListFor(f => f.incubation.ConsultantID, (SelectList)ViewBag.ConsultantID, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @data_style = "select-with-transition", @title = "Select Consultant" })*@
+                                    @*@Html.ValidationMessageFor(model => model.incubation.ConsultantID, "", new { @class = "text-danger" })*@
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group select-wizard">
+                                    @*@Html.DropDownListFor(f => f.incubation.IncubationModelID, (SelectList)ViewBag.IncubationModelID, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @data_style = "select-with-transition", @title = "Select Project Model" })*@
+                                    <select id="incubation_IncubationModelID" name="incubation.IncubationModelID" required class="select-wizard form-control selectpicker" data-style="select-with-transition" title="@Resources.Incubation.SelectProjectModel"></select>
+                                    @Html.ValidationMessageFor(model => model.incubation.IncubationModelID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            @*<div class="col-sm-6">
+                                    <div class="form-group select-wizard">
+                                        @Html.DropDownListFor(model => model.incubation.FundingSourceID, (SelectList)ViewBag.FundingSource, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @data_style = "select-with-transition", @title = Resources.Incubation.SelectFundingSource })
+                                        @Html.ValidationMessageFor(model => model.incubation.FundingSourceID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>*@
+                            <div class="col-sm-4">
+                                <div class="form-group select-wizard">
+                                    @Html.DropDownListFor(model => model.incubation.TypeOfInterventionID, (SelectList)ViewBag.TypeOfIntervention, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @data_style = "select-with-transition", @title = Resources.Incubation.SelectTypeOfIntervention })
+                                    @Html.ValidationMessageFor(model => model.incubation.TypeOfInterventionID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="Inp_StartDate"> @Resources.Incubation.StartDate </label>
+                                    @Html.TextBoxFor(model => model.incubation.StartDate, new { @class = "form-control ", @id = "StartDate" })
+                                    @Html.ValidationMessageFor(model => model.incubation.StartDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="Inp_EndDate"> @Resources.Incubation.EndDate </label>
+                                    @Html.TextBoxFor(model => model.incubation.EndDate, htmlAttributes: new { @class = "form-control ", @id = "EndDate" })
+                                    @Html.ValidationMessageFor(model => model.incubation.EndDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="incubation_ProjectDurationInDays">  @Resources.Incubation.DurationOfTheProjectInDays </label>
+                                    @*@Html.TextBoxFor(model => model.incubation.ProjectDurationInDays, new { @class = "form-control", @type = "number", @disabled = "disabled", @readonly = "readonly"})*@
+                                    @Html.EditorFor(model => model.incubation.ProjectDurationInDays, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                                    @Html.ValidationMessageFor(model => model.incubation.ProjectDurationInDays, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group select-wizard">
+                                    @Html.DropDownListFor(f => f.incubation.ConsultantID, (SelectList)ViewBag.ConsultantID, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @data_style = "select-with-transition", @title = Resources.Incubation.SelectConsultant })
+                                    @Html.ValidationMessageFor(model => model.incubation.ConsultantID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group select-wizard">
+                                    @Html.DropDownListFor(f => f.incubation.SpecialistChargeOfIncubation, (SelectList)ViewBag.SpecialistChargeOfIncubation, htmlAttributes: new { @class = "select-wizard form-control selectpicker", @data_style = "select-with-transition", @title = Resources.Incubation.SelectAccountability })
+                                    @Html.ValidationMessageFor(model => model.incubation.SpecialistChargeOfIncubation, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Inp_ProjectDetails" class="bmd-label-floating">@Resources.Incubation.ProjectDetails</label>
+                                    @Html.TextAreaFor(model => model.incubation.ProjectDetails, new { @class = "form-control", rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.incubation.ProjectDetails, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Inp_ProjectDetails" class="bmd-label-floating">@Resources.Incubation.ProjectTargeted</label>
+                                    @Html.TextAreaFor(model => model.incubation.Targeted, new { @class = "form-control", rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.incubation.Targeted, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Inp_Notes" class="bmd-label-floating">@Resources.Incubation.Notes</label>
+                                    @Html.TextAreaFor(model => model.incubation.Notes, new { @class = "form-control", rows = "2" })
+                                    @Html.ValidationMessageFor(model => model.incubation.Notes, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-lg-12" style="margin-top: 77px; margin-bottom: 135px;">
+                                <!-- Uploader Dropzone -->
+                                <div id="zdrop" class="fileuploader" onclick="document.getElementById('selectedFile').click();">
+                                    <div id="upload-label" style="width: 350px;">
+                                        <i class="material-icons">cloud_upload</i>
+                                        <span class="title">@Resources.General.Attachments</span>
+                                        @*<span class="title">Commitment Contracts Of Organizations & Technical Report & Final Report</span>*@
+                                        <span id="fileText" style="display: block;"></span>
+                                        @Html.TextBoxFor(model => model.files, "", new { @id = "selectedFile", @type = "file", @multiple = "multiple", @style = "display: none;", @onchange = "getFileName();" })
+                                        @*@Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="row" style="display: contents;">
+                                    <div class="card-footer justify-content-center ">
+                                        <input type="submit" value="@Resources.General.Save" class="btn btn-rose" />
+                                        @*<a class="btn btn-default" href="@Url.Action("Index")">Back</a>*@
+                                        <a class="btn btn-default" href="@Url.Action("Index",new {Type=ViewBag.Type})">@Resources.General.Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+
+
+@section Scripts {
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('Type')) {
+            if (urlParams.get('Type') == "Incubation") {
+                window.onload = function (e) {
+                    $('#navItem_Inc_Incubations').addClass('active');
+                    $('#Incubation').addClass('show');
+                };
+            }
+            else if (urlParams.get('Type') == "Acceleration") {
+                window.onload = function (e) {
+                    $('#navItem_Acc_Incubations').addClass('active');
+                    $('#Acceleration').addClass('show');
+                };
+            }
+        }
+    </script>
+
+    <!-- CSS Just for File Uploader Style include it in your project -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js'></script>
+    <script src="~/Scripts/dropzone/dropzone.min.js"></script>
+    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="~/assets/js/plugins/jasny-bootstrap.min.js"></script>
+    <!-- Library for adding dinamically elements -->
+    <script src="~/assets/js/plugins/arrive.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            //$('#incubation_ProjectDurationInDays').on('input', function (e) {
+            //    //$("Inp_ProjectDurationInDays").prop('disabled', true);
+            //    alert('test');
+            //});
+            //$("#incubation_ProjectDurationInDays").change(function () {
+            //    alert("Handler for .change() called.");
+            //});
+
+            $("#StartDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#EndDate").datepicker({
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                altFormat: "yy-mm-dd"
+            });
+
+            $("#StartDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function () {
+                var minValue = $(this).val();
+                if (minValue != '') {
+                    minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+                    minValue.setDate(minValue.getDate() + 1);
+                    $("#EndDate").datepicker("option", "minDate", minValue);
+                }
+                var endDateValue = new Date($("#EndDate").val());
+                if (endDateValue != '' && minValue != '') {
+                    var diffTime = diffTime = Math.abs(endDateValue.getTime() - minValue.getTime());
+                    var result = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+                    $("#incubation_ProjectDurationInDays").val(result);
+                } else { $("#incubation_ProjectDurationInDays").val(''); }
+            });
+
+            $("#EndDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function () {
+                var endDateValue = new Date($(this).val());
+                var startDateValue = new Date($("#StartDate").val());
+                var diffTime = diffTime = Math.abs(endDateValue.getTime() - startDateValue.getTime());
+                var result = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+                $("#incubation_ProjectDurationInDays").val(result);
+            });
+        });
+
+        function getFileName() {
+            $('#fileText').html('');
+            $('#fileText').append($('#selectedFile')[0].files.length + ' Files Selected');
+        }
+
+        $("#incubation_IncubationAdID").on('change', function () {
+            var selectedIncubationAdID = $("#incubation_IncubationAdID").val();
+            var option = '';
+            if (selectedIncubationAdID != null && selectedIncubationAdID != '') {
+                $.getJSON('@Url.Action("getIncubationAdvertisingAcceptedCorp")', { incubationAdId: selectedIncubationAdID }, function (result) {
+                    if (result != null && !jQuery.isEmptyObject(result)) {
+                        //$.each(result.IncubationAdModel, function (index, incubationModel) {
+                        //    option = option + '<option value="' + incubationModel.Value + '">' + incubationModel.Text + "</option>"
+                        //});
+                        //$("#incubation_IncubationModelID").html(option).selectpicker('refresh');
+                        //option = '';
+                        $.each(result.IncubationPP, function (index, incuPP) {
+                            option = option + '<option value="' + incuPP.Value + '">' + incuPP.Text + "</option>"
+                        });
+                        $("#incubation_IncubationProjectProposalID").html(option).selectpicker('refresh');
+                    }
+                    else {
+                        //$('#incubation_IncubationModelID').find('option').remove();
+                        $('#incubation_IncubationProjectProposalID').find('option').remove();
+                    };
+                });
+            }
+        });
+
+        $("#incubation_IncubationProjectProposalID").on('change', function () {
+            var selectedIncubationPPID = $("#incubation_IncubationProjectProposalID").val();
+            var selectesIncubAdID = $("#incubation_IncubationAdID").val();
+            var option = '';
+            if (selectedIncubationPPID != null && selectedIncubationPPID != '') {
+                $.getJSON('@Url.Action("getIncubationAdvertisingModel")', { incubationAdId: selectesIncubAdID,incubationPPId: selectedIncubationPPID }, function (result) {
+                    if (result != null && !jQuery.isEmptyObject(result)) {
+                        $.each(result.IncubationAdModel, function (index, incubationModel) {
+                            option = option + '<option value="' + incubationModel.Value + '">' + incubationModel.Text + "</option>"
+                        });
+                        $("#incubation_IncubationModelID").html(option).selectpicker('refresh');
+                        //option = '';
+                        //$.each(result.IncubationPP, function (index, incuPP) {
+                        //    option = option + '<option value="' + incuPP.Value + '">' + incuPP.Text + "</option>"
+                        //});
+                        //$("#incubation_IncubationProjectProposalID").html(option).selectpicker('refresh');
+                    }
+                    else {
+                        $('#incubation_IncubationModelID').find('option').remove();
+                        //$('#incubation_IncubationProjectProposalID').find('option').remove();
+                    };
+                });
+            }
+        });
+
+    </script>
+}

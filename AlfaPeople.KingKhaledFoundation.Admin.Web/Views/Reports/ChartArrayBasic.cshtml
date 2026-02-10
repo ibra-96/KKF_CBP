@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "ChartArrayBasic";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <br />
+                            <br />
+                            <br />
+                            <div id="multipleBarsChart" class="ct-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        var dataMultipleBarsChart = {
+            labels: ['@Resources.IncubationWorkshopRating.HowDoYouEvaluateTheWorkshop',
+                '@Resources.IncubationWorkshopRating.WorkshopAchieveObjectives',
+                '@Resources.IncubationWorkshopRating.IsWorkshopUseful',
+                '@Resources.IncubationWorkshopRating.TrainingMaterial',
+                '@Resources.IncubationWorkshopRating.HowDoYouEvaluateParticpation',
+                '@Resources.IncubationWorkshopRating.TheAbilityToDeliverTheInformation',
+                '@Resources.IncubationWorkshopRating.BodyLanguage',
+                '@Resources.IncubationWorkshopRating.ClarityOfVoiceAndTone',
+                '@Resources.IncubationWorkshopRating.MasteryOfTrainingMaterial',
+                '@Resources.IncubationWorkshopRating.AbilityToManageDiscussionAndHandleQuestions',
+                '@Resources.IncubationWorkshopRating.LinkingTheTrainingMaterialToReality',
+                '@Resources.IncubationWorkshopRating.AbilityToAchieveAGoal'
+            ],
+            series: [
+                [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895, 780, 553],
+                [412, 243, 280, 580, 453, 353, 300, 364, 368, 410, 636, 695, 580, 453]
+            ]
+        };
+
+        var optionsMultipleBarsChart = {
+            seriesBarDistance: 10,
+            axisX: {
+                showGrid: false
+            },
+            height: '300px'
+        };
+
+        var responsiveOptionsMultipleBarsChart = [
+            ['screen and (max-width: 640px)', {
+                seriesBarDistance: 5,
+                axisX: {
+                    labelInterpolationFnc: function (value) {
+                        return value[0];
+                    }
+                }
+            }]
+        ];
+
+        var multipleBarsChart = Chartist.Bar('#multipleBarsChart', dataMultipleBarsChart, optionsMultipleBarsChart, responsiveOptionsMultipleBarsChart);
+
+        md.startAnimationForBarChart(multipleBarsChart);
+    </script>
+
+    <script>
+        var dataSimpleBarChart = {
+            labels: ['@Resources.IncubationWorkshopRating.HowDoYouEvaluateTheWorkshop',
+                '@Resources.IncubationWorkshopRating.WorkshopAchieveObjectives',
+                '@Resources.IncubationWorkshopRating.IsWorkshopUseful',
+                '@Resources.IncubationWorkshopRating.TrainingMaterial',
+                '@Resources.IncubationWorkshopRating.HowDoYouEvaluateParticpation',
+                '@Resources.IncubationWorkshopRating.TheAbilityToDeliverTheInformation',
+                '@Resources.IncubationWorkshopRating.BodyLanguage',
+                '@Resources.IncubationWorkshopRating.ClarityOfVoiceAndTone',
+                '@Resources.IncubationWorkshopRating.MasteryOfTrainingMaterial',
+                '@Resources.IncubationWorkshopRating.AbilityToManageDiscussionAndHandleQuestions',
+                '@Resources.IncubationWorkshopRating.LinkingTheTrainingMaterialToReality',
+                '@Resources.IncubationWorkshopRating.AbilityToAchieveAGoal'
+            ],
+            series: [
+                [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895, 780, 553]
+            ]
+        };
+
+        var optionsSimpleBarChart = {
+            seriesBarDistance: 10,
+            axisX: {
+                showGrid: false
+            },
+            height: '300px'
+        };
+
+        var responsiveOptionsSimpleBarChart = [
+            ['screen and (max-width: 640px)', {
+                seriesBarDistance: 5,
+                axisX: {
+                    labelInterpolationFnc: function (value) {
+                        return value[0];
+                    }
+                }
+            }]
+        ];
+
+        var simpleBarChart = Chartist.Bar('#simpleBarChart', dataSimpleBarChart, optionsSimpleBarChart, responsiveOptionsSimpleBarChart);
+
+        md.startAnimationForBarChart(simpleBarChart);
+    </script>
+}

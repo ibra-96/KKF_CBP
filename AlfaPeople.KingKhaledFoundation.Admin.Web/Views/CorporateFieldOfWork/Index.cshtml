@@ -1,0 +1,65 @@
+﻿@model IEnumerable<AlfaPeople.KingKhalidFoundation.Data.Model.CorporateFieldOfWork>
+@{
+    Layout = null;
+}
+
+<table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @if (ViewBag.lang == 3)
+                {
+                    @Resources.CorporateFieldOfWork.CorporateFieldOfWorkNameAR
+
+                }
+                else
+                {
+                    @Resources.CorporateFieldOfWork.CorporateFieldOfWorkNameEN
+                }
+            </th>
+            <th>
+                @Resources.CorporateFieldOfWork.IsActive
+            </th>
+            <th>
+                @Resources.General.Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (ViewBag.lang == 3)
+                    {
+                        @Html.DisplayFor(modelItem => item.CorporateFieldOfWorkNameAR)
+
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.CorporateFieldOfWorkNameEN)
+
+                    }
+                </td>
+                <td>
+                    @if (item.IsActive == true)
+                    {
+                    <span class="badge badge-pill badge-success">
+                        @Resources.CorporateFieldOfWork.Active
+                    </span>
+                    }
+                    else
+                    {
+                    <span class="badge badge-pill badge-danger">
+                        @Resources.CorporateFieldOfWork.InActive
+
+                    </span>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-link btn-warning btn-just-icon edit" data-toggle="modal" data-target="#EditCorporateFieldOfWork" onclick="Edit('@Url.Action("Edit", "CorporateFieldOfWork", new { id=@item.CorporateFieldOfWorkID})')"><i class="material-icons">edit</i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

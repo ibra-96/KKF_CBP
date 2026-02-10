@@ -1,0 +1,119 @@
+﻿@model AlfaPeople.KingKhaledFoundation.Admin.Web.Models.IncubationWSPostImpactReadOnlyVM
+@{
+    ViewBag.Title = "عرض نموذج قياس الأثر";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-rose card-header-text">
+                <div class="card-text">
+                    <h4 class="card-title">عرض نموذج قياس الأثر </h4>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div style="margin-bottom:15px;">
+                    <div><b>الورشة:</b> @Model.WorkshopName</div>
+                    <div><b>اسم الجمعية:</b> @Model.CorporateName</div>
+                    <div><b>تاريخ تعبئة الطلب:</b> @(Model.FilledOn.HasValue ? Model.FilledOn.Value.ToString("yyyy-MM-dd") : "-")</div>
+                    <div><b>آخر تاريخ حفظ داخل النموذج:</b> @(Model.LastSubmissionDate.HasValue ? Model.LastSubmissionDate.Value.ToString("yyyy-MM-dd") : "-")</div>
+                </div>
+
+                <hr />
+
+                <div class="row" id="BodyContent">
+                    @foreach (var item in Model.IncubationWorkshopBLTransactionsType.IncubationWorkshopBLTrans.OrderBy(o => o.RankNumber))
+                    {
+                        var controlName = item.IncubationWSControlsType?.IncubationWorkshopControl?.ControlsName;
+                        var transValue = item.IncubationWSBLTransactionsValue?.FirstOrDefault(); // قيم الجمعية
+                        var value = transValue?.Value;
+
+                        <div class="col-lg-12">
+                            <div class="form-group" style="margin-bottom:20px;">
+                                <label class="bmd-label-floating">
+                                    @(ViewBag.lang == 3 ? item.FieldNameAr : item.FieldNameEn)
+                                </label>
+
+                                @if (controlName == "TextBox")
+                                {
+                                    <input class="form-control" value="@value" disabled />
+                                }
+                                else if (controlName == "Textarea")
+                                {
+                                    <textarea class="form-control" rows="3" disabled>@value</textarea>
+                                }
+                                else if (controlName == "RadioButton")
+                                {
+                                    if (item.Options != null && item.Options.Any())
+                                    {
+                                        foreach (var option in item.Options)
+                                        {
+                                            var isChecked = transValue?.OptionValues?.Any(o => o.OptionID == option.OptionID && o.Value == "true") ?? false;
+                                            <div class="form-check">
+                                                <input type="radio" disabled @(isChecked ? "checked" : "") />
+                                                <label class="form-check-label">
+                                                    @(ViewBag.lang == 3 ? option.OptionNameAr : option.OptionNameEn)
+                                                </label>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    { <div>-</div> }
+                                }
+                                else if (controlName == "Checkbox")
+                                {
+                                    if (item.Options != null && item.Options.Any())
+                                    {
+                                        foreach (var option in item.Options)
+                                        {
+                                            var isChecked = transValue?.OptionValues?.Any(o => o.OptionID == option.OptionID && o.Value == "true") ?? false;
+                                            <div class="form-check">
+                                                <input type="checkbox" disabled @(isChecked ? "checked" : "") />
+                                                <label class="form-check-label">
+                                                    @(ViewBag.lang == 3 ? option.OptionNameAr : option.OptionNameEn)
+                                                </label>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    { <div>-</div> }
+                                }
+                                else if (controlName == "Attachments")
+                                {
+                                    var atts = transValue?.IncubationWSBLTransValueAttachment?.ToList();
+                                    if (atts != null && atts.Any())
+                                    {
+                                        foreach (var a in atts)
+                                        {
+                                            <div style="margin-top:8px;">
+                                                <a class="btn btn-link btn-rose"
+                                                   href="@Url.Action("Download", "Home", new { URL = a.URL })">
+                                                    <i class="material-icons">get_app</i>
+                                                    &nbsp; @a.Name
+                                                </a>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div>-</div>
+                                    }
+                                }
+                                else
+                                {
+                                    <input class="form-control" value="@value" disabled />
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="row justify-content-center">
+                    <a class="btn btn-default" href="@Url.Action("Details", "ProjectImpactEvaluation", new { id = Model.EvaluationId })">رجوع</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
